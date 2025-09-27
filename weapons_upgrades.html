@@ -1,89 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Weapons & Upgrades — WWZ: Aftermath</title>
-  <link rel="icon" href="/favicon.png" />
-  <link rel="stylesheet" href="/styles/main.css" />
-  
-  <script type="module">
-    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
-    mermaid.initialize({ startOnLoad: true });
-  </script>
-
-  <style>
-    .card { border: 1px solid #ddd; padding: 1rem; border-radius: 12px; margin: 1rem 0; }
-    .grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
-    .small { font-size: 0.9rem; }
-    .tip { background: #f6fff6; border-left: 4px solid #3aa655; padding: 0.5rem 0.75rem; border-radius: 8px; }
-    .warn { background: #fff7f7; border-left: 4px solid #c0392b; padding: 0.5rem 0.75rem; border-radius: 8px; }
-    .kbd { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; background:#f7f7f7; padding:0.1rem 0.35rem; border-radius:6px; border:1px solid #e0e0e0; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Weapons & Upgrades — WWZ: Aftermath - Comprehensive guide for World War Z: Aftermath">
+    <meta name="keywords" content="World War Z, Aftermath, zombie, guide, weapons, upgrades">
+    <meta name="author" content="WWZ Guide Team">
+    <title>Weapons & Upgrades — WWZ: Aftermath</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="styles/main.css">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: 'default'
+        });
+    </script>
 </head>
-
 <body>
-  <header>
-    <h1>Weapons &amp; Upgrades</h1>
-    <p>Spoiler-light notes on handling, leveling, and smart early purchases.</p>
-    <nav><a href="index.html">&larr; Home</a></nav>
-  </header>
-
-  <section class="card">
-    <h2>Leveling basics</h2>
-    <ul>
-      <li>Weapons gain XP as you use them; stronger variants unlock as levels rise.</li>
-      <li>Early on, <strong>focus on one primary</strong> you enjoy and a dependable sidearm.</li>
-      <li>Upgrades often trade recoil, damage, and capacity—<em>pick what makes you land more hits</em>.</li>
-    </ul>
-    <p class="tip">Tip: Weapon XP is earned only when the weapon is equipped and NOT at max xp level. Make sure to level up before starting a new match to be able to earn more XPs. Also remember to swap to your chosen primary before missions to maximize gains.</p>
-  </section>
-
-  <section class="card">
-    <h2>Beginner-friendly primaries</h2>
-    <div class="grid">
-      <div>
-        <h3>Assault Rifles</h3>
-        <p>Balanced recoil and range. Great for Gunslinger/Fixer starters.</p>
-      </div>
-      <div>
-        <h3>SMGs</h3>
-        <p>Close-range control with easy recoil. Medic/Exterminator/Slasher friendly.</p>
-      </div>
-      <div>
-        <h3>Shotguns</h3>
-        <p>High burst at close range. Pair with classes that hold chokepoints.</p>
-      </div>
-      <div>
-        <h3>DMRs/Battle Rifles</h3>
-        <p>Tap-fire precision; excellent for popping specials.</p>
-      </div>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    
+    <!-- Progress indicator -->
+    <div class="progress-indicator" role="progressbar" aria-label="Page scroll progress">
+        <div class="progress-bar"></div>
     </div>
-  </section>
+    
 
-  <section class="card">
-    <h2>Simple upgrade path</h2>
-    <div class="mermaid">
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">⚔️ WWZ: Aftermath Guide</a>
+            <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-expanded="false">☰</button>
+            <div class="nav-links" id="nav-links">
+                <a href="index.html">Home</a>
+                <a href="beginner_guide.html">Beginner Guide</a>
+                <div class="dropdown">
+                    <a href="classes_overview.html" class="dropdown-toggle">Classes ▼</a>
+                    <div class="dropdown-content">
+                        <a href="classes_overview.html">Overview</a>
+                        <a href="class_medic.html">Medic</a>
+                        <a href="class_fixer.html">Fixer</a>
+                        <a href="class_gunslinger.html">Gunslinger</a>
+                        <a href="class_exterminator.html">Exterminator</a>
+                        <a href="class_slasher.html">Slasher</a>
+                        <a href="class_hellraiser.html">Hellraiser</a>
+                        <a href="class_dronemaster.html">Dronemaster</a>
+                        <a href="class_vanguard.html">Vanguard</a>
+                    </div>
+                </div>
+                <a href="weapons_upgrades.html">Weapons</a>
+                <a href="currencies_progression.html">Progression</a>
+                <a href="horde_endgame.html">Endgame</a>
+                <button id="theme-toggle" aria-label="Toggle theme">🌙</button>
+            </div>
+        </div>
+    </nav>
+    
+
+    <!-- Breadcrumb Navigation -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li aria-current="page">Weapons Upgrades</li>
+        </ul>
+    </nav>
+    
+    <!-- Main Content -->
+    <main id="main-content">
+        <header>
+<h1>Weapons &amp; Upgrades</h1>
+<p>Spoiler-light notes on handling, leveling, and smart early purchases.</p>
+
+</header><section class="card">
+<h2>Leveling basics</h2>
+<ul>
+<li>Weapons gain XP as you use them; stronger variants unlock as levels rise.</li>
+<li>Early on, <strong>focus on one primary</strong> you enjoy and a dependable sidearm.</li>
+<li>Upgrades often trade recoil, damage, and capacity—<em>pick what makes you land more hits</em>.</li>
+</ul>
+<p class="tip">Tip: Weapon XP is earned only when the weapon is equipped and NOT at max xp level. Make sure to level up before starting a new match to be able to earn more XPs. Also remember to swap to your chosen primary before missions to maximize gains.</p>
+</section><section class="card">
+<h2>Beginner-friendly primaries</h2>
+<div class="grid">
+<div>
+<h3>Assault Rifles</h3>
+<p>Balanced recoil and range. Great for Gunslinger/Fixer starters.</p>
+</div>
+<div>
+<h3>SMGs</h3>
+<p>Close-range control with easy recoil. Medic/Exterminator/Slasher friendly.</p>
+</div>
+<div>
+<h3>Shotguns</h3>
+<p>High burst at close range. Pair with classes that hold chokepoints.</p>
+</div>
+<div>
+<h3>DMRs/Battle Rifles</h3>
+<p>Tap-fire precision; excellent for popping specials.</p>
+</div>
+</div>
+</section><section class="card">
+<h2>Simple upgrade path</h2>
+<div class="mermaid">
       flowchart LR
-        Base[Base Variant] --> S1[Stability Upgrade]
-        S1 --> Cap[Magazine/Capacity]
-        Cap --> Dmg[Damage/Barrel]
-        Dmg --> Opt[Optional: Sight/Utility]
+        Base[Base Variant] --&gt; S1[Stability Upgrade]
+        S1 --&gt; Cap[Magazine/Capacity]
+        Cap --&gt; Dmg[Damage/Barrel]
+        Dmg --&gt; Opt[Optional: Sight/Utility]
     </div>
-    <p class="small">Order is guidance, not a rule. If recoil feels fine, jump to capacity.</p>
-  </section>
-
-  <section class="card">
-    <h2>Recoil practice drill</h2>
-    <ol>
-      <li>Stand ~10m from a wall. Fire short bursts and watch impact pattern.</li>
-      <li>Adjust sensitivity until you can keep a tight cluster while tracking.</li>
-      <li>Practice head-height sweeps for common horde lanes.</li>
-    </ol>
-  </section>
-
-  <footer class="small">
-    <p>Tip: Don’t overspend on a weapon you rarely find on your favorite maps. Invest in broadly available options first.</p>
-  </footer>
+<p class="small">Order is guidance, not a rule. If recoil feels fine, jump to capacity.</p>
+</section><section class="card">
+<h2>Recoil practice drill</h2>
+<ol>
+<li>Stand ~10m from a wall. Fire short bursts and watch impact pattern.</li>
+<li>Adjust sensitivity until you can keep a tight cluster while tracking.</li>
+<li>Practice head-height sweeps for common horde lanes.</li>
+</ol>
+</section><footer class="small">
+<p>Tip: Don’t overspend on a weapon you rarely find on your favorite maps. Invest in broadly available options first.</p>
+</footer>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <p>&copy; 2024 WWZ: Aftermath Guide. Unofficial fan resource.</p>
+            <p><small>Use alongside in-game tutorials | <a href="printables.html">Print Cheatsheets</a> | Press ? for shortcuts</small></p>
+        </div>
+    </footer>
+    
+    <!-- JavaScript -->
+    <script src="js/clipboard.js"></script>
+    <script src="js/course-enhancements.js"></script>
 </body>
 </html>

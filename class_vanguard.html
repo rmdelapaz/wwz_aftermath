@@ -1,86 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vanguard — Class Guide — WWZ: Aftermath</title>
-  <link rel="icon" href="/favicon.png" />
-  <link rel="stylesheet" href="/styles/main.css" />
-  
-  <script type="module">
-    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
-    mermaid.initialize({ startOnLoad: true });
-  </script>
-
-  <style>
-    .card { border: 1px solid #ddd; padding: 1rem; border-radius: 12px; margin: 1rem 0; }
-    .grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
-    .small { font-size: 0.9rem; }
-    .tip { background: #f6fff6; border-left: 4px solid #3aa655; padding: 0.5rem 0.75rem; border-radius: 8px; }
-    .warn { background: #fff7f7; border-left: 4px solid #c0392b; padding: 0.5rem 0.75rem; border-radius: 8px; }
-    .kbd { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; background:#f7f7f7; padding:0.1rem 0.35rem; border-radius:6px; border:1px solid #e0e0e0; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Vanguard — Class Guide — WWZ: Aftermath - Comprehensive guide for World War Z: Aftermath">
+    <meta name="keywords" content="World War Z, Aftermath, zombie, guide, class, vanguard">
+    <meta name="author" content="WWZ Guide Team">
+    <title>Vanguard — Class Guide — WWZ: Aftermath</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="styles/main.css">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: 'default'
+        });
+    </script>
 </head>
-
 <body>
-  <header>
-    <h1>Vanguard — Class Guide</h1>
-    <p>Spoiler-light, beginner-focused build and habits.</p>
-    <nav><a href="classes_overview.html">&larr; Back to Classes</a> · <a href="index.html">Home</a></nav>
-  </header>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    
+    <!-- Progress indicator -->
+    <div class="progress-indicator" role="progressbar" aria-label="Page scroll progress">
+        <div class="progress-bar"></div>
+    </div>
+    
 
-  <section class="card">
-    <h2>Identity & role</h2>
-    <div class="grid">
-      <div>
-        <h3>Role</h3>
-        <p>Shielded frontline that blocks damage and anchors chokepoints.</p>
-        <h3>Why pick</h3>
-        <p>Stabilizes fights and protects newer players behind a safe wall.</p>
-      </div>
-      <div>
-        <h3>At a glance</h3>
-        <div class="mermaid">
-          flowchart TD
-            A[Vanguard] --> B[Team Value]
-            B --> C[Primary: Shielded frontline that blocks damage and anchors chokepoints]
-            B --> D[Secondary: Survivability]
-            B --> E[Utility]
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">⚔️ WWZ: Aftermath Guide</a>
+            <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-expanded="false">☰</button>
+            <div class="nav-links" id="nav-links">
+                <a href="index.html">Home</a>
+                <a href="beginner_guide.html">Beginner Guide</a>
+                <div class="dropdown">
+                    <a href="classes_overview.html" class="dropdown-toggle">Classes ▼</a>
+                    <div class="dropdown-content">
+                        <a href="classes_overview.html">Overview</a>
+                        <a href="class_medic.html">Medic</a>
+                        <a href="class_fixer.html">Fixer</a>
+                        <a href="class_gunslinger.html">Gunslinger</a>
+                        <a href="class_exterminator.html">Exterminator</a>
+                        <a href="class_slasher.html">Slasher</a>
+                        <a href="class_hellraiser.html">Hellraiser</a>
+                        <a href="class_dronemaster.html">Dronemaster</a>
+                        <a href="class_vanguard.html">Vanguard</a>
+                    </div>
+                </div>
+                <a href="weapons_upgrades.html">Weapons</a>
+                <a href="currencies_progression.html">Progression</a>
+                <a href="horde_endgame.html">Endgame</a>
+                <button id="theme-toggle" aria-label="Toggle theme">🌙</button>
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </nav>
+    
 
-  <section class="card">
-    <h2>Starter build (new player friendly)</h2>
-    <p class="small">Designed to be safe and simple. Exact perk names vary by patch; focus on the effect described.</p>
-    <ul>
-      <li>Choose perks that <strong>improve shield durability</strong> and <strong>mitigate team damage</strong> behind you.</li><li>Pair with a <strong>SMG/Shotgun</strong> for close-range control.</li><li>Bring utilities that <strong>slow the horde</strong> in your lane.</li>
-    </ul>
-    <p class="tip small">Pair with teammates who can cover your weaknesses (see Classes Hub for synergies).</p>
-  </section>
+    <!-- Breadcrumb Navigation -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="classes_overview.html">Classes</a></li>
+            <li aria-current="page">Vanguard</li>
+        </ul>
+    </nav>
+    
+    <!-- Main Content -->
+    <main id="main-content">
+        <header>
+<h1>Vanguard — Class Guide</h1>
+<p>Spoiler-light, beginner-focused build and habits.</p>
 
-  <section class="card">
-    <h2>Simple gameplay loop</h2>
-    <div class="mermaid">
+</header><section class="card">
+<h2>Identity &amp; role</h2>
+<div class="grid">
+<div>
+<h3>Role</h3>
+<p>Shielded frontline that blocks damage and anchors chokepoints.</p>
+<h3>Why pick</h3>
+<p>Stabilizes fights and protects newer players behind a safe wall.</p>
+</div>
+<div>
+<h3>At a glance</h3>
+<div class="mermaid">
+          flowchart TD
+            A[Vanguard] --&gt; B[Team Value]
+            B --&gt; C[Primary: Shielded frontline that blocks damage and anchors chokepoints]
+            B --&gt; D[Secondary: Survivability]
+            B --&gt; E[Utility]
+        </div>
+</div>
+</div>
+</section><section class="card">
+<h2>Starter build (new player friendly)</h2>
+<p class="small">Designed to be safe and simple. Exact perk names vary by patch; focus on the effect described.</p>
+<ul>
+<li>Choose perks that <strong>improve shield durability</strong> and <strong>mitigate team damage</strong> behind you.</li><li>Pair with a <strong>SMG/Shotgun</strong> for close-range control.</li><li>Bring utilities that <strong>slow the horde</strong> in your lane.</li>
+</ul>
+<p class="tip small">Pair with teammates who can cover your weaknesses (see Classes Hub for synergies).</p>
+</section><section class="card">
+<h2>Simple gameplay loop</h2>
+<div class="mermaid">
       flowchart LR
-        Scan[Scan the lane] --> Prep[Pre-place utility]
-        Prep --> Engage[Engage the horde]
-        Engage --> Stabilize[Stabilize with class tools]
-        Stabilize --> Recover[Ammo/Heal/Regroup]
-        Recover --> Scan
+        Scan[Scan the lane] --&gt; Prep[Pre-place utility]
+        Prep --&gt; Engage[Engage the horde]
+        Engage --&gt; Stabilize[Stabilize with class tools]
+        Stabilize --&gt; Recover[Ammo/Heal/Regroup]
+        Recover --&gt; Scan
     </div>
-  </section>
-
-  <section class="card">
-    <h2>Tips</h2>
-    <ul>
-      <li>Angle your shield to cover teammates while they reload/revive.</li><li>Backpedal instead of turning your back—maintain the wall.</li><li>Call out when your shield is down so the team adjusts.</li>
-    </ul>
-  </section>
-
-  <footer class="small">
-    <p>Unofficial guide. Use in-game descriptions for exact perk names; this page focuses on outcomes so it's patch-proof for beginners.</p>
-  </footer>
+</section><section class="card">
+<h2>Tips</h2>
+<ul>
+<li>Angle your shield to cover teammates while they reload/revive.</li><li>Backpedal instead of turning your back—maintain the wall.</li><li>Call out when your shield is down so the team adjusts.</li>
+</ul>
+</section><footer class="small">
+<p>Unofficial guide. Use in-game descriptions for exact perk names; this page focuses on outcomes so it's patch-proof for beginners.</p>
+</footer>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <p>&copy; 2024 WWZ: Aftermath Guide. Unofficial fan resource.</p>
+            <p><small>Use alongside in-game tutorials | <a href="printables.html">Print Cheatsheets</a> | Press ? for shortcuts</small></p>
+        </div>
+    </footer>
+    
+    <!-- JavaScript -->
+    <script src="js/clipboard.js"></script>
+    <script src="js/course-enhancements.js"></script>
 </body>
 </html>

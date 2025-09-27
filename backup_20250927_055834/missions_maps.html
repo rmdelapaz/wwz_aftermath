@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Missions & Maps — WWZ: Aftermath</title>
+  <link rel="icon" href="/favicon.png" />
+  <link rel="stylesheet" href="/styles/main.css" />
+  
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true });
+  </script>
+
+  <style>
+    .card { border: 1px solid #ddd; padding: 1rem; border-radius: 12px; margin: 1rem 0; }
+    .grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+    .small { font-size: 0.9rem; }
+    .tip { background: #f6fff6; border-left: 4px solid #3aa655; padding: 0.5rem 0.75rem; border-radius: 8px; }
+    .warn { background: #fff7f7; border-left: 4px solid #c0392b; padding: 0.5rem 0.75rem; border-radius: 8px; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { border-bottom: 1px solid #eee; padding: 0.5rem; text-align: left; }
+    @media print {
+      nav, .no-print { display: none; }
+      body { font-size: 12pt; }
+      .card { border: 1px solid #000; }
+    }
+    svg { max-width: 100%; height: auto; }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Missions &amp; Maps</h1>
+    <p>Spoiler-light route habits and map-agnostic advice for brand-new players.</p>
+    <nav><a href="index.html">&larr; Home</a></nav>
+  </header>
+
+  <section class="card">
+    <h2>Universal mission habits</h2>
+    <ul>
+      <li><strong>Noise discipline:</strong> Silence first wave with suppressed shots; alarms wake the neighborhood.</li>
+      <li><strong>Loot phase:</strong> Clear room → <em>then</em> loot. Don’t split.</li>
+      <li><strong>Hold prep:</strong> Barbed wire at chokepoints, voltage on breach lanes, turret covering flanks.</li>
+      <li><strong>Specials callouts:</strong> Use ping + a single word: <em>“Bull left!” “Gas mid!”</em></li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2>Map-agnostic choke blueprint</h2>
+    <div class="mermaid">
+      flowchart LR
+        Choke[Pick a choke] --> Wire[Barbed wire first]
+        Wire --> Grid[Voltage on breach lane]
+        Grid --> Turret[Turret covering side approach]
+        Turret --> Lines[Establish firing lines]
+        Lines --> Assign[Assign lanes &amp; a floater]
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Simple route diagram</h2>
+    <p class="small">Use this mental model on any level: safe nodes (S), hold points (H), and transitions (T).</p>
+    <div class="mermaid">
+      graph TD
+        S1((S1)) --> T1[Tunnel/Street]
+        T1 --> S2((S2))
+        S2 --> H1{H1: Hold}
+        H1 --> T2[Alley/Bridge]
+        T2 --> S3((S3))
+        S3 --> H2{H2: Finale Hold}
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Stealth openers</h2>
+    <ul>
+      <li>Two players focus left/right sleepers; two watch for patrollers.</li>
+      <li>Avoid chain alarms; if one triggers, <em>commit</em> to clearing then re-enter stealth later.</li>
+    </ul>
+  </section>
+
+  <footer class="small">
+    <p>Exact routes vary by episode; this page teaches transferable habits without revealing story beats.</p>
+  </footer>
+</body>
+</html>

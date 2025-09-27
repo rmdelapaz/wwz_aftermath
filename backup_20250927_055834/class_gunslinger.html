@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gunslinger — Class Guide — WWZ: Aftermath</title>
+  <link rel="icon" href="/favicon.png" />
+  <link rel="stylesheet" href="/styles/main.css" />
+  
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true });
+  </script>
+
+  <style>
+    .card { border: 1px solid #ddd; padding: 1rem; border-radius: 12px; margin: 1rem 0; }
+    .grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+    .small { font-size: 0.9rem; }
+    .tip { background: #f6fff6; border-left: 4px solid #3aa655; padding: 0.5rem 0.75rem; border-radius: 8px; }
+    .warn { background: #fff7f7; border-left: 4px solid #c0392b; padding: 0.5rem 0.75rem; border-radius: 8px; }
+    .kbd { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; background:#f7f7f7; padding:0.1rem 0.35rem; border-radius:6px; border:1px solid #e0e0e0; }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Gunslinger — Class Guide</h1>
+    <p>Spoiler-light, beginner-focused build and habits.</p>
+    <nav><a href="classes_overview.html">&larr; Back to Classes</a> · <a href="index.html">Home</a></nav>
+  </header>
+
+  <section class="card">
+    <h2>Identity & role</h2>
+    <div class="grid">
+      <div>
+        <h3>Role</h3>
+        <p>Ranged DPS with accurate gunplay.</p>
+        <h3>Why pick</h3>
+        <p>Very straightforward: aim well and delete threats quickly.</p>
+      </div>
+      <div>
+        <h3>At a glance</h3>
+        <div class="mermaid">
+          flowchart TD
+            A[Gunslinger] --> B[Team Value]
+            B --> C[Primary: Ranged DPS with accurate gunplay]
+            B --> D[Secondary: Survivability]
+            B --> E[Utility]
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Starter build (new player friendly)</h2>
+    <p class="small">Designed to be safe and simple. Exact perk names vary by patch; focus on the effect described.</p>
+    <ul>
+      <li>Favor perks that <strong>reduce recoil</strong>, <strong>boost weak-spot damage</strong>, and <strong>increase magazine size</strong>.</li><li>Use an <strong>AR/Carbine</strong> and a <strong>reliable pistol</strong> to learn burst control.</li><li>Carry a <strong>frag or stun</strong> for panic moments.</li>
+    </ul>
+    <p class="tip small">Pair with teammates who can cover your weaknesses (see Classes Hub for synergies).</p>
+  </section>
+
+  <section class="card">
+    <h2>Simple gameplay loop</h2>
+    <div class="mermaid">
+      flowchart LR
+        Scan[Scan the lane] --> Prep[Pre-place utility]
+        Prep --> Engage[Engage the horde]
+        Engage --> Stabilize[Stabilize with class tools]
+        Stabilize --> Recover[Ammo/Heal/Regroup]
+        Recover --> Scan
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Tips</h2>
+    <ul>
+      <li>Aim chest-to-head transitions on commons; reserve full ADS for specials.</li><li>Reload behind cover; call reloads so teammates know your gun is down.</li><li>Don’t tunnel-vision—periodically scan flanks and backline.</li>
+    </ul>
+  </section>
+
+  <footer class="small">
+    <p>Unofficial guide. Use in-game descriptions for exact perk names; this page focuses on outcomes so it's patch-proof for beginners.</p>
+  </footer>
+</body>
+</html>

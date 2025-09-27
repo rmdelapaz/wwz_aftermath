@@ -1,86 +1,215 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Medic — Class Guide — WWZ: Aftermath</title>
-  <link rel="icon" href="/favicon.png" />
-  <link rel="stylesheet" href="/styles/main.css" />
-  
-  <script type="module">
-    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
-    mermaid.initialize({ startOnLoad: true });
-  </script>
-
-  <style>
-    .card { border: 1px solid #ddd; padding: 1rem; border-radius: 12px; margin: 1rem 0; }
-    .grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
-    .small { font-size: 0.9rem; }
-    .tip { background: #f6fff6; border-left: 4px solid #3aa655; padding: 0.5rem 0.75rem; border-radius: 8px; }
-    .warn { background: #fff7f7; border-left: 4px solid #c0392b; padding: 0.5rem 0.75rem; border-radius: 8px; }
-    .kbd { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; background:#f7f7f7; padding:0.1rem 0.35rem; border-radius:6px; border:1px solid #e0e0e0; }
-  </style>
-</head>
-
-<body>
-  <header>
-    <h1>Medic — Class Guide</h1>
-    <p>Spoiler-light, beginner-focused build and habits.</p>
-    <nav><a href="classes_overview.html">&larr; Back to Classes</a> · <a href="index.html">Home</a></nav>
-  </header>
-
-  <section class="card">
-    <h2>Identity & role</h2>
-    <div class="grid">
-      <div>
-        <h3>Role</h3>
-        <p>Healer/support. Keeps people upright, accelerates revives, and reduces damage taken.</p>
-        <h3>Why pick</h3>
-        <p>Safest pick for learning; you always bring value and can bail out mistakes.</p>
-      </div>
-      <div>
-        <h3>At a glance</h3>
-        <div class="mermaid">
-          flowchart TD
-            A[Medic] --> B[Team Value]
-            B --> C[Primary: Healer/support]
-            B --> D[Secondary: Survivability]
-            B --> E[Utility]
+ onclick="showSituation('running')">🏃 Running Section</button>
+                <button class="tab" onclick="showSituation('boss')">👹 Boss Fight</button>
+                <button class="tab" onclick="showSituation('escort')">🛡️ Escort Mission</button>
+            </div>
+            
+            <div id="swarm-situation" class="situation-content active">
+                <h4>Swarm Defense Priorities:</h4>
+                <ol>
+                    <li>Set up near <strong>ammo box</strong> but not blocking it</li>
+                    <li>Pre-heal team for <strong>damage resistance</strong></li>
+                    <li>Save medkits for <strong>mid-swarm emergencies</strong></li>
+                    <li>Use Stim on <strong>pyramid climbers</strong></li>
+                    <li>Focus fire on <strong>special zombies</strong> first</li>
+                </ol>
+            </div>
+            
+            <div id="running-situation" class="situation-content">
+                <h4>Running Section Priorities:</h4>
+                <ol>
+                    <li>Stay in <strong>middle of group</strong> - not front or back</li>
+                    <li>Heal while moving with <strong>Stim Pistol</strong></li>
+                    <li>Drop medkits for <strong>slower teammates</strong></li>
+                    <li>Save equipment for <strong>checkpoint defense</strong></li>
+                    <li>Call out <strong>special spawns</strong> immediately</li>
+                </ol>
+            </div>
+            
+            <div id="boss-situation" class="situation-content">
+                <h4>Boss Fight Priorities:</h4>
+                <ol>
+                    <li>Designate <strong>tank player</strong> to heal priority</li>
+                    <li>Manage <strong>medkit economy</strong> for phases</li>
+                    <li>Use Stim for <strong>burst damage phases</strong></li>
+                    <li>Position for <strong>quick revives</strong></li>
+                    <li>Save masking gas for <strong>critical revives</strong></li>
+                </ol>
+            </div>
+            
+            <div id="escort-situation" class="situation-content">
+                <h4>Escort Mission Priorities:</h4>
+                <ol>
+                    <li>One player <strong>pushes</strong>, Medic supports</li>
+                    <li>Rotate <strong>temp health</strong> on pusher</li>
+                    <li>Clear path with <strong>equipment</strong></li>
+                    <li>Stim Pistol for <strong>emergency saves</strong></li>
+                    <li>Maintain <strong>defensive perimeter</strong></li>
+                </ol>
+            </div>
+        </section>
+        
+        <!-- Quick Reference Cards -->
+        <section class="card">
+            <h2>📋 Quick Reference</h2>
+            <div class="quick-ref-card">
+                <h3>💊 Medkit Priority Order</h3>
+                <ol>
+                    <li><strong>Pinned player</strong> - Immediate danger</li>
+                    <li><strong>Last stand player</strong> - 5 second window</li>
+                    <li><strong>Low health DPS</strong> - Keeps damage output high</li>
+                    <li><strong>Low health tank</strong> - Maintains frontline</li>
+                    <li><strong>Self (if under 50%)</strong> - Can't heal if dead</li>
+                </ol>
+            </div>
+            
+            <div class="quick-ref-card">
+                <h3>⏱️ Stim Pistol Best Uses</h3>
+                <ul>
+                    <li><strong>Pre-swarm:</strong> Apply damage resistance</li>
+                    <li><strong>Mid-combat:</strong> Save grabbed teammates</li>
+                    <li><strong>Clutch revive:</strong> Instant health after pickup</li>
+                    <li><strong>Retreat:</strong> Boost runner's speed</li>
+                    <li><strong>Pyramid climber:</strong> Prevent wipe</li>
+                </ul>
+            </div>
+        </section>
+        
+        <!-- Loadout Recommendations -->
+        <section class="card">
+            <h2>🎯 Loadout Quick Picks</h2>
+            <div class="loadout-grid">
+                <div class="loadout-card">
+                    <h4>🎯 Versatile</h4>
+                    <p>Carbine + Compact SMG</p>
+                    <small>Good range coverage</small>
+                </div>
+                <div class="loadout-card">
+                    <h4>🛡️ Defensive</h4>
+                    <p>Shotgun + Machine Pistol</p>
+                    <small>Close-range protection</small>
+                </div>
+                <div class="loadout-card">
+                    <h4>⚡ Aggressive</h4>
+                    <p>SMG + SMG</p>
+                    <small>Maximum fire rate</small>
+                </div>
+                <div class="loadout-card">
+                    <h4>🎯 Precise</h4>
+                    <p>Battle Rifle + Pistol</p>
+                    <small>Ammo efficient</small>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Common Mistakes -->
+        <section class="card">
+            <div class="warning-box">
+                <h3>⚠️ Common Medic Mistakes to Avoid</h3>
+                <ul>
+                    <li><strong>Overhealing:</strong> Wasting medkits on 90% health teammates</li>
+                    <li><strong>Hoarding Stim:</strong> Not using it proactively (it's on cooldown, use it!)</li>
+                    <li><strong>Bad positioning:</strong> Too far back to reach pinned teammates</li>
+                    <li><strong>Ignoring masking gas:</strong> Not using it for dangerous revives</li>
+                    <li><strong>Tunnel vision:</strong> Focusing only on healing, not killing zombies</li>
+                    <li><strong>Poor economy:</strong> Using medkits when natural healing would work</li>
+                </ul>
+            </div>
+        </section>
+        
+        <!-- Prestige Information -->
+        <section class="prestige-info">
+            <h3>⭐ Prestige System & Rewards</h3>
+            <p>After reaching max level (30), you can prestige to unlock powerful new perks and cosmetics:</p>
+            <div class="prestige-grid">
+                <div class="prestige-level">
+                    <strong>Prestige 1</strong>
+                    <p>Zone & Mag perks + Blue skin</p>
+                </div>
+                <div class="prestige-level">
+                    <strong>Prestige 2</strong>
+                    <p>Health perks + Character outfit</p>
+                </div>
+                <div class="prestige-level">
+                    <strong>Prestige 3</strong>
+                    <p>Combat perks + Gold skin</p>
+                </div>
+                <div class="prestige-level">
+                    <strong>Prestige 4</strong>
+                    <p>Team buffs + Unique emblem</p>
+                </div>
+                <div class="prestige-level">
+                    <strong>Prestige 5</strong>
+                    <p>Master Medic + Red skin</p>
+                </div>
+            </div>
+            <p><strong>Note:</strong> Each prestige adds 15 powerful perks to choose from, making you significantly stronger!</p>
+        </section>
+        
+        <!-- Tips for New Players -->
+        <section class="card">
+            <h2>🌟 Tips for New Medics</h2>
+            <div class="tip-box">
+                <ol>
+                    <li><strong>Start with Normal difficulty</strong> - Learn healing timing without pressure</li>
+                    <li><strong>Follow the tank</strong> - They know where danger comes from</li>
+                    <li><strong>Communicate constantly</strong> - Call out your cooldowns</li>
+                    <li><strong>Watch the kill feed</strong> - Tells you who needs help</li>
+                    <li><strong>Learn audio cues</strong> - Each special has unique sounds</li>
+                    <li><strong>Practice aim with Stim</strong> - It has travel time</li>
+                    <li><strong>Don't chase kills</strong> - Your job is keeping everyone up</li>
+                </ol>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Lesson Navigation -->
+    <nav class="lesson-nav" aria-label="Class Navigation">
+        <a href="classes_overview.html">← Classes Overview</a>
+        <a href="index.html">🏠 Home</a>
+        <a href="class_fixer.html">Next: Fixer →</a>
+    </nav>
+    
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <p>&copy; 2024 WWZ: Aftermath Guide. Unofficial fan resource.</p>
+            <p><small>Use alongside in-game tutorials | <a href="printables.html">Print Cheatsheets</a> | Press ? for shortcuts</small></p>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="card">
-    <h2>Starter build (new player friendly)</h2>
-    <p class="small">Designed to be safe and simple. Exact perk names vary by patch; focus on the effect described.</p>
-    <ul>
-      <li>Prioritize perks that <strong>improve medkit efficiency</strong>, <strong>speed up revives</strong>, or <strong>grant temporary DR (damage reduction)</strong> after healing.</li><li>Take an <strong>SMG or carbine</strong> with controllable recoil; you don’t need max DPS.</li><li>Carry a <strong>stun or smoke utility</strong> to create revive windows during swarms.</li>
-    </ul>
-    <p class="tip small">Pair with teammates who can cover your weaknesses (see Classes Hub for synergies).</p>
-  </section>
-
-  <section class="card">
-    <h2>Simple gameplay loop</h2>
-    <div class="mermaid">
-      flowchart LR
-        Scan[Scan the lane] --> Prep[Pre-place utility]
-        Prep --> Engage[Engage the horde]
-        Engage --> Stabilize[Stabilize with class tools]
-        Stabilize --> Recover[Ammo/Heal/Regroup]
-        Recover --> Scan
-    </div>
-  </section>
-
-  <section class="card">
-    <h2>Tips</h2>
-    <ul>
-      <li>Stay slightly behind the frontliner so you can reach downed teammates safely.</li><li>Save one heal for after a major swarm to top off the team before moving.</li><li>Ping medkits/ammo for others; you set the team’s sustain rhythm.</li>
-    </ul>
-  </section>
-
-  <footer class="small">
-    <p>Unofficial guide. Use in-game descriptions for exact perk names; this page focuses on outcomes so it's patch-proof for beginners.</p>
-  </footer>
+    </footer>
+    
+    <!-- JavaScript -->
+    <script src="js/clipboard.js"></script>
+    <script src="js/course-enhancements.js"></script>
+    <script>
+        // Build tab switching
+        function showBuild(buildName) {
+            // Hide all builds
+            document.querySelectorAll('.build-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            document.querySelectorAll('.build-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show selected build
+            document.getElementById(buildName + '-build').classList.add('active');
+            event.target.classList.add('active');
+        }
+        
+        // Situation tab switching
+        function showSituation(situationName) {
+            // Hide all situations
+            document.querySelectorAll('.situation-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            document.querySelectorAll('.situation-tabs button').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show selected situation
+            document.getElementById(situationName + '-situation').classList.add('active');
+            event.target.classList.add('active');
+        }
+    </script>
 </body>
 </html>

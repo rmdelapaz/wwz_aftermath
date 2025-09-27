@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Printable Cheat Sheets — WWZ: Aftermath</title>
+  <link rel="icon" href="/favicon.png" />
+  <link rel="stylesheet" href="/styles/main.css" />
+  
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true });
+  </script>
+
+  <style>
+    .card { border: 1px solid #ddd; padding: 1rem; border-radius: 12px; margin: 1rem 0; }
+    .grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+    .small { font-size: 0.9rem; }
+    .tip { background: #f6fff6; border-left: 4px solid #3aa655; padding: 0.5rem 0.75rem; border-radius: 8px; }
+    .warn { background: #fff7f7; border-left: 4px solid #c0392b; padding: 0.5rem 0.75rem; border-radius: 8px; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { border-bottom: 1px solid #eee; padding: 0.5rem; text-align: left; }
+    @media print {
+      nav, .no-print { display: none; }
+      body { font-size: 12pt; }
+      .card { border: 1px solid #000; }
+    }
+    svg { max-width: 100%; height: auto; }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Printable Cheat Sheets</h1>
+    <p>One-pagers for new players. Use your browser’s print dialog.</p>
+    <nav class="no-print"><a href="index.html">&larr; Home</a></nav>
+  </header>
+
+  <section class="card">
+    <h2>Controls quick card</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Xbox &amp; PlayStation</h3>
+        <ul>
+          <li>Fire: RT / R2 · Aim: LT / L2</li>
+          <li>Reload/Interact: X / □ · Swap: Y / △</li>
+          <li>Melee: RS / R3 · Equipment: RB / R1</li>
+          <li>Class Skill: LB / L1 · Sprint: LS / L3</li>
+          <li>Crouch: B / ◯ · Jump: A / ✕</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>PC — KB/M</h3>
+        <ul>
+          <li>Fire: Mouse 1 · Aim: Mouse 2</li>
+          <li>Reload: R · Interact: E · Swap: 1/2 or Wheel</li>
+          <li>Melee: V · Equipment: Q · Skill: F</li>
+          <li>Sprint: Shift · Crouch: Ctrl · Ping: MMB/Z</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Starter class picks</h2>
+    <table>
+      <thead><tr><th>If you want to…</th><th>Try</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td>Keep teammates alive</td><td>Medic</td><td>Revives/heals make runs forgiving.</td></tr>
+        <tr><td>Never run dry on ammo</td><td>Fixer</td><td>Supply bags + utility.</td></tr>
+        <tr><td>Simple gunplay</td><td>Gunslinger</td><td>Point, click, delete specials.</td></tr>
+        <tr><td>Stabilize big swarms</td><td>Exterminator</td><td>Fire lanes slow and melt hordes.</td></tr>
+        <tr><td>Melee control</td><td>Slasher</td><td>Stuns and crowd management.</td></tr>
+        <tr><td>Frontline anchor</td><td>Vanguard</td><td>Shielded wall for choke holds.</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="card">
+    <h2>Weekly challenge tracker</h2>
+    <p class="small">Print and check off as you go.</p>
+    <table>
+      <thead><tr><th>Week of</th><th>Challenge</th><th>Diff</th><th>Reward</th><th>Done</th></tr></thead>
+      <tbody>
+        <tr><td>____/____</td><td>Complete 3 missions</td><td>Normal</td><td>Blue Coins</td><td>[ ]</td></tr>
+        <tr><td>____/____</td><td>Finish a Horde run</td><td>Normal</td><td>Blue Coins</td><td>[ ]</td></tr>
+        <tr><td>____/____</td><td>Collect Virus Samples</td><td>Any</td><td>Bonus coins</td><td>[ ]</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <footer class="small">
+    <p>These cards are spoiler-light and suitable for onboarding friends quickly.</p>
+  </footer>
+</body>
+</html>

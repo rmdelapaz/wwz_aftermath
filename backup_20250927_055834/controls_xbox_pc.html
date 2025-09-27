@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Controls — Xbox, PlayStation &amp; PC</title>
+  <link rel="icon" href="/favicon.png" />
+  <link rel="stylesheet" href="/styles/main.css" />
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true });
+  </script>
+  <style>
+    .card { border: 1px solid #ddd; padding: 1rem; border-radius: 12px; margin: 1rem 0; }
+    .grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { border-bottom: 1px solid #eee; padding: 0.5rem; text-align: left; vertical-align: top; }
+    .kbd { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; background: #f7f7f7; padding: 0.15rem 0.35rem; border-radius: 6px; border: 1px solid #e0e0e0; }
+    @media print {
+      nav, .no-print { display: none; }
+      body { font-size: 12pt; }
+      .card { border: 1px solid #000; }
+    }
+    svg { max-width: 100%; height: auto; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Controls — Xbox, PlayStation &amp; PC</h1>
+    <p>Spoiler‑light setup. Includes printable quick cards and a readability‑first layout.</p>
+    <nav class="no-print"><a href="index.html">&larr; Back to Start</a></nav>
+  </header>
+
+  <section class="card">
+    <h2>Quick reference tables</h2>
+    <div class="grid">
+      <div>
+        <h3>Xbox controller</h3>
+        <table aria-describedby="xbox-desc">
+          <caption id="xbox-desc" class="sr">Default Xbox bindings</caption>
+          <tbody>
+            <tr><th>Move</th><td>Left Stick</td></tr>
+            <tr><th>Look / Aim</th><td>Right Stick</td></tr>
+            <tr><th>Sprint</th><td>LS (press)</td></tr>
+            <tr><th>Melee</th><td>RS (press)</td></tr>
+            <tr><th>Fire</th><td>RT</td></tr>
+            <tr><th>Aim / ADS</th><td>LT</td></tr>
+            <tr><th>Reload / Interact</th><td><strong>X</strong></td></tr>
+            <tr><th>Swap Weapon</th><td><strong>Y</strong></td></tr>
+            <tr><th>Use Equipment</th><td><strong>RB</strong></td></tr>
+            <tr><th>Use Class Skill</th><td><strong>LB</strong></td></tr>
+            <tr><th>Crouch</th><td><strong>B</strong></td></tr>
+            <tr><th>Jump / Vault</th><td><strong>A</strong></td></tr>
+            <tr><th>Ping / Mark</th><td>D‑Pad Up</td></tr>
+            <tr><th>Cycle Equipment</th><td>D‑Pad Left/Right</td></tr>
+            <tr><th>Inventory / Menu</th><td>View / Menu</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div>
+        <h3>PlayStation controller</h3>
+        <table aria-describedby="ps-desc">
+          <caption id="ps-desc" class="sr">Default PlayStation bindings</caption>
+          <tbody>
+            <tr><th>Move</th><td>Left Stick</td></tr>
+            <tr><th>Look / Aim</th><td>Right Stick</td></tr>
+            <tr><th>Sprint</th><td>L3</td></tr>
+            <tr><th>Melee</th><td>R3</td></tr>
+            <tr><th>Fire</th><td>R2</td></tr>
+            <tr><th>Aim / ADS</th><td>L2</td></tr>
+            <tr><th>Reload / Interact</th><td><strong>□</strong> (Square)</td></tr>
+            <tr><th>Swap Weapon</th><td><strong>△</strong> (Triangle)</td></tr>
+            <tr><th>Use Equipment</th><td><strong>R1</strong></td></tr>
+            <tr><th>Use Class Skill</th><td><strong>L1</strong></td></tr>
+            <tr><th>Crouch</th><td><strong>◯</strong> (Circle)</td></tr>
+            <tr><th>Jump / Vault</th><td><strong>✕</strong> (Cross)</td></tr>
+            <tr><th>Ping / Mark</th><td>D‑Pad Up</td></tr>
+            <tr><th>Cycle Equipment</th><td>D‑Pad Left/Right</td></tr>
+            <tr><th>Inventory / Menu</th><td>Share / Options</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div>
+        <h3>PC — Keyboard &amp; Mouse</h3>
+        <table aria-describedby="pc-desc">
+          <caption id="pc-desc" class="sr">Default PC bindings</caption>
+          <tbody>
+            <tr><th>Move</th><td><span class="kbd">W</span> <span class="kbd">A</span> <span class="kbd">S</span> <span class="kbd">D</span></td></tr>
+            <tr><th>Look / Aim</th><td>Mouse</td></tr>
+            <tr><th>Sprint</th><td><span class="kbd">Shift</span></td></tr>
+            <tr><th>Melee</th><td><span class="kbd">V</span></td></tr>
+            <tr><th>Fire</th><td>Mouse 1</td></tr>
+            <tr><th>Aim / ADS</th><td>Mouse 2</td></tr>
+            <tr><th>Reload / Interact</th><td><span class="kbd">R</span> / <span class="kbd">E</span></td></tr>
+            <tr><th>Swap Weapon</th><td><span class="kbd">1</span>/<span class="kbd">2</span> or Mouse Wheel</td></tr>
+            <tr><th>Use Equipment</th><td><span class="kbd">Q</span></td></tr>
+            <tr><th>Use Class Skill</th><td><span class="kbd">F</span></td></tr>
+            <tr><th>Crouch</th><td><span class="kbd">Ctrl</span></td></tr>
+            <tr><th>Jump / Vault</th><td><span class="kbd">Space</span></td></tr>
+            <tr><th>Ping / Mark</th><td><span class="kbd">Middle Mouse</span> / <span class="kbd">Z</span></td></tr>
+            <tr><th>Inventory / Menu</th><td><span class="kbd">Esc</span> / <span class="kbd">Tab</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Controller diagrams</h2>
+    <p class="no-print">Simple SVGs to help new players visualize where everything is.</p>
+    <div class="grid">
+      <figure aria-labelledby="xbox-svg-title">
+        <figcaption id="xbox-svg-title"><strong>Xbox layout</strong> (schematic)</figcaption>
+        <svg viewBox="0 0 540 300" role="img" aria-label="Xbox controller schematic with labeled buttons">
+          <ellipse cx="270" cy="150" rx="240" ry="120" fill="#f7f7f7" stroke="#ccc"/>
+          <circle cx="170" cy="150" r="28" fill="white" stroke="#aaa"/>
+          <text x="170" y="155" text-anchor="middle" font-size="14">LS</text>
+          <circle cx="365" cy="150" r="28" fill="white" stroke="#aaa"/>
+          <text x="365" y="155" text-anchor="middle" font-size="14">RS</text>
+          <circle cx="410" cy="115" r="12" fill="white" stroke="#aaa"/><text x="410" y="120" font-size="12" text-anchor="middle">Y</text>
+          <circle cx="435" cy="140" r="12" fill="white" stroke="#aaa"/><text x="435" y="145" font-size="12" text-anchor="middle">B</text>
+          <circle cx="385" cy="140" r="12" fill="white" stroke="#aaa"/><text x="385" y="145" font-size="12" text-anchor="middle">X</text>
+          <circle cx="410" cy="165" r="12" fill="white" stroke="#aaa"/><text x="410" y="170" font-size="12" text-anchor="middle">A</text>
+          <rect x="115" y="70" width="70" height="16" rx="8" fill="white" stroke="#aaa"/>
+          <text x="150" y="82" font-size="12" text-anchor="middle">LB</text>
+          <rect x="355" y="70" width="70" height="16" rx="8" fill="white" stroke="#aaa"/>
+          <text x="390" y="82" font-size="12" text-anchor="middle">RB</text>
+          <rect x="115" y="50" width="70" height="16" rx="8" fill="white" stroke="#aaa"/>
+          <text x="150" y="62" font-size="12" text-anchor="middle">LT</text>
+          <rect x="355" y="50" width="70" height="16" rx="8" fill="white" stroke="#aaa"/>
+          <text x="390" y="62" font-size="12" text-anchor="middle">RT</text>
+          <rect x="250" y="110" width="40" height="20" rx="6" fill="white" stroke="#aaa"/>
+          <text x="270" y="124" font-size="12" text-anchor="middle">View</text>
+          <rect x="250" y="170" width="40" height="20" rx="6" fill="white" stroke="#aaa"/>
+          <text x="270" y="184" font-size="12" text-anchor="middle">Menu</text>
+          <text x="270" y="285" text-anchor="middle" font-size="12">Schematic only; see table for bindings.</text>
+        </svg>
+      </figure>
+
+      <figure aria-labelledby="ps-svg-title">
+        <figcaption id="ps-svg-title"><strong>PlayStation layout</strong> (schematic)</figcaption>
+        <svg viewBox="0 0 540 300" role="img" aria-label="PlayStation controller schematic with labeled buttons">
+          <ellipse cx="270" cy="150" rx="240" ry="120" fill="#f7f7f7" stroke="#ccc"/>
+          <circle cx="170" cy="150" r="28" fill="white" stroke="#aaa"/>
+          <text x="170" y="155" text-anchor="middle" font-size="14">L3</text>
+          <circle cx="365" cy="150" r="28" fill="white" stroke="#aaa"/>
+          <text x="365" y="155" text-anchor="middle" font-size="14">R3</text>
+          <circle cx="410" cy="115" r="12" fill="white" stroke="#aaa"/><text x="410" y="120" font-size="12" text-anchor="middle">△</text>
+          <circle cx="435" cy="140" r="12" fill="white" stroke="#aaa"/><text x="435" y="145" font-size="12" text-anchor="middle">◯</text>
+          <circle cx="385" cy="140" r="12" fill="white" stroke="#aaa"/><text x="385" y="145" font-size="12" text-anchor="middle">□</text>
+          <circle cx="410" cy="165" r="12" fill="white" stroke="#aaa"/><text x="410" y="170" font-size="12" text-anchor="middle">✕</text>
+          <rect x="115" y="70" width="70" height="16" rx="8" fill="white" stroke="#aaa"/>
+          <text x="150" y="82" font-size="12" text-anchor="middle">L1</text>
+          <rect x="355" y="70" width="70" height="16" rx="8" fill="white" stroke="#aaa"/>
+          <text x="390" y="82" font-size="12" text-anchor="middle">R1</text>
+          <rect x="115" y="50" width="70" height="16" rx="8" fill="white" stroke="#aaa"/>
+          <text x="150" y="62" font-size="12" text-anchor="middle">L2</text>
+          <rect x="355" y="50" width="70" height="16" rx="8" fill="white" stroke="#aaa"/>
+          <text x="390" y="62" font-size="12" text-anchor="middle">R2</text>
+          <rect x="250" y="110" width="40" height="20" rx="6" fill="white" stroke="#aaa"/>
+          <text x="270" y="124" font-size="12" text-anchor="middle">Share</text>
+          <rect x="250" y="170" width="40" height="20" rx="6" fill="white" stroke="#aaa"/>
+          <text x="270" y="184" font-size="12" text-anchor="middle">Options</text>
+          <text x="270" y="285" text-anchor="middle" font-size="12">Schematic only; see table for bindings.</text>
+        </svg>
+      </figure>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Tuning tips for brand‑new players</h2>
+    <ul>
+      <li><strong>Sensitivity:</strong> Start low. Raise until you can track a running zombie across your screen smoothly.</li>
+      <li><strong>Aim assist:</strong> If on controller, enable it early; you can lower it later.</li>
+      <li><strong>Audio:</strong> Boost dialogue &amp; SFX to hear specials over gunfire; use stereo headphones.</li>
+      <li><strong>Key rebinding:</strong> On PC, keep <span class="kbd">R</span> reload and <span class="kbd">E</span> interact separate to avoid accidental cancels.</li>
+      <li><strong>Ping habit:</strong> Practice marking threats and resources (D‑Pad Up / Middle Mouse).</li>
+    </ul>
+  </section>
+
+  <section class="card no-print">
+    <h2>Printable quick card</h2>
+    <p>Use your browser’s print dialog. This card condenses the most‑used actions.</p>
+    <div class="grid">
+      <div class="card">
+        <h3>Xbox &amp; PlayStation</h3>
+        <ul>
+          <li>Fire: RT / R2</li>
+          <li>Aim: LT / L2</li>
+          <li>Reload / Interact: X / □</li>
+          <li>Swap Weapon: Y / △</li>
+          <li>Melee: RS / R3</li>
+          <li>Equipment: RB / R1</li>
+          <li>Class Skill: LB / L1</li>
+          <li>Sprint: LS / L3</li>
+          <li>Crouch: B / ◯</li>
+          <li>Jump: A / ✕</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>PC — KB/M</h3>
+        <ul>
+          <li>Fire: Mouse 1</li>
+          <li>Aim: Mouse 2</li>
+          <li>Reload: <span class="kbd">R</span></li>
+          <li>Interact: <span class="kbd">E</span></li>
+          <li>Swap: <span class="kbd">1</span>/<span class="kbd">2</span> / Wheel</li>
+          <li>Melee: <span class="kbd">V</span></li>
+          <li>Equipment: <span class="kbd">Q</span></li>
+          <li>Class Skill: <span class="kbd">F</span></li>
+          <li>Sprint: <span class="kbd">Shift</span></li>
+          <li>Crouch: <span class="kbd">Ctrl</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p class="small">Tip: You can remap most actions in settings. Some actions may differ by platform or region—use this as a starting point.</p>
+  </footer>
+</body>
+</html>

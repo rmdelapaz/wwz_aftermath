@@ -1,92 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Horde & Endgame — WWZ: Aftermath</title>
-  <link rel="icon" href="/favicon.png" />
-  <link rel="stylesheet" href="/styles/main.css" />
-  
-  <script type="module">
-    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
-    mermaid.initialize({ startOnLoad: true });
-  </script>
-
-  <style>
-    .card { border: 1px solid #ddd; padding: 1rem; border-radius: 12px; margin: 1rem 0; }
-    .grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
-    .small { font-size: 0.9rem; }
-    .tip { background: #f6fff6; border-left: 4px solid #3aa655; padding: 0.5rem 0.75rem; border-radius: 8px; }
-    .warn { background: #fff7f7; border-left: 4px solid #c0392b; padding: 0.5rem 0.75rem; border-radius: 8px; }
-    .kbd { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; background:#f7f7f7; padding:0.1rem 0.35rem; border-radius:6px; border:1px solid #e0e0e0; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Horde & Endgame — WWZ: Aftermath - Comprehensive guide for World War Z: Aftermath">
+    <meta name="keywords" content="World War Z, Aftermath, zombie, guide, horde, endgame">
+    <meta name="author" content="WWZ Guide Team">
+    <title>Horde & Endgame — WWZ: Aftermath</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="styles/main.css">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: 'default'
+        });
+    </script>
 </head>
-
 <body>
-  <header>
-    <h1>Horde &amp; Endgame</h1>
-    <p>Wave management, economy planning, and safety plays for new squads.</p>
-    <nav><a href="index.html">&larr; Home</a></nav>
-  </header>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    
+    <!-- Progress indicator -->
+    <div class="progress-indicator" role="progressbar" aria-label="Page scroll progress">
+        <div class="progress-bar"></div>
+    </div>
+    
 
-  <section class="card">
-    <h2>Wave rhythm</h2>
-    <div class="mermaid">
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">⚔️ WWZ: Aftermath Guide</a>
+            <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-expanded="false">☰</button>
+            <div class="nav-links" id="nav-links">
+                <a href="index.html">Home</a>
+                <a href="beginner_guide.html">Beginner Guide</a>
+                <div class="dropdown">
+                    <a href="classes_overview.html" class="dropdown-toggle">Classes ▼</a>
+                    <div class="dropdown-content">
+                        <a href="classes_overview.html">Overview</a>
+                        <a href="class_medic.html">Medic</a>
+                        <a href="class_fixer.html">Fixer</a>
+                        <a href="class_gunslinger.html">Gunslinger</a>
+                        <a href="class_exterminator.html">Exterminator</a>
+                        <a href="class_slasher.html">Slasher</a>
+                        <a href="class_hellraiser.html">Hellraiser</a>
+                        <a href="class_dronemaster.html">Dronemaster</a>
+                        <a href="class_vanguard.html">Vanguard</a>
+                    </div>
+                </div>
+                <a href="weapons_upgrades.html">Weapons</a>
+                <a href="currencies_progression.html">Progression</a>
+                <a href="horde_endgame.html">Endgame</a>
+                <button id="theme-toggle" aria-label="Toggle theme">🌙</button>
+            </div>
+        </div>
+    </nav>
+    
+
+    <!-- Breadcrumb Navigation -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li aria-current="page">Horde Endgame</li>
+        </ul>
+    </nav>
+    
+    <!-- Main Content -->
+    <main id="main-content">
+        <header>
+<h1>Horde &amp; Endgame</h1>
+<p>Wave management, economy planning, and safety plays for new squads.</p>
+
+</header><section class="card">
+<h2>Wave rhythm</h2>
+<div class="mermaid">
       flowchart TD
-        Prep[Prep &amp; Build] --> Hold[Hold the Line]
-        Hold --> Clear[Clear Stragglers]
-        Clear --> Econ[Economy Check]
-        Econ --> Scout[Scout &amp; Rotate]
-        Scout --> Prep
+        Prep[Prep &amp; Build] --&gt; Hold[Hold the Line]
+        Hold --&gt; Clear[Clear Stragglers]
+        Clear --&gt; Econ[Economy Check]
+        Econ --&gt; Scout[Scout &amp; Rotate]
+        Scout --&gt; Prep
     </div>
-    <ul>
-      <li>Place choke defenses first (barbed wire/voltage), then coverage (turrets/auto-turrets).</li>
-      <li>Assign lanes: left, right, mid, and a floater for specials.</li>
-    </ul>
-  </section>
-
-  <section class="card">
-    <h2>Economy plan (beginner)</h2>
-    <ol>
-      <li><strong>Wave 1–3:</strong> Buy cheap slows and ammo boxes; conserve throwables.</li>
-      <li><strong>Wave 4–6:</strong> Add turrets and upgrade primaries; stabilize meds.</li>
-      <li><strong>Wave 7+:</strong> Save for emergencies; rotate positions to restock.</li>
-    </ol>
-  </section>
-
-  <section class="card">
-    <h2>Safe team comps</h2>
-    <div class="grid">
-      <div class="card">
-        <h3>Safety Net</h3>
-        <p>Medic + Fixer + Exterminator + Gunslinger</p>
-        <p class="small">Healing, ammo, CC, and steady DPS.</p>
-      </div>
-      <div class="card">
-        <h3>Frontline Lock</h3>
-        <p>Vanguard + Slasher + Fixer + Gunslinger</p>
-        <p class="small">Stable wall with ammo and a ranged finisher.</p>
-      </div>
-      <div class="card">
-        <h3>Utility Control</h3>
-        <p>Dronemaster + Exterminator + Medic + Gunslinger</p>
-        <p class="small">Stuns, fire lanes, and sustain.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="card">
-    <h2>Common wipe causes & fixes</h2>
-    <ul>
-      <li><strong>Split aggro:</strong> Stay together; ping and regroup immediately.</li>
-      <li><strong>No lane ownership:</strong> Assign lanes and rotate only on callouts.</li>
-      <li><strong>Overbuying early:</strong> Save coins for mid waves; place only what’s needed.</li>
-      <li><strong>Silent specials:</strong> Raise voice chat volume or use a concise callout system.</li>
-    </ul>
-  </section>
-
-  <footer class="small">
-    <p>Horde Mode XL scales fast—play the long game and avoid panic spending.</p>
-  </footer>
+<ul>
+<li>Place choke defenses first (barbed wire/voltage), then coverage (turrets/auto-turrets).</li>
+<li>Assign lanes: left, right, mid, and a floater for specials.</li>
+</ul>
+</section><section class="card">
+<h2>Economy plan (beginner)</h2>
+<ol>
+<li><strong>Wave 1–3:</strong> Buy cheap slows and ammo boxes; conserve throwables.</li>
+<li><strong>Wave 4–6:</strong> Add turrets and upgrade primaries; stabilize meds.</li>
+<li><strong>Wave 7+:</strong> Save for emergencies; rotate positions to restock.</li>
+</ol>
+</section><section class="card">
+<h2>Safe team comps</h2>
+<div class="grid">
+<div class="card">
+<h3>Safety Net</h3>
+<p>Medic + Fixer + Exterminator + Gunslinger</p>
+<p class="small">Healing, ammo, CC, and steady DPS.</p>
+</div>
+<div class="card">
+<h3>Frontline Lock</h3>
+<p>Vanguard + Slasher + Fixer + Gunslinger</p>
+<p class="small">Stable wall with ammo and a ranged finisher.</p>
+</div>
+<div class="card">
+<h3>Utility Control</h3>
+<p>Dronemaster + Exterminator + Medic + Gunslinger</p>
+<p class="small">Stuns, fire lanes, and sustain.</p>
+</div>
+</div>
+</section><section class="card">
+<h2>Common wipe causes &amp; fixes</h2>
+<ul>
+<li><strong>Split aggro:</strong> Stay together; ping and regroup immediately.</li>
+<li><strong>No lane ownership:</strong> Assign lanes and rotate only on callouts.</li>
+<li><strong>Overbuying early:</strong> Save coins for mid waves; place only what’s needed.</li>
+<li><strong>Silent specials:</strong> Raise voice chat volume or use a concise callout system.</li>
+</ul>
+</section><footer class="small">
+<p>Horde Mode XL scales fast—play the long game and avoid panic spending.</p>
+</footer>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <p>&copy; 2024 WWZ: Aftermath Guide. Unofficial fan resource.</p>
+            <p><small>Use alongside in-game tutorials | <a href="printables.html">Print Cheatsheets</a> | Press ? for shortcuts</small></p>
+        </div>
+    </footer>
+    
+    <!-- JavaScript -->
+    <script src="js/clipboard.js"></script>
+    <script src="js/course-enhancements.js"></script>
 </body>
 </html>

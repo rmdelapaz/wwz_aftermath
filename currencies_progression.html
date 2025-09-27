@@ -1,81 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Currencies &amp; Progression — WWZ: Aftermath</title>
-  <link rel="icon" href="/favicon.png" />
-  <link rel="stylesheet" href="/styles/main.css" />
-  <script type="module">
-    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
-    mermaid.initialize({ startOnLoad: true });
-  </script>
-  <style>
-    .card { border: 1px solid #ddd; padding: 1rem; border-radius: 12px; margin: 1rem 0; }
-    .grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
-    .small { font-size: 0.9rem; }
-    .tip { background: #f6fff6; border-left: 4px solid #3aa655; padding: 0.5rem 0.75rem; border-radius: 8px; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Currencies & Progression — WWZ: Aftermath - Comprehensive guide for World War Z: Aftermath">
+    <meta name="keywords" content="World War Z, Aftermath, zombie, guide, currencies, progression">
+    <meta name="author" content="WWZ Guide Team">
+    <title>Currencies & Progression — WWZ: Aftermath</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="styles/main.css">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: 'default'
+        });
+    </script>
 </head>
 <body>
-  <header>
-    <h1>Currencies &amp; Progression</h1>
-    <p>Clear names, what they buy, and beginner-friendly farming ideas.</p>
-    <nav><a href="index.html">&larr; Back to Start</a></nav>
-  </header>
-
-  <section class="card">
-    <h2>What each currency does</h2>
-    <div class="grid">
-      <div>
-        <h3>Supplies <span class="small">(yellow)</span></h3>
-        <ul>
-          <li>Common currency used for most unlocks: weapon upgrades and many perks.</li>
-          <li>Earned from missions and Horde Mode; used for buying defenses in Horde.</li>
-        </ul>
-        <p class="small">See: community wiki entries on <em>Supplies</em> and <em>Weapons</em>.</p>
-      </div>
-      <div>
-        <h3>Challenge Coins <span class="small">(blue)</span></h3>
-        <ul>
-          <li>Rarer currency for unique weapons/cosmetics and certain unlocks.</li>
-          <li>Primarily from Daily/Weekly Challenges and higher-difficulty clears.</li>
-        </ul>
-        <p class="small">See: community wiki entry on <em>Challenge Coins</em>.</p>
-      </div>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    
+    <!-- Progress indicator -->
+    <div class="progress-indicator" role="progressbar" aria-label="Page scroll progress">
+        <div class="progress-bar"></div>
     </div>
-  </section>
+    
 
-  <section class="card">
-    <h2>Beginner-friendly earnings</h2>
-    <ul>
-      <li><strong>Supplies:</strong> Standard campaign missions on Normal, or early Horde waves, reliably award yellow coins while you learn.</li>
-      <li><strong>Challenge Coins:</strong> Complete Daily/Weekly Challenges on Normal/Hard with friends; pick up <em>Virus Samples</em> for bonus blue coins on mission completion.</li>
-    </ul>
-  </section>
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">⚔️ WWZ: Aftermath Guide</a>
+            <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-expanded="false">☰</button>
+            <div class="nav-links" id="nav-links">
+                <a href="index.html">Home</a>
+                <a href="beginner_guide.html">Beginner Guide</a>
+                <div class="dropdown">
+                    <a href="classes_overview.html" class="dropdown-toggle">Classes ▼</a>
+                    <div class="dropdown-content">
+                        <a href="classes_overview.html">Overview</a>
+                        <a href="class_medic.html">Medic</a>
+                        <a href="class_fixer.html">Fixer</a>
+                        <a href="class_gunslinger.html">Gunslinger</a>
+                        <a href="class_exterminator.html">Exterminator</a>
+                        <a href="class_slasher.html">Slasher</a>
+                        <a href="class_hellraiser.html">Hellraiser</a>
+                        <a href="class_dronemaster.html">Dronemaster</a>
+                        <a href="class_vanguard.html">Vanguard</a>
+                    </div>
+                </div>
+                <a href="weapons_upgrades.html">Weapons</a>
+                <a href="currencies_progression.html">Progression</a>
+                <a href="horde_endgame.html">Endgame</a>
+                <button id="theme-toggle" aria-label="Toggle theme">🌙</button>
+            </div>
+        </div>
+    </nav>
+    
 
-  <section class="card">
-    <h2>Class XP vs Weapon Progress</h2>
-    <ul>
-      <li><strong>Class XP:</strong> Unlocks perks along a class tree and prestige tiers.</li>
-      <li><strong>Weapon levels:</strong> Unlock stronger variants and perk slots; some upgrades require you to purchase the next level before XP applies.</li>
-    </ul>
-  </section>
+    <!-- Breadcrumb Navigation -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li aria-current="page">Currencies Progression</li>
+        </ul>
+    </nav>
+    
+    <!-- Main Content -->
+    <main id="main-content">
+        <header>
+<h1>Currencies &amp; Progression</h1>
+<p>Clear names, what they buy, and beginner-friendly farming ideas.</p>
 
-  <section class="card">
-    <h2>Simple farming flow</h2>
-    <div class="mermaid">
+</header><section class="card">
+<h2>What each currency does</h2>
+<div class="grid">
+<div>
+<h3>Supplies <span class="small">(yellow)</span></h3>
+<ul>
+<li>Common currency used for most unlocks: weapon upgrades and many perks.</li>
+<li>Earned from missions and Horde Mode; used for buying defenses in Horde.</li>
+</ul>
+<p class="small">See: community wiki entries on <em>Supplies</em> and <em>Weapons</em>.</p>
+</div>
+<div>
+<h3>Challenge Coins <span class="small">(blue)</span></h3>
+<ul>
+<li>Rarer currency for unique weapons/cosmetics and certain unlocks.</li>
+<li>Primarily from Daily/Weekly Challenges and higher-difficulty clears.</li>
+</ul>
+<p class="small">See: community wiki entry on <em>Challenge Coins</em>.</p>
+</div>
+</div>
+</section><section class="card">
+<h2>Beginner-friendly earnings</h2>
+<ul>
+<li><strong>Supplies:</strong> Standard campaign missions on Normal, or early Horde waves, reliably award yellow coins while you learn.</li>
+<li><strong>Challenge Coins:</strong> Complete Daily/Weekly Challenges on Normal/Hard with friends; pick up <em>Virus Samples</em> for bonus blue coins on mission completion.</li>
+</ul>
+</section><section class="card">
+<h2>Class XP vs Weapon Progress</h2>
+<ul>
+<li><strong>Class XP:</strong> Unlocks perks along a class tree and prestige tiers.</li>
+<li><strong>Weapon levels:</strong> Unlock stronger variants and perk slots; some upgrades require you to purchase the next level before XP applies.</li>
+</ul>
+</section><section class="card">
+<h2>Simple farming flow</h2>
+<div class="mermaid">
       flowchart LR
-        A[Daily/Weekly Challenge] --> B{Win?}
-        B -- Yes --> C[Blue Coins + Supplies]
-        B -- No --> D[Supplies only / retry]
-        C --> E[Spend on key class perks]
-        E --> F[Upgrade 1-2 core weapons]
+        A[Daily/Weekly Challenge] --&gt; B{Win?}
+        B -- Yes --&gt; C[Blue Coins + Supplies]
+        B -- No --&gt; D[Supplies only / retry]
+        C --&gt; E[Spend on key class perks]
+        E --&gt; F[Upgrade 1-2 core weapons]
     </div>
-  </section>
-
-  <footer class="small">
-    <p>Tip: Avoid spreading coins across too many weapons early. Focus on one primary and a sidearm you like.</p>
-  </footer>
+</section><footer class="small">
+<p>Tip: Avoid spreading coins across too many weapons early. Focus on one primary and a sidearm you like.</p>
+</footer>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <p>&copy; 2024 WWZ: Aftermath Guide. Unofficial fan resource.</p>
+            <p><small>Use alongside in-game tutorials | <a href="printables.html">Print Cheatsheets</a> | Press ? for shortcuts</small></p>
+        </div>
+    </footer>
+    
+    <!-- JavaScript -->
+    <script src="js/clipboard.js"></script>
+    <script src="js/course-enhancements.js"></script>
 </body>
 </html>

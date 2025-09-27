@@ -1,115 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>World War Z: Aftermath — Start Here</title>
-  <link rel="icon" href="/favicon.png" />
-  <link rel="stylesheet" href="/styles/main.css" />
-  <script type="module">
-    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
-    mermaid.initialize({ startOnLoad: true });
-  </script>
-  <style>
-    .card { border: 1px solid #ddd; padding: 1rem; border-radius: 12px; margin: 1rem 0; }
-    .grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
-    .small { font-size: 0.9rem; }
-    table { width: 100%; border-collapse: collapse; }
-    th, td { border-bottom: 1px solid #eee; padding: 0.5rem; text-align: left; vertical-align: top; }
-    .tip { background: #f6fff6; border-left: 4px solid #3aa655; padding: 0.5rem 0.75rem; border-radius: 8px; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="World War Z: Aftermath — Start Here - Comprehensive guide for World War Z: Aftermath">
+    <meta name="keywords" content="World War Z, Aftermath, zombie, guide, index">
+    <meta name="author" content="WWZ Guide Team">
+    <title>World War Z: Aftermath — Start Here</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="styles/main.css">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: 'default'
+        });
+    </script>
 </head>
 <body>
-  <header>
-    <h1>World War Z: Aftermath — Start Here</h1>
-    <p>Brand-new player quickstart, spoiler-light. Xbox, PlayStation, and PC covered.</p>
-  </header>
-
-  <section class="card">
-    <h2>Site map</h2>
-    <ul>
-      <li><a href="index.html">Home / Start Here</a></li>
-      <li><a href="controls_xbox_pc.html">Controls: Xbox, PlayStation &amp; PC</a></li>
-      <li><a href="beginner_guide.html">Beginner Guide</a></li>
-      <li><a href="classes_overview.html">Classes &amp; Builds Hub</a></li>
-      <li><a href="class_medic.html">Medic</a>, <a href="class_fixer.html">Fixer</a>, <a href="class_gunslinger.html">Gunslinger</a>, <a href="class_exterminator.html">Exterminator</a>, <a href="class_slasher.html">Slasher</a>, <a href="class_hellraiser.html">Hellraiser</a>, <a href="class_dronemaster.html">Dronemaster</a>, <a href="class_vanguard.html">Vanguard</a></li>
-      <li><a href="weapons_upgrades.html">Weapons &amp; Upgrades</a></li>
-      <li><a href="currencies_progression.html">Currencies &amp; Progression</a></li>
-      <li><a href="horde_endgame.html">Horde &amp; Endgame</a></li>
-      <li><a href="missions_maps.html">Missions &amp; Maps</a></li>
-      <li><a href="team_tactics.html">Co-op Etiquette &amp; Team Tactics</a></li>
-      <li><a href="troubleshooting_performance.html">Troubleshooting &amp; Performance</a></li>
-      <li><a href="printables.html">Printable Cheat Sheets</a></li>
-    </ul>
-  </section>
-
-  <section class="card">
-    <h2>PlayStation vs Xbox control notes</h2>
-    <div class="grid">
-      <div>
-        <h3>Same actions, different labels</h3>
-        <ul>
-          <li>Triggers/Bumpers: <strong>RT/R2</strong>, <strong>LT/L2</strong>, <strong>RB/R1</strong>, <strong>LB/L1</strong>.</li>
-          <li>Face buttons: <strong>Y/△</strong> (swap), <strong>X/□</strong> (reload/interact), <strong>B/◯</strong> (crouch), <strong>A/✕</strong> (jump).</li>
-          <li>Stick press: <strong>LS/L3</strong> (sprint), <strong>RS/R3</strong> (melee).</li>
-        </ul>
-      </div>
-      <div>
-        <h3>Menu buttons</h3>
-        <ul>
-          <li><strong>Xbox:</strong> View / Menu</li>
-          <li><strong>PlayStation:</strong> Share / Options</li>
-        </ul>
-        <p class="small tip">All guidance on the site lists both button names where relevant.</p>
-      </div>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    
+    <!-- Progress indicator -->
+    <div class="progress-indicator" role="progressbar" aria-label="Page scroll progress">
+        <div class="progress-bar"></div>
     </div>
-  </section>
+    
 
-  <section class="card">
-    <h2>Beginner loadout recommendations (by class)</h2>
-    <table>
-      <thead>
-        <tr><th>Class</th><th>Primary / Secondary</th><th>Equipment</th><th>Perk focus</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>Medic</td><td>SMG or carbine / pistol</td><td>Stun or smoke</td><td>Medkit power, revive speed, damage reduction after heal</td></tr>
-        <tr><td>Fixer</td><td>AR or battle rifle / pistol</td><td>Barbed wire / voltage</td><td>Ammo supply, equipment refresh, utility uptime</td></tr>
-        <tr><td>Gunslinger</td><td>AR or carbine / pistol</td><td>Frag or stun</td><td>Recoil control, weak-spot damage, mag size</td></tr>
-        <tr><td>Exterminator</td><td>SMG or shotgun / pistol</td><td>Molotovs</td><td>Fire area/duration, throwable uptime</td></tr>
-        <tr><td>Slasher</td><td>Shotgun or SMG / pistol</td><td>Stun</td><td>Melee damage/stagger, damage mitigation while swinging</td></tr>
-        <tr><td>Hellraiser</td><td>Carbine or DMR / pistol</td><td>Frag</td><td>Explosive damage/capacity, self-damage reduction</td></tr>
-        <tr><td>Dronemaster</td><td>AR or SMG / pistol</td><td>Drone stuns</td><td>Drone uptime, support effects</td></tr>
-        <tr><td>Vanguard</td><td>SMG or shotgun / pistol</td><td>Barbed wire / voltage</td><td>Shield durability, team mitigation</td></tr>
-      </tbody>
-    </table>
-  </section>
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">⚔️ WWZ: Aftermath Guide</a>
+            <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-expanded="false">☰</button>
+            <div class="nav-links" id="nav-links">
+                <a href="index.html">Home</a>
+                <a href="beginner_guide.html">Beginner Guide</a>
+                <div class="dropdown">
+                    <a href="classes_overview.html" class="dropdown-toggle">Classes ▼</a>
+                    <div class="dropdown-content">
+                        <a href="classes_overview.html">Overview</a>
+                        <a href="class_medic.html">Medic</a>
+                        <a href="class_fixer.html">Fixer</a>
+                        <a href="class_gunslinger.html">Gunslinger</a>
+                        <a href="class_exterminator.html">Exterminator</a>
+                        <a href="class_slasher.html">Slasher</a>
+                        <a href="class_hellraiser.html">Hellraiser</a>
+                        <a href="class_dronemaster.html">Dronemaster</a>
+                        <a href="class_vanguard.html">Vanguard</a>
+                    </div>
+                </div>
+                <a href="weapons_upgrades.html">Weapons</a>
+                <a href="currencies_progression.html">Progression</a>
+                <a href="horde_endgame.html">Endgame</a>
+                <button id="theme-toggle" aria-label="Toggle theme">🌙</button>
+            </div>
+        </div>
+    </nav>
+    
 
-  <section class="card">
-    <h2>Glossary (spoiler-light)</h2>
-    <div class="grid">
-      <div>
-        <h3>Supplies (yellow)</h3>
-        <p>General currency for upgrades/perks and Horde purchases.</p>
-        <h3>Challenge Coins (blue)</h3>
-        <p>Reward from Daily/Weekly challenges and harder clears; used for select unlocks/cosmetics.</p>
-        <h3>Virus Samples</h3>
-        <p>Carryable bonus items that increase end-of-mission rewards.</p>
-      </div>
-      <div>
-        <h3>Horde Mode XL</h3>
-        <p>Endless wave mode. Spend smart, assign lanes, and plan emergency buys.</p>
-        <h3>Specials</h3>
-        <p>Unique infected with abilities. Common calls: <em>Bull</em>, <em>Gasbag</em>, <em>Lurker</em>, <em>Screamer</em>.</p>
-        <h3>Choke</h3>
-        <p>Defensible position where you funnel hordes through slows and fire.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="card">
-    <h2>Class roles at a glance</h2>
-    <p class="small">Spoiler-light: focuses on playstyle, not late-tree perks.</p>
-    <div class="mermaid">
+    
+    <!-- Main Content -->
+    <main id="main-content">
+        <header>
+<h1>World War Z: Aftermath — Start Here</h1>
+<p>Brand-new player quickstart, spoiler-light. Xbox, PlayStation, and PC covered.</p>
+</header><section class="card">
+<h2>Site map</h2>
+<ul>
+<li><a href="index.html">Home / Start Here</a></li>
+<li><a href="controls_xbox_pc.html">Controls: Xbox, PlayStation &amp; PC</a></li>
+<li><a href="beginner_guide.html">Beginner Guide</a></li>
+<li><a href="classes_overview.html">Classes &amp; Builds Hub</a></li>
+<li><a href="class_medic.html">Medic</a>, <a href="class_fixer.html">Fixer</a>, <a href="class_gunslinger.html">Gunslinger</a>, <a href="class_exterminator.html">Exterminator</a>, <a href="class_slasher.html">Slasher</a>, <a href="class_hellraiser.html">Hellraiser</a>, <a href="class_dronemaster.html">Dronemaster</a>, <a href="class_vanguard.html">Vanguard</a></li>
+<li><a href="weapons_upgrades.html">Weapons &amp; Upgrades</a></li>
+<li><a href="currencies_progression.html">Currencies &amp; Progression</a></li>
+<li><a href="horde_endgame.html">Horde &amp; Endgame</a></li>
+<li><a href="missions_maps.html">Missions &amp; Maps</a></li>
+<li><a href="team_tactics.html">Co-op Etiquette &amp; Team Tactics</a></li>
+<li><a href="troubleshooting_performance.html">Troubleshooting &amp; Performance</a></li>
+<li><a href="printables.html">Printable Cheat Sheets</a></li>
+</ul>
+</section><section class="card">
+<h2>PlayStation vs Xbox control notes</h2>
+<div class="grid">
+<div>
+<h3>Same actions, different labels</h3>
+<ul>
+<li>Triggers/Bumpers: <strong>RT/R2</strong>, <strong>LT/L2</strong>, <strong>RB/R1</strong>, <strong>LB/L1</strong>.</li>
+<li>Face buttons: <strong>Y/△</strong> (swap), <strong>X/□</strong> (reload/interact), <strong>B/◯</strong> (crouch), <strong>A/✕</strong> (jump).</li>
+<li>Stick press: <strong>LS/L3</strong> (sprint), <strong>RS/R3</strong> (melee).</li>
+</ul>
+</div>
+<div>
+<h3>Menu buttons</h3>
+<ul>
+<li><strong>Xbox:</strong> View / Menu</li>
+<li><strong>PlayStation:</strong> Share / Options</li>
+</ul>
+<p class="small tip">All guidance on the site lists both button names where relevant.</p>
+</div>
+</div>
+</section><section class="card">
+<h2>Beginner loadout recommendations (by class)</h2>
+<table>
+<thead>
+<tr><th>Class</th><th>Primary / Secondary</th><th>Equipment</th><th>Perk focus</th></tr>
+</thead>
+<tbody>
+<tr><td>Medic</td><td>SMG or carbine / pistol</td><td>Stun or smoke</td><td>Medkit power, revive speed, damage reduction after heal</td></tr>
+<tr><td>Fixer</td><td>AR or battle rifle / pistol</td><td>Barbed wire / voltage</td><td>Ammo supply, equipment refresh, utility uptime</td></tr>
+<tr><td>Gunslinger</td><td>AR or carbine / pistol</td><td>Frag or stun</td><td>Recoil control, weak-spot damage, mag size</td></tr>
+<tr><td>Exterminator</td><td>SMG or shotgun / pistol</td><td>Molotovs</td><td>Fire area/duration, throwable uptime</td></tr>
+<tr><td>Slasher</td><td>Shotgun or SMG / pistol</td><td>Stun</td><td>Melee damage/stagger, damage mitigation while swinging</td></tr>
+<tr><td>Hellraiser</td><td>Carbine or DMR / pistol</td><td>Frag</td><td>Explosive damage/capacity, self-damage reduction</td></tr>
+<tr><td>Dronemaster</td><td>AR or SMG / pistol</td><td>Drone stuns</td><td>Drone uptime, support effects</td></tr>
+<tr><td>Vanguard</td><td>SMG or shotgun / pistol</td><td>Barbed wire / voltage</td><td>Shield durability, team mitigation</td></tr>
+</tbody>
+</table>
+</section><section class="card">
+<h2>Glossary (spoiler-light)</h2>
+<div class="grid">
+<div>
+<h3>Supplies (yellow)</h3>
+<p>General currency for upgrades/perks and Horde purchases.</p>
+<h3>Challenge Coins (blue)</h3>
+<p>Reward from Daily/Weekly challenges and harder clears; used for select unlocks/cosmetics.</p>
+<h3>Virus Samples</h3>
+<p>Carryable bonus items that increase end-of-mission rewards.</p>
+</div>
+<div>
+<h3>Horde Mode XL</h3>
+<p>Endless wave mode. Spend smart, assign lanes, and plan emergency buys.</p>
+<h3>Specials</h3>
+<p>Unique infected with abilities. Common calls: <em>Bull</em>, <em>Gasbag</em>, <em>Lurker</em>, <em>Screamer</em>.</p>
+<h3>Choke</h3>
+<p>Defensible position where you funnel hordes through slows and fire.</p>
+</div>
+</div>
+</section><section class="card">
+<h2>Class roles at a glance</h2>
+<p class="small">Spoiler-light: focuses on playstyle, not late-tree perks.</p>
+<div class="mermaid">
       graph LR
         A[Medic] ---|Heals| B[Team]
         C[Fixer] ---|Ammo &amp; Utility| B
@@ -120,10 +151,21 @@
         H[Dronemaster] ---|Drone Utility| B
         I[Vanguard] ---|Shield Frontline| B
     </div>
-  </section>
-
-  <footer class="small">
-    <p>Unofficial fan resource. Use alongside in-game settings and tutorials.</p>
-  </footer>
+</section><footer class="small">
+<p>Unofficial fan resource. Use alongside in-game settings and tutorials.</p>
+</footer>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <p>&copy; 2024 WWZ: Aftermath Guide. Unofficial fan resource.</p>
+            <p><small>Use alongside in-game tutorials | <a href="printables.html">Print Cheatsheets</a> | Press ? for shortcuts</small></p>
+        </div>
+    </footer>
+    
+    <!-- JavaScript -->
+    <script src="js/clipboard.js"></script>
+    <script src="js/course-enhancements.js"></script>
 </body>
 </html>

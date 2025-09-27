@@ -1,83 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Co-op Etiquette & Team Tactics — WWZ: Aftermath</title>
-  <link rel="icon" href="/favicon.png" />
-  <link rel="stylesheet" href="/styles/main.css" />
-  
-  <script type="module">
-    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
-    mermaid.initialize({ startOnLoad: true });
-  </script>
-
-  <style>
-    .card { border: 1px solid #ddd; padding: 1rem; border-radius: 12px; margin: 1rem 0; }
-    .grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
-    .small { font-size: 0.9rem; }
-    .tip { background: #f6fff6; border-left: 4px solid #3aa655; padding: 0.5rem 0.75rem; border-radius: 8px; }
-    .warn { background: #fff7f7; border-left: 4px solid #c0392b; padding: 0.5rem 0.75rem; border-radius: 8px; }
-    table { width: 100%; border-collapse: collapse; }
-    th, td { border-bottom: 1px solid #eee; padding: 0.5rem; text-align: left; }
-    @media print {
-      nav, .no-print { display: none; }
-      body { font-size: 12pt; }
-      .card { border: 1px solid #000; }
-    }
-    svg { max-width: 100%; height: auto; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Co-op Etiquette & Team Tactics — WWZ: Aftermath - Comprehensive guide for World War Z: Aftermath">
+    <meta name="keywords" content="World War Z, Aftermath, zombie, guide, team, tactics">
+    <meta name="author" content="WWZ Guide Team">
+    <title>Co-op Etiquette & Team Tactics — WWZ: Aftermath</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="styles/main.css">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: 'default'
+        });
+    </script>
 </head>
-
 <body>
-  <header>
-    <h1>Co-op Etiquette &amp; Team Tactics</h1>
-    <p>Short, memorable rules to keep PUGs smooth and friends friendly.</p>
-    <nav><a href="index.html">&larr; Home</a></nav>
-  </header>
-
-  <section class="card">
-    <h2>5 rules of calm squads</h2>
-    <ol>
-      <li><strong>Stay in earshot:</strong> If your teammate’s name tag is gray, you’re too far.</li>
-      <li><strong>Say your plan:</strong> “Dropping ammo after this door, hold here.”</li>
-      <li><strong>Ping first:</strong> Mark threats and loot before typing/voice.</li>
-      <li><strong>Own a lane:</strong> Hold left, right, or mid; rotate only on call.</li>
-      <li><strong>Revive smart:</strong> Stun → smoke/fire → <em>then</em> revive.</li>
-    </ol>
-  </section>
-
-  <section class="card">
-    <h2>Role synergy diagram</h2>
-    <div class="mermaid">
-      graph LR
-        Medic -- sustain --> Team
-        Fixer -- ammo --> Team
-        Exterminator -- fire lanes --> Team
-        Vanguard -- shield wall --> Team
-        Slasher -- stuns --> Team
-        Dronemaster -- gadgets --> Team
-        Gunslinger -- picks --> Team
-        Hellraiser -- burst --> Team
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    
+    <!-- Progress indicator -->
+    <div class="progress-indicator" role="progressbar" aria-label="Page scroll progress">
+        <div class="progress-bar"></div>
     </div>
-  </section>
+    
 
-  <section class="card">
-    <h2>Callout cheat-sheet</h2>
-    <table>
-      <thead><tr><th>Situation</th><th>Call</th><th>Action</th></tr></thead>
-      <tbody>
-        <tr><td>Bull charging</td><td><strong>“Bull left!”</strong></td><td>Front steps aside; backline focuses weak spot.</td></tr>
-        <tr><td>Gas cloud</td><td><strong>“Gas mid!”</strong></td><td>Back up; avoid melee; use ADS picks.</td></tr>
-        <tr><td>Screamer alive</td><td><strong>“Screamer top!”</strong></td><td>Priority snipe; stop adds.</td></tr>
-        <tr><td>Ammo drop</td><td><strong>“Ammo on me.”</strong></td><td>Refill before opening next door.</td></tr>
-        <tr><td>Revive window</td><td><strong>“Stunning, revive now.”</strong></td><td>Medic moves; others cover lanes.</td></tr>
-      </tbody>
-    </table>
-  </section>
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">⚔️ WWZ: Aftermath Guide</a>
+            <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-expanded="false">☰</button>
+            <div class="nav-links" id="nav-links">
+                <a href="index.html">Home</a>
+                <a href="beginner_guide.html">Beginner Guide</a>
+                <div class="dropdown">
+                    <a href="classes_overview.html" class="dropdown-toggle">Classes ▼</a>
+                    <div class="dropdown-content">
+                        <a href="classes_overview.html">Overview</a>
+                        <a href="class_medic.html">Medic</a>
+                        <a href="class_fixer.html">Fixer</a>
+                        <a href="class_gunslinger.html">Gunslinger</a>
+                        <a href="class_exterminator.html">Exterminator</a>
+                        <a href="class_slasher.html">Slasher</a>
+                        <a href="class_hellraiser.html">Hellraiser</a>
+                        <a href="class_dronemaster.html">Dronemaster</a>
+                        <a href="class_vanguard.html">Vanguard</a>
+                    </div>
+                </div>
+                <a href="weapons_upgrades.html">Weapons</a>
+                <a href="currencies_progression.html">Progression</a>
+                <a href="horde_endgame.html">Endgame</a>
+                <button id="theme-toggle" aria-label="Toggle theme">🌙</button>
+            </div>
+        </div>
+    </nav>
+    
 
-  <footer class="small">
-    <p>Short calls beat long speeches. Keep it brief; act immediately.</p>
-  </footer>
+    <!-- Breadcrumb Navigation -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li aria-current="page">Team Tactics</li>
+        </ul>
+    </nav>
+    
+    <!-- Main Content -->
+    <main id="main-content">
+        <header>
+<h1>Co-op Etiquette &amp; Team Tactics</h1>
+<p>Short, memorable rules to keep PUGs smooth and friends friendly.</p>
+
+</header><section class="card">
+<h2>5 rules of calm squads</h2>
+<ol>
+<li><strong>Stay in earshot:</strong> If your teammate’s name tag is gray, you’re too far.</li>
+<li><strong>Say your plan:</strong> “Dropping ammo after this door, hold here.”</li>
+<li><strong>Ping first:</strong> Mark threats and loot before typing/voice.</li>
+<li><strong>Own a lane:</strong> Hold left, right, or mid; rotate only on call.</li>
+<li><strong>Revive smart:</strong> Stun → smoke/fire → <em>then</em> revive.</li>
+</ol>
+</section><section class="card">
+<h2>Role synergy diagram</h2>
+<div class="mermaid">
+      graph LR
+        Medic -- sustain --&gt; Team
+        Fixer -- ammo --&gt; Team
+        Exterminator -- fire lanes --&gt; Team
+        Vanguard -- shield wall --&gt; Team
+        Slasher -- stuns --&gt; Team
+        Dronemaster -- gadgets --&gt; Team
+        Gunslinger -- picks --&gt; Team
+        Hellraiser -- burst --&gt; Team
+    </div>
+</section><section class="card">
+<h2>Callout cheat-sheet</h2>
+<table>
+<thead><tr><th>Situation</th><th>Call</th><th>Action</th></tr></thead>
+<tbody>
+<tr><td>Bull charging</td><td><strong>“Bull left!”</strong></td><td>Front steps aside; backline focuses weak spot.</td></tr>
+<tr><td>Gas cloud</td><td><strong>“Gas mid!”</strong></td><td>Back up; avoid melee; use ADS picks.</td></tr>
+<tr><td>Screamer alive</td><td><strong>“Screamer top!”</strong></td><td>Priority snipe; stop adds.</td></tr>
+<tr><td>Ammo drop</td><td><strong>“Ammo on me.”</strong></td><td>Refill before opening next door.</td></tr>
+<tr><td>Revive window</td><td><strong>“Stunning, revive now.”</strong></td><td>Medic moves; others cover lanes.</td></tr>
+</tbody>
+</table>
+</section><footer class="small">
+<p>Short calls beat long speeches. Keep it brief; act immediately.</p>
+</footer>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <p>&copy; 2024 WWZ: Aftermath Guide. Unofficial fan resource.</p>
+            <p><small>Use alongside in-game tutorials | <a href="printables.html">Print Cheatsheets</a> | Press ? for shortcuts</small></p>
+        </div>
+    </footer>
+    
+    <!-- JavaScript -->
+    <script src="js/clipboard.js"></script>
+    <script src="js/course-enhancements.js"></script>
 </body>
 </html>

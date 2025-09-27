@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Fixer Class Guide - Master support and supplies in World War Z: Aftermath">
-    <meta name="keywords" content="World War Z, Aftermath, Fixer, class guide, ammo, support, builds">
+    <meta name="description" content="Medic Class Guide - Master healing and support in World War Z: Aftermath">
+    <meta name="keywords" content="World War Z, Aftermath, Medic, class guide, healing, support, builds">
     <meta name="author" content="WWZ Guide Team">
-    <title>Fixer Class Guide - World War Z: Aftermath</title>
+    <title>Medic Class Guide - World War Z: Aftermath</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="styles/main.css">
     <script type="module">
@@ -27,7 +27,7 @@
     <style>
         /* Class-specific styling */
         .class-header {
-            background: linear-gradient(135deg, #4ecdc4 0%, #44a08d 100%);
+            background: linear-gradient(135deg, #ff6b6b 0%, #4ecdc4 100%);
             color: white;
             padding: 2rem;
             border-radius: 12px;
@@ -74,12 +74,6 @@
             font-weight: bold;
         }
         
-        .prestige-tier {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            font-weight: bold;
-        }
-        
         .perk-choice {
             display: flex;
             flex-direction: column;
@@ -111,15 +105,6 @@
             font-size: 0.85rem;
             color: #6c757d;
             margin-top: 0.25rem;
-        }
-        
-        .prestige-note {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 1rem;
-            border-radius: 8px;
-            margin: 1rem 0;
-            text-align: center;
         }
         
         .synergy-grid {
@@ -480,8 +465,8 @@
                     <a href="classes_overview.html" class="dropdown-toggle">Classes ▼</a>
                     <div class="dropdown-content">
                         <a href="classes_overview.html">Overview</a>
-                        <a href="class_medic.html">Medic</a>
-                        <a href="class_fixer.html" class="current">Fixer</a>
+                        <a href="class_medic.html" class="current">Medic</a>
+                        <a href="class_fixer.html">Fixer</a>
                         <a href="class_gunslinger.html">Gunslinger</a>
                         <a href="class_exterminator.html">Exterminator</a>
                         <a href="class_slasher.html">Slasher</a>
@@ -503,7 +488,7 @@
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="classes_overview.html">Classes</a></li>
-            <li aria-current="page">Fixer</li>
+            <li aria-current="page">Medic</li>
         </ul>
     </nav>
     
@@ -511,16 +496,16 @@
     <main id="main-content">
         <!-- Class Header -->
         <header class="class-header">
-            <h1>🔧 Fixer Class Guide</h1>
+            <h1>🏥 Medic Class Guide</h1>
             <div class="role-badges">
+                <span class="role-badge">Healer</span>
                 <span class="role-badge">Support</span>
-                <span class="role-badge">Ammo Supply</span>
-                <span class="role-badge">Team Utility</span>
+                <span class="role-badge">Team Survival</span>
             </div>
             <div class="difficulty-stars">
                 Difficulty: ⭐⭐☆☆☆ (Beginner Friendly)
             </div>
-            <p><strong>Core Role:</strong> Keep your team supplied with ammo, explosives, and equipment while providing tactical support</p>
+            <p><strong>Core Role:</strong> Keep your team alive through heals, buffs, and clutch revives</p>
         </header>
         
         <!-- Quick Stats -->
@@ -528,24 +513,24 @@
             <h2>📊 Quick Stats</h2>
             <div class="equipment-grid">
                 <div class="equipment-item">
-                    <div class="equipment-icon">💼</div>
-                    <strong>Supply Bags</strong>
-                    <p>Instant ammo refill for team</p>
+                    <div class="equipment-icon">❤️</div>
+                    <strong>Health Bonus</strong>
+                    <p>+25% team health when mastered</p>
                 </div>
                 <div class="equipment-item">
-                    <div class="equipment-icon">💥</div>
-                    <strong>Explosive Ammo</strong>
-                    <p>Team damage boost</p>
+                    <div class="equipment-icon">💉</div>
+                    <strong>Stim Pistol</strong>
+                    <p>Instant heals from range</p>
                 </div>
                 <div class="equipment-item">
-                    <div class="equipment-icon">🛠️</div>
-                    <strong>Equipment Master</strong>
-                    <p>More charges & effects</p>
+                    <div class="equipment-icon">⚡</div>
+                    <strong>Revive Speed</strong>
+                    <p>Up to 50% faster</p>
                 </div>
                 <div class="equipment-item">
-                    <div class="equipment-icon">👻</div>
-                    <strong>Masking Gas</strong>
-                    <p>Team invisibility</p>
+                    <div class="equipment-icon">🛡️</div>
+                    <strong>Damage Resist</strong>
+                    <p>Team buff after healing</p>
                 </div>
             </div>
         </section>
@@ -554,7 +539,7 @@
         <section class="card">
             <h2>📚 Complete Skill Tree (All Perks + Prestige)</h2>
             
-            <div class="prestige-note">
+            <div class="prestige-note" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 1rem; border-radius: 8px; margin: 1rem 0; text-align: center;">
                 ⭐ Prestige perks unlock after reaching level 30 and prestiging. Each prestige level unlocks a new tier of powerful perks!
             </div>
             
@@ -573,7 +558,7 @@
                         <tr class="tier-header">
                             <td>CORE<br><small>Unlocked at Start</small></td>
                             <td colspan="3" style="text-align: center;">
-                                <strong>Supply Bags:</strong> Drop ammo crates that instantly refill primary weapon ammo for all teammates (90s cooldown)
+                                <strong>Stim Pistol:</strong> Heal teammates from a distance with temporary boost (60s cooldown)
                             </td>
                         </tr>
                         
@@ -582,14 +567,139 @@
                             <td class="tier-header">Tier 1<br><small>Level 2</small></td>
                             <td>
                                 <div class="perk-option">
-                                    <span class="perk-name">Sapper</span>
-                                    <span class="perk-desc">Start with Breaching Charge</span>
+                                    <span class="perk-name">Triage</span>
+                                    <span class="perk-desc">Apply medkits 50% faster</span>
                                 </div>
                             </td>
                             <td>
                                 <div class="perk-option">
-                                    <span class="perk-name">Coffee Break</span>
-                                    <span class="perk-desc">Start with +1 equipment charge</span>
+                                    <span class="perk-name">Paramedic</span>
+                                    <span class="perk-desc">Stim Pistol cooldown -10 seconds</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="perk-option">
+                                    <span class="perk-name">SMG Specialist</span>
+                                    <span class="perk-desc">SMG reload speed +25%</span>
+                                </div>
+                            </td>
+                        </tr>
+                        
+                        <!-- Tier 2 -->
+                        <tr>
+                            <td class="tier-header">Tier 2<br><small>Level 7</small></td>
+                            <td>
+                                <div class="perk-option">
+                                    <span class="perk-name">Efficiency</span>
+                                    <span class="perk-desc">25% chance not to consume medkits</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="perk-option">
+                                    <span class="perk-name">Free Hugs</span>
+                                    <span class="perk-desc">Healing others also heals you for 50%</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="perk-option">
+                                    <span class="perk-name">In the Zone I</span>
+                                    <span class="perk-desc">Killing 10 zombies during stim extends duration</span>
+                                </div>
+                            </td>
+                        </tr>
+                        
+                        <!-- Tier 3 -->
+                        <tr>
+                            <td class="tier-header">Tier 3<br><small>Level 12</small></td>
+                            <td>
+                                <div class="perk-option">
+                                    <span class="perk-name">Sugar Coated</span>
+                                    <span class="perk-desc">Healing grants 20% temp health</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="perk-option">
+                                    <span class="perk-name">Pickpocket</span>
+                                    <span class="perk-desc">25% chance healed player drops supplies</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="perk-option">
+                                    <span class="perk-name">Swapping Mags I</span>
+                                    <span class="perk-desc">Reload speed +25% for all weapons</span>
+                                </div>
+                            </td>
+                        </tr>
+                        
+                        <!-- Tier 4 -->
+                        <tr>
+                            <td class="tier-header">Tier 4<br><small>Level 17</small></td>
+                            <td>
+                                <div class="perk-option">
+                                    <span class="perk-name">Combat Medic</span>
+                                    <span class="perk-desc">Killing 15 zombies grants stim charge</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="perk-option">
+                                    <span class="perk-name">Good Karma</span>
+                                    <span class="perk-desc">Healing grants 10% damage for 10s</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="perk-option">
+                                    <span class="perk-name">Secret Ingredient</span>
+                                    <span class="perk-desc">Medkits grant 25% damage resistance</span>
+                                </div>
+                            </td>
+                        </tr>
+                        
+                        <!-- Tier 5 -->
+                        <tr>
+                            <td class="tier-header">Tier 5<br><small>Level 22</small></td>
+                            <td>
+                                <div class="perk-option">
+                                    <span class="perk-name">Fighting Fit</span>
+                                    <span class="perk-desc">+25% health for entire team</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="perk-option">
+                                    <span class="perk-name">Lobotomy</span>
+                                    <span class="perk-desc">Stim Pistol headshots instantly kill</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="perk-option">
+                                    <span class="perk-name">Big Pharma</span>
+                                    <span class="perk-desc">Carry +1 additional medkit</span>
+                                </div>
+                            </td>
+                        </tr>
+                        
+                        <!-- Tier 6 -->
+                        <tr class="tier-header">
+                            <td>Tier 6<br><small>Level 27</small></td>
+                            <td colspan="3" style="text-align: center;">
+                                <div class="perk-option">
+                                    <strong>Patch Up:</strong> Killing 30 zombies instantly recharges Stim Pistol ability
+                                </div>
+                            </td>
+                        </tr>
+                        
+                        <!-- Prestige 1 -->
+                        <tr>
+                            <td class="prestige-tier" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">Prestige 1<br><small>Level 30+</small></td>
+                            <td>
+                                <div class="perk-option">
+                                    <span class="perk-name">In the Zone II</span>
+                                    <span class="perk-desc">Only need 5 kills to extend stim</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="perk-option">
+                                    <span class="perk-name">Swapping Mags II</span>
+                                    <span class="perk-desc">Reload speed +35% for all weapons</span>
                                 </div>
                             </td>
                             <td>
@@ -600,206 +710,81 @@
                             </td>
                         </tr>
                         
-                        <!-- Tier 2 -->
+                        <!-- Prestige 2 -->
                         <tr>
-                            <td class="tier-header">Tier 2<br><small>Level 7</small></td>
+                            <td class="prestige-tier" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">Prestige 2<br><small>2nd Prestige</small></td>
                             <td>
                                 <div class="perk-option">
-                                    <span class="perk-name">Explosive Ammo</span>
-                                    <span class="perk-desc">Supply bags grant explosive rounds for 60s</span>
+                                    <span class="perk-name">Empathy</span>
+                                    <span class="perk-desc">Reviving restores 25% of their health</span>
                                 </div>
                             </td>
                             <td>
                                 <div class="perk-option">
-                                    <span class="perk-name">Side Pockets</span>
-                                    <span class="perk-desc">10% chance not to consume equipment</span>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="perk-option">
-                                    <span class="perk-name">Power Nap</span>
-                                    <span class="perk-desc">25% temp health when using equipment</span>
-                                </div>
-                            </td>
-                        </tr>
-                        
-                        <!-- Tier 3 -->
-                        <tr>
-                            <td class="tier-header">Tier 3<br><small>Level 12</small></td>
-                            <td>
-                                <div class="perk-option">
-                                    <span class="perk-name">Pickpocket</span>
-                                    <span class="perk-desc">Killing 15 zombies near bag drops supplies</span>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="perk-option">
-                                    <span class="perk-name">Armory Access</span>
-                                    <span class="perk-desc">Heavy weapons get +1 magazine</span>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="perk-option">
-                                    <span class="perk-name">Third Hand</span>
-                                    <span class="perk-desc">50% faster interaction speed</span>
-                                </div>
-                            </td>
-                        </tr>
-                        
-                        <!-- Tier 4 -->
-                        <tr>
-                            <td class="tier-header">Tier 4<br><small>Level 17</small></td>
-                            <td>
-                                <div class="perk-option">
-                                    <span class="perk-name">Night Owl</span>
-                                    <span class="perk-desc">See equipment/weapons through walls</span>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="perk-option">
-                                    <span class="perk-name">This Is My Rifle</span>
-                                    <span class="perk-desc">Start with weapon at Tier 2</span>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="perk-option">
-                                    <span class="perk-name">Power Shot</span>
-                                    <span class="perk-desc">Supply bags grant penetrating rounds</span>
-                                </div>
-                            </td>
-                        </tr>
-                        
-                        <!-- Tier 5 -->
-                        <tr>
-                            <td class="tier-header">Tier 5<br><small>Level 22</small></td>
-                            <td>
-                                <div class="perk-option">
-                                    <span class="perk-name">Masking Grenades</span>
-                                    <span class="perk-desc">Equipment replaced with masking gas</span>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="perk-option">
-                                    <span class="perk-name">Artisan</span>
-                                    <span class="perk-desc">Equipment affects 50% larger area</span>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="perk-option">
-                                    <span class="perk-name">Shadow</span>
-                                    <span class="perk-desc">25% speed boost after using equipment</span>
-                                </div>
-                            </td>
-                        </tr>
-                        
-                        <!-- Tier 6 -->
-                        <tr class="tier-header">
-                            <td>Tier 6<br><small>Level 27</small></td>
-                            <td colspan="3" style="text-align: center;">
-                                <div class="perk-option">
-                                    <strong>Resupply:</strong> Killing 60 zombies instantly recharges Supply Bags ability
-                                </div>
-                            </td>
-                        </tr>
-                        
-                        <!-- Prestige 1 -->
-                        <tr>
-                            <td class="prestige-tier">Prestige 1<br><small>Level 30+</small></td>
-                            <td>
-                                <div class="perk-option">
-                                    <span class="perk-name">One for the Road</span>
-                                    <span class="perk-desc">Carry 25% more ammo</span>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="perk-option">
-                                    <span class="perk-name">Ammo Fixer</span>
-                                    <span class="perk-desc">Supply bags refill equipment</span>
+                                    <span class="perk-name">Painkiller</span>
+                                    <span class="perk-desc">Temp health decays 50% slower</span>
                                 </div>
                             </td>
                             <td>
                                 <div class="perk-option">
                                     <span class="perk-name">I'll Take That</span>
-                                    <span class="perk-desc">50% chance to find extra equipment</span>
-                                </div>
-                            </td>
-                        </tr>
-                        
-                        <!-- Prestige 2 -->
-                        <tr>
-                            <td class="prestige-tier">Prestige 2<br><small>2nd Prestige</small></td>
-                            <td>
-                                <div class="perk-option">
-                                    <span class="perk-name">Scavenger</span>
-                                    <span class="perk-desc">Kills have 1% chance to restore equipment</span>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="perk-option">
-                                    <span class="perk-name">Swapping Mags</span>
-                                    <span class="perk-desc">25% faster reload speed</span>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="perk-option">
-                                    <span class="perk-name">Under the Table</span>
-                                    <span class="perk-desc">Start with extra supply bag charge</span>
+                                    <span class="perk-desc">50% chance to find extra medkits</span>
                                 </div>
                             </td>
                         </tr>
                         
                         <!-- Prestige 3 -->
                         <tr>
-                            <td class="prestige-tier">Prestige 3<br><small>3rd Prestige</small></td>
+                            <td class="prestige-tier" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">Prestige 3<br><small>3rd Prestige</small></td>
                             <td>
                                 <div class="perk-option">
-                                    <span class="perk-name">Deep Pockets</span>
-                                    <span class="perk-desc">Carry +1 heavy weapon</span>
+                                    <span class="perk-name">Battle Surgeon</span>
+                                    <span class="perk-desc">Revive teammates 50% faster</span>
                                 </div>
                             </td>
                             <td>
                                 <div class="perk-option">
-                                    <span class="perk-name">Arms Dealer</span>
-                                    <span class="perk-desc">Heavy weapons deal 25% more damage</span>
+                                    <span class="perk-name">Service Fee</span>
+                                    <span class="perk-desc">Revived teammates deal +25% damage</span>
                                 </div>
                             </td>
                             <td>
                                 <div class="perk-option">
-                                    <span class="perk-name">My Round</span>
-                                    <span class="perk-desc">Team gets 10% damage boost near bags</span>
+                                    <span class="perk-name">Insurance Policy</span>
+                                    <span class="perk-desc">Stim grants 3s invulnerability</span>
                                 </div>
                             </td>
                         </tr>
                         
                         <!-- Prestige 4 -->
                         <tr>
-                            <td class="prestige-tier">Prestige 4<br><small>4th Prestige</small></td>
+                            <td class="prestige-tier" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">Prestige 4<br><small>4th Prestige</small></td>
                             <td>
                                 <div class="perk-option">
-                                    <span class="perk-name">Bullet Rain</span>
-                                    <span class="perk-desc">Supply bags last 2x longer</span>
+                                    <span class="perk-name">Steady Hand</span>
+                                    <span class="perk-desc">No accuracy loss while moving</span>
                                 </div>
                             </td>
                             <td>
                                 <div class="perk-option">
-                                    <span class="perk-name">Hangover</span>
-                                    <span class="perk-desc">Explosive ammo lasts 30s longer</span>
+                                    <span class="perk-name">Vigorous</span>
+                                    <span class="perk-desc">Team gets 10% speed after healing</span>
                                 </div>
                             </td>
                             <td>
                                 <div class="perk-option">
-                                    <span class="perk-name">In the Zone</span>
-                                    <span class="perk-desc">Movement speed +10% after bag pickup</span>
+                                    <span class="perk-name">Adrenaline</span>
+                                    <span class="perk-desc">Stim instantly reloads weapons</span>
                                 </div>
                             </td>
                         </tr>
                         
                         <!-- Prestige 5 -->
                         <tr>
-                            <td class="prestige-tier">Prestige 5<br><small>Max Prestige</small></td>
+                            <td class="prestige-tier" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">Prestige 5<br><small>Max Prestige</small></td>
                             <td colspan="3" style="text-align: center;">
                                 <div class="perk-option">
-                                    <strong>Master Fixer:</strong> Supply bags grant ALL ammo types simultaneously (explosive, penetrating, fire) and instantly reload all weapons
+                                    <strong>Master Medic:</strong> Stim Pistol has 2 charges, healing effects increased by 50%, and masking gas on all revives
                                 </div>
                             </td>
                         </tr>
@@ -815,25 +800,25 @@
             <div class="build-tabs">
                 <button class="build-tab active" onclick="showBuild('beginner')">🌟 Beginner</button>
                 <button class="build-tab" onclick="showBuild('support')">💚 Pure Support</button>
-                <button class="build-tab" onclick="showBuild('combat')">⚔️ Combat Support</button>
+                <button class="build-tab" onclick="showBuild('combat')">⚔️ Combat Medic</button>
             </div>
             
             <div id="beginner-build" class="build-content active">
-                <h3>Beginner Build - "Resource Manager"</h3>
+                <h3>Beginner Build - "Stay Alive"</h3>
                 <div class="difficulty-indicator">
                     <span>Execution Difficulty: 🎮⚪⚪⚪⚪</span>
                     <span>Gear Dependency: 🔧⚪⚪⚪⚪</span>
                 </div>
-                <p>Focus on keeping the team supplied with ammo and basic resources. Perfect for learning the support role.</p>
+                <p>Focus on survivability and basic healing. Perfect for learning the class.</p>
                 <ul class="perk-list">
-                    <li>Coffee Break <span class="perk-tier">T1</span></li>
-                    <li>Side Pockets <span class="perk-tier">T2</span></li>
-                    <li>Third Hand <span class="perk-tier">T3</span></li>
-                    <li>Night Owl <span class="perk-tier">T4</span></li>
-                    <li>Artisan <span class="perk-tier">T5</span></li>
+                    <li>Triage <span class="perk-tier">T1</span></li>
+                    <li>Free Hugs <span class="perk-tier">T2</span></li>
+                    <li>Sugar Coated <span class="perk-tier">T3</span></li>
+                    <li>Secret Ingredient <span class="perk-tier">T4</span></li>
+                    <li>Fighting Fit <span class="perk-tier">T5</span></li>
                 </ul>
                 <div class="tip-box">
-                    <strong>💡 Pro Tip:</strong> Drop supply bags before every defense section. Save equipment charges for emergencies.
+                    <strong>💡 Pro Tip:</strong> This build maximizes team survival. Focus on staying near teammates and healing proactively.
                 </div>
             </div>
             
@@ -843,35 +828,35 @@
                     <span>Execution Difficulty: 🎮🎮⚪⚪⚪</span>
                     <span>Gear Dependency: 🔧🔧⚪⚪⚪</span>
                 </div>
-                <p>Maximum team utility with explosive ammo and masking gas. Essential for higher difficulties.</p>
+                <p>Maximum healing output and team buffs. Ideal for coordinated teams.</p>
                 <ul class="perk-list">
-                    <li>Wheatgrass <span class="perk-tier">T1</span></li>
-                    <li>Explosive Ammo <span class="perk-tier">T2</span></li>
+                    <li>Paramedic <span class="perk-tier">T1</span></li>
+                    <li>Efficiency <span class="perk-tier">T2</span></li>
                     <li>Pickpocket <span class="perk-tier">T3</span></li>
-                    <li>Power Shot <span class="perk-tier">T4</span></li>
-                    <li>Masking Grenades <span class="perk-tier">T5</span></li>
+                    <li>Good Karma <span class="perk-tier">T4</span></li>
+                    <li>Big Pharma <span class="perk-tier">T5</span></li>
                 </ul>
                 <div class="tip-box">
-                    <strong>💡 Pro Tip:</strong> Coordinate explosive ammo timing with your team's DPS. Masking gas saves lives during objectives.
+                    <strong>💡 Pro Tip:</strong> Coordinate with your team. Call out buffs and manage medkit economy carefully.
                 </div>
             </div>
             
             <div id="combat-build" class="build-content">
-                <h3>Combat Support Build - "Armed Support"</h3>
+                <h3>Combat Medic Build - "Battle Angel"</h3>
                 <div class="difficulty-indicator">
                     <span>Execution Difficulty: 🎮🎮🎮🎮⚪</span>
                     <span>Gear Dependency: 🔧🔧🔧⚪⚪</span>
                 </div>
-                <p>Aggressive support style with breaching charges and heavy weapon focus. For experienced players.</p>
+                <p>Aggressive playstyle with self-sustain. For experienced players who can multitask.</p>
                 <ul class="perk-list">
-                    <li>Sapper <span class="perk-tier">T1</span></li>
-                    <li>Explosive Ammo <span class="perk-tier">T2</span></li>
-                    <li>Armory Access <span class="perk-tier">T3</span></li>
-                    <li>This Is My Rifle <span class="perk-tier">T4</span></li>
-                    <li>Shadow <span class="perk-tier">T5</span></li>
+                    <li>SMG Specialist <span class="perk-tier">T1</span></li>
+                    <li>In the Zone <span class="perk-tier">T2</span></li>
+                    <li>Swapping Mags <span class="perk-tier">T3</span></li>
+                    <li>Combat Medic <span class="perk-tier">T4</span></li>
+                    <li>Lobotomy <span class="perk-tier">T5</span></li>
                 </ul>
                 <div class="tip-box">
-                    <strong>💡 Pro Tip:</strong> Use breaching charges offensively on pyramids. Speed boost helps reposition quickly.
+                    <strong>💡 Pro Tip:</strong> Chain kills to reset Stim Pistol. Use SMGs for consistent damage output.
                 </div>
             </div>
         </section>
@@ -881,22 +866,22 @@
             <h2>🤝 Class Synergies</h2>
             <div class="synergy-grid">
                 <div class="synergy-card">
-                    <h3>💥 Fixer + Hellraiser</h3>
-                    <p>The ultimate destruction duo. Fixer provides unlimited explosive ammo while Hellraiser never runs out of C4.</p>
+                    <h3>🔧 Medic + Fixer</h3>
+                    <p>The ultimate support duo. Fixer provides ammo and equipment while Medic handles health.</p>
                     <span class="synergy-rating synergy-excellent">EXCELLENT</span>
-                    <p><strong>Why it works:</strong> Explosive ammo + C4 = maximum crowd clear. Masking gas protects from self-damage.</p>
+                    <p><strong>Why it works:</strong> Never run out of resources. Fixer's masking gas combos with Medic's revive speed.</p>
                 </div>
                 <div class="synergy-card">
-                    <h3>🔫 Fixer + Gunslinger</h3>
-                    <p>Sustained DPS machine. Gunslinger can spray freely with constant ammo supply.</p>
+                    <h3>🗡️ Medic + Slasher</h3>
+                    <p>Slasher tanks damage up close while Medic keeps them alive.</p>
                     <span class="synergy-rating synergy-good">GOOD</span>
-                    <p><strong>Why it works:</strong> Never reload, never stop shooting. Explosive rounds maximize headshot damage.</p>
+                    <p><strong>Why it works:</strong> Slasher's stun grenades buy time for healing. Temp health synergizes with melee.</p>
                 </div>
                 <div class="synergy-card">
-                    <h3>🔥 Fixer + Exterminator</h3>
-                    <p>Area denial experts. Equipment bags restore molotovs for endless fire zones.</p>
-                    <span class="synergy-rating synergy-good">GOOD</span>
-                    <p><strong>Why it works:</strong> Infinite molotovs with equipment restoration. Fire + explosives clear everything.</p>
+                    <h3>💥 Medic + Hellraiser</h3>
+                    <p>Hellraiser clears swarms while Medic prevents explosive self-damage casualties.</p>
+                    <span class="synergy-rating synergy-moderate">MODERATE</span>
+                    <p><strong>Why it works:</strong> Good damage/support balance but both need protection during reloads.</p>
                 </div>
             </div>
         </section>
@@ -905,24 +890,24 @@
         <section class="card">
             <h2>👥 Team Composition Templates</h2>
             <div class="team-comp">
-                <h3>Meta Support Comp</h3>
+                <h3>Meta Balanced Comp</h3>
                 <div class="comp-visual">
-                    🔧 Fixer + 🏥 Medic + 💥 Hellraiser + 🗡️ Slasher
+                    🏥 Medic + 🔧 Fixer + 💥 Hellraiser + 🗡️ Slasher
                 </div>
-                <p><strong>Why it works:</strong> Double support ensures resources and health. Hellraiser clears swarms while Slasher handles close combat.</p>
+                <p><strong>Why it works:</strong> Perfect balance of healing, resources, crowd control, and damage. Handles all situations.</p>
             </div>
             <div class="team-comp">
-                <h3>Explosive Devastation</h3>
+                <h3>Defense Fortress Comp</h3>
                 <div class="comp-visual">
-                    🔧 Fixer + 💥 Hellraiser + 🔥 Exterminator + 🔫 Gunslinger
+                    🏥 Medic + 🛡️ Vanguard + 🔥 Exterminator + 🔧 Fixer
                 </div>
-                <p><strong>Why it works:</strong> Maximum area damage with unlimited ammo. Everything explodes or burns.</p>
+                <p><strong>Why it works:</strong> Maximum survivability for holdout sections. Excellent for Horde mode.</p>
             </div>
         </section>
         
         <!-- Special Zombie Counter Strategies -->
         <section class="card">
-            <h2>🧟 Special Zombie Counter-Strategies (Fixer-Specific)</h2>
+            <h2>🧟 Special Zombie Counter-Strategies (Medic-Specific)</h2>
             
             <div class="special-zombie">
                 <div class="special-header">
@@ -930,14 +915,14 @@
                     <span class="special-name">BULL</span>
                 </div>
                 <div class="counter-strategy">
-                    <h4>Fixer Strategy:</h4>
+                    <h4>Medic Strategy:</h4>
                     <ul>
-                        <li>Drop <strong>explosive ammo bag</strong> before Bull spawns</li>
-                        <li>Place breaching charges <strong>in Bull's path</strong></li>
-                        <li>Masking gas makes team <strong>invisible to charge</strong></li>
-                        <li>Save supply bags for <strong>after charge recovery</strong></li>
+                        <li><strong>Pre-heal teammates</strong> in Bull's path for damage reduction buff</li>
+                        <li>Save Stim Pistol for <strong>instant recovery</strong> after charge</li>
+                        <li>Position yourself <strong>perpendicular</strong> to team - never in line</li>
+                        <li>If teammate is grabbed, <strong>stun grenade</strong> interrupts the slam</li>
                     </ul>
-                    <p><strong>Equipment:</strong> Breaching charges or claymores in charge path</p>
+                    <p><strong>Equipment:</strong> Stun Grenades or Molotovs to stop charges</p>
                 </div>
             </div>
             
@@ -947,14 +932,14 @@
                     <span class="special-name">GASBAG</span>
                 </div>
                 <div class="counter-strategy">
-                    <h4>Fixer Strategy:</h4>
+                    <h4>Medic Strategy:</h4>
                     <ul>
-                        <li><strong>Explosive ammo</strong> pops Gasbag faster</li>
-                        <li>Drop bags <strong>before engagement</strong> for team</li>
-                        <li>Masking gas prevents <strong>gas cloud damage</strong></li>
-                        <li><strong>Maximum range</strong> when team shoots</li>
+                        <li>Maintain <strong>maximum distance</strong> - gas cloud devastates teams</li>
+                        <li>Pre-apply <strong>temp health</strong> before engaging</li>
+                        <li>Have Stim ready for teammates caught in gas</li>
+                        <li><strong>Never melee</strong> - instant gas explosion</li>
                     </ul>
-                    <p><strong>Equipment:</strong> Fire grenades burn gas clouds away</p>
+                    <p><strong>Equipment:</strong> Stay back and use ranged weapons only</p>
                 </div>
             </div>
             
@@ -964,12 +949,12 @@
                     <span class="special-name">LURKER</span>
                 </div>
                 <div class="counter-strategy">
-                    <h4>Fixer Strategy:</h4>
+                    <h4>Medic Strategy:</h4>
                     <ul>
-                        <li>Night Owl perk <strong>sees Lurkers through walls</strong></li>
-                        <li>Drop masking gas for <strong>invisible revives</strong></li>
-                        <li>Equipment bags help team <strong>flush out corners</strong></li>
-                        <li>Explosive ammo <strong>one-shots</strong> on headshot</li>
+                        <li><strong>Listen for growls</strong> - audio cue before pounce</li>
+                        <li>Travel in <strong>buddy system</strong> - immediate rescue possible</li>
+                        <li>Masking gas makes you <strong>invisible during revives</strong></li>
+                        <li>Stim Pistol can <strong>headshot Lurkers</strong> with Lobotomy perk</li>
                     </ul>
                     <p><strong>Equipment:</strong> Flashbangs reveal hiding spots</p>
                 </div>
@@ -981,14 +966,14 @@
                     <span class="special-name">SCREAMER</span>
                 </div>
                 <div class="counter-strategy">
-                    <h4>Fixer Strategy:</h4>
+                    <h4>Medic Strategy:</h4>
                     <ul>
-                        <li><strong>Silenced weapons mandatory</strong> for Fixer</li>
-                        <li>Breaching charge can <strong>silent kill</strong> if placed right</li>
-                        <li>Drop bags <strong>after scream</strong> for swarm fight</li>
-                        <li>Masking gas helps team <strong>escape swarm</strong></li>
+                        <li><strong>Priority target #1</strong> - scream triggers swarm</li>
+                        <li>Use Stim Pistol for <strong>silent ranged kills</strong></li>
+                        <li>Always carry <strong>silenced weapon</strong> as Medic</li>
+                        <li>If scream starts, immediately prep <strong>AoE healing</strong></li>
                     </ul>
-                    <p><strong>Equipment:</strong> Taser for silent kills</p>
+                    <p><strong>Equipment:</strong> Silenced weapons mandatory</p>
                 </div>
             </div>
         </section>
@@ -1006,44 +991,44 @@
             <div id="swarm-situation" class="situation-content active">
                 <h4>Swarm Defense Priorities:</h4>
                 <ol>
-                    <li>Drop <strong>explosive ammo bag</strong> at defensive position</li>
-                    <li>Place equipment at <strong>choke points</strong></li>
-                    <li>Save one bag for <strong>mid-swarm emergency</strong></li>
-                    <li>Use masking gas if <strong>position overrun</strong></li>
-                    <li>Prioritize <strong>heavy weapon ammo</strong> users</li>
+                    <li>Set up near <strong>ammo box</strong> but not blocking it</li>
+                    <li>Pre-heal team for <strong>damage resistance</strong></li>
+                    <li>Save medkits for <strong>mid-swarm emergencies</strong></li>
+                    <li>Use Stim on <strong>pyramid climbers</strong></li>
+                    <li>Focus fire on <strong>special zombies</strong> first</li>
                 </ol>
             </div>
             
             <div id="running-situation" class="situation-content">
                 <h4>Running Section Priorities:</h4>
                 <ol>
-                    <li>Drop bags at <strong>checkpoint starts</strong></li>
-                    <li>Save masking gas for <strong>objective interactions</strong></li>
-                    <li>Use Shadow perk for <strong>speed boost</strong></li>
-                    <li>Clear path with <strong>breaching charges</strong></li>
-                    <li>Equipment at <strong>bottlenecks</strong></li>
+                    <li>Stay in <strong>middle of group</strong> - not front or back</li>
+                    <li>Heal while moving with <strong>Stim Pistol</strong></li>
+                    <li>Drop medkits for <strong>slower teammates</strong></li>
+                    <li>Save equipment for <strong>checkpoint defense</strong></li>
+                    <li>Call out <strong>special spawns</strong> immediately</li>
                 </ol>
             </div>
             
             <div id="boss-situation" class="situation-content">
                 <h4>Boss Fight Priorities:</h4>
                 <ol>
-                    <li>Ensure team has <strong>explosive ammo</strong> for damage phases</li>
-                    <li>Save bags for <strong>add waves</strong></li>
-                    <li>Masking gas for <strong>revive windows</strong></li>
-                    <li>Heavy weapon ammo <strong>priority to DPS</strong></li>
-                    <li>Equipment for <strong>crowd control</strong></li>
+                    <li>Designate <strong>tank player</strong> to heal priority</li>
+                    <li>Manage <strong>medkit economy</strong> for phases</li>
+                    <li>Use Stim for <strong>burst damage phases</strong></li>
+                    <li>Position for <strong>quick revives</strong></li>
+                    <li>Save masking gas for <strong>critical revives</strong></li>
                 </ol>
             </div>
             
             <div id="escort-situation" class="situation-content">
                 <h4>Escort Mission Priorities:</h4>
                 <ol>
-                    <li>Drop bags at <strong>each stop point</strong></li>
-                    <li>Masking gas for <strong>objective pusher</strong></li>
-                    <li>Equipment creates <strong>safe zones</strong></li>
-                    <li>Explosive ammo for <strong>path clearing</strong></li>
-                    <li>Save resources for <strong>final push</strong></li>
+                    <li>One player <strong>pushes</strong>, Medic supports</li>
+                    <li>Rotate <strong>temp health</strong> on pusher</li>
+                    <li>Clear path with <strong>equipment</strong></li>
+                    <li>Stim Pistol for <strong>emergency saves</strong></li>
+                    <li>Maintain <strong>defensive perimeter</strong></li>
                 </ol>
             </div>
         </section>
@@ -1052,24 +1037,24 @@
         <section class="card">
             <h2>📋 Quick Reference</h2>
             <div class="quick-ref-card">
-                <h3>💼 Supply Bag Priority Order</h3>
+                <h3>💊 Medkit Priority Order</h3>
                 <ol>
-                    <li><strong>Heavy weapon users</strong> - Maximum damage output</li>
-                    <li><strong>Hellraiser/Exterminator</strong> - Explosive classes</li>
-                    <li><strong>Gunslinger</strong> - High ammo consumption</li>
-                    <li><strong>Medic/Support</strong> - Sustained fire needed</li>
-                    <li><strong>Melee classes</strong> - Lower priority</li>
+                    <li><strong>Pinned player</strong> - Immediate danger</li>
+                    <li><strong>Last stand player</strong> - 5 second window</li>
+                    <li><strong>Low health DPS</strong> - Keeps damage output high</li>
+                    <li><strong>Low health tank</strong> - Maintains frontline</li>
+                    <li><strong>Self (if under 50%)</strong> - Can't heal if dead</li>
                 </ol>
             </div>
             
             <div class="quick-ref-card">
-                <h3>⏱️ Ability Timing Guide</h3>
+                <h3>⏱️ Stim Pistol Best Uses</h3>
                 <ul>
-                    <li><strong>Pre-swarm:</strong> Drop explosive ammo bag</li>
-                    <li><strong>Defense start:</strong> Place all equipment</li>
-                    <li><strong>Mid-fight:</strong> Second bag if needed</li>
-                    <li><strong>Emergency:</strong> Masking gas for escape</li>
-                    <li><strong>Post-fight:</strong> Resupply heavy weapons</li>
+                    <li><strong>Pre-swarm:</strong> Apply damage resistance</li>
+                    <li><strong>Mid-combat:</strong> Save grabbed teammates</li>
+                    <li><strong>Clutch revive:</strong> Instant health after pickup</li>
+                    <li><strong>Retreat:</strong> Boost runner's speed</li>
+                    <li><strong>Pyramid climber:</strong> Prevent wipe</li>
                 </ul>
             </div>
         </section>
@@ -1079,22 +1064,22 @@
             <h2>🎯 Loadout Quick Picks</h2>
             <div class="loadout-grid">
                 <div class="loadout-card">
-                    <h4>🎯 Balanced</h4>
-                    <p>Assault Carbine + Compact SMG</p>
-                    <small>Versatile range coverage</small>
+                    <h4>🎯 Versatile</h4>
+                    <p>Carbine + Compact SMG</p>
+                    <small>Good range coverage</small>
                 </div>
                 <div class="loadout-card">
-                    <h4>💥 Explosive</h4>
-                    <p>Assault Shotgun + Grenade Launcher</p>
-                    <small>Maximum crowd clear</small>
+                    <h4>🛡️ Defensive</h4>
+                    <p>Shotgun + Machine Pistol</p>
+                    <small>Close-range protection</small>
                 </div>
                 <div class="loadout-card">
-                    <h4>🔫 Support Fire</h4>
-                    <p>LMG + Machine Pistol</p>
-                    <small>Suppressive fire</small>
+                    <h4>⚡ Aggressive</h4>
+                    <p>SMG + SMG</p>
+                    <small>Maximum fire rate</small>
                 </div>
                 <div class="loadout-card">
-                    <h4>🎯 Precision</h4>
+                    <h4>🎯 Precise</h4>
                     <p>Battle Rifle + Pistol</p>
                     <small>Ammo efficient</small>
                 </div>
@@ -1104,59 +1089,59 @@
         <!-- Common Mistakes -->
         <section class="card">
             <div class="warning-box">
-                <h3>⚠️ Common Fixer Mistakes to Avoid</h3>
+                <h3>⚠️ Common Medic Mistakes to Avoid</h3>
                 <ul>
-                    <li><strong>Hoarding bags:</strong> Use them proactively, not reactively</li>
-                    <li><strong>Poor timing:</strong> Dropping bags during combat instead of before</li>
-                    <li><strong>Ignoring heavy weapons:</strong> They need your ammo most</li>
-                    <li><strong>Wasting masking gas:</strong> Save for objectives and emergencies</li>
-                    <li><strong>Solo play:</strong> Not coordinating explosive ammo timing</li>
-                    <li><strong>Bad positioning:</strong> Bags in unsafe or hard-to-reach spots</li>
+                    <li><strong>Overhealing:</strong> Wasting medkits on 90% health teammates</li>
+                    <li><strong>Hoarding Stim:</strong> Not using it proactively (it's on cooldown, use it!)</li>
+                    <li><strong>Bad positioning:</strong> Too far back to reach pinned teammates</li>
+                    <li><strong>Ignoring masking gas:</strong> Not using it for dangerous revives</li>
+                    <li><strong>Tunnel vision:</strong> Focusing only on healing, not killing zombies</li>
+                    <li><strong>Poor economy:</strong> Using medkits when natural healing would work</li>
                 </ul>
             </div>
         </section>
         
         <!-- Prestige Information -->
         <section class="prestige-info">
-            <h3>⭐ Prestige System & Rewards</h3>
-            <p>After reaching max level (30), you can prestige to unlock powerful new perks and cosmetics:</p>
+            <h3>⭐ Prestige System</h3>
+            <p>After reaching max level (30), you can prestige to unlock exclusive rewards:</p>
             <div class="prestige-grid">
                 <div class="prestige-level">
                     <strong>Prestige 1</strong>
-                    <p>Ammo perks + Blue skin</p>
+                    <p>Blue weapon skin</p>
                 </div>
                 <div class="prestige-level">
                     <strong>Prestige 2</strong>
-                    <p>Scavenger perks + Outfit</p>
+                    <p>Character outfit</p>
                 </div>
                 <div class="prestige-level">
                     <strong>Prestige 3</strong>
-                    <p>Heavy weapon perks + Gold skin</p>
+                    <p>Gold weapon skin</p>
                 </div>
                 <div class="prestige-level">
                     <strong>Prestige 4</strong>
-                    <p>Duration perks + Emblem</p>
+                    <p>Unique emblem</p>
                 </div>
                 <div class="prestige-level">
                     <strong>Prestige 5</strong>
-                    <p>Master Fixer + Red skin</p>
+                    <p>Red weapon skin</p>
                 </div>
             </div>
-            <p><strong>Note:</strong> Each prestige adds 15 powerful perks to choose from, making you significantly stronger!</p>
+            <p><strong>Note:</strong> Prestiging resets your level but keeps your unlocked perks. Each prestige gives permanent XP bonuses!</p>
         </section>
         
         <!-- Tips for New Players -->
         <section class="card">
-            <h2>🌟 Tips for New Fixer Players</h2>
+            <h2>🌟 Tips for New Medics</h2>
             <div class="tip-box">
                 <ol>
-                    <li><strong>Learn spawn timings</strong> - Drop bags before fights, not during</li>
-                    <li><strong>Communicate constantly</strong> - Tell team when explosive ammo is active</li>
-                    <li><strong>Position bags safely</strong> - Near cover but accessible</li>
-                    <li><strong>Watch ammo counts</strong> - Know who needs resupply</li>
-                    <li><strong>Master masking gas</strong> - Practice timing for objectives</li>
-                    <li><strong>Coordinate with Medic</strong> - You two are the support backbone</li>
-                    <li><strong>Don't forget equipment</strong> - It's not just about ammo bags</li>
+                    <li><strong>Start with Normal difficulty</strong> - Learn healing timing without pressure</li>
+                    <li><strong>Follow the tank</strong> - They know where danger comes from</li>
+                    <li><strong>Communicate constantly</strong> - Call out your cooldowns</li>
+                    <li><strong>Watch the kill feed</strong> - Tells you who needs help</li>
+                    <li><strong>Learn audio cues</strong> - Each special has unique sounds</li>
+                    <li><strong>Practice aim with Stim</strong> - It has travel time</li>
+                    <li><strong>Don't chase kills</strong> - Your job is keeping everyone up</li>
                 </ol>
             </div>
         </section>
@@ -1164,9 +1149,9 @@
     
     <!-- Lesson Navigation -->
     <nav class="lesson-nav" aria-label="Class Navigation">
-        <a href="class_medic.html">← Medic</a>
+        <a href="classes_overview.html">← Classes Overview</a>
         <a href="index.html">🏠 Home</a>
-        <a href="class_gunslinger.html">Next: Gunslinger →</a>
+        <a href="class_fixer.html">Next: Fixer →</a>
     </nav>
     
     <!-- Footer -->

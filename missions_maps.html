@@ -1,87 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Missions & Maps — WWZ: Aftermath</title>
-  <link rel="icon" href="/favicon.png" />
-  <link rel="stylesheet" href="/styles/main.css" />
-  
-  <script type="module">
-    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
-    mermaid.initialize({ startOnLoad: true });
-  </script>
-
-  <style>
-    .card { border: 1px solid #ddd; padding: 1rem; border-radius: 12px; margin: 1rem 0; }
-    .grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
-    .small { font-size: 0.9rem; }
-    .tip { background: #f6fff6; border-left: 4px solid #3aa655; padding: 0.5rem 0.75rem; border-radius: 8px; }
-    .warn { background: #fff7f7; border-left: 4px solid #c0392b; padding: 0.5rem 0.75rem; border-radius: 8px; }
-    table { width: 100%; border-collapse: collapse; }
-    th, td { border-bottom: 1px solid #eee; padding: 0.5rem; text-align: left; }
-    @media print {
-      nav, .no-print { display: none; }
-      body { font-size: 12pt; }
-      .card { border: 1px solid #000; }
-    }
-    svg { max-width: 100%; height: auto; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Missions & Maps — WWZ: Aftermath - Comprehensive guide for World War Z: Aftermath">
+    <meta name="keywords" content="World War Z, Aftermath, zombie, guide, missions, maps">
+    <meta name="author" content="WWZ Guide Team">
+    <title>Missions & Maps — WWZ: Aftermath</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="styles/main.css">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: 'default'
+        });
+    </script>
 </head>
-
 <body>
-  <header>
-    <h1>Missions &amp; Maps</h1>
-    <p>Spoiler-light route habits and map-agnostic advice for brand-new players.</p>
-    <nav><a href="index.html">&larr; Home</a></nav>
-  </header>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    
+    <!-- Progress indicator -->
+    <div class="progress-indicator" role="progressbar" aria-label="Page scroll progress">
+        <div class="progress-bar"></div>
+    </div>
+    
 
-  <section class="card">
-    <h2>Universal mission habits</h2>
-    <ul>
-      <li><strong>Noise discipline:</strong> Silence first wave with suppressed shots; alarms wake the neighborhood.</li>
-      <li><strong>Loot phase:</strong> Clear room → <em>then</em> loot. Don’t split.</li>
-      <li><strong>Hold prep:</strong> Barbed wire at chokepoints, voltage on breach lanes, turret covering flanks.</li>
-      <li><strong>Specials callouts:</strong> Use ping + a single word: <em>“Bull left!” “Gas mid!”</em></li>
-    </ul>
-  </section>
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">⚔️ WWZ: Aftermath Guide</a>
+            <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-expanded="false">☰</button>
+            <div class="nav-links" id="nav-links">
+                <a href="index.html">Home</a>
+                <a href="beginner_guide.html">Beginner Guide</a>
+                <div class="dropdown">
+                    <a href="classes_overview.html" class="dropdown-toggle">Classes ▼</a>
+                    <div class="dropdown-content">
+                        <a href="classes_overview.html">Overview</a>
+                        <a href="class_medic.html">Medic</a>
+                        <a href="class_fixer.html">Fixer</a>
+                        <a href="class_gunslinger.html">Gunslinger</a>
+                        <a href="class_exterminator.html">Exterminator</a>
+                        <a href="class_slasher.html">Slasher</a>
+                        <a href="class_hellraiser.html">Hellraiser</a>
+                        <a href="class_dronemaster.html">Dronemaster</a>
+                        <a href="class_vanguard.html">Vanguard</a>
+                    </div>
+                </div>
+                <a href="weapons_upgrades.html">Weapons</a>
+                <a href="currencies_progression.html">Progression</a>
+                <a href="horde_endgame.html">Endgame</a>
+                <button id="theme-toggle" aria-label="Toggle theme">🌙</button>
+            </div>
+        </div>
+    </nav>
+    
 
-  <section class="card">
-    <h2>Map-agnostic choke blueprint</h2>
-    <div class="mermaid">
+    <!-- Breadcrumb Navigation -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li aria-current="page">Missions Maps</li>
+        </ul>
+    </nav>
+    
+    <!-- Main Content -->
+    <main id="main-content">
+        <header>
+<h1>Missions &amp; Maps</h1>
+<p>Spoiler-light route habits and map-agnostic advice for brand-new players.</p>
+
+</header><section class="card">
+<h2>Universal mission habits</h2>
+<ul>
+<li><strong>Noise discipline:</strong> Silence first wave with suppressed shots; alarms wake the neighborhood.</li>
+<li><strong>Loot phase:</strong> Clear room → <em>then</em> loot. Don’t split.</li>
+<li><strong>Hold prep:</strong> Barbed wire at chokepoints, voltage on breach lanes, turret covering flanks.</li>
+<li><strong>Specials callouts:</strong> Use ping + a single word: <em>“Bull left!” “Gas mid!”</em></li>
+</ul>
+</section><section class="card">
+<h2>Map-agnostic choke blueprint</h2>
+<div class="mermaid">
       flowchart LR
-        Choke[Pick a choke] --> Wire[Barbed wire first]
-        Wire --> Grid[Voltage on breach lane]
-        Grid --> Turret[Turret covering side approach]
-        Turret --> Lines[Establish firing lines]
-        Lines --> Assign[Assign lanes &amp; a floater]
+        Choke[Pick a choke] --&gt; Wire[Barbed wire first]
+        Wire --&gt; Grid[Voltage on breach lane]
+        Grid --&gt; Turret[Turret covering side approach]
+        Turret --&gt; Lines[Establish firing lines]
+        Lines --&gt; Assign[Assign lanes &amp; a floater]
     </div>
-  </section>
-
-  <section class="card">
-    <h2>Simple route diagram</h2>
-    <p class="small">Use this mental model on any level: safe nodes (S), hold points (H), and transitions (T).</p>
-    <div class="mermaid">
+</section><section class="card">
+<h2>Simple route diagram</h2>
+<p class="small">Use this mental model on any level: safe nodes (S), hold points (H), and transitions (T).</p>
+<div class="mermaid">
       graph TD
-        S1((S1)) --> T1[Tunnel/Street]
-        T1 --> S2((S2))
-        S2 --> H1{H1: Hold}
-        H1 --> T2[Alley/Bridge]
-        T2 --> S3((S3))
-        S3 --> H2{H2: Finale Hold}
+        S1((S1)) --&gt; T1[Tunnel/Street]
+        T1 --&gt; S2((S2))
+        S2 --&gt; H1{H1: Hold}
+        H1 --&gt; T2[Alley/Bridge]
+        T2 --&gt; S3((S3))
+        S3 --&gt; H2{H2: Finale Hold}
     </div>
-  </section>
-
-  <section class="card">
-    <h2>Stealth openers</h2>
-    <ul>
-      <li>Two players focus left/right sleepers; two watch for patrollers.</li>
-      <li>Avoid chain alarms; if one triggers, <em>commit</em> to clearing then re-enter stealth later.</li>
-    </ul>
-  </section>
-
-  <footer class="small">
-    <p>Exact routes vary by episode; this page teaches transferable habits without revealing story beats.</p>
-  </footer>
+</section><section class="card">
+<h2>Stealth openers</h2>
+<ul>
+<li>Two players focus left/right sleepers; two watch for patrollers.</li>
+<li>Avoid chain alarms; if one triggers, <em>commit</em> to clearing then re-enter stealth later.</li>
+</ul>
+</section><footer class="small">
+<p>Exact routes vary by episode; this page teaches transferable habits without revealing story beats.</p>
+</footer>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <p>&copy; 2024 WWZ: Aftermath Guide. Unofficial fan resource.</p>
+            <p><small>Use alongside in-game tutorials | <a href="printables.html">Print Cheatsheets</a> | Press ? for shortcuts</small></p>
+        </div>
+    </footer>
+    
+    <!-- JavaScript -->
+    <script src="js/clipboard.js"></script>
+    <script src="js/course-enhancements.js"></script>
 </body>
 </html>

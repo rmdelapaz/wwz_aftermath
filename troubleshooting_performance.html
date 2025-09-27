@@ -1,75 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Troubleshooting & Performance — WWZ: Aftermath</title>
-  <link rel="icon" href="/favicon.png" />
-  <link rel="stylesheet" href="/styles/main.css" />
-  
-  <script type="module">
-    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
-    mermaid.initialize({ startOnLoad: true });
-  </script>
-
-  <style>
-    .card { border: 1px solid #ddd; padding: 1rem; border-radius: 12px; margin: 1rem 0; }
-    .grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
-    .small { font-size: 0.9rem; }
-    .tip { background: #f6fff6; border-left: 4px solid #3aa655; padding: 0.5rem 0.75rem; border-radius: 8px; }
-    .warn { background: #fff7f7; border-left: 4px solid #c0392b; padding: 0.5rem 0.75rem; border-radius: 8px; }
-    table { width: 100%; border-collapse: collapse; }
-    th, td { border-bottom: 1px solid #eee; padding: 0.5rem; text-align: left; }
-    @media print {
-      nav, .no-print { display: none; }
-      body { font-size: 12pt; }
-      .card { border: 1px solid #000; }
-    }
-    svg { max-width: 100%; height: auto; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Troubleshooting & Performance — WWZ: Aftermath - Comprehensive guide for World War Z: Aftermath">
+    <meta name="keywords" content="World War Z, Aftermath, zombie, guide, troubleshooting, performance">
+    <meta name="author" content="WWZ Guide Team">
+    <title>Troubleshooting & Performance — WWZ: Aftermath</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="styles/main.css">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: 'default'
+        });
+    </script>
 </head>
-
 <body>
-  <header>
-    <h1>Troubleshooting &amp; Performance</h1>
-    <p>Quick fixes for common issues on PC and console, with beginner-friendly advice.</p>
-    <nav><a href="index.html">&larr; Home</a></nav>
-  </header>
-
-  <section class="card">
-    <h2>PC performance checklist</h2>
-    <ul>
-      <li><strong>GPU drivers:</strong> Update to a stable version; avoid day-one betas for new AAA launches.</li>
-      <li><strong>V-Sync/FPS cap:</strong> Cap just below monitor refresh for smoother frametimes.</li>
-      <li><strong>Upscaling:</strong> Use FSR/DLSS if available; prefer “Quality” for clarity while learning.</li>
-      <li><strong>CPU bound?</strong> Lower shadows, view distance, and crowd density first.</li>
-    </ul>
-  </section>
-
-  <section class="card">
-    <h2>Controller issues</h2>
-    <ul>
-      <li><strong>Dead zones:</strong> Increase slightly if drift; reduce for more precise aim once stable.</li>
-      <li><strong>Latency:</strong> Prefer wired or low-latency dongles; disable background Bluetooth devices.</li>
-      <li><strong>Steam Input conflicts:</strong> On PC, test with Steam Input off if double inputs occur.</li>
-    </ul>
-  </section>
-
-  <section class="card">
-    <h2>Common crashes & stutters</h2>
-    <div class="mermaid">
-      flowchart TD
-        Start[Start] --> Verify[Verify game files]
-        Verify --> Drivers[Update GPU drivers]
-        Drivers --> Background[Close overlays]
-        Background --> Settings[Lower crowd & shadows]
-        Settings --> Disk[Move to SSD]
-        Disk --> Done[Retest]
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    
+    <!-- Progress indicator -->
+    <div class="progress-indicator" role="progressbar" aria-label="Page scroll progress">
+        <div class="progress-bar"></div>
     </div>
-  </section>
+    
 
-  <footer class="small">
-    <p>Console players: power-cycle and clear cache between long sessions if stutters build up.</p>
-  </footer>
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">⚔️ WWZ: Aftermath Guide</a>
+            <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-expanded="false">☰</button>
+            <div class="nav-links" id="nav-links">
+                <a href="index.html">Home</a>
+                <a href="beginner_guide.html">Beginner Guide</a>
+                <div class="dropdown">
+                    <a href="classes_overview.html" class="dropdown-toggle">Classes ▼</a>
+                    <div class="dropdown-content">
+                        <a href="classes_overview.html">Overview</a>
+                        <a href="class_medic.html">Medic</a>
+                        <a href="class_fixer.html">Fixer</a>
+                        <a href="class_gunslinger.html">Gunslinger</a>
+                        <a href="class_exterminator.html">Exterminator</a>
+                        <a href="class_slasher.html">Slasher</a>
+                        <a href="class_hellraiser.html">Hellraiser</a>
+                        <a href="class_dronemaster.html">Dronemaster</a>
+                        <a href="class_vanguard.html">Vanguard</a>
+                    </div>
+                </div>
+                <a href="weapons_upgrades.html">Weapons</a>
+                <a href="currencies_progression.html">Progression</a>
+                <a href="horde_endgame.html">Endgame</a>
+                <button id="theme-toggle" aria-label="Toggle theme">🌙</button>
+            </div>
+        </div>
+    </nav>
+    
+
+    <!-- Breadcrumb Navigation -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li aria-current="page">Troubleshooting Performance</li>
+        </ul>
+    </nav>
+    
+    <!-- Main Content -->
+    <main id="main-content">
+        <header>
+<h1>Troubleshooting &amp; Performance</h1>
+<p>Quick fixes for common issues on PC and console, with beginner-friendly advice.</p>
+
+</header><section class="card">
+<h2>PC performance checklist</h2>
+<ul>
+<li><strong>GPU drivers:</strong> Update to a stable version; avoid day-one betas for new AAA launches.</li>
+<li><strong>V-Sync/FPS cap:</strong> Cap just below monitor refresh for smoother frametimes.</li>
+<li><strong>Upscaling:</strong> Use FSR/DLSS if available; prefer “Quality” for clarity while learning.</li>
+<li><strong>CPU bound?</strong> Lower shadows, view distance, and crowd density first.</li>
+</ul>
+</section><section class="card">
+<h2>Controller issues</h2>
+<ul>
+<li><strong>Dead zones:</strong> Increase slightly if drift; reduce for more precise aim once stable.</li>
+<li><strong>Latency:</strong> Prefer wired or low-latency dongles; disable background Bluetooth devices.</li>
+<li><strong>Steam Input conflicts:</strong> On PC, test with Steam Input off if double inputs occur.</li>
+</ul>
+</section><section class="card">
+<h2>Common crashes &amp; stutters</h2>
+<div class="mermaid">
+      flowchart TD
+        Start[Start] --&gt; Verify[Verify game files]
+        Verify --&gt; Drivers[Update GPU drivers]
+        Drivers --&gt; Background[Close overlays]
+        Background --&gt; Settings[Lower crowd &amp; shadows]
+        Settings --&gt; Disk[Move to SSD]
+        Disk --&gt; Done[Retest]
+    </div>
+</section><footer class="small">
+<p>Console players: power-cycle and clear cache between long sessions if stutters build up.</p>
+</footer>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <p>&copy; 2024 WWZ: Aftermath Guide. Unofficial fan resource.</p>
+            <p><small>Use alongside in-game tutorials | <a href="printables.html">Print Cheatsheets</a> | Press ? for shortcuts</small></p>
+        </div>
+    </footer>
+    
+    <!-- JavaScript -->
+    <script src="js/clipboard.js"></script>
+    <script src="js/course-enhancements.js"></script>
 </body>
 </html>

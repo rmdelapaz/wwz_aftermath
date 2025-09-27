@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Classes &amp; Builds Hub — WWZ: Aftermath</title>
+  <link rel="icon" href="/favicon.png" />
+  <link rel="stylesheet" href="/styles/main.css" />
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true });
+  </script>
+  <style>
+    .card { border: 1px solid #ddd; padding: 1rem; border-radius: 12px; margin: 1rem 0; }
+    .grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+    .small { font-size: 0.9rem; }
+    .role { font-weight: bold; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Classes &amp; Builds Hub</h1>
+    <p>Spoiler-light summaries for brand-new players. Full perk pages linked below.</p>
+    <nav><a href="index.html">&larr; Back to Start</a></nav>
+  </header>
+
+  <section class="card">
+    <h2>Quick role matrix</h2>
+    <div class="mermaid">
+      graph TB
+        Team[Team Needs] --> Heal[Heals/Revives]
+        Team --> Ammo[Ammo/Utility]
+        Team --> DPS[DPS]
+        Team --> CC[Crowd Control]
+        Team --> Front[Frontline]
+        Heal --- Medic
+        Ammo --- Fixer
+        DPS --- Gunslinger
+        DPS --- Hellraiser
+        CC --- Exterminator
+        CC --- Slasher
+        Ammo --- Dronemaster
+        Front --- Vanguard
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Class snapshots</h2>
+    <div class="grid">
+      <div>
+        <h3>Medic</h3>
+        <p><span class="role">Role:</span> Healer/support. Keep the team alive and moving.</p>
+        <p><span class="role">Why pick:</span> Easiest safety net for new squads.</p>
+        <p class="small"><a href="class_medic.html">Open Medic perks &amp; starter build</a></p>
+      </div>
+      <div>
+        <h3>Fixer</h3>
+        <p><span class="role">Role:</span> Ammo &amp; utility. Supply bags, team sustain.</p>
+        <p><span class="role">Why pick:</span> Smooths ammo economy; great for learning.</p>
+        <p class="small"><a href="class_fixer.html">Open Fixer perks &amp; starter build</a></p>
+      </div>
+      <div>
+        <h3>Gunslinger</h3>
+        <p><span class="role">Role:</span> Straightforward ranged DPS.</p>
+        <p><span class="role">Why pick:</span> Simple and effective gunplay to learn core combat.</p>
+        <p class="small"><a href="class_gunslinger.html">Open Gunslinger perks &amp; starter build</a></p>
+      </div>
+      <div>
+        <h3>Exterminator</h3>
+        <p><span class="role">Role:</span> Fire &amp; add-clear (Molotovs).</p>
+        <p><span class="role">Why pick:</span> Excellent horde control for beginners.</p>
+        <p class="small"><a href="class_exterminator.html">Open Exterminator perks &amp; starter build</a></p>
+      </div>
+      <div>
+        <h3>Slasher</h3>
+        <p><span class="role">Role:</span> Melee control &amp; stuns.</p>
+        <p><span class="role">Why pick:</span> Crowd control with forgiving ammo demands.</p>
+        <p class="small"><a href="class_slasher.html">Open Slasher perks &amp; starter build</a></p>
+      </div>
+      <div>
+        <h3>Hellraiser</h3>
+        <p><span class="role">Role:</span> Explosives/DPS.</p>
+        <p><span class="role">Why pick:</span> Clears clustered swarms quickly.</p>
+        <p class="small"><a href="class_hellraiser.html">Open Hellraiser perks &amp; starter build</a></p>
+      </div>
+      <div>
+        <h3>Dronemaster</h3>
+        <p><span class="role">Role:</span> Drone utility &amp; control.</p>
+        <p><span class="role">Why pick:</span> Flexible support with gadget play.</p>
+        <p class="small"><a href="class_dronemaster.html">Open Dronemaster perks &amp; starter build</a></p>
+      </div>
+      <div>
+        <h3>Vanguard</h3>
+        <p><span class="role">Role:</span> Shielded frontline.</p>
+        <p><span class="role">Why pick:</span> Stabilizes chokepoints for new teams.</p>
+        <p class="small"><a href="class_vanguard.html">Open Vanguard perks &amp; starter build</a></p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="small">
+    <p>Next: individual class pages with perk-by-perk breakdowns and a simple recommended starter build for each.</p>
+  </footer>
+</body>
+</html>
