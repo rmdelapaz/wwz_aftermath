@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Beginner Guide — World War Z: Aftermath</title>
+  <link rel="icon" href="/favicon.png" />
+  <link rel="stylesheet" href="/styles/main.css" />
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true });
+  </script>
+  <style>
+    .card { border: 1px solid #ddd; padding: 1rem; border-radius: 12px; margin: 1rem 0; }
+    .grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+    .tip { background: #f6fff6; border-left: 4px solid #3aa655; padding: 0.5rem 0.75rem; border-radius: 8px; }
+    .warn { background: #fff7f7; border-left: 4px solid #c0392b; padding: 0.5rem 0.75rem; border-radius: 8px; }
+    .small { font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Beginner Guide</h1>
+    <p>Spoiler-light. Designed for brand-new players.</p>
+    <nav><a href="index.html">&larr; Back to Start</a></nav>
+  </header>
+
+  <section class="card">
+    <h2>First 30 minutes</h2>
+    <ol>
+      <li>Open <a href="controls_xbox_pc.html">Controls</a> and pick a layout.</li>
+      <li>Play the tutorial or any Normal mission. Focus on movement, ADS, reload timing, and pings.</li>
+      <li>Pick a starter class: <strong>Medic</strong> (for safety) or <strong>Gunslinger</strong> (for simplicity). See <a href="classes_overview.html">Classes</a>.</li>
+    </ol>
+  </section>
+
+  <section class="card">
+    <h2>Core survival habits</h2>
+    <div class="grid">
+      <div>
+        <h3>Move together</h3>
+        <p>Stay within a few meters. Lone players trigger specials and split spawns.</p>
+      </div>
+      <div>
+        <h3>Ping everything</h3>
+        <p>Use D-Pad Up / Middle Mouse to mark specials, kits, and ammo. It saves lives.</p>
+      </div>
+      <div>
+        <h3>Quiet is power</h3>
+        <p>Silenced headshots > alarms. Only open crates after the area is clear.</p>
+      </div>
+      <div>
+        <h3>Revive order</h3>
+        <p>Stabilize the fight (stun/molotov) → revive your support (Medic/Fixer) → then DPS.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Economy basics</h2>
+    <p class="small">Yellow = Supplies; Blue = Challenge Coins. See <a href="currencies_progression.html">Currencies &amp; Progression</a> for details.</p>
+    <ul>
+      <li><strong>Supplies</strong>: common currency for unlocking weapons/perks and used in Horde purchases.</li>
+      <li><strong>Challenge Coins</strong>: rarer currency tied to challenges/higher difficulty and cosmetics/unique items.</li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2>Swarm setup — simple plan</h2>
+    <div class="mermaid">
+      flowchart TD
+        S[Scout area] --> D[Defenses down]
+        D --> A[Ammo box placed]
+        A --> L[Lines of fire clear]
+        L --> C[Callout roles]
+        C --> GO[Begin wave]
+    </div>
+    <ul>
+      <li>Place barbed wire at choke points, then turrets covering flanks, then voltage grids on breach lanes.</li>
+      <li>Agree on roles: frontliner, left flank, right flank, and add-control.</li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2>Gentle settings for new players</h2>
+    <ul>
+      <li>Set FOV to a comfortable middle value; increase later for situational awareness.</li>
+      <li>Start with low look sensitivity; raise until you can track a rushing zeke smoothly.</li>
+      <li>Enable subtitles and color-blind mode if needed.</li>
+    </ul>
+  </section>
+
+  <footer class="small">
+    <p>Unofficial fan guide. Currency names and class roles summarized for onboarding.</p>
+  </footer>
+</body>
+</html>

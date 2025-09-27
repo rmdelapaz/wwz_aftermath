@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Currencies &amp; Progression — WWZ: Aftermath</title>
+  <link rel="icon" href="/favicon.png" />
+  <link rel="stylesheet" href="/styles/main.css" />
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true });
+  </script>
+  <style>
+    .card { border: 1px solid #ddd; padding: 1rem; border-radius: 12px; margin: 1rem 0; }
+    .grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+    .small { font-size: 0.9rem; }
+    .tip { background: #f6fff6; border-left: 4px solid #3aa655; padding: 0.5rem 0.75rem; border-radius: 8px; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Currencies &amp; Progression</h1>
+    <p>Clear names, what they buy, and beginner-friendly farming ideas.</p>
+    <nav><a href="index.html">&larr; Back to Start</a></nav>
+  </header>
+
+  <section class="card">
+    <h2>What each currency does</h2>
+    <div class="grid">
+      <div>
+        <h3>Supplies <span class="small">(yellow)</span></h3>
+        <ul>
+          <li>Common currency used for most unlocks: weapon upgrades and many perks.</li>
+          <li>Earned from missions and Horde Mode; used for buying defenses in Horde.</li>
+        </ul>
+        <p class="small">See: community wiki entries on <em>Supplies</em> and <em>Weapons</em>.</p>
+      </div>
+      <div>
+        <h3>Challenge Coins <span class="small">(blue)</span></h3>
+        <ul>
+          <li>Rarer currency for unique weapons/cosmetics and certain unlocks.</li>
+          <li>Primarily from Daily/Weekly Challenges and higher-difficulty clears.</li>
+        </ul>
+        <p class="small">See: community wiki entry on <em>Challenge Coins</em>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Beginner-friendly earnings</h2>
+    <ul>
+      <li><strong>Supplies:</strong> Standard campaign missions on Normal, or early Horde waves, reliably award yellow coins while you learn.</li>
+      <li><strong>Challenge Coins:</strong> Complete Daily/Weekly Challenges on Normal/Hard with friends; pick up <em>Virus Samples</em> for bonus blue coins on mission completion.</li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2>Class XP vs Weapon Progress</h2>
+    <ul>
+      <li><strong>Class XP:</strong> Unlocks perks along a class tree and prestige tiers.</li>
+      <li><strong>Weapon levels:</strong> Unlock stronger variants and perk slots; some upgrades require you to purchase the next level before XP applies.</li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2>Simple farming flow</h2>
+    <div class="mermaid">
+      flowchart LR
+        A[Daily/Weekly Challenge] --> B{Win?}
+        B -- Yes --> C[Blue Coins + Supplies]
+        B -- No --> D[Supplies only / retry]
+        C --> E[Spend on key class perks]
+        E --> F[Upgrade 1-2 core weapons]
+    </div>
+  </section>
+
+  <footer class="small">
+    <p>Tip: Avoid spreading coins across too many weapons early. Focus on one primary and a sidearm you like.</p>
+  </footer>
+</body>
+</html>

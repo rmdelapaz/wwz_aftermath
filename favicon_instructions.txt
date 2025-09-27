@@ -1,0 +1,14 @@
+# Favicon Placeholder
+
+Replace `favicon.ico` in the root directory with your course icon.
+
+## Creating a favicon:
+1. Design a 16x16 or 32x32 pixel icon
+2. Save as .ico, .png, or .svg format
+3. Use online favicon generators for multiple sizes
+4. Test in different browsers
+
+## Recommended tools:
+- favicon.io (online generator)
+- RealFaviconGenerator.net
+- GIMP or Photoshop for custom design

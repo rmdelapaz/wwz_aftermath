@@ -1,0 +1,742 @@
+/* ===========================
+   Course Template - Main CSS
+   Mobile-first, Responsive, Accessible
+   =========================== */
+
+/* ===========================
+   CSS Reset
+   =========================== */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center, dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+body { line-height: 1; }
+ol, ul { list-style: none; }
+blockquote, q { quotes: none; }
+blockquote:before, blockquote:after, q:before, q:after { content: ''; content: none; }
+table { border-collapse: collapse; border-spacing: 0; }
+
+/* ===========================
+   Base Styles - Mobile First
+   =========================== */
+
+/* Use CSS Variables for easy theming */
+:root {
+    /* Colors */
+    --primary-color: rgb(59, 130, 246);
+    --primary-hover: rgb(37, 99, 235);
+    --secondary-color: rgb(248, 250, 252);
+    --text-color: rgb(51, 65, 85);
+    --text-light: rgb(107, 114, 128);
+    --border-color: rgb(226, 232, 240);
+    --code-bg: #f6f8fa;
+    --code-color: #383a42;
+
+    /* Prism token colors (light) */
+    --tok-comment: #6a737d;
+    --tok-string:  #50a14f;
+    --tok-keyword: #4078f2;
+    --tok-function:#c18401;
+    --tok-number:  #e45649;
+    --tok-operator:#a626a4;
+
+    /* Spacing */
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+    --spacing-xxl: 3rem;
+
+    /* Typography */
+    --font-family-base: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+    --font-family-mono: 'Consolas', 'Monaco', 'Andale Mono', 'Ubuntu Mono', monospace;
+    --line-height-base: 1.6;
+    --line-height-heading: 1.2;
+
+    /* Let native form controls adapt to dark mode automatically */
+    color-scheme: light dark;
+}
+
+/* Auto dark mode (users' OS preference) */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --secondary-color: #1e1e1e;
+        --text-color: #d4d4d4;
+        --text-light: #a0a0a0;
+        --border-color: #3e3e42;
+        --code-bg: #2d2d30;
+        --code-color: #d4d4d4;
+
+        /* Token colors (dark) */
+        --tok-comment: #9aa0a6;
+        --tok-string:  #8bdc8b;
+        --tok-keyword: #8ab4f8;
+        --tok-function:#e6b673;
+        --tok-number:  #ff8b8b;
+        --tok-operator:#d293d2;
+    }
+}
+
+/* Explicit theme override (wins over prefers-color-scheme) */
+:root[data-theme="dark"] {
+    --secondary-color: #1e1e1e;
+    --text-color: #d4d4d4;
+    --text-light: #a0a0a0;
+    --border-color: #3e3e42;
+    --code-bg: #2d2d30;
+    --code-color: #d4d4d4;
+
+    --tok-comment: #9aa0a6;
+    --tok-string:  #8bdc8b;
+    --tok-keyword: #8ab4f8;
+    --tok-function:#e6b673;
+    --tok-number:  #ff8b8b;
+    --tok-operator:#d293d2;
+}
+
+:root[data-theme="light"] {
+    /* Re-assert light tokens to force light regardless of OS */
+    --secondary-color: rgb(248, 250, 252);
+    --text-color: rgb(51, 65, 85);
+    --text-light: rgb(107, 114, 128);
+    --border-color: rgb(226, 232, 240);
+    --code-bg: #f6f8fa;
+    --code-color: #383a42;
+
+    --tok-comment: #6a737d;
+    --tok-string:  #50a14f;
+    --tok-keyword: #4078f2;
+    --tok-function:#c18401;
+    --tok-number:  #e45649;
+    --tok-operator:#a626a4;
+}
+
+/* Base body styles */
+body {
+    font-family: var(--font-family-base);
+    font-size: 16px;
+    line-height: var(--line-height-base);
+    color: var(--text-color);
+    background-color: var(--secondary-color);
+    margin: 0;
+    padding: var(--spacing-md);
+    transition: background-color 0.3s, color 0.3s;
+
+    /* iOS safe-area padding bottom for interactive pages */
+    padding-bottom: calc(var(--spacing-md) + env(safe-area-inset-bottom));
+}
+
+/* Improve wrapping on small screens */
+p, li, figcaption, blockquote { overflow-wrap: anywhere; }
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+/* ===========================
+   Typography
+   =========================== */
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: bold;
+    line-height: var(--line-height-heading);
+    margin-top: var(--spacing-xl);
+    margin-bottom: var(--spacing-md);
+    color: var(--text-color);
+}
+
+h1 {
+    font-size: 2rem;
+    text-align: center;
+    padding: var(--spacing-lg);
+    background-color: var(--primary-color);
+    color: white;
+    margin: 0 0 var(--spacing-xl) 0;
+    border-radius: 8px;
+}
+
+h2 {
+    font-size: 1.75rem;
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: var(--spacing-sm);
+}
+
+h3 { font-size: 1.5rem; }
+h4 { font-size: 1.25rem; }
+h5 { font-size: 1.1rem; }
+h6 { font-size: 1rem; }
+
+p { margin-bottom: var(--spacing-md); }
+strong, b { font-weight: bold; }
+em, i { font-style: italic; }
+small { font-size: 0.875rem; }
+
+/* Links */
+a {
+    color: var(--primary-color);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    text-decoration-thickness: from-font;
+    transition: color 0.2s, text-decoration-thickness 0.2s;
+}
+
+a:hover {
+    color: var(--primary-hover);
+    text-decoration-thickness: 3px;
+}
+
+a:focus-visible,
+button:focus-visible,
+[role="button"]:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+/* Lists */
+ul, ol { margin: var(--spacing-md) 0; padding-left: var(--spacing-xl); }
+ul { list-style-type: disc; }
+ol { list-style-type: decimal; }
+li { margin-bottom: var(--spacing-sm); }
+ul ul, ol ol, ul ol, ol ul { margin-top: var(--spacing-sm); margin-bottom: var(--spacing-sm); }
+
+/* ===========================
+   Code and Pre
+   =========================== */
+
+code, pre {
+    font-family: var(--font-family-mono);
+    background-color: var(--code-bg);
+    color: var(--code-color);
+    border-radius: 4px;
+}
+
+code {
+    padding: 0.2em 0.4em;
+    font-size: 0.9em;
+}
+
+pre {
+    padding: var(--spacing-md);
+    overflow-x: auto;
+    line-height: 1.5;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    margin: var(--spacing-md) 0;
+    white-space: pre; /* keep code formatting */
+}
+
+pre code {
+    padding: 0;
+    background: transparent;
+    font-size: 0.875rem;
+}
+
+/* Syntax highlighting classes (Prism.js compatible) via variables */
+.token.comment  { color: var(--tok-comment);  font-style: italic; }
+.token.string   { color: var(--tok-string); }
+.token.keyword  { color: var(--tok-keyword); }
+.token.function { color: var(--tok-function); }
+.token.number   { color: var(--tok-number); }
+.token.operator { color: var(--tok-operator); }
+
+/* ===========================
+   Tables (semantic, scroll wrapper)
+   =========================== */
+
+/* Use a wrapper for horizontal scroll instead of display:block on table */
+.table-wrap { overflow-x: auto; }
+
+table {
+    width: 100%;
+    margin: var(--spacing-md) 0;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: var(--spacing-sm);
+    text-align: left;
+    border: 1px solid var(--border-color);
+}
+
+th {
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: bold;
+}
+
+tr:nth-child(even) { background-color: rgba(0, 0, 0, 0.02); }
+
+/* ===========================
+   Blockquotes
+   =========================== */
+
+blockquote {
+    margin: var(--spacing-lg) 0;
+    padding: var(--spacing-md) var(--spacing-lg);
+    background-color: rgba(59, 130, 246, 0.05);
+    border-left: 4px solid var(--primary-color);
+    border-radius: 0 8px 8px 0;
+    font-style: italic;
+}
+
+/* ===========================
+   Images and Media
+   =========================== */
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: var(--spacing-md) auto;
+    border-radius: 8px;
+}
+
+figure { margin: var(--spacing-lg) 0; text-align: center; }
+figcaption { margin-top: var(--spacing-sm); font-size: 0.9rem; color: var(--text-light); }
+
+/* ===========================
+   Navigation
+   =========================== */
+
+nav {
+    background-color: white;
+    border-bottom: 1px solid var(--border-color);
+    padding: calc(var(--spacing-md) + env(safe-area-inset-top)) var(--spacing-md) var(--spacing-md);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative; /* for absolutely positioned mobile menu */
+}
+
+.nav-logo {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    gap: var(--spacing-lg);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.nav-links a:hover { color: var(--primary-color); }
+
+/* Mobile menu toggle */
+.mobile-menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--primary-color);
+}
+
+/* ===========================
+   Cards and Components
+   =========================== */
+
+.card {
+    background: white;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: var(--spacing-lg);
+    margin: var(--spacing-md) 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.3s;
+}
+
+.card:hover { box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); }
+.lesson-card { border-left: 4px solid var(--primary-color); }
+
+.exercise-card {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+}
+.exercise-card h3 { color: white; }
+
+/* ===========================
+   Buttons
+   =========================== */
+
+.button, button {
+    display: inline-block;
+    padding: var(--spacing-sm) var(--spacing-lg);
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.button:hover, button:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-1px);
+}
+
+.button:active, button:active { transform: translateY(0); }
+
+.button-secondary {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+
+.button-secondary:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* ===========================
+   Forms
+   =========================== */
+
+input, textarea, select {
+    width: 100%;
+    padding: var(--spacing-sm);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.2s;
+    background: inherit;
+    color: inherit;
+}
+
+input:focus, textarea:focus, select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+label { display: block; margin-bottom: var(--spacing-xs); font-weight: 500; }
+
+/* ===========================
+   Utility Classes
+   =========================== */
+
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+.mt-0 { margin-top: 0; }
+.mt-1 { margin-top: var(--spacing-sm); }
+.mt-2 { margin-top: var(--spacing-md); }
+.mt-3 { margin-top: var(--spacing-lg); }
+.mt-4 { margin-top: var(--spacing-xl); }
+
+.mb-0 { margin-bottom: 0; }
+.mb-1 { margin-bottom: var(--spacing-sm); }
+.mb-2 { margin-bottom: var(--spacing-md); }
+.mb-3 { margin-bottom: var(--spacing-lg); }
+.mb-4 { margin-bottom: var(--spacing-xl); }
+
+.hidden { display: none; }
+.block { display: block; }
+.inline-block { display: inline-block; }
+.flex { display: flex; }
+.grid { display: grid; }
+
+/* Screen reader only */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* ===========================
+   Progress and Interactive Elements
+   =========================== */
+
+.progress-indicator {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--border-color);
+    z-index: 1000;
+}
+
+.progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-color), var(--primary-hover));
+    width: 0;
+    transition: width 0.3s ease;
+}
+
+/* Skip to main content */
+.skip-to-main {
+    position: absolute;
+    left: -10000px;
+    top: 30px;
+    z-index: 999;
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 0 5px 5px 0;
+}
+.skip-to-main:focus { left: 0; }
+
+/* ===========================
+   Lesson Navigation
+   =========================== */
+
+.lesson-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: var(--spacing-xxl) 0;
+    padding: var(--spacing-lg);
+    background: white;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+}
+
+.lesson-nav a {
+    display: inline-flex;
+    align-items: center;
+    padding: var(--spacing-sm) var(--spacing-lg);
+    background: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    font-weight: bold;
+}
+
+.lesson-nav a:hover { background: var(--primary-hover); }
+
+.lesson-nav .home-link {
+    background: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+
+.lesson-nav .home-link:hover {
+    background: var(--primary-color);
+    color: white;
+}
+
+/* ===========================
+   Breadcrumb Navigation
+   =========================== */
+
+.breadcrumb { padding: var(--spacing-md) 0; font-size: 0.9rem; }
+
+.breadcrumb ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-wrap: wrap;
+}
+
+.breadcrumb li::after {
+    content: "/";
+    margin: 0 var(--spacing-sm);
+    color: var(--text-light);
+}
+
+.breadcrumb li:last-child::after { content: ""; }
+
+.breadcrumb a { color: var(--primary-color); text-decoration: none; }
+.breadcrumb [aria-current="page"] { color: var(--text-color); font-weight: 500; }
+
+/* ===========================
+   Responsive Design
+   =========================== */
+
+/* Tablet styles */
+@media (min-width: 768px) {
+    body { padding: var(--spacing-lg); }
+    h1 { font-size: 2.5rem; }
+    h2 { font-size: 2rem; }
+    .container { padding: 0 var(--spacing-lg); }
+
+    /* Grid for cards on larger screens */
+    .card-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: var(--spacing-lg);
+    }
+}
+
+/* Desktop styles */
+@media (min-width: 1024px) {
+    body { padding: var(--spacing-xl); }
+    h1 { font-size: 3rem; }
+    .container { padding: 0 var(--spacing-xl); }
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 767px) {
+    /* Show mobile menu toggle */
+    .mobile-menu-toggle { display: block; }
+
+    /* Hide nav links by default on mobile, use [hidden] for AX-friendly state */
+    .nav-links[hidden] { display: none; }
+    .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: white;
+        border-top: 1px solid var(--border-color);
+        flex-direction: column;
+        padding: var(--spacing-md);
+    }
+
+    /* Stack lesson navigation vertically */
+    .lesson-nav { flex-direction: column; }
+    .lesson-nav a { width: 100%; text-align: center; }
+
+    /* Adjust table text for mobile */
+    table { font-size: 0.875rem; }
+
+    /* Reduce heading sizes on mobile */
+    h1 { font-size: 1.75rem; }
+    h2 { font-size: 1.5rem; }
+    h3 { font-size: 1.25rem; }
+}
+
+/* ===========================
+   Print Styles
+   =========================== */
+
+@media print {
+    body { background: white; color: black; }
+
+    nav, .lesson-nav, .progress-indicator, .skip-to-main,
+    .mobile-menu-toggle, .copy-button, button { display: none !important; }
+
+    h1, h2, h3, h4, h5, h6 {
+        background: none !important;
+        color: black !important;
+        page-break-after: avoid;
+    }
+
+    a { color: black; text-decoration: underline; }
+    pre { page-break-inside: avoid; border: 1px solid #ccc; }
+    img { page-break-inside: avoid; }
+}
+
+/* ===========================
+   Accessibility Features
+   =========================== */
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+    :root {
+        --primary-color: #0052cc;
+        --text-color: #000;
+        --secondary-color: #fff;
+        --border-color: #000;
+    }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* Focus visible for keyboard nav (reinforced) */
+.keyboard-nav *:focus {
+    outline: 3px solid var(--primary-color) !important;
+    outline-offset: 2px !important;
+}
+
+/* ===========================
+   Dark Mode Surface Tweaks
+   =========================== */
+
+@media (prefers-color-scheme: dark) {
+    nav, .card, .lesson-nav { background: #2d2d30; }
+    th { background-color: #2d53a3; }
+    .exercise-card {
+        background: linear-gradient(135deg, #3b5bb5 0%, #5a3f86 100%);
+    }
+}
+
+/* ===========================
+   Custom Scrollbar
+   =========================== */
+
+/* WebKit */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: var(--secondary-color); }
+::-webkit-scrollbar-thumb { background: var(--primary-color); border-radius: 5px; }
+::-webkit-scrollbar-thumb:hover { background: var(--primary-hover); }
+
+/* Firefox */
+* { scrollbar-width: thin; scrollbar-color: var(--primary-color) var(--secondary-color); }
+
+/* ===========================
+   Touch UX polish
+   =========================== */
+* { -webkit-tap-highlight-color: rgba(0,0,0,0.1); }
