@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Dronemaster Class Guide - Master drone support and tactical advantage in World War Z: Aftermath">
-    <meta name="keywords" content="World War Z, Aftermath, Dronemaster, class guide, drone, support, tactical">
+    <meta name="keywords" content="World War Z, Aftermath, Dronemaster, class guide, drone, quadrocopter, support, tactical, perks, skill tree">
     <meta name="author" content="WWZ Guide Team">
     <title>Dronemaster Class Guide - World War Z: Aftermath</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
@@ -20,6 +20,134 @@
             text-align: center;
         }
         
+        /* Skill Tree Styling */
+        .skill-tree-container {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+            overflow-x: auto;
+        }
+        
+        .skill-tree-grid {
+            display: grid;
+            grid-template-columns: repeat(13, 1fr);
+            gap: 0.5rem;
+            min-width: 1000px;
+            margin: 1rem 0;
+        }
+        
+        .skill-column {
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            padding: 0.5rem;
+            min-height: 200px;
+        }
+        
+        .skill-column.red-perk {
+            border-color: #dc3545;
+            background: #fff5f5;
+        }
+        
+        .column-header {
+            text-align: center;
+            font-weight: bold;
+            color: #495057;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+        
+        .perk-slot {
+            background: white;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            padding: 0.5rem;
+            margin: 0.5rem 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .perk-slot:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-color: #4a90e2;
+        }
+        
+        .perk-slot.red-perk-slot {
+            background: linear-gradient(135deg, #fff5f5 0%, #ffebee 100%);
+            border-color: #dc3545;
+        }
+        
+        .perk-name {
+            font-weight: bold;
+            font-size: 0.85rem;
+            color: #2c3e50;
+            margin-bottom: 0.25rem;
+        }
+        
+        .perk-description {
+            font-size: 0.75rem;
+            color: #6c757d;
+            line-height: 1.3;
+        }
+        
+        .prestige-badge {
+            position: absolute;
+            top: 0.25rem;
+            right: 0.25rem;
+            background: #dc3545;
+            color: white;
+            font-size: 0.65rem;
+            padding: 0.1rem 0.3rem;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+        
+        .perk-details {
+            margin: 2rem 0;
+        }
+        
+        .perk-details h3 {
+            color: #2c3e50;
+            border-bottom: 2px solid #4a90e2;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .detailed-perk {
+            background: white;
+            border-left: 3px solid #4a90e2;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+        
+        .detailed-perk.red {
+            border-left-color: #dc3545;
+            background: #fff5f5;
+        }
+        
+        .perk-title {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+        
+        .perk-full-description {
+            color: #495057;
+            margin-bottom: 0.5rem;
+        }
+        
+        .perk-note {
+            font-size: 0.9rem;
+            color: #6c757d;
+            font-style: italic;
+        }
+        
+        /* Original styles continued */
         .perk-category {
             margin: 2rem 0;
             padding: 1.5rem;
@@ -31,45 +159,6 @@
             color: #495057;
             margin-bottom: 1rem;
             font-size: 1.2rem;
-        }
-        
-        .perk-list {
-            list-style: none;
-            padding: 0;
-        }
-        
-        .perk-item {
-            background: white;
-            padding: 0.75rem 1rem;
-            margin: 0.5rem 0;
-            border-radius: 4px;
-            border-left: 3px solid #4a90e2;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .perk-name {
-            font-weight: bold;
-            color: #495057;
-        }
-        
-        .perk-desc {
-            color: #6c757d;
-            font-size: 0.9rem;
-        }
-        
-        .prestige-perk {
-            border-left-color: #764ba2;
-            background: #f8f5ff;
-        }
-        
-        .core-ability {
-            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 1rem 0;
-            border: 2px solid #4a90e2;
         }
         
         .build-section {
@@ -162,6 +251,14 @@
             color: #004085;
         }
         
+        .core-ability {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border: 2px solid #4a90e2;
+        }
+        
         .equipment-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -179,6 +276,21 @@
         .equipment-icon {
             font-size: 2rem;
             margin-bottom: 0.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            .skill-tree-container {
+                padding: 1rem;
+            }
+            
+            .skill-tree-grid {
+                display: block;
+                min-width: auto;
+            }
+            
+            .skill-column {
+                margin-bottom: 1rem;
+            }
         }
     </style>
 </head>
@@ -226,7 +338,7 @@
                 <span class="role-badge">Tactical Control</span>
                 <span class="role-badge">Team Buffer</span>
             </div>
-            <p><strong>Core Role:</strong> Deploy an autonomous drone companion for continuous support fire and team advantages</p>
+            <p><strong>Core Role:</strong> Deploy an autonomous Quadrocopter drone for continuous support fire and team advantages</p>
         </header>
         
         <!-- Quick Stats -->
@@ -235,23 +347,23 @@
             <div class="equipment-grid">
                 <div class="equipment-item">
                     <div class="equipment-icon">🤖</div>
-                    <strong>Drone Companion</strong>
-                    <p>AI-controlled support</p>
+                    <strong>Quadrocopter</strong>
+                    <p>12 stun shots or 15 kills</p>
                 </div>
                 <div class="equipment-item">
                     <div class="equipment-icon">⚡</div>
-                    <strong>Stun Capabilities</strong>
-                    <p>Drone can stun enemies</p>
+                    <strong>Multiple Modes</strong>
+                    <p>Stun, Pistol, or Stim</p>
                 </div>
                 <div class="equipment-item">
                     <div class="equipment-icon">🎯</div>
-                    <strong>Target Marking</strong>
-                    <p>Highlight specials</p>
+                    <strong>Auto-Target</strong>
+                    <p>Prioritizes specials</p>
                 </div>
                 <div class="equipment-item">
-                    <div class="equipment-icon">🛡️</div>
-                    <strong>Team Buffs</strong>
-                    <p>Drone provides team bonuses</p>
+                    <div class="equipment-icon">♻️</div>
+                    <strong>Rechargeable</strong>
+                    <p>1% per second after 5s</p>
                 </div>
             </div>
         </section>
@@ -260,209 +372,480 @@
         <section class="card">
             <h2>🤖 Core Ability</h2>
             <div class="core-ability">
-                <h3>Quadrocopter Drone</h3>
-                <p><strong>Base Effect:</strong> Deploy an autonomous drone that follows you and attacks enemies</p>
-                <p><strong>Duration:</strong> 90 seconds base (can be extended with perks)</p>
-                <p><strong>Cooldown:</strong> Begins after drone expires or is destroyed</p>
-                <p><strong>Pro Tip:</strong> The drone prioritizes special zombies and can save teammates autonomously!</p>
+                <h3>Flying Start</h3>
+                <p><strong>Effect:</strong> Start with a Scout Rifle and Quadrocopter that will stun single zombies at short range. 12 shots per full charge but stunning a special zombie costs 5 shots</p>
+                <p><strong>Starting Gear:</strong> Scout Rifle and Quadrocopter drone</p>
+                <p><strong>Base Stats:</strong> Stun Gun: 2m range, 12 shots | Pistol: 15m range, 15 kills</p>
+                <p><strong>Pro Tip:</strong> Special zombies cost 5 stun shots - use them wisely!</p>
             </div>
         </section>
         
-        <!-- Dronemaster Perks Overview -->
+        <!-- Skill Tree Section -->
         <section class="card">
-            <h2>🤖 Dronemaster Perks Overview</h2>
+            <h2>🤖 Dronemaster Skill Tree</h2>
             
             <div class="warning-box">
-                <strong>⚠️ Note:</strong> The skill system uses a 13-column grid where you choose one perk per column. Red perks (columns 1, 5, 9, 13) are permanent bonuses unlocked through prestige. Exact perk positions may vary by game version.
-            </div>
-            
-            <!-- Regular Perks -->
-            <div class="perk-category">
-                <h4>🤖 Drone Enhancement Perks</h4>
-                <ul class="perk-list">
-                    <li class="perk-item">
-                        <span class="perk-name">Overload</span>
-                        <span class="perk-desc">Drone stuns enemies every 7 seconds</span>
-                    </li>
-                    <li class="perk-item">
-                        <span class="perk-name">Buddy System</span>
-                        <span class="perk-desc">Deploy 2 drones at once</span>
-                    </li>
-                    <li class="perk-item">
-                        <span class="perk-name">Flying Factory</span>
-                        <span class="perk-desc">Drone drops supplies periodically</span>
-                    </li>
-                    <li class="perk-item">
-                        <span class="perk-name">Sky Guard</span>
-                        <span class="perk-desc">Drone duration +50%</span>
-                    </li>
-                    <li class="perk-item">
-                        <span class="perk-name">Voltage Grid</span>
-                        <span class="perk-desc">Drone creates electric field on death</span>
-                    </li>
-                    <li class="perk-item">
-                        <span class="perk-name">Pocket Factory</span>
-                        <span class="perk-desc">Start with drone ready</span>
-                    </li>
+                <strong>How the Skill System Works:</strong>
+                <ul>
+                    <li>Progress through levels 1-30 to unlock new perk segments</li>
+                    <li>Choose ONE perk per segment to activate</li>
+                    <li>Red perks are special alternatives that cost more (red coins)</li>
+                    <li>You can buy multiple perks in each segment but only use one at a time</li>
+                    <li>Perks cost 150-500 yellow coins, red perks cost 150-500 red coins</li>
+                    <li>Level 10, 20, and 30 perks are automatic and always active</li>
                 </ul>
             </div>
             
-            <div class="perk-category">
-                <h4>🎯 Targeting & Damage Perks</h4>
-                <ul class="perk-list">
-                    <li class="perk-item">
-                        <span class="perk-name">Smart Tech</span>
-                        <span class="perk-desc">Drone prioritizes specials</span>
-                    </li>
-                    <li class="perk-item">
-                        <span class="perk-name">Red Dot</span>
-                        <span class="perk-desc">Drone marks targets for +15% team damage</span>
-                    </li>
-                    <li class="perk-item">
-                        <span class="perk-name">Heavy Duty</span>
-                        <span class="perk-desc">Drone damage +100%</span>
-                    </li>
-                    <li class="perk-item">
-                        <span class="perk-name">Efficiency</span>
-                        <span class="perk-desc">Drone fire rate +50%</span>
-                    </li>
-                    <li class="perk-item">
-                        <span class="perk-name">Compound Interest</span>
-                        <span class="perk-desc">Drone gets stronger over time</span>
-                    </li>
-                </ul>
+            <div class="skill-tree-container">
+                <h3>Dronemaster Perk Grid</h3>
+                <div class="skill-tree-grid">
+                    <!-- Column 1 - Starting Perk -->
+                    <div class="skill-column">
+                        <div class="column-header">Start</div>
+                        <div class="perk-slot">
+                            <div class="perk-name">Flying Start</div>
+                            <div class="perk-description">Start with Scout Rifle & Quadrocopter</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Column 2 - Level 1-3 -->
+                    <div class="skill-column">
+                        <div class="column-header">Lvl 1-3</div>
+                        <div class="perk-slot">
+                            <div class="perk-name">Go The Distance</div>
+                            <div class="perk-description">Quadrocopter charge +15%</div>
+                        </div>
+                        <div class="perk-slot">
+                            <div class="perk-name">Take a Load Off</div>
+                            <div class="perk-description">Charge +30%, but -20% ammo capacity</div>
+                        </div>
+                        <div class="perk-slot">
+                            <div class="perk-name">Longshot</div>
+                            <div class="perk-description">Attack range +100% (4m stun, 30m pistol)</div>
+                        </div>
+                        <div class="perk-slot red-perk-slot">
+                            <span class="prestige-badge">RED</span>
+                            <div class="perk-name">Good Boy</div>
+                            <div class="perk-description">Stim Pistol drone, auto-heals you (3 charges)</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Column 3 - Level 4-6 -->
+                    <div class="skill-column">
+                        <div class="column-header">Lvl 4-6</div>
+                        <div class="perk-slot">
+                            <div class="perk-name">Silent Stinger</div>
+                            <div class="perk-description">Silenced pistol drone, 15m range, 15 kills</div>
+                        </div>
+                        <div class="perk-slot">
+                            <div class="perk-name">Firecracker</div>
+                            <div class="perk-description">Loud pistol, +100% damage, 15 kills</div>
+                        </div>
+                        <div class="perk-slot">
+                            <div class="perk-name">Lightning Storm</div>
+                            <div class="perk-description">Stun gun fire rate +50%</div>
+                        </div>
+                        <div class="perk-slot red-perk-slot">
+                            <span class="prestige-badge">RED</span>
+                            <div class="perk-name">On a Bender</div>
+                            <div class="perk-description">Drone drops Frag Grenades on groups</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Column 4 - Level 7-9 -->
+                    <div class="skill-column">
+                        <div class="column-header">Lvl 7-9</div>
+                        <div class="perk-slot">
+                            <div class="perk-name">Overdrive</div>
+                            <div class="perk-description">Tap to boost fire rate +100% for 6s</div>
+                        </div>
+                        <div class="perk-slot">
+                            <div class="perk-name">Well Trained</div>
+                            <div class="perk-description">Toggle follow/stationary, +50% damage stationary</div>
+                        </div>
+                        <div class="perk-slot">
+                            <div class="perk-name">The Big Five 0</div>
+                            <div class="perk-description">Start with improved BF25, +50% damage/ammo</div>
+                        </div>
+                        <div class="perk-slot red-perk-slot">
+                            <span class="prestige-badge">RED</span>
+                            <div class="perk-name">It's Alive</div>
+                            <div class="perk-description">Activate all Stim charges + 1 extra</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Column 5 - Level 10 -->
+                    <div class="skill-column">
+                        <div class="column-header">Lvl 10</div>
+                        <div class="perk-slot">
+                            <div class="perk-name">Rechargeable</div>
+                            <div class="perk-description">Drone restores 1% charge/s after 5s idle</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Column 6 - Level 11-13 -->
+                    <div class="skill-column">
+                        <div class="column-header">Lvl 11-13</div>
+                        <div class="perk-slot">
+                            <div class="perk-name">Burst Pro</div>
+                            <div class="perk-description">Burst fire reload speed +25%</div>
+                        </div>
+                        <div class="perk-slot">
+                            <div class="perk-name">Wheatgrass</div>
+                            <div class="perk-description">Health increased by 25%</div>
+                        </div>
+                        <div class="perk-slot">
+                            <div class="perk-name">Weapon of Choice</div>
+                            <div class="perk-description">Start with Le Clairon Bullpup Rifle</div>
+                        </div>
+                        <div class="perk-slot red-perk-slot">
+                            <span class="prestige-badge">RED</span>
+                            <div class="perk-name">Scrap Metal... Again II</div>
+                            <div class="perk-description">Auto-mark equipment bags within 20m</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Column 7 - Level 14-16 -->
+                    <div class="skill-column">
+                        <div class="column-header">Lvl 14-16</div>
+                        <div class="perk-slot">
+                            <div class="perk-name">Backup Plan</div>
+                            <div class="perk-description">Auto-launch drone when grabbed (180s cooldown)</div>
+                        </div>
+                        <div class="perk-slot">
+                            <div class="perk-name">Parting Gift</div>
+                            <div class="perk-description">Temp health when drone depletes</div>
+                        </div>
+                        <div class="perk-slot">
+                            <div class="perk-name">Saving Grace</div>
+                            <div class="perk-description">Drone grants masking before incapacitation</div>
+                        </div>
+                        <div class="perk-slot red-perk-slot">
+                            <span class="prestige-badge">RED</span>
+                            <div class="perk-name">Clear!</div>
+                            <div class="perk-description">Drone auto-revives incapacitated player</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Column 8 - Level 17-19 -->
+                    <div class="skill-column">
+                        <div class="column-header">Lvl 17-19</div>
+                        <div class="perk-slot">
+                            <div class="perk-name">Pied Piper</div>
+                            <div class="perk-description">Hold to make drone attract zombies for 5s</div>
+                        </div>
+                        <div class="perk-slot">
+                            <div class="perk-name">Sharing is Caring</div>
+                            <div class="perk-description">Hold to give drone to teammate</div>
+                        </div>
+                        <div class="perk-slot">
+                            <div class="perk-name">Coming in Hot</div>
+                            <div class="perk-description">Hold to make drone explode at target</div>
+                        </div>
+                        <div class="perk-slot red-perk-slot">
+                            <span class="prestige-badge">RED</span>
+                            <div class="perk-name">Seems He Fell Here</div>
+                            <div class="perk-description">Special kills may drop equipment bag</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Column 9 - Level 20 -->
+                    <div class="skill-column">
+                        <div class="column-header">Lvl 20</div>
+                        <div class="perk-slot">
+                            <div class="perk-name">Payload Power-Up</div>
+                            <div class="perk-description">Stun hits 2 targets, pistol +50% damage</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Column 10 - Level 21-23 -->
+                    <div class="skill-column">
+                        <div class="column-header">Lvl 21-23</div>
+                        <div class="perk-slot">
+                            <div class="perk-name">Housekeeping</div>
+                            <div class="perk-description">Defuses mines, captures turrets in 10m</div>
+                        </div>
+                        <div class="perk-slot">
+                            <div class="perk-name">Keep It Down</div>
+                            <div class="perk-description">Auto-targets Screamer after 20s</div>
+                        </div>
+                        <div class="perk-slot">
+                            <div class="perk-name">Eye In The Sky</div>
+                            <div class="perk-description">Auto-marks specials within 14m of drone</div>
+                        </div>
+                        <div class="perk-slot red-perk-slot">
+                            <span class="prestige-badge">RED</span>
+                            <div class="perk-name">Splasher</div>
+                            <div class="perk-description">Drone auto-disinfects Infector spit</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Column 11 - Level 24-26 -->
+                    <div class="skill-column">
+                        <div class="column-header">Lvl 24-26</div>
+                        <div class="perk-slot">
+                            <div class="perk-name">Pocket Factory</div>
+                            <div class="perk-description">Equipment regenerates (150s for max)</div>
+                        </div>
+                        <div class="perk-slot">
+                            <div class="perk-name">Flight of Fury</div>
+                            <div class="perk-description">Kill 15 zombies to restore drone (180s cooldown)</div>
+                        </div>
+                        <div class="perk-slot">
+                            <div class="perk-name">Special Prize</div>
+                            <div class="perk-description">Special kills restore drone (180s cooldown)</div>
+                        </div>
+                        <div class="perk-slot red-perk-slot">
+                            <span class="prestige-badge">RED</span>
+                            <div class="perk-name">New Battery</div>
+                            <div class="perk-description">25% chance abilities don't consume charge</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Column 12 - Level 27-29 -->
+                    <div class="skill-column">
+                        <div class="column-header">Lvl 27-29</div>
+                        <div class="perk-slot">
+                            <div class="perk-name">Multitasking</div>
+                            <div class="perk-description">Auto-reload primary on drone launch</div>
+                        </div>
+                        <div class="perk-slot">
+                            <div class="perk-name">Not On My Watch</div>
+                            <div class="perk-description">No friendly fire for drone's target</div>
+                        </div>
+                        <div class="perk-slot">
+                            <div class="perk-name">Next Best Thing</div>
+                            <div class="perk-description">Start with Geist 17MP secondary</div>
+                        </div>
+                        <div class="perk-slot red-perk-slot">
+                            <span class="prestige-badge">RED</span>
+                            <div class="perk-name">Gathered My Thoughts</div>
+                            <div class="perk-description">Drone's target gets 50% more sprint stamina</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Column 13 - Level 30 -->
+                    <div class="skill-column">
+                        <div class="column-header">Lvl 30</div>
+                        <div class="perk-slot">
+                            <div class="perk-name">Out With A Bang</div>
+                            <div class="perk-description">Drone stuns 10 zombies in 5m when depleted</div>
+                        </div>
+                    </div>
+                </div>
             </div>
             
-            <div class="perk-category">
-                <h4>🛡️ Team Support Perks</h4>
-                <ul class="perk-list">
-                    <li class="perk-item">
-                        <span class="perk-name">Combat Engineer</span>
-                        <span class="perk-desc">Team reload speed +25% near drone</span>
-                    </li>
-                    <li class="perk-item">
-                        <span class="perk-name">Eyes in the Sky</span>
-                        <span class="perk-desc">Drone reveals items through walls</span>
-                    </li>
-                    <li class="perk-item">
-                        <span class="perk-name">Saving Grace</span>
-                        <span class="perk-desc">Drone revives pinned teammates</span>
-                    </li>
-                    <li class="perk-item">
-                        <span class="perk-name">Wheatgrass</span>
-                        <span class="perk-desc">Drone heals nearby teammates</span>
-                    </li>
-                    <li class="perk-item">
-                        <span class="perk-name">Share the Wealth</span>
-                        <span class="perk-desc">Drone buffs affect whole team</span>
-                    </li>
-                </ul>
-            </div>
-            
-            <div class="perk-category">
-                <h4>⚡ Personal Enhancement Perks</h4>
-                <ul class="perk-list">
-                    <li class="perk-item">
-                        <span class="perk-name">Technician</span>
-                        <span class="perk-desc">+25% interaction speed</span>
-                    </li>
-                    <li class="perk-item">
-                        <span class="perk-name">Nimble</span>
-                        <span class="perk-desc">Movement speed +10%</span>
-                    </li>
-                    <li class="perk-item">
-                        <span class="perk-name">Pickpocket</span>
-                        <span class="perk-desc">Drone kills drop supplies</span>
-                    </li>
-                    <li class="perk-item">
-                        <span class="perk-name">Lobotomy</span>
-                        <span class="perk-desc">Headshot damage +50%</span>
-                    </li>
-                </ul>
-            </div>
-            
-            <!-- Prestige Perks -->
             <div class="prestige-note">
-                ⭐ Red perks are permanent bonuses that unlock as you prestige. They appear in columns 1, 5, 9, and 13. You need level 30 and 7,500 supplies to prestige.
-            </div>
-            
-            <div class="perk-category">
-                <h4>⭐ Prestige Perks (Red Perks)</h4>
-                <p style="margin-bottom: 1rem; color: #6c757d;">These permanent bonuses enhance your drone capabilities</p>
-                <ul class="perk-list">
-                    <li class="perk-item prestige-perk">
-                        <span class="perk-name">Prestige 1-4</span>
-                        <span class="perk-desc">Core red perks for drone effectiveness</span>
-                    </li>
-                    <li class="perk-item prestige-perk">
-                        <span class="perk-name">Prestige 6-9</span>
-                        <span class="perk-desc">Additional red perks from recent updates</span>
-                    </li>
-                </ul>
-            </div>
-            
-            <div class="warning-box">
-                <strong>💡 Important:</strong> When you prestige, you lose all purchased perks and must re-buy them. Consider saving to prestige 4+ before buying perks.
+                ⭐ Red perks are special alternative perks that provide unique effects. They cost red coins instead of yellow coins and are typically more powerful or offer different playstyles.
             </div>
         </section>
         
-        <!-- Build Recommendations -->
+        <!-- Prestige Rank Perks Section -->
         <section class="card">
-            <h2>🎯 Recommended Builds</h2>
+            <h2>⭐ Prestige Rank Perks</h2>
+            
+            <div class="warning-box">
+                <strong>About Prestige Perks:</strong>
+                <ul>
+                    <li>Unlocked by reaching Prestige Ranks 1-9</li>
+                    <li>These are PASSIVE bonuses that are always active once unlocked</li>
+                    <li>Stack with your regular perks for even more power</li>
+                    <li>Each costs 7500 yellow coins to unlock</li>
+                    <li>Persist through prestige resets</li>
+                </ul>
+            </div>
+            
+            <div class="perk-details">
+                <h3>Prestige Progression</h3>
+                
+                <div class="detailed-perk">
+                    <div class="perk-title">Rank 1: Ammo Drop</div>
+                    <div class="perk-full-description">
+                        Person being followed regains 10% of primary ammo when Quadrocopter is depleted.
+                    </div>
+                    <div class="perk-note">Free ammo restoration when drone expires - great for sustained fights.</div>
+                </div>
+                
+                <div class="detailed-perk">
+                    <div class="perk-title">Rank 2: Unfettered</div>
+                    <div class="perk-full-description">
+                        Movement speed penalty when zombies are very close reduced by 50% for person followed by your Quadrocopter.
+                    </div>
+                    <div class="perk-note">Helps teammates escape when swarmed.</div>
+                </div>
+                
+                <div class="detailed-perk">
+                    <div class="perk-title">Rank 3: Spotter</div>
+                    <div class="perk-full-description">
+                        Firearm damage increased by 15% for person followed by your Quadrocopter.
+                    </div>
+                    <div class="perk-note">Significant damage boost for whoever the drone follows.</div>
+                </div>
+                
+                <div class="detailed-perk">
+                    <div class="perk-title">Rank 4: Guardian Angel</div>
+                    <div class="perk-full-description">
+                        Person followed by your Quadrocopter will take 10% less damage.
+                    </div>
+                    <div class="perk-note">Passive damage reduction - stacks with other defensive perks.</div>
+                </div>
+                
+                <div class="detailed-perk">
+                    <div class="perk-title">Rank 6: Go The Distance II</div>
+                    <div class="perk-full-description">
+                        Quadrocopter charge (the number of stun shots or kills the Quadrocopter can perform) is increased by 5%.
+                    </div>
+                    <div class="perk-note">Stacks with regular Go The Distance for 20% more charge.</div>
+                </div>
+                
+                <div class="detailed-perk">
+                    <div class="perk-title">Rank 7: Handyman</div>
+                    <div class="perk-full-description">
+                        Your Quadrocopter will automatically reload autoturrets within 10 meters (cooldown: 30 seconds).
+                    </div>
+                    <div class="perk-note">Keeps defense turrets operational during swarms.</div>
+                </div>
+                
+                <div class="detailed-perk">
+                    <div class="perk-title">Rank 8: As a Team!</div>
+                    <div class="perk-full-description">
+                        Players followed by your Drones set up defense kits 50% faster.
+                    </div>
+                    <div class="perk-note">Speeds up critical defense preparations.</div>
+                </div>
+                
+                <div class="detailed-perk">
+                    <div class="perk-title">Rank 9: He Can Do It All!</div>
+                    <div class="perk-full-description">
+                        Receive 2 seconds of invulnerability when the Quadrocopter is depleted (applies to the person it's following).
+                    </div>
+                    <div class="perk-note">Brief invincibility window when drone expires - perfect for escapes.</div>
+                </div>
+            </div>
+            
+            <div class="tip-box">
+                <strong>💡 Prestige Strategy:</strong> Focus on reaching at least Prestige Rank 3 for Spotter's 15% damage boost - it's a massive team buff. Guardian Angel at Rank 4 adds survivability. The later ranks offer excellent utility but are less essential.
+            </div>
+        </section>
+        
+        <!-- Detailed Perk Descriptions -->
+        <section class="card">
+            <h2>📋 Key Perk Details</h2>
+            
+            <div class="perk-details">
+                <h3>Must-Have Perks</h3>
+                
+                <div class="detailed-perk">
+                    <div class="perk-title">Sharing is Caring (Level 17-19)</div>
+                    <div class="perk-full-description">
+                        Holding "Use Equipment" button commands Quadrocopter to follow a teammate you're aiming at. You must have a spare Quadrocopter and you can't have more than two Quadrocopters active at the same time.
+                    </div>
+                    <div class="perk-note">Give drones to teammates for multiple active drones - game changer!</div>
+                </div>
+                
+                <div class="detailed-perk">
+                    <div class="perk-title">Pocket Factory (Level 24-26)</div>
+                    <div class="perk-full-description">
+                        You won't be able to pick equipment bags on the mission but your equipment will be constantly regenerating (150 seconds to replenish to maximum).
+                    </div>
+                    <div class="perk-note">Infinite drones over time - perfect for long missions.</div>
+                </div>
+                
+                <div class="detailed-perk">
+                    <div class="perk-title">Eye In The Sky (Level 21-23)</div>
+                    <div class="perk-full-description">
+                        All active special zombies within a radius 14 meters around your Quadrocopter will be automatically marked.
+                    </div>
+                    <div class="perk-note">Turns your drone into a mobile radar for the whole team.</div>
+                </div>
+                
+                <div class="detailed-perk">
+                    <div class="perk-title">Silent Stinger/Firecracker (Level 4-6)</div>
+                    <div class="perk-full-description">
+                        Changes drone to pistol mode. Silent for stealth, or loud for double damage.
+                    </div>
+                    <div class="perk-note">Pistol drones can kill 15 zombies vs 12 stuns - more efficient!</div>
+                </div>
+                
+                <div class="detailed-perk red">
+                    <div class="perk-title">Clear! (Level 14-16 - Red)</div>
+                    <div class="perk-full-description">
+                        If a player followed by a Quadrocopter is incapacitated, the Quadrocopter will revive them with a temporary health boost and get depleted (cooldown: 180 seconds).
+                    </div>
+                    <div class="perk-note">Automatic revival - can save entire runs when teammates fall!</div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Build Recommendations with Specific Perks -->
+        <section class="card">
+            <h2>🤖 Recommended Builds</h2>
             
             <div class="build-card">
                 <h3>🌟 Beginner Build - "Drone Basics"</h3>
-                <p>Focus on drone uptime and survivability. Learn the mechanics safely.</p>
+                <p>Focus on drone uptime and basic effectiveness.</p>
+                <strong>Essential Perks:</strong>
                 <ul>
-                    <li><strong>Priority:</strong> Drone duration and cooldown</li>
-                    <li><strong>Key Focus:</strong> Sky Guard, Pocket Factory, Smart Tech</li>
-                    <li><strong>Playstyle:</strong> Keep drone active, let it handle specials</li>
-                    <li><strong>Weapons:</strong> Assault Rifle + SMG for versatility</li>
+                    <li><strong>Level 1-3:</strong> Go The Distance (15% more charge)</li>
+                    <li><strong>Level 4-6:</strong> Silent Stinger (Pistol mode, 15 kills)</li>
+                    <li><strong>Level 11-13:</strong> Wheatgrass (25% more health)</li>
+                    <li><strong>Level 14-16:</strong> Parting Gift (Temp health on depletion)</li>
+                    <li><strong>Level 24-26:</strong> Flight of Fury (Kill streaks restore drone)</li>
                 </ul>
                 <div class="tip-box">
-                    <strong>💡 Tip:</strong> Deploy your drone at the start of combat, not during!</strong>
+                    <strong>💡 Tip:</strong> Silent Stinger gives more kills than stun shots - better efficiency!
+                    <br><strong>Best Prestige Perks:</strong> Go The Distance II (Rank 6), Guardian Angel (Rank 4).
                 </div>
             </div>
             
             <div class="build-card">
-                <h3>⚡ Stun Master Build - "Shock and Awe"</h3>
-                <p>Maximum crowd control through drone stuns. Control the battlefield.</p>
+                <h3>🎯 Support Commander Build - "Team Leader"</h3>
+                <p>Maximum team support through drone sharing and buffs.</p>
+                <strong>Essential Perks:</strong>
                 <ul>
-                    <li><strong>Priority:</strong> Stun frequency and area control</li>
-                    <li><strong>Key Focus:</strong> Overload, Voltage Grid, Buddy System</li>
-                    <li><strong>Playstyle:</strong> Use drone to lockdown areas</li>
-                    <li><strong>Weapons:</strong> Shotgun for close support</li>
+                    <li><strong>Level 17-19:</strong> Sharing is Caring (Give drones to teammates)</li>
+                    <li><strong>Level 21-23:</strong> Eye In The Sky (Mark all specials)</li>
+                    <li><strong>Level 24-26:</strong> Pocket Factory (Regenerate drones)</li>
+                    <li><strong>Level 27-29:</strong> Not On My Watch (No friendly fire)</li>
+                    <li><strong>Level 14-16 Red:</strong> Clear! (Auto-revive incapacitated)</li>
                 </ul>
                 <div class="tip-box">
-                    <strong>💡 Tip:</strong> Overload stuns can interrupt Bull charges!</strong>
+                    <strong>💡 Tip:</strong> Give drones to your Medic and tank for maximum team benefit!
+                    <br><strong>Best Prestige Perks:</strong> Spotter (Rank 3) for 15% damage boost, As a Team! (Rank 8).
                 </div>
             </div>
             
             <div class="build-card">
-                <h3>🎯 DPS Support Build - "Death From Above"</h3>
-                <p>Maximum drone damage output. Your flying friend becomes a killer.</p>
+                <h3>💥 Explosive Build - "Danger Drone"</h3>
+                <p>Maximum damage and area control.</p>
+                <strong>Essential Perks:</strong>
                 <ul>
-                    <li><strong>Priority:</strong> Drone damage and targeting</li>
-                    <li><strong>Key Focus:</strong> Heavy Duty, Efficiency, Compound Interest</li>
-                    <li><strong>Playstyle:</strong> Let drone rack up kills while you support</li>
-                    <li><strong>Weapons:</strong> Sniper for long-range support</li>
+                    <li><strong>Level 4-6:</strong> Firecracker (Loud pistol, +100% damage)</li>
+                    <li><strong>Level 4-6 Red:</strong> On a Bender (Drops grenades)</li>
+                    <li><strong>Level 7-9:</strong> Overdrive (+100% fire rate for 6s)</li>
+                    <li><strong>Level 17-19:</strong> Coming in Hot (Exploding drone)</li>
+                    <li><strong>Level 30:</strong> Out With A Bang (Stun explosion on death)</li>
                 </ul>
                 <div class="tip-box">
-                    <strong>💡 Tip:</strong> Compound Interest makes your drone stronger the longer it lives!</strong>
+                    <strong>💡 Tip:</strong> On a Bender drops actual frag grenades - devastating against groups!
+                    <br><strong>Best Prestige Perks:</strong> Spotter (Rank 3) for damage, Handyman (Rank 7) for turrets.
                 </div>
             </div>
             
             <div class="build-card">
-                <h3>🛡️ Team Buffer Build - "Guardian Angel"</h3>
-                <p>Focus on team support through drone abilities. Everyone benefits.</p>
+                <h3>💉 Medic Drone Build - "Flying Healer"</h3>
+                <p>Healing and defensive support focus.</p>
+                <strong>Essential Perks:</strong>
                 <ul>
-                    <li><strong>Priority:</strong> Team buffs and utility</li>
-                    <li><strong>Key Focus:</strong> Combat Engineer, Saving Grace, Share the Wealth</li>
-                    <li><strong>Playstyle:</strong> Stay central, maximize buff coverage</li>
-                    <li><strong>Weapons:</strong> Balanced loadout for flexibility</li>
+                    <li><strong>Level 1-3 Red:</strong> Good Boy (Stim Pistol drone)</li>
+                    <li><strong>Level 7-9 Red:</strong> It's Alive (Activate all stims +1)</li>
+                    <li><strong>Level 14-16:</strong> Saving Grace (Masking before incapacitation)</li>
+                    <li><strong>Level 21-23 Red:</strong> Splasher (Auto-disinfect)</li>
+                    <li><strong>Level 27-29 Red:</strong> Gathered My Thoughts (+50% sprint stamina)</li>
                 </ul>
                 <div class="tip-box">
-                    <strong>💡 Tip:</strong> Saving Grace can revive teammates from across the map!</strong>
+                    <strong>💡 Tip:</strong> Good Boy auto-heals you when you need it - passive survival!
+                    <br><strong>Best Prestige Perks:</strong> Guardian Angel (Rank 4), He Can Do It All! (Rank 9) for invulnerability.
                 </div>
             </div>
         </section>
@@ -472,22 +855,22 @@
             <h2>🤝 Class Synergies</h2>
             <div class="synergy-grid">
                 <div class="synergy-card">
-                    <h3>🔧 Dronemaster + Fixer</h3>
-                    <p>Tech support combo. Buffs and supplies everywhere.</p>
-                    <span class="synergy-rating synergy-excellent">EXCELLENT</span>
-                    <p><strong>Why it works:</strong> Flying Factory + Supply Bags = infinite resources. Team never runs dry.</p>
-                </div>
-                <div class="synergy-card">
                     <h3>🏥 Dronemaster + Medic</h3>
-                    <p>Double healing support. Team becomes unkillable.</p>
-                    <span class="synergy-rating synergy-good">GOOD</span>
-                    <p><strong>Why it works:</strong> Wheatgrass drone + Medic heals = constant health regen.</p>
+                    <p>Double support system. Healing and drone protection.</p>
+                    <span class="synergy-rating synergy-excellent">EXCELLENT</span>
+                    <p><strong>Why it works:</strong> Give Medic a drone for 15% damage boost + protection while healing.</p>
                 </div>
                 <div class="synergy-card">
-                    <h3>🛡️ Dronemaster + Vanguard</h3>
-                    <p>Shield and drone protection. Complete battlefield control.</p>
+                    <h3>🗡️ Dronemaster + Slasher</h3>
+                    <p>Tank gets aerial support. Perfect frontline combo.</p>
                     <span class="synergy-rating synergy-excellent">EXCELLENT</span>
-                    <p><strong>Why it works:</strong> Vanguard holds line, drone provides overwatch. Perfect defense.</p>
+                    <p><strong>Why it works:</strong> Drone keeps Slasher safe while meleeing. Auto-revive if overwhelmed.</p>
+                </div>
+                <div class="synergy-card">
+                    <h3>🔧 Dronemaster + Fixer</h3>
+                    <p>Tech and supplies everywhere.</p>
+                    <span class="synergy-rating synergy-good">GOOD</span>
+                    <p><strong>Why it works:</strong> Fixer bags bypass Pocket Factory limitation. Infinite drones!</p>
                 </div>
             </div>
         </section>
@@ -499,50 +882,50 @@
             <div class="build-card">
                 <h3>🐂 Bull</h3>
                 <ul>
-                    <li>Drone auto-targets charging Bulls</li>
-                    <li>Overload stun interrupts charge</li>
-                    <li>Deploy drone before Bull spawns</li>
-                    <li>Voltage Grid on drone death stops Bull</li>
+                    <li>Stun drone can interrupt charge (costs 5 shots)</li>
+                    <li>Pistol drone deals constant damage during charge</li>
+                    <li>Eye In The Sky marks Bull early</li>
+                    <li>Coming in Hot for explosive finish</li>
                 </ul>
             </div>
             
             <div class="build-card">
                 <h3>🤢 Gasbag</h3>
                 <ul>
-                    <li>Drone engages from safe distance</li>
-                    <li>Smart Tech prioritizes Gasbag</li>
-                    <li>You focus on other threats</li>
-                    <li>Red Dot marks for team focus</li>
+                    <li>Drone engages from safe distance automatically</li>
+                    <li>Firecracker mode for double damage</li>
+                    <li>You stay back, let drone handle it</li>
+                    <li>Mark for team with Eye In The Sky</li>
                 </ul>
             </div>
             
             <div class="build-card">
                 <h3>👻 Lurker</h3>
                 <ul>
-                    <li>Drone reveals hidden Lurkers</li>
-                    <li>Auto-targets when they appear</li>
-                    <li>Saving Grace if you're pinned</li>
-                    <li>Buddy System covers more area</li>
+                    <li>Backup Plan auto-launches when grabbed</li>
+                    <li>Drone attacks Lurker to free you</li>
+                    <li>Eye In The Sky reveals hidden Lurkers</li>
+                    <li>Clear! revives if you go down</li>
                 </ul>
             </div>
             
             <div class="build-card">
                 <h3>😱 Screamer</h3>
                 <ul>
-                    <li>Smart Tech kills Screamers first</li>
-                    <li>Drone continues during scream</li>
-                    <li>Deploy early for prevention</li>
-                    <li>Stun stops scream mid-cast</li>
+                    <li>Keep It Down auto-targets after 20 seconds</li>
+                    <li>Silent Stinger for quiet elimination</li>
+                    <li>High priority for drone targeting</li>
+                    <li>Stun interrupts scream mid-cast</li>
                 </ul>
             </div>
             
             <div class="build-card">
                 <h3>🧟 Infector</h3>
                 <ul>
-                    <li>High priority target for drone</li>
-                    <li>Marks them for team</li>
-                    <li>Drone doesn't get infected</li>
-                    <li>Perfect counter from safety</li>
+                    <li>Splasher auto-disinfects you from spit</li>
+                    <li>Drone prioritizes Infector naturally</li>
+                    <li>Mark with Eye In The Sky for team</li>
+                    <li>Firecracker for quick elimination</li>
                 </ul>
             </div>
         </section>
@@ -554,72 +937,23 @@
             <div class="build-card">
                 <h3>🌊 Swarm Defense</h3>
                 <ol>
-                    <li>Deploy drone at defense start</li>
-                    <li>Position for maximum coverage</li>
-                    <li>Let drone handle climbers</li>
-                    <li>Focus on drone survival</li>
-                    <li>Redeploy between waves if needed</li>
+                    <li>Deploy drone before swarm starts</li>
+                    <li>Use Well Trained stationary mode for +50% damage</li>
+                    <li>Overdrive during pyramid climbs</li>
+                    <li>Share drones with defenders</li>
+                    <li>Rechargeable keeps drone active between waves</li>
                 </ol>
             </div>
             
             <div class="build-card">
                 <h3>🏃 Running Sections</h3>
                 <ol>
-                    <li>Deploy drone before running</li>
-                    <li>It covers your retreat</li>
-                    <li>Stuns slow chasers</li>
-                    <li>Flying Factory drops supplies</li>
-                    <li>Sacrifice drone if needed</li>
+                    <li>Deploy before running for coverage</li>
+                    <li>Pied Piper to distract chasers</li>
+                    <li>Drone follows and protects automatically</li>
+                    <li>Coming in Hot clears path if needed</li>
+                    <li>Parting Gift gives temp health for sprint</li>
                 </ol>
-            </div>
-            
-            <div class="build-card">
-                <h3>👹 Boss Fights</h3>
-                <ol>
-                    <li>Drone handles adds automatically</li>
-                    <li>You focus boss weak points</li>
-                    <li>Red Dot marks boss for team</li>
-                    <li>Save drone for add phases</li>
-                    <li>Compound Interest maximizes damage</li>
-                </ol>
-            </div>
-            
-            <div class="build-card">
-                <h3>🛡️ Escort Missions</h3>
-                <ol>
-                    <li>Drone protects objective pusher</li>
-                    <li>Clears path ahead</li>
-                    <li>Saving Grace for emergencies</li>
-                    <li>Combat Engineer speeds interactions</li>
-                    <li>Deploy fresh for final push</li>
-                </ol>
-            </div>
-        </section>
-        
-        <!-- Quick Reference -->
-        <section class="card">
-            <h2>📋 Quick Reference</h2>
-            
-            <div class="build-card">
-                <h3>🤖 Drone Deployment Tips</h3>
-                <ul>
-                    <li><strong>Pre-combat:</strong> Deploy before engagement</li>
-                    <li><strong>High ground:</strong> Better drone coverage</li>
-                    <li><strong>Central position:</strong> Maximum team buff range</li>
-                    <li><strong>Safe timing:</strong> Not while being chased</li>
-                    <li><strong>Fresh deploy:</strong> Before major events</li>
-                </ul>
-            </div>
-            
-            <div class="build-card">
-                <h3>🎯 Priority Management</h3>
-                <ul>
-                    <li><strong>Let drone handle:</strong> Specials and climbers</li>
-                    <li><strong>You focus on:</strong> Objectives and team support</li>
-                    <li><strong>Combined fire:</strong> Bulls and bosses</li>
-                    <li><strong>Drone saves:</strong> Pinned teammates</li>
-                    <li><strong>Manual control:</strong> Mark priority targets</li>
-                </ul>
             </div>
         </section>
         
@@ -628,13 +962,12 @@
             <div class="warning-box">
                 <h3>⚠️ Common Dronemaster Mistakes to Avoid</h3>
                 <ul>
-                    <li><strong>Late deployment:</strong> Deploy before combat, not during</li>
-                    <li><strong>Ignoring drone:</strong> It needs protection too</li>
+                    <li><strong>Late deployment:</strong> Deploy before combat starts</li>
+                    <li><strong>Wasting on specials:</strong> Stun costs 5 shots for specials!</li>
+                    <li><strong>Ignoring Rechargeable:</strong> Let drone idle to recharge</li>
+                    <li><strong>Not sharing:</strong> Give drones to teammates with Sharing is Caring</li>
                     <li><strong>Poor positioning:</strong> Drone needs line of sight</li>
-                    <li><strong>Wasting on small fights:</strong> Save for swarms</li>
-                    <li><strong>Forgetting buffs:</strong> Stay near team for buffs</li>
-                    <li><strong>No communication:</strong> Tell team about drone status</li>
-                    <li><strong>Overlap with Vanguard:</strong> Coordinate deployments</li>
+                    <li><strong>Forgetting modes:</strong> Pistol often better than stun</li>
                 </ul>
             </div>
         </section>
@@ -644,14 +977,14 @@
             <h2>🌟 Tips for New Dronemaster Players</h2>
             <div class="tip-box">
                 <ol>
-                    <li><strong>Deploy early</strong> - Before combat for full duration</li>
-                    <li><strong>Trust the drone</strong> - It's smarter than you think</li>
-                    <li><strong>Position matters</strong> - High ground = better coverage</li>
-                    <li><strong>Watch the timer</strong> - Know when it expires</li>
-                    <li><strong>Protect your drone</strong> - It can be destroyed</li>
-                    <li><strong>Coordinate with team</strong> - Buffs need proximity</li>
-                    <li><strong>Learn spawn timings</strong> - Deploy for maximum value</li>
-                    <li><strong>Master Buddy System</strong> - Two drones is game-changing</li>
+                    <li><strong>Deploy early</strong> - Before combat for full effectiveness</li>
+                    <li><strong>Learn the modes</strong> - Stun vs Pistol vs Stim</li>
+                    <li><strong>Watch the charge</strong> - Specials cost 5 stun shots</li>
+                    <li><strong>Use Rechargeable</strong> - 1% per second after 5s idle</li>
+                    <li><strong>Share drones</strong> - Multiple active drones is powerful</li>
+                    <li><strong>Position matters</strong> - Drone needs clear shots</li>
+                    <li><strong>Save for swarms</strong> - Don't waste on small fights</li>
+                    <li><strong>Master controls</strong> - Tap vs Hold for different functions</li>
                 </ol>
             </div>
         </section>

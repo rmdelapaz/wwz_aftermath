@@ -1,0 +1,215 @@
+Perks List
+Regular & Core Perks
+Level	Perk	Description	XP Required	Unlock Cost
+
+
+Booster Shot
+
+Start with a Stim Pistol, Compact SMG and free Medkit. Using Medkit on a teammate will also apply 25% of its effect to you	0 XP	0 
+Segment One
+1	
+
+Doctor in the House
+
+Medkits heal 10% more (base: 70%)	0 XP	0 
+2	
+
+Triage
+
+Apply Medkits 50% faster [base: 4 seconds]	1250 XP	150 
+3	
+
+Sugar Coated
+
+Healing a teammate with a Medkit also grants them a temporary health boost	1250 XP	150 
+
+Perk icon
+Breathe deeply
+
+The rounds of the Stim Pistol are replaced with healing gas syringes that burst upon contact with surfaces, releasing healing gas that grants a 75% temporary health boost to all players	150 
+Segment Two
+4	
+
+Patch Up
+
+Restore 30% health to a teammate after reviving them (base: 20%)	1250 XP	150 
+5	
+
+Paramedic
+
+Revive speed increased by 50%	1250 XP	150 
+6	
+
+Pick Me Up
+
+When you revive a teammate, both of you gain temporary health boost	250 XP	150 
+
+Perk icon
+Candy
+
+Reviving a teammate in battle restores one equipment charge for both of you	150 
+Segment Three
+7	
+
+Big Pharma
+
+Max number of Stim Pistol charges increased to 4 [base: 3 charges]	1250 XP	150 
+8	
+
+Painkiller
+
+Stim Pistol gives 25% more temporary health and its effects last 50% longer	1250 XP	150 
+9	
+
+Empathy
+
+Using the Stim Pistol on a teammate will also apply 50% of its effect to you	1250 XP	150 
+
+Perk icon
+Take a break
+
+Using the Stim Pistol on a teammate also fully restores their stamina for melee strikes	150 
+  
+10	
+
+Tenacity
+
+All incapacitated team members will stay alive for 30% longer (base: 40 seconds)	1500 XP	0 
+Segment Four
+11	
+Second Wind icon
+Second Wind
+
+25% chance to regain 25% health and keep going instead of becoming incapacitated (cooldown: 60 seconds)	1500 XP	250 
+12	
+
+Wheatgrass
+
+Health increased by 25%	1500 XP	250 
+13	
+
+Navy Seal
+
+Start with SMG TMP5	1500 XP	250 
+
+Perk icon
+Trail of breadcrumbs
+
+All medical items within 10 meters will be automatically marked if you don't have any	250 
+Segment Five
+14	
+
+Efficiency
+
+30% chance of using a Medkit without depleting your supply	1500 XP	250 
+15	
+
+Good Karma
+
+Using Medkit on a teammate will also apply 50% of its effect to you	1750 XP	350 
+16	
+
+Combat Medic
+
+Kill 15 zombies in rapid succession gives 50% chance to receive a Medkit (cooldown 180 seconds)	1750 XP	350 
+
+Perk icon
+They don't need it at all
+
+There is a chance that killing a special zombie will cause it to drop a medical item (cooldown: 180 seconds)	350 
+Segment Six
+17	
+
+Free Hugs
+
+25% chance of using the Stim Pistol without depleting its charge	1750 XP	350 
+18	
+
+Pickpocket
+
+Killing 15 zombies in rapid succession refills one equipment charge (cooldown 20 seconds)	1750 XP	350 
+19	
+
+I'll Take That
+
+Killing a special zombie restores one equipment charge (cooldown 30 seconds)	1750 XP	350 
+
+Perk icon
+It was intentional
+
+Using the Stim Pistol creates an additional healing gas cloud under your feet (cooldown: 30 seconds)	350 
+  
+20	
+
+Fighting Chance
+
+Using the Stim Pistol on a teammate who is pinned will get them to their feet	2000 XP	0 
+Segment Seven
+21	
+
+Forgive and Forget
+
+Friendly fire damage reduced by 25% for all team members	2000 XP	500 
+22	
+
+In the Zone
+
+Using a Stim Pistol or Medkit adds a 50% firearm damage boost for 10 seconds	2000 XP	500 
+23	
+
+Fighting Fit
+
+Firearm damage increased by 25% when your whole team have more than 50% health	2000 XP	500 
+
+Perk icon
+Just a scratch
+
+While under the Stim Pistol's effect, the player receives 10% less damage from any source	500 
+Segment Eight
+24	
+
+Battle Surgeon
+
+Stim Pistol heals 10% of health in addition to the boost effect	2000 XP	500 
+25	
+
+Emergency Rescue
+
+When your health drops below 25%, you gain temporary health (cooldown 180 seconds)	2500 XP	500 
+26	
+
+Secret Ingredient
+
+Stim Pistol grants additional masking effect lasting 5 seconds	2500 XP	500 
+
+Perk icon
+Too slowly
+
+Reload speed is increased by 10% under the effect of the Stim Pistol	500 
+Segment Nine
+27	
+
+Lobotomy
+
+Restore 2 rounds in magazine for each headshot made with SMG	2500 XP	500 
+28	
+
+Swapping Mags!
+
+SMGs' reload speed increased by 25%	2500 XP	500 
+29	
+
+Adrenaline
+
+Reload speed increased by 50% when health is below 35%	2500 XP	500 
+
+Perk icon
+Emergency measures
+
+Penetration of SMGs is increased by 1 while the player's health is below 30%	500 
+  
+30	
+
+Doctor's Bag
+
+Medkits used by you and your teammates restore 10% more health	3500 XP	0 

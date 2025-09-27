@@ -1,0 +1,263 @@
+Perks List
+Regular & Core Perks
+Level
+
+Perk
+
+Description
+
+XP Required
+
+Unlock Cost
+
+
+
+Shock Troops
+
+Start with Stun Gun and Compact SMG. Melee strikes damage two targets and do twice more damage when you're not tired. Melee attacks are not slower when tired	0 XP	0 
+Segment One
+1	
+
+Crowd Control
+
+Push radius from melee attacks increased by 50%	0 XP	0 
+2	
+
+All Elbows
+
+Movement speed penalty when zombies are very close reduced by 100%	1250 XP	150 
+3	
+
+Rooted
+
+You can never be pinned down by usual zombies (does not affect special zombies)	1250 XP	150 
+
+Perk icon
+Crowd Control II
+
+Restore one equipment charge when your health drops below 35%	150 
+Segment Two
+4	
+
+Juiced Up
+
+Stun Gun effect duration increased by 100%	1250 XP	150 
+5	
+
+Zeus
+
+Increase Stun Gun range by 50% and target count to 20 (base range: 12 m, base target count: 15)	1250 XP	150 
+6	
+
+High Voltage
+
+Stun Gun damage Increased by 150%	1250 XP	150 
+
+Perk icon
+Clear!
+
+Using the Stun Gun on a pinned teammate will get them to their feet	150 
+Segment Three
+7	
+
+Bullet-dodger
+
+Take 100% less friendly fire from bullets while performing melee attacks	1250 XP	150 
+8	
+
+Nimble
+
+Take 50% less damage while performing melee attacks	1250 XP	150 
+9	
+
+With My Last Breath
+
+Melee strikes damage 2 more targets when health is below 35%	1250 XP	150 
+
+Perk icon
+Blood is boiling
+
+You deal 50% more damage to special zombies with a melee weapon if your health is below 35%	150 
+  
+10	
+
+Slice and Dice
+
+You and all teammates can perform more melee strikes (+2) before becoming tired	1500 XP	0 
+Segment Four
+11	
+
+Trophy Hunter
+
+Deal 25% more damage to special zombies	1500 XP	250 
+12	
+
+Wheatgrass
+
+Health increased by 25%	1500 XP	250 
+13	
+
+Silent Killer
+
+Start with a TMP5 SMG with silencer upgrade	1500 XP	250 
+
+Perk icon
+Where are you?
+
+All Lurkers within 10 meters are automatically marked	250 
+Segment Five
+14	
+
+Vigour
+
+Killing 10 zombies in rapid succession with a melee weapon grants temporary health boost (cooldown 30 seconds)	1500 XP	250 
+15	
+
+Cloak and Dagger
+
+Killing 10 zombies in rapid succession with a melee weapon grants a masking effect (cooldown 30 seconds)	1750 XP	350 
+16	
+
+Third Hand
+
+Killing 5 zombies with melee strikes in rapid succession instantly reloads your primary weapon	1750 XP	350 
+
+Perk icon
+Relentlessly
+
+Killing 10 zombies in rapid succession with a melee weapon restores 5% of your health (cooldown: 30 seconds)	350 
+Segment Six
+17	
+
+Heavy Metal I
+
+Start with an improved Forest Warrior Chainsaw that deals 50% more damage and has 50% more fuel. All Forest Warrior Chainsaw pickups for you are also improved [base: 100 fuel]	1750 XP	350 
+18	
+
+Heavy Metal II
+
+Starts with improved Taiga-12 Heavy Assault Shotgun that deals 25% more damage and has 25% more ammo. All Taiga-12 Heavy Assault Shotgun pickups for you also improved [base: 50 ammo]	1750 XP	350 
+19	
+
+Battle Cry
+
+Automatically stand up from being pinned after 5 seconds	1750 XP	350 
+
+Perk icon
+Thank you for the chance
+
+30% chance of using an Adrenaline kit without depleting your supply	350 
+  
+20	
+
+Executioner
+
+Perform 1 more melee strike before becoming tired. Melee damage increased by 50%	2000 XP	0 
+Segment Seven
+21	
+
+Shock Therapy
+
+You will not become fatigued when melee attacking zombies electrified by the Stun Gun	2000 XP	500 
+22	
+
+Samurai
+
+Killing 15 zombies in rapid succession allows you to hit 1 more target per melee strike for 10 seconds	2000 XP	500 
+23	
+
+Bloodlust
+
+Killing special zombies with a melee weapon will increase firearm damage by 100% for 15 seconds	2000 XP	500 
+
+Perk icon
+This is invigorating
+
+Signature Strikes damage 1 more target	500 
+Segment Eight
+24	
+
+Spare Batteries
+
+Max capacity for Stun Gun charges increased to 4 [base: 83 charges]	2000 XP	500 
+25	
+
+Pickpocket
+
+Killing 15 zombies in rapid succession refills one equipment charge (cooldown 60 seconds)	2500 XP	500 
+26	
+
+Loan Shark
+
+Killing a special zombie gives a 50% chance to restore one charge to your equipment	2500 XP	500 
+
+Perk icon
+On one's own
+
+One equipment charge gets restored for you every 60 seconds	500 
+Segment Nine
+27	
+
+Flash Sale
+
+Using the Stun Gun restores 1% of your primary weapon's ammunition for every target you stun.	2500 XP	500 
+28	
+
+Swapping Mags!
+
+SMGs' reload speed is increased by 25%	2500 XP	500 
+29	
+
+Adrenaline
+
+Reload speed increased by 50% when health is below 35%	2500 XP	500 
+
+Perk icon
+Dead... reward
+
+Killing 10 zombies in rapid succession with a melee weapon restores 5% of your primary weapon's ammunition	500 
+  
+30	
+
+Blade Master
+
+Melee strikes damage 1 more target	3500 XP	0 
+
+stige Rank Perks
+Rank Level	Perk	Description	Unlock Cost
+1	
+
+Juiced Up II
+
+Stun Gun effect duration increased by 15%	7500 
+2	
+
+Zeus II
+
+Increase Stun Gun range by 15% [base: 12 meters]	7500 
+3	
+
+Executioner III
+
+Perform 1 more melee strike before becoming tired	7500 
+4	
+
+Nimble II
+
+Take 10% less damage while performing melee attacks	7500 
+6	
+Flash Sale II
+
+Killing a stunned special zombie restores 5% of your primary weapon's ammunition	7500 
+7	
+Get lost!
+
+Electric Grids can kill 5% more zombies for the whole team	7500 
+8	
+Swapping Mags II
+
+SMG reload speed is increased by 5%	7500 
+9	
+Wheatgrass II
+
+Health increased by 5%	7500 

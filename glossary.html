@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="World War Z: Aftermath Glossary - Learn game terminology, acronyms, and community terms">
+    <meta name="keywords" content="World War Z, Aftermath, glossary, terminology, dictionary, terms, acronyms">
+    <meta name="author" content="WWZ Guide Team">
+    <title>Glossary & Terminology - World War Z: Aftermath Guide</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="styles/main.css">
+    <style>
+        /* Glossary specific styling */
+        .glossary-header {
+            background: linear-gradient(135deg, #56ab2f 0%, #a8e063 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .alphabet-nav {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            text-align: center;
+            position: sticky;
+            top: 60px;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .alphabet-nav a {
+            display: inline-block;
+            padding: 0.5rem 0.75rem;
+            margin: 0.25rem;
+            background: white;
+            color: #56ab2f;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .alphabet-nav a:hover {
+            background: #56ab2f;
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .alphabet-nav a.disabled {
+            background: #e9ecef;
+            color: #adb5bd;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+        
+        .glossary-section {
+            margin: 2rem 0;
+        }
+        
+        .letter-header {
+            background: linear-gradient(90deg, #56ab2f 0%, #a8e063 100%);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            position: sticky;
+            top: 130px;
+            z-index: 99;
+        }
+        
+        .term-entry {
+            background: white;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .term-entry:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-color: #56ab2f;
+        }
+        
+        .term-name {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+        
+        .term-aliases {
+            color: #6c757d;
+            font-style: italic;
+            margin-bottom: 0.5rem;
+        }
+        
+        .term-definition {
+            color: #495057;
+            line-height: 1.6;
+            margin-bottom: 0.5rem;
+        }
+        
+        .term-example {
+            background: #f8f9fa;
+            padding: 0.75rem;
+            border-left: 3px solid #56ab2f;
+            border-radius: 4px;
+            margin-top: 0.5rem;
+            font-style: italic;
+            color: #6c757d;
+        }
+        
+        .term-category {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            background: #e7f5ff;
+            color: #0c63e4;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-right: 0.5rem;
+        }
+        
+        .search-box {
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .search-input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+        
+        .search-input:focus {
+            outline: none;
+            border-color: #56ab2f;
+        }
+        
+        .no-results {
+            text-align: center;
+            padding: 2rem;
+            color: #6c757d;
+        }
+        
+        .quick-ref-card {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .quick-ref-card h3 {
+            color: #856404;
+            margin-bottom: 0.75rem;
+        }
+        
+        .highlight {
+            background: yellow;
+            padding: 0 2px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">⚔️ WWZ: Aftermath Guide</a>
+            <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-expanded="false">☰</button>
+            <div class="nav-links" id="nav-links">
+                <a href="index.html">Home</a>
+                <a href="beginner_guide.html">Beginner Guide</a>
+                <a href="classes_overview.html">Classes</a>
+                <a href="special_zombies.html">Special Zombies</a>
+                <a href="faq.html">FAQ</a>
+                <a href="glossary.html" class="current">Glossary</a>
+                <a href="weapons_upgrades.html">Weapons</a>
+                <a href="currencies_progression.html">Progression</a>
+                <a href="horde_endgame.html">Endgame</a>
+                <button id="theme-toggle" aria-label="Toggle theme">🌙</button>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Header -->
+        <header class="glossary-header">
+            <h1>📖 Glossary & Terminology</h1>
+            <p>Master the language of World War Z: Aftermath</p>
+        </header>
+        
+        <!-- Search Box -->
+        <div class="search-box">
+            <input type="text" class="search-input" id="glossary-search" placeholder="🔍 Search for a term...">
+        </div>
+        
+        <!-- Quick Reference Card -->
+        <div class="quick-ref-card">
+            <h3>💡 Most Common Terms</h3>
+            <p><strong>Pyramid</strong> - Zombie climbing formation | <strong>Zeke</strong> - Regular zombie | <strong>FF</strong> - Friendly Fire | <strong>Wipe</strong> - Team death | <strong>Kite</strong> - Lead zombies while moving | <strong>Proc</strong> - Trigger a perk effect</p>
+        </div>
+        
+        <!-- Alphabet Navigation -->
+        <nav class="alphabet-nav">
+            <a href="#letter-a">A</a>
+            <a href="#letter-b">B</a>
+            <a href="#letter-c">C</a>
+            <a href="#letter-d">D</a>
+            <a href="#letter-e">E</a>
+            <a href="#letter-f">F</a>
+            <a href="#letter-g">G</a>
+            <a href="#letter-h">H</a>
+            <a href="#letter-i">I</a>
+            <a href="#letter-j" class="disabled">J</a>
+            <a href="#letter-k">K</a>
+            <a href="#letter-l">L</a>
+            <a href="#letter-m">M</a>
+            <a href="#letter-n" class="disabled">N</a>
+            <a href="#letter-o" class="disabled">O</a>
+            <a href="#letter-p">P</a>
+            <a href="#letter-q" class="disabled">Q</a>
+            <a href="#letter-r">R</a>
+            <a href="#letter-s">S</a>
+            <a href="#letter-t">T</a>
+            <a href="#letter-u" class="disabled">U</a>
+            <a href="#letter-v">V</a>
+            <a href="#letter-w">W</a>
+            <a href="#letter-x" class="disabled">X</a>
+            <a href="#letter-y">Y</a>
+            <a href="#letter-z">Z</a>
+        </nav>
+        
+        <!-- Glossary Entries -->
+        
+        <!-- Letter A -->
+        <section class="glossary-section" id="letter-a">
+            <div class="letter-header">A</div>
+            
+            <div class="term-entry">
+                <div class="term-name">Adds</div>
+                <div class="term-aliases">Also: Add waves, Additional enemies</div>
+                <div class="term-definition">Additional zombies that spawn during boss fights or defense sections. Usually refers to regular zombies that appear alongside special objectives.</div>
+                <div class="term-example">Example: "Focus the boss, I'll handle the adds."</div>
+                <span class="term-category">Combat</span>
+            </div>
+            
+            <div class="term-entry">
+                <div class="term-name">AoE</div>
+                <div class="term-aliases">Area of Effect</div>
+                <div class="term-definition">Attacks or abilities that damage multiple enemies in an area. Includes explosives, fire patches, and gas clouds.</div>
+                <div class="term-example">Example: "Use AoE on that pyramid!"</div>
+                <span class="term-category">Combat</span>
+            </div>
+            
+            <div class="term-entry">
+                <div class="term-name">Aggro</div>
+                <div class="term-definition">Drawing enemy attention or having zombies focus on you. Certain perks increase or decrease aggro generation.</div>
+                <div class="term-example">Example: "Vanguard, take aggro while we reload."</div>
+                <span class="term-category">Combat</span>
+            </div>
+        </section>
+        
+        <!-- Letter B -->
+        <section class="glossary-section" id="letter-b">
+            <div class="letter-header">B</div>
+            
+            <div class="term-entry">
+                <div class="term-name">Bull</div>
+                <div class="term-definition">Special zombie in riot gear that charges at players. Can instantly down teammates if not stopped.</div>
+                <span class="term-category">Special Zombie</span>
+            </div>
+            
+            <div class="term-entry">
+                <div class="term-name">Blue Coins</div>
+                <div class="term-aliases">Also: Supplies, Blue currency</div>
+                <div class="term-definition">Currency earned from completing missions. Used to upgrade weapons and unlock cosmetics. Icon is blue with a supplies symbol.</div>
+                <span class="term-category">Currency</span>
+            </div>
+            
+            <div class="term-entry">
+                <div class="term-name">Breach</div>
+                <div class="term-definition">When zombies break through defenses or when players use breaching charges to open new paths.</div>
+                <div class="term-example">Example: "They breached the left side!"</div>
+                <span class="term-category">Combat</span>
+            </div>
+            
+            <div class="term-entry">
+                <div class="term-name">Bomber</div>
+                <div class="term-definition">Special zombie with C4 strapped to chest. Explodes on death if shot in body. Headshots only!</div>
+                <span class="term-category">Special Zombie</span>
+            </div>
+        </section>
+        
+        <!-- Letter C -->
+        <section class="glossary-section" id="letter-c">
+            <div class="letter-header">C</div>
+            
+            <div class="term-entry">
+                <div class="term-name">CC</div>
+                <div class="term-aliases">Crowd Control</div>
+                <div class="term-definition">Abilities or weapons that control large groups of zombies. Includes stuns, slows, fire patches, and explosives.</div>
+                <span class="term-category">Combat</span>
+            </div>
+            
+            <div class="term-entry">
+                <div class="term-name">Cascade</div>
+                <div class="term-definition">When one bad event triggers multiple problems. Usually refers to a Screamer calling a swarm that overwhelms the team.</div>
+                <div class="term-example">Example: "That Screamer caused a total cascade."</div>
+                <span class="term-category">Combat</span>
+            </div>
+            
+            <div class="term-entry">
+                <div class="term-name">Choke Point</div>
+                <div class="term-aliases">Also: Choke, Funnel</div>
+                <div class="term-definition">Narrow passage that forces zombies into a concentrated area. Ideal defensive positions.</div>
+                <span class="term-category">Strategy</span>
+            </div>
+            
+            <div class="term-entry">
+                <div class="term-name">Clutch</div>
+                <div class="term-definition">Saving a failing situation through exceptional play, often when most teammates are down.</div>
+                <div class="term-example">Example: "Nice clutch with that masking grenade!"</div>
+                <span class="term-category">General</span>
+            </div>
+            
+            <div class="term-entry">
+                <div class="term-name">Crossplay</div>
+                <div class="term-definition">Playing with users on different platforms (PC, PlayStation, Xbox, Switch). Enabled by default.</div>
+                <span class="term-category">Multiplayer</span>
+            </div>
+        </section>
+        
+        <!-- Letter D -->
+        <section class="glossary-section" id="letter-d">
+            <div class="letter-header">D</div>
+            
+            <div class="term-entry">
+                <div class="term-name">DPS</div>
+                <div class="term-aliases">Damage Per Second</div>
+                <div class="term-definition">1. The amount of damage dealt over time. 2. Classes focused on dealing damage (Gunslinger, Hellraiser).</div>
+                <span class="term-category">Combat</span>
+            </div>
+            
+            <div class="term-entry">
+                <div class="term-name">Defense Kit</div>
+                <div class="term-definition">Deployable equipment found in levels including auto-turrets, mortars, electric grids, and barbed wire.</div>
+                <span class="term-category">Equipment</span>
+            </div>
+            
+            <div class="term-entry">
+                <div class="term-name">DoT</div>
+                <div class="term-aliases">Damage over Time</div>
+                <div class="term-definition">Continuous damage effects like fire, poison, or gas that hurt over several seconds.</div>
+                <span class="term-category">Combat</span>
+            </div>
+            
+            <div class="term-entry">
+                <div class="term-name">Dronemaster</div>
+                <div class="term-aliases">Also: DM, Drone</div>
+                <div class="term-definition">Support class that deploys an autonomous drone for assistance. Added in Aftermath expansion.</div>
+                <span class="term-category">Class</span>
+            </div>
+        </section>
+        
+        <!-- Letter E -->
+        <section class="glossary-section" id="letter-e">
+            <div class="letter-header">E</div>
+            
+            <div class="term-entry">
+                <div class="term-name">Extreme</div>
+                <div class="term-definition">Highest standard difficulty in the game. Features 50% friendly fire, no player outlines, and maximum zombie spawns.</div>
+                <span class="term-category">Difficulty</span>
+            </div>
+            
+            <div class="term-entry">
+                <div class="term-name">Electric Grid</div>
+                <div class="term-aliases">Also: Electric fence, Grid</div>
+                <div class="term-definition">Defense kit that electrocutes climbing zombies. Extremely effective at stopping pyramids.</div>
+                <span class="term-category">Equipment</span>
+            </div>
+            
+            <div class="term-entry">
+                <div class="term-name">Exterminator</div>
+                <div class="term-aliases">Also: Ext, Fire class</div>
+                <div class="term-definition">Crowd control class specializing in fire damage through molotov cocktails.</div>
+                <span class="term-category">Class</span>
+            </div>
+        </section>
+        
+        <!-- Letter F -->
+        <section class="glossary-section" id="letter-f">
+            <div class="letter-header">F</div>
+            
+            <div class="term-entry">
+                <div class="term-name">FF</div>
+                <div class="term-aliases">Friendly Fire</div>
+                <div class="term-definition">Damage dealt to teammates. Percentage increases with difficulty. Explosives always deal full FF damage.</div>
+                <div class="term-example">Example: "Watch the FF with that RPG!"</div>
+                <span class="term-category">Combat</span>
+            </div>
+            
+            <div class="term-entry">
+                <div class="term-name">Fixer</div>
+                <div class="term-definition">Support class specializing in ammo supply and equipment distribution.</div>
+                <span class="term-category">Class</span>
+            </div>
+            
+            <div class="term-entry">
+                <div class="term-name">Funnel</div>
+                <div class="term-definition">Strategy of forcing zombies through a narrow path for easier elimination.</div>
+                <span class="term-category">Strategy</span>
+            </div>
+        </section>
+        
+        <!-- Letter G -->
+        <section class="glossary-section" id="letter-g">
+            <div class="letter-header">G</div>
+            
+            <div class="term-entry">
+                <div class="term-name">Gasbag</div>
+                <div class="term-definition">Special zombie that explodes into toxic gas when killed with body shots or explosives. Only headshots are safe.</div>
+                <span class="term-category">Special Zombie</span>
+            </div>
+            
+            <div class="term-entry">
+                <div class="term-name">GS</div>
+                <div class="term-aliases">Gunslinger</div>
+                <div class="term-definition">DPS class specializing in accurate shooting and ammo efficiency.</div>
+                <span class="term-category">Class</span>
+            </div>
+        </section>
+        
+        <!-- Letter H -->
+        <section class="glossary-section" id="letter-h">
+            <div class="letter-header">H</div>
+            
+            <div class="term-entry">
+                <div class="term-name">Heavy Weapon</div>
+                <div class="term-aliases">Also: Heavy</div>
+                <div class="term-definition">Powerful weapons with limited ammo including RPG, MGL, Heavy Assault Shotgun, and Payload Rifle.</div>
+                <span class="term-category">Weapon</span>
+            </div>
+            
+            <div class="term-entry">
+                <div class="term-name">Hellraiser</div>
+                <div class="term-aliases">Also: HR</div>
+                <div class="term-definition">Explosive specialist class using C4 charges for massive area damage.</div>
+                <span class="term-category">Class</span>
+            </div>
+            
+            <div class="term-entry">
+                <div class="term-name">Horde Mode XL</div>
+                <div class="term-definition">Endless survival mode added in Aftermath. Fight increasingly difficult waves for high scores.</div>
+                <span class="term-category">Game Mode</span>
+            </div>
+        </section>
+        
+        <!-- Letter I -->
+        <section class="glossary-section" id="letter-i">
+            <div class="letter-header">I</div>
+            
+            <div class="term-entry">
+                <div class="term-name">Infector</div>
+                <div class="term-definition">Special zombie that spits green projectiles causing virus infection. Infected players turn into zombies after 60 seconds without healing.</div>
+                <span class="term-category">Special Zombie</span>
+            </div>
+            
+            <div class="term-entry">
+                <div class="term-name">Insane</div>
+                <div class="term-definition">Second-highest difficulty. Features 25% friendly fire and significantly more special zombie spawns.</div>
+                <span class="term-category">Difficulty</span>
+            </div>
+        </section>
+        
+        <!-- Letter K -->
+        <section class="glossary-section" id="letter-k">
+            <div class="letter-header">K</div>
+            
+            <div class="term-entry">
+                <div class="term-name">Kite</div>
+                <div class="term-aliases">Also: Kiting, Train</div>
+                <div class="term-definition">Leading zombies while moving backward and shooting. Key survival technique for maintaining distance.</div>
+                <div class="term-example">Example: "Kite them around the room while we reload."</div>
+                <span class="term-category">Strategy</span>
+            </div>
+        </section>
+        
+        <!-- Letter L -->
+        <section class="glossary-section" id="letter-l">
+            <div class="letter-header">L</div>
+            
+            <div class="term-entry">
+                <div class="term-name">Lurker</div>
+                <div class="term-definition">Stealth special zombie that pounces on isolated players. Makes growling sounds before attacking.</div>
+                <span class="term-category">Special Zombie</span>
+            </div>
+            
+            <div class="term-entry">
+                <div class="term-name">LFG</div>
+                <div class="term-aliases">Looking For Group</div>
+                <div class="term-definition">Player searching for teammates to play with.</div>
+                <span class="term-category">Multiplayer</span>
+            </div>
+        </section>
+        
+        <!-- Letter M -->
+        <section class="glossary-section" id="letter-m">
+            <div class="letter-header">M</div>
+            
+            <div class="term-entry">
+                <div class="term-name">Masking</div>
+                <div class="term-aliases">Also: Masking gas, Mask</div>
+                <div class="term-definition">Effect that makes players invisible to zombies. Provided by Fixer's masking grenades and some perks.</div>
+                <span class="term-category">Ability</span>
+            </div>
+            
+            <div class="term-entry">
+                <div class="term-name">Medic</div>
+                <div class="term-definition">Support class focused on healing and keeping the team alive with stim pistols.</div>
+                <span class="term-category">Class</span>
+            </div>
+            
+            <div class="term-entry">
+                <div class="term-name">Meta</div>
+                <div class="term-definition">Most effective tactics available. The current best strategies, weapons, or class builds.</div>
+                <span class="term-category">General</span>
+            </div>
+            
+            <div class="term-entry">
+                <div class="term-name">Mutator</div>
+                <div class="term-definition">Special modifiers in Challenge Mode that change gameplay rules like "Six Skulls" or "Iron Man".</div>
+                <span class="term-category">Game Mode</span>
+            </div>
+        </section>
+        
+        <!-- Letter P -->
+        <section class="glossary-section" id="letter-p">
+            <div class="letter-header">P</div>
+            
+            <div class="term-entry">
+                <div class="term-name">Pyramid</div>
+                <div class="term-aliases">Also: Zombie pyramid, Tower</div>
+                <div class="term-definition">Formation where zombies climb on each other to reach elevated positions. Shoot the base to collapse.</div>
+                <div class="term-example">Example: "Pyramid forming on the left wall!"</div>
+                <span class="term-category">Combat</span>
+            </div>
+            
+            <div class="term-entry">
+                <div class="term-name">Prestige</div>
+                <div class="term-definition">Resetting a max-level class to level 1 in exchange for permanent red perks. Can prestige up to 9 times per class.</div>
+                <span class="term-category">Progression</span>
+            </div>
+            
+            <div class="term-entry">
+                <div class="term-name">Pin/Pinned</div>
+                <div class="term-definition">When a player is grabbed by zombies or pounced by a Lurker, requiring teammate assistance.</div>
+                <span class="term-category">Combat</span>
+            </div>
+            
+            <div class="term-entry">
+                <div class="term-name">Proc</div>
+                <div class="term-definition">Triggering a perk or ability effect. From "programmed random occurrence."</div>
+                <div class="term-example">Example: "That headshot procced my ammo refund."</div>
+                <span class="term-category">General</span>
+            </div>
+        </section>
+        
+        <!-- Letter R -->
+        <section class="glossary-section" id="letter-r">
+            <div class="letter-header">R</div>
+            
+            <div class="term-entry">
+                <div class="term-name">Red Perks</div>
+                <div class="term-definition">Permanent passive bonuses unlocked through prestige. Located in columns 1, 5, 9, and 13 of the skill grid.</div>
+                <span class="term-category">Progression</span>
+            </div>
+            
+            <div class="term-entry">
+                <div class="term-name">Revive</div>
+                <div class="term-aliases">Also: Res, Rez</div>
+                <div class="term-definition">Helping a downed teammate back up. Takes 3 seconds base, faster with certain perks.</div>
+                <span class="term-category">Combat</span>
+            </div>
+            
+            <div class="term-entry">
+                <div class="term-name">Rats</div>
+                <div class="term-definition">Environmental hazard in Aftermath campaigns. Swarms of rats that damage players standing in them.</div>
+                <span class="term-category">Enemy</span>
+            </div>
+        </section>
+        
+        <!-- Letter S -->
+        <section class="glossary-section" id="letter-s">
+            <div class="letter-header">S</div>
+            
+            <div class="term-entry">
+                <div class="term-name">Screamer</div>
+                <div class="term-definition">Special zombie that calls additional swarms if not killed quickly. ALWAYS highest priority target.</div>
+                <span class="term-category">Special Zombie</span>
+            </div>
+            
+            <div class="term-entry">
+                <div class="term-name">Slasher</div>
+                <div class="term-definition">Melee tank class with stun gun. Specializes in close combat and crowd control.</div>
+                <span class="term-category">Class</span>
+            </div>
+            
+            <div class="term-entry">
+                <div class="term-name">Swarm</div>
+                <div class="term-definition">Large wave of zombies, usually triggered by events or Screamers. The game's signature massive zombie hordes.</div>
+                <span class="term-category">Combat</span>
+            </div>
+            
+            <div class="term-entry">
+                <div class="term-name">Special</div>
+                <div class="term-aliases">Also: Special infected, Special zombie</div>
+                <div class="term-definition">Elite zombie types with unique abilities: Bull, Screamer, Gasbag, Lurker, Infector, Bomber.</div>
+                <span class="term-category">Enemy</span>
+            </div>
+            
+            <div class="term-entry">
+                <div class="term-name">Spawn</div>
+                <div class="term-definition">1. Where enemies appear. 2. Where players respawn after death. 3. To appear/generate in the game.</div>
+                <span class="term-category">General</span>
+            </div>
+            
+            <div class="term-entry">
+                <div class="term-name">Stim</div>
+                <div class="term-aliases">Also: Stim pistol, Stim shot</div>
+                <div class="term-definition">Medic's healing ability that grants instant health and temporary health.</div>
+                <span class="term-category">Ability</span>
+            </div>
+        </section>
+        
+        <!-- Letter T -->
+        <section class="glossary-section" id="letter-t">
+            <div class="letter-header">T</div>
+            
+            <div class="term-entry">
+                <div class="term-name">Tank</div>
+                <div class="term-definition">1. Role that absorbs damage for the team (Vanguard, Slasher). 2. To endure enemy attacks.</div>
+                <span class="term-category">Role</span>
+            </div>
+            
+            <div class="term-entry">
+                <div class="term-name">Temp Health</div>
+                <div class="term-aliases">Also: Temporary health, White health</div>
+                <div class="term-definition">Temporary health bar (shown in white) that depletes over time. Granted by various perks and medkits.</div>
+                <span class="term-category">Combat</span>
+            </div>
+            
+            <div class="term-entry">
+                <div class="term-name">Tier</div>
+                <div class="term-definition">Weapon upgrade level from 1 to 5. Higher tiers have better stats and perks.</div>
+                <span class="term-category">Weapon</span>
+            </div>
+        </section>
+        
+        <!-- Letter V -->
+        <section class="glossary-section" id="letter-v">
+            <div class="letter-header">V</div>
+            
+            <div class="term-entry">
+                <div class="term-name">Vanguard</div>
+                <div class="term-definition">Tank class with electrified riot shield. Added in Aftermath expansion.</div>
+                <span class="term-category">Class</span>
+            </div>
+            
+            <div class="term-entry">
+                <div class="term-name">Virus Sample</div>
+                <div class="term-definition">Collectible currency found in missions used to unlock weapon variants and perks.</div>
+                <span class="term-category">Currency</span>
+            </div>
+        </section>
+        
+        <!-- Letter W -->
+        <section class="glossary-section" id="letter-w">
+            <div class="letter-header">W</div>
+            
+            <div class="term-entry">
+                <div class="term-name">Wipe</div>
+                <div class="term-aliases">Also: Team wipe</div>
+                <div class="term-definition">When the entire team dies and must restart from checkpoint.</div>
+                <div class="term-example">Example: "That Bull charge caused a wipe."</div>
+                <span class="term-category">Combat</span>
+            </div>
+        </section>
+        
+        <!-- Letter Y -->
+        <section class="glossary-section" id="letter-y">
+            <div class="letter-header">Y</div>
+            
+            <div class="term-entry">
+                <div class="term-name">Yellow Coins</div>
+                <div class="term-aliases">Also: Class points, Yellow currency</div>
+                <div class="term-definition">Currency earned by leveling classes, used to purchase perks. Can be spent on any class.</div>
+                <span class="term-category">Currency</span>
+            </div>
+        </section>
+        
+        <!-- Letter Z -->
+        <section class="glossary-section" id="letter-z">
+            <div class="letter-header">Z</div>
+            
+            <div class="term-entry">
+                <div class="term-name">Zeke</div>
+                <div class="term-aliases">Also: Zekes</div>
+                <div class="term-definition">Common term for regular zombies. From the phonetic pronunciation of 'Z' for zombie.</div>
+                <div class="term-example">Example: "Zekes incoming from the left!"</div>
+                <span class="term-category">Enemy</span>
+            </div>
+            
+            <div class="term-entry">
+                <div class="term-name">Zone</div>
+                <div class="term-definition">1. Area of effect for abilities. 2. Defensive position or area to hold.</div>
+                <span class="term-category">General</span>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <p>&copy; 2024 WWZ: Aftermath Guide. Unofficial fan resource.</p>
+        </div>
+    </footer>
+    
+    <!-- Glossary Search JavaScript -->
+    <script>
+        // Search functionality
+        document.getElementById('glossary-search').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            const termEntries = document.querySelectorAll('.term-entry');
+            
+            if (searchTerm === '') {
+                termEntries.forEach(entry => {
+                    entry.style.display = 'block';
+                    // Remove highlighting
+                    entry.innerHTML = entry.innerHTML.replace(/<span class="highlight">(.*?)<\/span>/g, '$1');
+                });
+                return;
+            }
+            
+            termEntries.forEach(entry => {
+                const termName = entry.querySelector('.term-name').textContent.toLowerCase();
+                const termDef = entry.querySelector('.term-definition').textContent.toLowerCase();
+                const termAliases = entry.querySelector('.term-aliases')?.textContent.toLowerCase() || '';
+                
+                if (termName.includes(searchTerm) || termDef.includes(searchTerm) || termAliases.includes(searchTerm)) {
+                    entry.style.display = 'block';
+                } else {
+                    entry.style.display = 'none';
+                }
+            });
+        });
+        
+        // Smooth scrolling for alphabet nav
+        document.querySelectorAll('.alphabet-nav a:not(.disabled)').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+    
+    <!-- JavaScript -->
+    <script src="js/course-enhancements.js"></script>
+</body>
+</html>

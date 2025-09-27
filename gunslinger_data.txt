@@ -1,0 +1,254 @@
+Perks List
+Regular & Core Perks
+Level	Perk	Description	XP Required	Unlock Cost
+
+
+Gimme a Reason
+
+Start with Frag Grenade and Compact SMG. Movement has no effect on weapon accuracy, recoil effect also reduced	0 XP	0 
+Segment One
+1	
+
+Fire in the Hole
+
+Frag Grenade can kill 25% more targets (base: 14)	0 XP	0 
+2	
+
+Impact Grenades
+
+Frag Grenades explode on impact. They deal 100% more damage but have 50% smaller explosion radius	1250 XP	150 
+3	
+
+Power Nap
+
+Unequipped weapon automatically reloads after 7 seconds	1250 XP	150 
+
+Perk icon
+Special mag
+
+Killing an enemy with a grenade increases penetration of all weapons by 1 for 5 seconds	150 
+Segment Two
+4	
+
+Swapping Mags!
+
+Reload speed increased by 25% on all weapons	1250 XP	150 
+5	
+
+Front Line Supply
+
+Headshots made with primary or secondary weapons automatically restore 5% rounds to the magazine	1250 XP	150 
+6	
+
+Adrenaline
+
+Reloading a weapon with less than 25% ammo in the magazine provides a 50% reload speed boost for 5 seconds	1250 XP	150 
+
+Perk icon
+Refilling
+
+Reloading a fully unloaded primary weapon increases its next magazine's capacity by 15%	150 
+Segment Three
+7	
+
+Heavy Metal
+
+Start with improved MAG5 Machinegun that deals 50% more damage, and has 50% more ammo. All MAG5 machinegun pickups also improved	1250 XP	150 
+8	
+
+Gunner
+
+Start with Sporting Carbine PAC-15	1250 XP	150 
+9	
+
+This is My Rifle
+
+Start with ARK-103 Assault Rifle	1250 XP	150 
+
+Perk icon
+S890
+
+Start with an S890 Combat Shotgun	150 
+  
+10	
+
+Seek and Destroy
+
+All active special zombies within a radius of 20 meters will be automatically marked	1500 XP	0 
+Segment Four
+11	
+
+Bounty Hunter
+
+Deal 25% more damage to special zombies	1500 XP	250 
+12	
+
+Wheatgrass
+
+Health increased by 25%	1500 XP	250 
+13	
+
+Sleight of Hand
+
+Switch weapons 150% faster	1500 XP	250 
+
+Perk icon
+Sort it all out
+
+Emptying the magazine of the primary weapon loads the secondary weapon with explosive rounds	250 
+Segment Five
+14	
+
+Gun Fanatic
+
+Draining primary and secondary weapons' magazines automatically reloads primary weapon	1500 XP	250 
+15	
+
+Concentration
+
+Killing 5 zombies consecutively with only headshots grants temporary health boost (cooldown 30 seconds)	1750 XP	350 
+16	
+
+Judo
+
+When pinned down by usual or special zombies you will automatically rise up and push your attackers back (cooldown 180 seconds)	1750 XP	350 
+
+Perk icon
+Encore
+
+Instead of becoming incapacitated, you gain a 75% temporary health boost and keep going (cooldown: 180 seconds)	350 
+Segment Six
+17	
+
+Welcoming Committee
+
+Stationary machinegun ammo increased by 25% for all teammates	1750 XP	350 
+18	
+
+S890 Shorty
+
+Start with a S890 Shorty in your secondary weapon slot	1750 XP	350 
+19	
+
+Senjata
+
+Start with a Senjata PDW in your secondary weapon slot	1750 XP	350 
+
+Perk icon
+Bad odor
+
+There is a chance that killing a special zombie will cause it to drop a primary weapon (cooldown: 180 seconds)	350 
+  
+20	
+
+My Bad
+
+Deal 50% less friendly fire damage to your teammates	2000 XP	0 
+Segment Seven
+21	
+
+Deep Pockets
+
+Carried ammo capacity for primary and secondary weapons increased by 25%	2000 XP	500 
+22	
+
+Action Hero
+
+When you become the last of your team still standing you gain ability to shoot with your primary and secondary weapons without spending rounds in its magazines for 7 seconds	2000 XP	500 
+23	
+
+Free Refill
+
+Restore 3% of primary weapon ammo for each kill made with equipment	2000 XP	500 
+
+Perk icon
+The more the merrier
+
+Carried ammo capacity for primary and secondary weapons is increased by 5% for the entire team	500 
+Segment Eight
+24	
+
+Work Belt
+
+Max number of Frag Grenades increased to 3	2000 XP	500 
+25	
+
+Pocket Factory
+
+You won't be able to pick equipment bags on the mission, but your equipment will be constantly regenerating (150 seconds to replenish to maximum)	2500 XP	500 
+26	
+
+Headhunter Reward
+
+Killing 5 zombies consecutively with only headshots refills one equipment charge (cooldown 15 seconds)	2500 XP	500 
+
+Perk icon
+It's not over
+
+Infinite equipment slot usage for 10 seconds when you become the last member of your team still standing. Your equipment charges get fully restored (cooldown: 180 seconds)	500 
+Segment Nine
+27	
+
+Annihilator
+
+Primary, secondary and heavy weapons deal 15% more damage.	2500 XP	500 
+28	
+
+Switcheroo
+
+Switching to primary or secondary weapons increases firearm damage by 50% for 5 seconds	2500 XP	500 
+29	
+
+Thrifty
+
+Reloading a weapon with less than 25% ammo in the magazine provides a 50% firearm damage boost for 3 seconds	2500 XP	500 
+
+Perk icon
+I'm not alone
+
+Firearm damage increased by 10% for the whole team	500 
+  
+30	
+
+War Face
+
+Killing 25 zombies in rapid succession grants 50% firearm damage boost to entire team for 20 seconds	3500 XP	0 
+
+Prestige Rank Perks
+Rank Level	Perk	Description	Unlock Cost
+1	
+
+Swapping Mags II
+
+Reload speed increased by 10% on primary weapons	7500 
+2	
+
+Swapping Mags III
+
+Reload speed increased by 15% on secondary weapons	7500 
+3	
+
+Deep Pockets II
+
+Carried ammo capacity for primary and secondary weapons increased by 10%	7500 
+4	
+
+Fire in The Hole II
+
+Frag Grenade can kill 20% more targets (base: 14)	7500 
+6	
+My Bad II
+
+Take 10% less friendly fire damage	7500 
+7	
+I won't budge from this spot!
+
+Fully depleting the ammo of a Stationary Machine Gun results in a 10% chance (5% for the Horde mode) to receive a new one	7500 
+8	
+Hold the line!
+
+The recoil of primary and secondary weapons is reduced by 10%	7500 
+9	
+Sleight of Hand
+
+Switch weapons 25% faster (the bonus is stackable but can't be higher than 150%)	7500 

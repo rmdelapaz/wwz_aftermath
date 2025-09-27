@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Frequently Asked Questions about World War Z: Aftermath - Get answers to common questions">
+    <meta name="keywords" content="World War Z, Aftermath, FAQ, questions, answers, guide, help">
+    <meta name="author" content="WWZ Guide Team">
+    <title>FAQ - World War Z: Aftermath Guide</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="styles/main.css">
+    <style>
+        /* FAQ specific styling */
+        .faq-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .faq-category {
+            margin: 2rem 0;
+        }
+        
+        .faq-category h2 {
+            color: #2c3e50;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .faq-item {
+            background: white;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-item:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .faq-question {
+            padding: 1.25rem;
+            font-weight: bold;
+            color: #2c3e50;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #f8f9fa;
+            transition: background 0.3s ease;
+        }
+        
+        .faq-question:hover {
+            background: #e9ecef;
+        }
+        
+        .faq-question::after {
+            content: '▼';
+            font-size: 0.8rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-item.active .faq-question::after {
+            transform: rotate(180deg);
+        }
+        
+        .faq-answer {
+            padding: 0 1.25rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+        
+        .faq-item.active .faq-answer {
+            padding: 1.25rem;
+            max-height: 2000px;
+        }
+        
+        .faq-answer p {
+            margin-bottom: 0.75rem;
+        }
+        
+        .faq-answer ul {
+            margin: 0.5rem 0;
+            padding-left: 1.5rem;
+        }
+        
+        .faq-answer li {
+            margin: 0.5rem 0;
+        }
+        
+        .quick-links {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+        
+        .quick-links h3 {
+            color: #495057;
+            margin-bottom: 1rem;
+        }
+        
+        .quick-links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 0.5rem;
+        }
+        
+        .quick-link {
+            color: #667eea;
+            text-decoration: none;
+            padding: 0.25rem;
+            transition: color 0.3s ease;
+        }
+        
+        .quick-link:hover {
+            color: #764ba2;
+            text-decoration: underline;
+        }
+        
+        .highlight-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+        
+        .pro-tip-box {
+            background: #e7f5ff;
+            border-left: 4px solid #74c0fc;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+        
+        .warning-box {
+            background: #fff5f5;
+            border-left: 4px solid #ff8787;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">⚔️ WWZ: Aftermath Guide</a>
+            <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-expanded="false">☰</button>
+            <div class="nav-links" id="nav-links">
+                <a href="index.html">Home</a>
+                <a href="beginner_guide.html">Beginner Guide</a>
+                <a href="classes_overview.html">Classes</a>
+                <a href="special_zombies.html">Special Zombies</a>
+                <a href="faq.html" class="current">FAQ</a>
+                <a href="weapons_upgrades.html">Weapons</a>
+                <a href="currencies_progression.html">Progression</a>
+                <a href="horde_endgame.html">Endgame</a>
+                <button id="theme-toggle" aria-label="Toggle theme">🌙</button>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Header -->
+        <header class="faq-header">
+            <h1>❓ Frequently Asked Questions</h1>
+            <p>Quick answers to common World War Z: Aftermath questions</p>
+        </header>
+        
+        <!-- Quick Links -->
+        <section class="quick-links">
+            <h3>🔗 Quick Jump</h3>
+            <div class="quick-links-grid">
+                <a href="#general" class="quick-link">General Questions</a>
+                <a href="#gameplay" class="quick-link">Gameplay & Combat</a>
+                <a href="#classes" class="quick-link">Classes & Builds</a>
+                <a href="#progression" class="quick-link">Progression & Unlocks</a>
+                <a href="#multiplayer" class="quick-link">Multiplayer & Co-op</a>
+                <a href="#technical" class="quick-link">Technical & Performance</a>
+                <a href="#endgame" class="quick-link">Endgame & Challenges</a>
+            </div>
+        </section>
+        
+        <!-- General Questions -->
+        <section class="faq-category" id="general">
+            <h2>🎮 General Questions</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">What's the difference between World War Z and World War Z: Aftermath?</div>
+                <div class="faq-answer">
+                    <p>Aftermath is a major expansion/upgrade to the original World War Z that includes:</p>
+                    <ul>
+                        <li><strong>All original content</strong> plus new campaigns (Rome, Kamchatka)</li>
+                        <li><strong>First-person mode</strong> option (can toggle between third and first person)</li>
+                        <li><strong>Two new classes:</strong> Vanguard (shield tank) and Dronemaster (drone support)</li>
+                        <li><strong>Melee weapon system</strong> with dual-wielding options</li>
+                        <li><strong>Horde Mode XL</strong> - endless survival mode</li>
+                        <li><strong>New special zombie:</strong> Rats (environmental hazard in new maps)</li>
+                        <li><strong>4K and 60 FPS</strong> on next-gen consoles</li>
+                    </ul>
+                    <p>If you own the original WWZ, you can upgrade to Aftermath at a discounted price.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Is World War Z: Aftermath worth it in 2024/2025?</div>
+                <div class="faq-answer">
+                    <p><strong>Yes, especially if you enjoy:</strong></p>
+                    <ul>
+                        <li>Left 4 Dead style co-op gameplay</li>
+                        <li>Massive zombie hordes (500+ on screen)</li>
+                        <li>Class-based team gameplay</li>
+                        <li>Regular content updates and seasonal events</li>
+                    </ul>
+                    <p>The game has an active player base, regular updates, and full crossplay support. It frequently goes on sale for $15-20, which is excellent value for the content.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Can I play solo/offline?</div>
+                <div class="faq-answer">
+                    <p><strong>Yes!</strong> The game supports:</p>
+                    <ul>
+                        <li><strong>Offline mode</strong> with AI teammates (requires initial online activation)</li>
+                        <li><strong>Private lobbies</strong> with AI filling empty slots</li>
+                        <li><strong>AI teammates</strong> that are surprisingly competent</li>
+                    </ul>
+                    <div class="warning-box">
+                        <strong>Note:</strong> Challenge Mode and weekly challenges require online connection. Progression is slower offline as you miss out on multiplayer bonuses.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">How long is the campaign?</div>
+                <div class="faq-answer">
+                    <p>The complete Aftermath campaign includes:</p>
+                    <ul>
+                        <li><strong>7 Episodes</strong> with 3-4 missions each</li>
+                        <li><strong>Total:</strong> About 25-30 missions</li>
+                        <li><strong>Playtime:</strong> 15-20 hours for first playthrough</li>
+                        <li><strong>100% Completion:</strong> 50+ hours (all difficulties, challenges)</li>
+                    </ul>
+                    <p>Each mission takes 20-40 minutes depending on difficulty and team skill.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Gameplay & Combat -->
+        <section class="faq-category" id="gameplay">
+            <h2>⚔️ Gameplay & Combat Questions</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">What difficulty should I start on?</div>
+                <div class="faq-answer">
+                    <p><strong>Recommended progression:</strong></p>
+                    <ul>
+                        <li><strong>First time:</strong> Normal (learn mechanics without frustration)</li>
+                        <li><strong>After 2-3 missions:</strong> Hard (better rewards, more engaging)</li>
+                        <li><strong>Level 10+ with perks:</strong> Insane (significant challenge jump)</li>
+                        <li><strong>Prestige 4+ coordinated team:</strong> Extreme (requires mastery)</li>
+                    </ul>
+                    <div class="pro-tip-box">
+                        <strong>💡 Pro Tip:</strong> Hard difficulty is the sweet spot for fun and rewards once you understand basics. Normal becomes too easy very quickly.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">How does friendly fire work?</div>
+                <div class="faq-answer">
+                    <p>Friendly fire scales with difficulty:</p>
+                    <ul>
+                        <li><strong>Easy:</strong> 0% (no friendly fire)</li>
+                        <li><strong>Normal:</strong> 0%</li>
+                        <li><strong>Hard:</strong> 10% damage to teammates</li>
+                        <li><strong>Insane:</strong> 25% damage</li>
+                        <li><strong>Extreme:</strong> 50% damage</li>
+                    </ul>
+                    <div class="warning-box">
+                        <strong>⚠️ Important:</strong> Explosives and heavy weapons always deal full friendly fire damage regardless of percentage!
+                    </div>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">What are pyramids and how do I stop them?</div>
+                <div class="faq-answer">
+                    <p>Pyramids are zombie climbing structures that form during swarms:</p>
+                    <ul>
+                        <li>Zombies stack on each other to reach high places</li>
+                        <li>Form at walls, fences, and elevated positions</li>
+                    </ul>
+                    <p><strong>How to stop them:</strong></p>
+                    <ul>
+                        <li><strong>Shoot the base</strong> - Collapsing bottom kills entire pyramid</li>
+                        <li><strong>Explosives</strong> - One grenade/C4 clears whole pyramid</li>
+                        <li><strong>Mortars/MGs</strong> - Positioned defenses auto-target pyramids</li>
+                        <li><strong>Electric grids</strong> - Prevent climbing at that spot</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Why did I get grabbed through a wall/fence?</div>
+                <div class="faq-answer">
+                    <p>This is a game mechanic, not a bug:</p>
+                    <ul>
+                        <li>Zombies can grab through thin barriers (fences, windows)</li>
+                        <li>Maintain at least 1 meter distance from barriers</li>
+                        <li>Some walls have "safe zones" - learn them per map</li>
+                        <li>Lurkers can pounce through some obstacles</li>
+                    </ul>
+                    <div class="pro-tip-box">
+                        <strong>Tip:</strong> Never stand directly against fences during swarms. Always leave grab distance.
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Classes & Builds -->
+        <section class="faq-category" id="classes">
+            <h2>🎭 Classes & Builds Questions</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">What's the best class for beginners?</div>
+                <div class="faq-answer">
+                    <p><strong>Top 3 beginner-friendly classes:</strong></p>
+                    <ol>
+                        <li><strong>Medic:</strong> Keep yourself and team alive, always useful</li>
+                        <li><strong>Gunslinger:</strong> Simple gameplay - just shoot accurately</li>
+                        <li><strong>Exterminator:</strong> Fire control is intuitive and effective</li>
+                    </ol>
+                    <p><strong>Avoid initially:</strong></p>
+                    <ul>
+                        <li><strong>Slasher:</strong> Requires good positioning and game knowledge</li>
+                        <li><strong>Hellraiser:</strong> Easy to damage team with explosives</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Can I reset my class perks?</div>
+                <div class="faq-answer">
+                    <p><strong>No, but:</strong></p>
+                    <ul>
+                        <li>You can buy ALL perks eventually (no permanent lock-out)</li>
+                        <li>Yellow coins are farmable - just takes time</li>
+                        <li>Prestiging resets perks but gives permanent red perks</li>
+                        <li>You can switch active perks anytime between missions</li>
+                    </ul>
+                    <div class="highlight-box">
+                        <strong>Tip:</strong> Don't stress about "wrong" choices. You'll eventually unlock everything.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Should I prestige my class?</div>
+                <div class="faq-answer">
+                    <p><strong>Yes, but timing matters:</strong></p>
+                    <ul>
+                        <li><strong>Prestige 1-4:</strong> Essential for red perks (permanent bonuses)</li>
+                        <li><strong>Prestige 5:</strong> Unlocks unique class weapon skin</li>
+                        <li><strong>Prestige 6-9:</strong> New red perks added in 2024 update</li>
+                    </ul>
+                    <p><strong>Best strategy:</strong></p>
+                    <ol>
+                        <li>Save 30,000+ yellow coins</li>
+                        <li>Prestige to level 4 immediately</li>
+                        <li>Buy crucial perks back</li>
+                        <li>Continue to Prestige 5+ later</li>
+                    </ol>
+                    <div class="warning-box">
+                        <strong>Warning:</strong> You lose ALL purchased perks when prestiging! Save coins first!
+                    </div>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">What's the best class composition for a team?</div>
+                <div class="faq-answer">
+                    <p><strong>Ideal 4-player team composition:</strong></p>
+                    <ul>
+                        <li><strong>1 Medic:</strong> Essential for higher difficulties</li>
+                        <li><strong>1 Fixer:</strong> Ammo and equipment support</li>
+                        <li><strong>2 DPS/Control:</strong> Mix of Hellraiser, Exterminator, Gunslinger</li>
+                    </ul>
+                    <p><strong>Alternative strong compositions:</strong></p>
+                    <ul>
+                        <li><strong>Tank comp:</strong> Vanguard + Slasher + Medic + Fixer</li>
+                        <li><strong>Explosive comp:</strong> 2 Hellraisers + Fixer + Medic</li>
+                        <li><strong>Balanced:</strong> One from each category (support/tank/DPS/control)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Progression & Unlocks -->
+        <section class="faq-category" id="progression">
+            <h2>📈 Progression & Unlocks Questions</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">What's the fastest way to level up?</div>
+                <div class="faq-answer">
+                    <p><strong>XP optimization tips:</strong></p>
+                    <ul>
+                        <li><strong>Hard/Insane difficulty:</strong> Best XP-to-time ratio</li>
+                        <li><strong>Full team bonus:</strong> +10% XP with 4 players</li>
+                        <li><strong>No damage taken:</strong> Bonus XP for health remaining</li>
+                        <li><strong>Headshot kills:</strong> Extra XP per headshot</li>
+                        <li><strong>Special zombie kills:</strong> Worth 5-10x normal zombies</li>
+                    </ul>
+                    <p><strong>Best farming mission:</strong> "Dead Sea Stroll" (Jerusalem 2) - short with guaranteed swarms</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">How do I get blue/yellow coins faster?</div>
+                <div class="faq-answer">
+                    <p><strong>Blue Coins (Supplies):</strong></p>
+                    <ul>
+                        <li>Complete missions (scales with difficulty)</li>
+                        <li>Daily/Weekly challenges</li>
+                        <li>Horde Mode waves</li>
+                        <li>First-time map completion bonuses</li>
+                    </ul>
+                    <p><strong>Yellow Coins (Class Points):</strong></p>
+                    <ul>
+                        <li>Level up any class (1000 per level)</li>
+                        <li>Complete challenge mode missions</li>
+                        <li>Weekly challenge rewards</li>
+                        <li>Can use on ANY class (not locked)</li>
+                    </ul>
+                    <div class="pro-tip-box">
+                        <strong>Tip:</strong> Level multiple classes to 30 for maximum yellow coin generation.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">What should I spend credits on first?</div>
+                <div class="faq-answer">
+                    <p><strong>Priority order:</strong></p>
+                    <ol>
+                        <li><strong>Class perks</strong> - Biggest gameplay impact</li>
+                        <li><strong>Favorite weapon upgrades</strong> - Tier 3 is sufficient initially</li>
+                        <li><strong>Virus samples</strong> - For weapon variants</li>
+                        <li><strong>Cosmetics</strong> - Only after gameplay upgrades</li>
+                    </ol>
+                    <div class="warning-box">
+                        <strong>Don't:</strong> Spread upgrades thin. Focus on one class and 2-3 weapons initially.
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Multiplayer & Co-op -->
+        <section class="faq-category" id="multiplayer">
+            <h2>👥 Multiplayer & Co-op Questions</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">Does the game have crossplay?</div>
+                <div class="faq-answer">
+                    <p><strong>Yes! Full crossplay between:</strong></p>
+                    <ul>
+                        <li>PC (Steam/Epic Games Store)</li>
+                        <li>PlayStation 4/5</li>
+                        <li>Xbox One/Series X|S</li>
+                        <li>Nintendo Switch (limited to 30 FPS)</li>
+                    </ul>
+                    <p><strong>How to enable:</strong> Settings → Online → Crossplay (ON by default)</p>
+                    <div class="highlight-box">
+                        <strong>Note:</strong> PC players can use text chat, console players need voice chat or preset commands.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">How do I play with friends?</div>
+                <div class="faq-answer">
+                    <p><strong>Multiple options:</strong></p>
+                    <ul>
+                        <li><strong>Invite Code:</strong> Host creates code, friends enter it</li>
+                        <li><strong>Friends List:</strong> Direct invite through platform</li>
+                        <li><strong>Private Lobby:</strong> Set to "Friends Only" or "Invite Only"</li>
+                    </ul>
+                    <p><strong>Cross-platform play:</strong> Use the in-game friend code system, not platform invites.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Why can't I find any players?</div>
+                <div class="faq-answer">
+                    <p><strong>Common solutions:</strong></p>
+                    <ul>
+                        <li><strong>Enable crossplay</strong> - Massively increases player pool</li>
+                        <li><strong>Change region</strong> - Try US East or Europe</li>
+                        <li><strong>Play popular missions</strong> - Not obscure challenge modes</li>
+                        <li><strong>Prime time</strong> - Evenings and weekends are busiest</li>
+                        <li><strong>Lower difficulty</strong> - More players on Hard than Extreme</li>
+                    </ul>
+                    <div class="pro-tip-box">
+                        <strong>Quick Match</strong> is fastest for finding games. Choose class after joining.
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Technical & Performance -->
+        <section class="faq-category" id="technical">
+            <h2>🔧 Technical & Performance Questions</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">What are the system requirements?</div>
+                <div class="faq-answer">
+                    <p><strong>PC Minimum:</strong></p>
+                    <ul>
+                        <li>CPU: Core i3-3220 / AMD A10-5700</li>
+                        <li>GPU: GeForce GTX 650 Ti / Radeon HD 5870</li>
+                        <li>RAM: 8 GB</li>
+                        <li>Storage: 50 GB</li>
+                    </ul>
+                    <p><strong>PC Recommended:</strong></p>
+                    <ul>
+                        <li>CPU: Core i7-3970 / AMD FX-9370</li>
+                        <li>GPU: GeForce GTX 1060 / Radeon R9 380</li>
+                        <li>RAM: 16 GB</li>
+                    </ul>
+                    <p><strong>Console Performance:</strong></p>
+                    <ul>
+                        <li>PS5/XSX: 4K 60 FPS or 1080p 120 FPS</li>
+                        <li>PS4/XB1: 1080p 30 FPS</li>
+                        <li>Switch: 720p 30 FPS (docked)</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">How do I toggle first-person mode?</div>
+                <div class="faq-answer">
+                    <p><strong>Controls:</strong></p>
+                    <ul>
+                        <li><strong>PC:</strong> Press V</li>
+                        <li><strong>Console:</strong> Click right stick (R3)</li>
+                    </ul>
+                    <p><strong>Settings:</strong> Gameplay → Camera → Default View Mode</p>
+                    <div class="highlight-box">
+                        <strong>Note:</strong> You can switch anytime during gameplay. Some prefer third-person for awareness, first-person for aiming.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Why is my game lagging/stuttering?</div>
+                <div class="faq-answer">
+                    <p><strong>Common fixes:</strong></p>
+                    <ul>
+                        <li><strong>Lower Zombie Count:</strong> Settings → Video → Zombie Count</li>
+                        <li><strong>Disable Vsync:</strong> Can cause input lag</li>
+                        <li><strong>Vulkan Mode:</strong> Often better performance than DX11</li>
+                        <li><strong>Close background apps:</strong> Especially browsers</li>
+                        <li><strong>Verify game files:</strong> Through Steam/Epic</li>
+                    </ul>
+                    <div class="warning-box">
+                        <strong>Known issue:</strong> Memory leak after multiple missions. Restart game every 2-3 hours.
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Endgame & Challenges -->
+        <section class="faq-category" id="endgame">
+            <h2>🏆 Endgame & Challenge Questions</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">What is Horde Mode XL?</div>
+                <div class="faq-answer">
+                    <p><strong>Endless survival mode with:</strong></p>
+                    <ul>
+                        <li>Progressively harder waves</li>
+                        <li>Shop system between waves</li>
+                        <li>Leaderboards for competition</li>
+                        <li>Unique rewards and achievements</li>
+                    </ul>
+                    <p><strong>Tips for success:</strong></p>
+                    <ul>
+                        <li>Save credits for later waves</li>
+                        <li>Buy defenses > weapons early</li>
+                        <li>Coordinate class abilities</li>
+                        <li>Wave 25+ requires perfect teamwork</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">What are Mutators and Challenge Mode?</div>
+                <div class="faq-answer">
+                    <p><strong>Challenge Mode:</strong> Weekly rotating missions with special modifiers</p>
+                    <p><strong>Common Mutators:</strong></p>
+                    <ul>
+                        <li><strong>Six Skulls:</strong> All zombies are special infected</li>
+                        <li><strong>Iron Man:</strong> No respawns</li>
+                        <li><strong>Gun Shortage:</strong> Limited ammo</li>
+                        <li><strong>Thrifty:</strong> No defense kits spawn</li>
+                        <li><strong>Pinned Down:</strong> Cannot move while shooting</li>
+                    </ul>
+                    <p><strong>Rewards:</strong> Bonus currency, exclusive cosmetics, achievement progress</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">How do I prepare for Extreme difficulty?</div>
+                <div class="faq-answer">
+                    <p><strong>Requirements for success:</strong></p>
+                    <ul>
+                        <li><strong>Prestige 4+ class</strong> with red perks</li>
+                        <li><strong>Tier 5 weapons</strong> minimum</li>
+                        <li><strong>Map knowledge</strong> - Know every spawn and defense spot</li>
+                        <li><strong>Coordinated team</strong> - Random teams rarely succeed</li>
+                        <li><strong>Voice communication</strong> - Essential for coordination</li>
+                    </ul>
+                    <p><strong>Key differences on Extreme:</strong></p>
+                    <ul>
+                        <li>50% friendly fire damage</li>
+                        <li>No player outlines through walls</li>
+                        <li>Extremely limited resources</li>
+                        <li>Multiple special spawns constantly</li>
+                        <li>One mistake = team wipe</li>
+                    </ul>
+                    <div class="pro-tip-box">
+                        <strong>Start with:</strong> "Moscow 1" or "New York 1" - considered easiest Extreme maps.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Is there any post-launch content planned?</div>
+                <div class="faq-answer">
+                    <p><strong>Regular updates include:</strong></p>
+                    <ul>
+                        <li>Seasonal events (Halloween, Christmas, etc.)</li>
+                        <li>New challenge modes monthly</li>
+                        <li>Balance patches and bug fixes</li>
+                        <li>Occasional new weapons or variants</li>
+                    </ul>
+                    <p><strong>Recent major updates:</strong></p>
+                    <ul>
+                        <li>March 2024: Prestige levels 6-9 with new red perks</li>
+                        <li>Console next-gen upgrades</li>
+                        <li>New melee weapons added regularly</li>
+                    </ul>
+                    <div class="highlight-box">
+                        The game is still actively supported as of 2025 with no announced end date.
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <p>&copy; 2024 WWZ: Aftermath Guide. Unofficial fan resource.</p>
+        </div>
+    </footer>
+    
+    <!-- FAQ Toggle JavaScript -->
+    <script>
+        // Add to existing course-enhancements.js or inline
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.parentElement;
+                faqItem.classList.toggle('active');
+                
+                // Close other items in same category
+                const category = faqItem.parentElement;
+                category.querySelectorAll('.faq-item').forEach(item => {
+                    if (item !== faqItem && item.classList.contains('active')) {
+                        item.classList.remove('active');
+                    }
+                });
+            });
+        });
+    </script>
+    
+    <!-- JavaScript -->
+    <script src="js/course-enhancements.js"></script>
+</body>
+</html>

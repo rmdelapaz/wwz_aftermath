@@ -1,0 +1,262 @@
+Perks List
+Regular & Core Perks
+Level
+
+Perk
+
+Description
+
+XP Required	
+Unlock Cost
+
+
+
+Demoman
+
+Start with C4, Shotgun and Hailstorm MGL	0 XP	0 
+Segment One
+1	
+
+Throwing arm
+
+Throw distance of a C4 increased by 50%	0 XP	0 
+2	
+
+Here Kitty
+
+C4 will attract zombies for 5 seconds after being planted but can kill 35% less targets (base: 14)	1250 XP	150 
+3	
+
+Not Today
+
+You may become incapacitated 1 additional time before dying	1250 XP	150 
+
+Perk icon
+The perfect composition
+
+The explosion radius of C4 and Claymores is increased by 25%	150 
+Segment Two
+4	
+
+Welcome Mat
+
+Upon trigger Claymores will attract zombies for 3 seconds before explosion. Start with Claymores	1250 XP	150 
+5	
+
+Green Fingered
+
+Planting speed of Claymores is increased by 50%. 25% chance to plant the Claymore at no cost to your equipment. Start with Claymores	1250 XP	150 
+6	
+
+Welcoming Committee
+
+Any mortar used by you or teammates can kill 25% more targets (base: 40)	1250 XP	150 
+
+Perk icon
+Impact grenades
+
+Projectiles fired from the Hailstorm MGL explode upon contact	150 
+Segment Three
+7	
+
+Unshakeable
+
+Self-inflicted explosive damage reduced by 100%	1250 XP	150 
+8	
+
+Directed Blast
+
+You deal 100% more damage to zombies with all explosives	1250 XP	150 
+9	
+
+Nimble Thumbs
+
+All shotguns' reload speed increased by 50%	1250 XP	150 
+
+Perk icon
+You've worn me out
+
+Killing enemies with equipment restores 2 grenades for the Hailstorm MGL	150 
+  
+10	
+
+Demolition Squad
+
+Explosive equipment can kill 25% more targets. Applies for the whole team	1500 XP	0 
+Segment Four
+11	
+
+Bounty Hunter
+
+Deal 25% more damage to special zombies	1500 XP	250 
+12	
+
+Wheatgrass
+
+Health increased by 25%	1500 XP	250 
+13	
+
+Walk Softly
+
+Start with a S890 shotgun	1500 XP	250 
+
+Perk icon
+Smells like gunpowder
+
+All Hailstorm MGLs within 10 meters will be automatically marked if you don't have a heavy weapon	250 
+Segment Five
+14	
+
+Tooled Up
+
+Increase Claymore capacity to 4 and C4 capacity to 3	1500 XP	250 
+15	
+
+Pickpocket
+
+Killing 15 zombies in rapid succession refills one equipment charge (cooldown 60 seconds)	1750 XP	350 
+16	
+
+I’ll Take That
+
+Killing a special zombie restores one equipment charge (cooldown 60 seconds)	1750 XP	350 
+
+Perk icon
+Shrapnel
+
+All your explosives can kill 10% more targets	350 
+Segment Six
+17	
+
+Free Refill I
+
+Restores 1% of primary weapon ammo for each kill made with equipment	1750 XP	350 
+18	
+
+Free Refill II
+
+Each kill made with equipment restores 1 round to your primary weapon magazine	1750 XP	350 
+19	
+
+Third Hand
+
+Killing 15 zombies in rapid succession instantly reloads your primary weapon	1750 XP	350 
+
+Perk icon
+Free Refill III
+
+There is a chance that killing a special zombie will cause it to drop a Hailstorm MGL (cooldown: 180 seconds)	350 
+  
+20	
+
+Hollywood
+
+Explosive and fire damage dealt to yourself and your teammates reduced by 30%	2000 XP	0 
+Segment Seven
+21	
+
+Scorched Earth
+
+Claymore and C4 explosions will set the nearby area on fire	2000 XP	500 
+22	
+
+Deep Pockets
+
+Carried ammo capacity for heavy weapon increased by 35%	2000 XP	500 
+23	
+
+Hole Punch
+
+Shotgun range increased by 50%	2000 XP	500 
+
+Perk icon
+Alert red!
+
+C4 explosions also release a gas cloud that hurts zombies	500 
+Segment Eight
+24	
+
+Senjata
+
+Start with a Senjata PDW in your secondary weapon slot	2000 XP	500 
+25	
+
+Thumper
+
+Start with a Thumper GL in your secondary weapon slot	2500 XP	500 
+26	
+
+Heavy Rain
+
+Start with improved Hailstorm MGL that does 50% more damage, and has 50% more ammo. All Hailstorm MGL pickups for you also improved [base: 8 ammo]	2500 XP	500 
+
+Perk icon
+Ride of the Valkyries
+
+Start with an improved Multi-shot Rocket Launcher that kills 50% more zombies. All MRL202 Commando pickups for you are also improved [base: 4 ammo]	500 
+Segment Nine
+27	
+
+Knock Knock
+
+Start with a Breaching Charge	2500 XP	500 
+28	
+
+Job Satisfaction
+
+Killing 15 zombies in rapid succession grants a temporary health boost	2500 XP	500 
+29	
+
+Predator
+
+Killing special zombies boosts firearm damage by 50% for 10 seconds	2500 XP	500 
+
+Perk icon
+All around is ashes
+
+The Thumper GL deals 25% increased damage	500 
+  
+30	
+
+Technician
+
+C4, Claymore Landmines and MGL can kill 25% more targets	3500 XP	0 
+
+restige Rank Perks
+Rank Level	Perk	Description	Cost
+1	
+
+Throwing Arm II
+
+Throw distance of a C4 increased by 25%	7500 
+2	
+
+Sleight of Hand
+
+Switch weapons 25% faster	7500 
+3	
+
+Directed Blast II
+
+Your explosives can kill 10% more targets	7500 
+4	
+
+Thumper II
+
+Carried ammo capacity for Thumper GL increased by 1	7500 
+6	
+Hole Punch II
+
+A 50% range increase for pistols and secondary SMGs	7500 
+7	
+Blink of an eye
+
+The reload speed of secondary weapons is increased by 15%	7500 
+8	
+Knock Knock II
+
+10% chance of using a Breaching Charge without spending it	7500 
+9	
+Directed Blast III
+
+Your explosives can kill 5% more targets	7500 

@@ -1,0 +1,254 @@
+Perks List
+Regular & Core Perks
+Level	Perk	Description	XP Required	Unlock Cost
+
+
+Mule
+
+Start with a Supply Bag and Scout Rifle. Increase carried ammo capacity for primary and secondary weapons by 10% for all teammates	0 XP	0 
+Segment One
+1	
+
+Kickback
+
+When a teammate uses your Supply Bag there is a 20% chance you will also gain explosive ammo	0 XP	150 
+2	
+
+Armory
+
+Using a Supply Bag gives a 20% chance to restore one equipment charge. But the bag owner can only restore his equipment when someone else gains this benefit from his bag	1250 XP	150 
+3	
+
+Stand by Me
+
+Increases firearm damage by 100% for 10 seconds when reviving or unpinning a teammate	1250 XP	150 
+
+Perk icon
+It might work
+
+You can restore a depleted automatic turret with a 20% chance (10% for the Horde mode)	150 
+Segment Two
+4	
+
+Night Owl
+
+Masking Grenades grant an additional temporary health boost. Start with Masking Grenades	1250 XP	150 
+5	
+
+Side Effects
+
+Masking Grenade gas is lethal to zombies. Start with Masking Grenades	1250 XP	150 
+6	
+
+Give 'em Hell
+
+Reviving a teammate grants explosive ammo for both of you	1250 XP	150 
+
+Perk icon
+No need for instructions
+
+Automatic turrets placed by you and your allies deal 25% more damage	150 
+Segment Three
+7	
+
+Knock Knock
+
+You start with a Breaching Charge	1250 XP	150 
+8	
+
+Paramedic
+
+Revive speed increased by 100%	1250 XP	150 
+9	
+
+Cloakroom
+
+Reviving a teammate grants masking effect for 3 seconds for both of you	1250 XP	150 
+
+Perk icon
+Cheer up
+
+Reviving a teammate refills one equipment charge for both of you	150 
+  
+10	
+
+Please Stand Up
+
+If everyone in a team is incapacitated or pinned by a zombie then the Fixer is able to stand up (cooldown 60 seconds)	1500 XP	0 
+Segment Four
+11	
+
+My Round I
+
+Increase carried ammo capacity for primary and secondary weapons by 10% for you and all teammates	1500 XP	250 
+12	
+
+Wheatgrass
+
+Health increased by 25%	1500 XP	250 
+13	
+
+Gunner
+
+Start with Sporting Carbine Pac-15	1500 XP	250 
+
+Perk icon
+Scrap metal... again
+
+All equipment bags within 20 meters will be automatically marked if you have no equipment charges	250 
+Segment Five
+14	
+
+One for the Road
+
+Max Masking Grenade and Supply Bag capacity increased to 2. However Masking Grenade effect duration decreased by 3 seconds and Supply Bag contains 25% less explosive ammo	1500 XP	250 
+15	
+
+Pickpocket
+
+Kill 15 zombies in rapid succession refills one equipment charge (cooldown 90 seconds)	1750 XP	350 
+16	
+
+Scavenger
+
+Killing special zombie restores one equipment charge (cooldown 90 seconds)	1750 XP	350 
+
+Perk icon
+I am not a snack
+
+There is a chance that killing a special zombie will cause it to drop an equipment bag (cooldown: 180 seconds)	350 
+Segment Six
+17	
+
+Instant Replay
+
+Anyone that uses your supply bag restores 20% of their primary weapon ammunition (base 10%)	1750 XP	350 
+18	
+
+Under the Table
+
+Anyone entering Masking Grenade gas cloud restores 10% of primary weapon ammo	1750 XP	350 
+19	
+
+Go Get 'Em
+
+Reviving a teammate will restore 25% of primary weapon's ammunition for you and your teammate	1750 XP	350 
+
+Perk icon
+Almost missed
+
+Damage to marked enemies is increased by 10% for you and your team	350 
+  
+20	
+
+Efficiency
+
+Supply bag contains 25% more explosive ammo. Masking grenade effect duration increased by 2 seconds	2000 XP	0 
+Segment Seven
+21	
+
+Lightning Hands
+
+All semi automatic rifles’ reload speed increased by 25%	2000 XP	500 
+22	
+
+Power Shot
+
+All semi automatic rifles gain increased penetration	2000 XP	500 
+23	
+
+Casull 6
+
+Start with a Casull 6 in your secondary weapon slot	2000 XP	500 
+
+Perk icon
+It Ain't Much but...
+
+The first 5% of ammo in the primary weapon's magazine will be explosive for the entire team	500 
+Segment Eight
+24	
+
+Fourth of July
+
+Your Supply Bag can be used 1 more time(s) before depleting (base 4 uses)	2000 XP	500 
+25	
+
+Shadow Walker
+
+Masking Grenade effect duration increased by 2 seconds (base 6 seconds)	2500 XP	500 
+26	
+
+Darkness Falls
+
+Masking Grenade gas cloud duration is increased by 7 seconds (base 5 seconds)	2500 XP	500 
+
+Perk icon
+Hidden pocket
+
+Using a Supply Bag additionally restores the secondary weapon's ammunition	500 
+Segment Nine
+27	
+
+My Round II
+
+Increase carried ammo capacity for heavy weapons by 10% for all teammates	2500 XP	500 
+28	
+
+Bandolier
+
+Mortar and Stationary machinegun ammo capacity increased by 25% for all team. Durability of defenses increased by 25% for all team [base: 4 Mortar ammo, 200 machinegun ammo]	2500 XP	500 
+29	
+
+The Big Five 0
+
+Start with improved BF25 Payload Rifle that deals 50% more damage and has 50% more ammo. All BF25 Payload Rifle pickups for you also improved [base: 6 ammo]	2500 XP	500 
+
+Perk icon
+3 in 1
+
+The first use of a placed Supply Bag will restore 10% health to you and your allies, but its total usage number is reduced by 1	500 
+  
+30	
+
+Corporate Power Nap
+
+Unequipped weapon automatically reloads every 10 seconds for all teammates	3500 XP	0
+
+Prestige Rank Perks
+Rank Level	Perk	Description	Unlock Cost
+1	
+
+Knock Knock II
+
+10% chance of using Breaching Charge without spending it	7500 
+2	
+
+Paramedic II
+
+Revive speed increased by 25%	7500 
+3	
+
+My Round III
+
+Carried ammo capacity increased for primary and secondary weapons by 5% for you and all teammates	7500 
+4	
+
+Bounty Hunter
+
+Deal 10% more damage to special zombies	7500 
+6	
+Go Get 'Em II
+
+Reviving a teammate will restore 10% of the primary weapon's ammunition for you and your teammate	7500 
+7	
+I made it myself!
+
+Autoturret ammunition is increased by 10% for the whole team	7500 
+8	
+Kevlar
+
+After reviving an ally, both of you take 25% less damage for 5 seconds	7500 
+9	
+Sleight of Hand
+
+Switch weapons 25% faster	7500 

@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Complete Special Zombie Guide - Learn weaknesses, behaviors, and counter strategies in World War Z: Aftermath">
+    <meta name="keywords" content="World War Z, Aftermath, special zombies, Bull, Lurker, Gasbag, Screamer, Infector, Bomber, guide">
+    <meta name="author" content="WWZ Guide Team">
+    <title>Special Zombies Guide - World War Z: Aftermath</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="styles/main.css">
+    <style>
+        /* Special Zombies specific styling */
+        .zombie-header {
+            background: linear-gradient(135deg, #8b0000 0%, #dc143c 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .zombie-card {
+            background: white;
+            border: 3px solid #e9ecef;
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .zombie-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #dc143c, #8b0000);
+        }
+        
+        .zombie-title {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .zombie-icon {
+            font-size: 3rem;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 3px solid #dc143c;
+        }
+        
+        .zombie-info {
+            flex: 1;
+        }
+        
+        .zombie-name {
+            font-size: 1.8rem;
+            color: #2c3e50;
+            margin: 0;
+        }
+        
+        .zombie-role {
+            color: #7f8c8d;
+            font-size: 1rem;
+            margin: 0.25rem 0;
+        }
+        
+        .threat-level {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            margin-top: 0.5rem;
+        }
+        
+        .threat-extreme {
+            background: #ff4444;
+            color: white;
+        }
+        
+        .threat-high {
+            background: #ff8800;
+            color: white;
+        }
+        
+        .threat-medium {
+            background: #ffbb33;
+            color: #333;
+        }
+        
+        .threat-low {
+            background: #00C851;
+            color: white;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-label {
+            font-size: 0.85rem;
+            color: #6c757d;
+            margin-bottom: 0.25rem;
+        }
+        
+        .stat-value {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #495057;
+        }
+        
+        .mechanics-section {
+            margin: 1.5rem 0;
+        }
+        
+        .mechanics-section h3 {
+            color: #2c3e50;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .weakness-list {
+            background: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+        
+        .weakness-list li {
+            margin: 0.5rem 0;
+        }
+        
+        .counter-strategy {
+            background: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+        
+        .audio-cue {
+            background: #fff3e0;
+            border-left: 4px solid #ff9800;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+        
+        .danger-box {
+            background: #ffebee;
+            border: 2px solid #f44336;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .pro-tip {
+            background: #f3e5f5;
+            border-left: 4px solid #9c27b0;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+        
+        .quick-counter {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+        
+        .counter-badge {
+            background: #2c3e50;
+            color: white;
+            padding: 0.35rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+        
+        .priority-indicator {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: #dc143c;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+        
+        .spawn-info {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+        
+        .health-bar {
+            background: #e9ecef;
+            height: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 0.5rem 0;
+        }
+        
+        .health-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #4caf50, #8bc34a);
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">⚔️ WWZ: Aftermath Guide</a>
+            <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-expanded="false">☰</button>
+            <div class="nav-links" id="nav-links">
+                <a href="index.html">Home</a>
+                <a href="beginner_guide.html">Beginner Guide</a>
+                <div class="dropdown">
+                    <a href="classes_overview.html" class="dropdown-toggle">Classes ▼</a>
+                    <div class="dropdown-content">
+                        <a href="classes_overview.html">Overview</a>
+                        <a href="class_medic.html">Medic</a>
+                        <a href="class_fixer.html">Fixer</a>
+                        <a href="class_gunslinger.html">Gunslinger</a>
+                        <a href="class_exterminator.html">Exterminator</a>
+                        <a href="class_slasher.html">Slasher</a>
+                        <a href="class_hellraiser.html">Hellraiser</a>
+                        <a href="class_dronemaster.html">Dronemaster</a>
+                        <a href="class_vanguard.html">Vanguard</a>
+                    </div>
+                </div>
+                <a href="special_zombies.html" class="current">Special Zombies</a>
+                <a href="weapons_upgrades.html">Weapons</a>
+                <a href="currencies_progression.html">Progression</a>
+                <a href="horde_endgame.html">Endgame</a>
+                <button id="theme-toggle" aria-label="Toggle theme">🌙</button>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Header -->
+        <header class="zombie-header">
+            <h1>🧟 Special Zombies Field Guide</h1>
+            <p>Master identification, weaknesses, and elimination strategies for every special infected</p>
+        </header>
+        
+        <!-- Quick Priority Guide -->
+        <section class="card">
+            <h2>⚡ Kill Priority Order</h2>
+            <div class="danger-box">
+                <strong>CRITICAL:</strong> Special zombie priority can make or break your run. Always eliminate in this order:
+            </div>
+            <ol>
+                <li><strong>😱 Screamer</strong> - Prevents swarm cascade (ALWAYS FIRST)</li>
+                <li><strong>🤢 Gasbag</strong> - Area denial threat to entire team</li>
+                <li><strong>🐂 Bull</strong> - Can wipe unprepared teams</li>
+                <li><strong>🧟 Infector</strong> - Turns teammates into liabilities</li>
+                <li><strong>👻 Lurker</strong> - Disrupts team formation</li>
+                <li><strong>🎯 Bomber</strong> - Situational threat, avoid body shots</li>
+            </ol>
+        </section>
+        
+        <!-- Bull -->
+        <article class="zombie-card">
+            <span class="priority-indicator">Priority #3</span>
+            <div class="zombie-title">
+                <div class="zombie-icon">🐂</div>
+                <div class="zombie-info">
+                    <h2 class="zombie-name">Bull</h2>
+                    <p class="zombie-role">Armored Charger</p>
+                    <span class="threat-level threat-high">HIGH THREAT</span>
+                </div>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-label">Health</div>
+                    <div class="stat-value">Very High</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">Speed</div>
+                    <div class="stat-value">Fast (charging)</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">Damage</div>
+                    <div class="stat-value">Extreme</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">Range</div>
+                    <div class="stat-value">Melee</div>
+                </div>
+            </div>
+            
+            <div class="mechanics-section">
+                <h3>🎯 Identification</h3>
+                <ul>
+                    <li>Massive size with riot gear armor</li>
+                    <li>Helmet with visor (can be broken)</li>
+                    <li>Loud metallic footsteps when approaching</li>
+                    <li>Distinctive roar before charging</li>
+                </ul>
+                
+                <div class="audio-cue">
+                    <strong>🔊 Audio Cue:</strong> Deep growl followed by loud roar, heavy metallic stomping. You'll hear a Bull before you see it.
+                </div>
+                
+                <h3>⚙️ Mechanics & Behavior</h3>
+                <ul>
+                    <li><strong>Charge Attack:</strong> Runs in straight line, grabs and slams first target</li>
+                    <li><strong>Wind-up Time:</strong> 2-3 seconds before charge begins</li>
+                    <li><strong>Charge Distance:</strong> Approximately 30 meters</li>
+                    <li><strong>Armor:</strong> Front armor reduces damage by 50%</li>
+                    <li><strong>Visor:</strong> Can be broken to expose head for critical damage</li>
+                    <li><strong>Post-Charge:</strong> Brief recovery period after charge</li>
+                </ul>
+                
+                <div class="weakness-list">
+                    <h4>💚 Weaknesses</h4>
+                    <ul>
+                        <li><strong>Back is unarmored</strong> - Full damage from behind</li>
+                        <li><strong>Visor breaks</strong> - Concentrated fire exposes head</li>
+                        <li><strong>Can't turn while charging</strong> - Sidestep to avoid</li>
+                        <li><strong>Explosives bypass armor</strong> - C4, grenades, RPGs work</li>
+                        <li><strong>Stunnable during wind-up</strong> - Stun gun, flashbang stop charge</li>
+                    </ul>
+                </div>
+                
+                <h3>🎮 Universal Counter Strategies</h3>
+                <div class="counter-strategy">
+                    <ol>
+                        <li><strong>Listen for audio cues</strong> - React before visual contact</li>
+                        <li><strong>Focus fire the visor</strong> - Team should concentrate shots</li>
+                        <li><strong>Sidestep at last second</strong> - Roll perpendicular to charge</li>
+                        <li><strong>Use environment</strong> - Bulls hit walls and get stunned</li>
+                        <li><strong>Save heavy weapons</strong> - RPG = instant kill</li>
+                        <li><strong>Explosive placement</strong> - Pre-place C4 or claymores in paths</li>
+                    </ol>
+                </div>
+                
+                <div class="pro-tip">
+                    <strong>💡 Pro Tip:</strong> Bulls always charge the closest target. Use this to bait charges into walls or away from vulnerable teammates. A Bull hitting a wall is stunned for 3 seconds!
+                </div>
+                
+                <h3>🔗 Class-Specific Counters</h3>
+                <div class="quick-counter">
+                    <span class="counter-badge">Hellraiser: C4 in path</span>
+                    <span class="counter-badge">Slasher: Stun gun stops charge</span>
+                    <span class="counter-badge">Vanguard: Shield blocks entirely</span>
+                    <span class="counter-badge">Gunslinger: Headshot chains</span>
+                    <span class="counter-badge">Exterminator: Claymore traps</span>
+                </div>
+                <p><em>See individual <a href="classes_overview.html">class guides</a> for detailed strategies</em></p>
+            </div>
+        </article>
+        
+        <!-- Screamer -->
+        <article class="zombie-card">
+            <span class="priority-indicator">Priority #1 - ALWAYS</span>
+            <div class="zombie-title">
+                <div class="zombie-icon">😱</div>
+                <div class="zombie-info">
+                    <h2 class="zombie-name">Screamer</h2>
+                    <p class="zombie-role">Swarm Caller</p>
+                    <span class="threat-level threat-extreme">EXTREME THREAT</span>
+                </div>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-label">Health</div>
+                    <div class="stat-value">Low</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">Speed</div>
+                    <div class="stat-value">Slow</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">Damage</div>
+                    <div class="stat-value">Indirect</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">Range</div>
+                    <div class="stat-value">Map-wide</div>
+                </div>
+            </div>
+            
+            <div class="mechanics-section">
+                <h3>🎯 Identification</h3>
+                <ul>
+                    <li>Yellow/orange hazmat suit or dirty white outfit</li>
+                    <li>Hands near face in "screaming" position</li>
+                    <li>Slow shambling movement</li>
+                    <li>High-pitched whining sound when nearby</li>
+                </ul>
+                
+                <div class="audio-cue">
+                    <strong>🔊 Audio Cue:</strong> Distinctive high-pitched whine/moan. If you hear this, DROP EVERYTHING and find it!
+                </div>
+                
+                <h3>⚙️ Mechanics & Behavior</h3>
+                <ul>
+                    <li><strong>Scream Attack:</strong> 3-second wind-up, then calls swarm</li>
+                    <li><strong>Swarm Size:</strong> 20-50 zombies depending on difficulty</li>
+                    <li><strong>Alert Range:</strong> Will scream if damaged or player gets too close</li>
+                    <li><strong>One Scream:</strong> Can only scream once per life</li>
+                    <li><strong>Spawn Behavior:</strong> Often spawns behind teams</li>
+                </ul>
+                
+                <div class="weakness-list">
+                    <h4>💚 Weaknesses</h4>
+                    <ul>
+                        <li><strong>Fragile</strong> - Dies to 1-2 headshots</li>
+                        <li><strong>Slow movement</strong> - Easy to track</li>
+                        <li><strong>Interruptible</strong> - Damage during wind-up stops scream</li>
+                        <li><strong>No melee attack</strong> - Harmless up close</li>
+                        <li><strong>Predictable spawns</strong> - Learn the locations</li>
+                    </ul>
+                </div>
+                
+                <h3>🎮 Universal Counter Strategies</h3>
+                <div class="counter-strategy">
+                    <ol>
+                        <li><strong>IMMEDIATE PRIORITY</strong> - Kill before anything else</li>
+                        <li><strong>Use silenced weapons</strong> - Prevents alert from gunfire</li>
+                        <li><strong>Headshot for instant kill</strong> - Don't risk body shots</li>
+                        <li><strong>Call out location</strong> - "Screamer back left!"</li>
+                        <li><strong>If scream starts</strong> - Find defensive position immediately</li>
+                    </ol>
+                </div>
+                
+                <div class="danger-box">
+                    <strong>⚠️ WARNING:</strong> A single Screamer can cascade into a team wipe. NEVER ignore the audio cue. It's better to waste ammo on a false alarm than miss a real Screamer.
+                </div>
+                
+                <div class="pro-tip">
+                    <strong>💡 Pro Tip:</strong> Screamers spawn at specific points on each map. Learn these locations and pre-check them. On higher difficulties, always have one player watching the team's back.
+                </div>
+                
+                <h3>🔗 Class-Specific Counters</h3>
+                <div class="quick-counter">
+                    <span class="counter-badge">All Classes: Silenced weapons</span>
+                    <span class="counter-badge">Gunslinger: Instant headshot</span>
+                    <span class="counter-badge">Slasher: Sprint and melee</span>
+                    <span class="counter-badge">Dronemaster: Auto-target priority</span>
+                    <span class="counter-badge">Vanguard: Shield bash interrupt</span>
+                </div>
+            </div>
+        </article>
+        
+        <!-- Gasbag -->
+        <article class="zombie-card">
+            <span class="priority-indicator">Priority #2</span>
+            <div class="zombie-title">
+                <div class="zombie-icon">🤢</div>
+                <div class="zombie-info">
+                    <h2 class="zombie-name">Gasbag</h2>
+                    <p class="zombie-role">Toxic Area Denial</p>
+                    <span class="threat-level threat-high">HIGH THREAT</span>
+                </div>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-label">Health</div>
+                    <div class="stat-value">Medium</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">Speed</div>
+                    <div class="stat-value">Slow</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">Damage</div>
+                    <div class="stat-value">High (AoE)</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">Range</div>
+                    <div class="stat-value">Medium</div>
+                </div>
+            </div>
+            
+            <div class="mechanics-section">
+                <h3>🎯 Identification</h3>
+                <ul>
+                    <li>Bloated appearance with green/yellow skin</li>
+                    <li>Visible gas clouds emanating from body</li>
+                    <li>Distinctive gurgling/belching sounds</li>
+                    <li>Leaves toxic puddles when walking</li>
+                </ul>
+                
+                <div class="audio-cue">
+                    <strong>🔊 Audio Cue:</strong> Wet gurgling and belching sounds, like someone violently ill. Gas hissing noise when close.
+                </div>
+                
+                <h3>⚙️ Mechanics & Behavior</h3>
+                <ul>
+                    <li><strong>Death Explosion:</strong> Releases toxic cloud on death (8m radius)</li>
+                    <li><strong>Toxic Cloud:</strong> 10 seconds duration, high DoT</li>
+                    <li><strong>Body Shots:</strong> Cause premature explosion</li>
+                    <li><strong>Fire/Explosion:</strong> Instant detonation if hit</li>
+                    <li><strong>Approach Behavior:</strong> Slowly walks toward players</li>
+                </ul>
+                
+                <div class="weakness-list">
+                    <h4>💚 Weaknesses</h4>
+                    <ul>
+                        <li><strong>Slow movement</strong> - Easy to maintain distance</li>
+                        <li><strong>Headshots safe</strong> - No explosion on headshot kill</li>
+                        <li><strong>Range limited</strong> - Can't attack beyond explosion radius</li>
+                        <li><strong>Predictable pathing</strong> - Walks straight at target</li>
+                        <li><strong>Visible threat</strong> - Green gas makes it obvious</li>
+                    </ul>
+                </div>
+                
+                <div class="danger-box">
+                    <strong>⚠️ CRITICAL:</strong> NEVER use fire, explosives, or melee attacks on Gasbags! This causes instant detonation and team damage.
+                </div>
+                
+                <h3>🎮 Universal Counter Strategies</h3>
+                <div class="counter-strategy">
+                    <ol>
+                        <li><strong>Maximum range engagement</strong> - Never let it get close</li>
+                        <li><strong>Headshots only</strong> - Aim carefully, no spray</li>
+                        <li><strong>Clear the area first</strong> - Kill nearby zombies before engaging</li>
+                        <li><strong>Watch for multiples</strong> - Gasbags often spawn in pairs</li>
+                        <li><strong>Have escape route</strong> - Always know where to run</li>
+                    </ol>
+                </div>
+                
+                <div class="pro-tip">
+                    <strong>💡 Pro Tip:</strong> You can use Gasbag explosions tactically! Shoot the body when surrounded by regular zombies (but far from team) to clear crowds.
+                </div>
+                
+                <h3>🔗 Class-Specific Counters</h3>
+                <div class="quick-counter">
+                    <span class="counter-badge">Gunslinger: Long-range headshots</span>
+                    <span class="counter-badge">NO EXTERMINATOR FIRE</span>
+                    <span class="counter-badge">NO SLASHER MELEE</span>
+                    <span class="counter-badge">Dronemaster: Drone handles safely</span>
+                    <span class="counter-badge">Vanguard: Shield blocks gas</span>
+                </div>
+            </div>
+        </article>
+        
+        <!-- Lurker -->
+        <article class="zombie-card">
+            <span class="priority-indicator">Priority #5</span>
+            <div class="zombie-title">
+                <div class="zombie-icon">👻</div>
+                <div class="zombie-info">
+                    <h2 class="zombie-name">Lurker</h2>
+                    <p class="zombie-role">Stealth Pouncer</p>
+                    <span class="threat-level threat-medium">MEDIUM THREAT</span>
+                </div>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-label">Health</div>
+                    <div class="stat-value">Low</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">Speed</div>
+                    <div class="stat-value">Very Fast</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">Damage</div>
+                    <div class="stat-value">Medium</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">Range</div>
+                    <div class="stat-value">Short (pounce)</div>
+                </div>
+            </div>
+            
+            <div class="mechanics-section">
+                <h3>🎯 Identification</h3>
+                <ul>
+                    <li>Crouched posture, moves on all fours</li>
+                    <li>Dark clothing, hard to see</li>
+                    <li>Often hides around corners or in shadows</li>
+                    <li>Distinctive growl before pouncing</li>
+                </ul>
+                
+                <div class="audio-cue">
+                    <strong>🔊 Audio Cue:</strong> Low growl/snarl before attack. Sounds like a big cat hunting. If you hear this, IMMEDIATELY turn around!
+                </div>
+                
+                <h3>⚙️ Mechanics & Behavior</h3>
+                <ul>
+                    <li><strong>Pounce Attack:</strong> Jumps on player, requires teammate to free</li>
+                    <li><strong>Stealth:</strong> Often spawns behind team</li>
+                    <li><strong>Wall Crawling:</strong> Can climb and attack from above</li>
+                    <li><strong>Pin Duration:</strong> 5 seconds if not freed</li>
+                    <li><strong>Target Selection:</strong> Prefers isolated players</li>
+                </ul>
+                
+                <div class="weakness-list">
+                    <h4>💚 Weaknesses</h4>
+                    <ul>
+                        <li><strong>Fragile</strong> - Dies quickly once spotted</li>
+                        <li><strong>Audio tell</strong> - Always growls before pouncing</li>
+                        <li><strong>Straight-line pounce</strong> - Can be dodged</li>
+                        <li><strong>Vulnerable while pinning</strong> - Easy team save</li>
+                        <li><strong>Melee interrupts</strong> - Quick melee stops pounce</li>
+                    </ul>
+                </div>
+                
+                <h3>🎮 Universal Counter Strategies</h3>
+                <div class="counter-strategy">
+                    <ol>
+                        <li><strong>Check your six</strong> - Regularly turn around</li>
+                        <li><strong>Listen for growls</strong> - Audio is your best warning</li>
+                        <li><strong>Stay together</strong> - Lurkers avoid groups</li>
+                        <li><strong>Quick melee</strong> - If you hear growl, melee immediately</li>
+                        <li><strong>Save pinned teammates</strong> - One shot or melee frees them</li>
+                    </ol>
+                </div>
+                
+                <div class="pro-tip">
+                    <strong>💡 Pro Tip:</strong> Lurkers have set spawn points. The player in back should constantly check common Lurker spots: doorways you just passed, dark corners, and elevated positions.
+                </div>
+                
+                <h3>🔗 Class-Specific Counters</h3>
+                <div class="quick-counter">
+                    <span class="counter-badge">Slasher: Can't be pinned easily</span>
+                    <span class="counter-badge">Fixer: Masking reveals them</span>
+                    <span class="counter-badge">Dronemaster: Drone auto-saves</span>
+                    <span class="counter-badge">Exterminator: Fire reveals position</span>
+                    <span class="counter-badge">Vanguard: Can't pounce shield</span>
+                </div>
+            </div>
+        </article>
+        
+        <!-- Infector -->
+        <article class="zombie-card">
+            <span class="priority-indicator">Priority #4</span>
+            <div class="zombie-title">
+                <div class="zombie-icon">🧟</div>
+                <div class="zombie-info">
+                    <h2 class="zombie-name">Infector</h2>
+                    <p class="zombie-role">Viral Spitter</p>
+                    <span class="threat-level threat-high">HIGH THREAT</span>
+                </div>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-label">Health</div>
+                    <div class="stat-value">Medium</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">Speed</div>
+                    <div class="stat-value">Medium</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">Damage</div>
+                    <div class="stat-value">Special (Virus)</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">Range</div>
+                    <div class="stat-value">Long</div>
+                </div>
+            </div>
+            
+            <div class="mechanics-section">
+                <h3>🎯 Identification</h3>
+                <ul>
+                    <li>Military/police uniform (varies by map)</li>
+                    <li>Upright posture, more human-like movement</li>
+                    <li>Spits green projectiles</li>
+                    <li>Makes retching sounds before spitting</li>
+                </ul>
+                
+                <div class="audio-cue">
+                    <strong>🔊 Audio Cue:</strong> Retching/vomiting sound before spitting. Distinctive "splat" when spit lands.
+                </div>
+                
+                <h3>⚙️ Mechanics & Behavior</h3>
+                <ul>
+                    <li><strong>Spit Attack:</strong> Projectile that infects players</li>
+                    <li><strong>Infection Timer:</strong> 60 seconds until player turns</li>
+                    <li><strong>Infection Spread:</strong> Zombified players attack team</li>
+                    <li><strong>Range:</strong> Can spit from 20+ meters</li>
+                    <li><strong>Accuracy:</strong> Very accurate on higher difficulties</li>
+                    <li><strong>Attack Rate:</strong> Spits every 3-4 seconds</li>
+                </ul>
+                
+                <div class="weakness-list">
+                    <h4>💚 Weaknesses</h4>
+                    <ul>
+                        <li><strong>Spit animation lock</strong> - Can't move while spitting</li>
+                        <li><strong>No melee attack</strong> - Helpless up close</li>
+                        <li><strong>Projectile can be dodged</strong> - Strafe to avoid</li>
+                        <li><strong>Average health</strong> - Dies quickly to focus fire</li>
+                        <li><strong>Stands upright</strong> - Easy to spot and target</li>
+                    </ul>
+                </div>
+                
+                <h3>🎮 Universal Counter Strategies</h3>
+                <div class="counter-strategy">
+                    <ol>
+                        <li><strong>Prioritize infected teammates</strong> - Get them to medkits ASAP</li>
+                        <li><strong>Zigzag approach</strong> - Makes spit hard to land</li>
+                        <li><strong>Close distance fast</strong> - They can't spit point-blank</li>
+                        <li><strong>Focus fire</strong> - Kill before multiple spits</li>
+                        <li><strong>Use cover</strong> - Spit can't go through objects</li>
+                    </ol>
+                </div>
+                
+                <div class="danger-box">
+                    <strong>⚠️ WARNING:</strong> An infected player who turns WILL down the entire team on higher difficulties. Always carry medkits and prioritize healing infections.
+                </div>
+                
+                <div class="pro-tip">
+                    <strong>💡 Pro Tip:</strong> Infectors often spawn in pairs or groups. After killing one, immediately scan for others. On Extreme, assume every military zombie is an Infector until proven otherwise.
+                </div>
+                
+                <h3>🔗 Class-Specific Counters</h3>
+                <div class="quick-counter">
+                    <span class="counter-badge">Medic: Instant infection cure</span>
+                    <span class="counter-badge">Slasher: Rush and melee</span>
+                    <span class="counter-badge">Gunslinger: Outrange them</span>
+                    <span class="counter-badge">Vanguard: Shield blocks spit</span>
+                    <span class="counter-badge">Dronemaster: Drone priority target</span>
+                </div>
+            </div>
+        </article>
+        
+        <!-- Bomber -->
+        <article class="zombie-card">
+            <span class="priority-indicator">Priority #6</span>
+            <div class="zombie-title">
+                <div class="zombie-icon">🎯</div>
+                <div class="zombie-info">
+                    <h2 class="zombie-name">Bomber</h2>
+                    <p class="zombie-role">Suicide Explosive</p>
+                    <span class="threat-level threat-medium">MEDIUM THREAT</span>
+                </div>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-label">Health</div>
+                    <div class="stat-value">Very Low</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">Speed</div>
+                    <div class="stat-value">Medium</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">Damage</div>
+                    <div class="stat-value">Extreme (AoE)</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">Range</div>
+                    <div class="stat-value">Melee (explosion)</div>
+                </div>
+            </div>
+            
+            <div class="mechanics-section">
+                <h3>🎯 Identification</h3>
+                <ul>
+                    <li>C4 bombs strapped to chest</li>
+                    <li>Red blinking lights on explosives</li>
+                    <li>Beeping sound when active</li>
+                    <li>Walks with arms spread wide</li>
+                    <li>Often mixed in regular hordes</li>
+                </ul>
+                
+                <div class="audio-cue">
+                    <strong>🔊 Audio Cue:</strong> Electronic beeping that speeds up when close. Similar to a bomb timer. Very distinctive once learned.
+                </div>
+                
+                <h3>⚙️ Mechanics & Behavior</h3>
+                <ul>
+                    <li><strong>Explosion Trigger:</strong> Death OR proximity to players</li>
+                    <li><strong>Blast Radius:</strong> 5 meter instant kill zone</li>
+                    <li><strong>Body Shot = Explosion:</strong> Only headshots are safe</li>
+                    <li><strong>Chain Reactions:</strong> Can detonate other Bombers</li>
+                    <li><strong>Mixed Spawns:</strong> Hide in regular zombie crowds</li>
+                </ul>
+                
+                <div class="weakness-list">
+                    <h4>💚 Weaknesses</h4>
+                    <ul>
+                        <li><strong>Extremely fragile</strong> - One headshot kill</li>
+                        <li><strong>Audio warning</strong> - Beeping gives position away</li>
+                        <li><strong>Leg shots safe</strong> - Stumbles without exploding</li>
+                        <li><strong>Predictable pathing</strong> - Walks straight at players</li>
+                        <li><strong>Visible bombs</strong> - Red lights make them obvious</li>
+                    </ul>
+                </div>
+                
+                <h3>🎮 Universal Counter Strategies</h3>
+                <div class="counter-strategy">
+                    <ol>
+                        <li><strong>HEADSHOTS ONLY</strong> - Never shoot the body</li>
+                        <li><strong>Let them approach</strong> - Then sidestep and headshot</li>
+                        <li><strong>Use them tactically</strong> - Explode near zombie groups</li>
+                        <li><strong>Leg shots to control</strong> - Slows without detonation</li>
+                        <li><strong>Maintain distance</strong> - Never let them get close</li>
+                    </ol>
+                </div>
+                
+                <div class="danger-box">
+                    <strong>⚠️ CRITICAL:</strong> In panic situations, aim LOW (legs) not center mass! A stumbling Bomber is better than an exploding one.
+                </div>
+                
+                <div class="pro-tip">
+                    <strong>💡 Pro Tip:</strong> Bombers are actually useful! Let them walk into zombie crowds, then body shot for a free explosive clear. Just make sure your team is far away!
+                </div>
+                
+                <h3>🔗 Class-Specific Counters</h3>
+                <div class="quick-counter">
+                    <span class="counter-badge">Gunslinger: Easy headshots</span>
+                    <span class="counter-badge">Hellraiser: Use for chain explosions</span>
+                    <span class="counter-badge">Fixer: Mark for team</span>
+                    <span class="counter-badge">NO MELEE CLASSES</span>
+                    <span class="counter-badge">Dronemaster: Drone headshots</span>
+                </div>
+            </div>
+        </article>
+        
+        <!-- Rat Pack (Aftermath Addition) -->
+        <section class="card">
+            <h2>🐀 Special Mention: Rat Swarms (Aftermath)</h2>
+            <div class="zombie-card">
+                <div class="zombie-title">
+                    <div class="zombie-icon">🐀</div>
+                    <div class="zombie-info">
+                        <h2 class="zombie-name">Rat Swarms</h2>
+                        <p class="zombie-role">Environmental Hazard</p>
+                        <span class="threat-level threat-low">LOW THREAT</span>
+                    </div>
+                </div>
+                
+                <div class="mechanics-section">
+                    <h3>⚙️ Mechanics</h3>
+                    <ul>
+                        <li>Appear in specific Aftermath campaign missions</li>
+                        <li>Swarm along set paths</li>
+                        <li>Deal damage over time if you stand in them</li>
+                        <li>Can be burned with fire or explosives</li>
+                        <li>Respawn after a short time</li>
+                    </ul>
+                    
+                    <div class="counter-strategy">
+                        <strong>Counter:</strong> Simply walk around them or use fire/explosives to clear a path temporarily. Not a major threat unless you're pinned in them.
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- General Tips -->
+        <section class="card">
+            <h2>💡 Universal Special Zombie Tips</h2>
+            
+            <div class="build-card">
+                <h3>Audio is Everything</h3>
+                <p>Every special has unique audio cues. Play with good headphones and learn these sounds - you'll often hear specials before seeing them, giving crucial reaction time.</p>
+            </div>
+            
+            <div class="build-card">
+                <h3>Spawn Patterns</h3>
+                <ul>
+                    <li>Specials spawn at set locations on each map - learn them</li>
+                    <li>Difficulty affects spawn frequency, not locations</li>
+                    <li>Specials often spawn in response to noise or progress triggers</li>
+                    <li>Multiple specials can spawn simultaneously on higher difficulties</li>
+                </ul>
+            </div>
+            
+            <div class="build-card">
+                <h3>Communication</h3>
+                <p>Always call out specials with direction: "Bull behind us!" or "Screamer on the left!" Quick, clear communication saves lives.</p>
+            </div>
+            
+            <div class="build-card">
+                <h3>Difficulty Scaling</h3>
+                <ul>
+                    <li><strong>Easy/Normal:</strong> Specials spawn alone, lower health</li>
+                    <li><strong>Hard:</strong> Pairs of specials, standard health</li>
+                    <li><strong>Insane:</strong> Groups of specials, increased health</li>
+                    <li><strong>Extreme:</strong> Multiple special types together, maximum health</li>
+                </ul>
+            </div>
+        </section>
+        
+        <!-- Quick Reference Card -->
+        <section class="card">
+            <h2>📋 Quick Reference: Do's and Don'ts</h2>
+            
+            <div class="danger-box">
+                <h3>🚫 NEVER DO THIS</h3>
+                <ul>
+                    <li>❌ NEVER shoot Gasbag with fire/explosives</li>
+                    <li>❌ NEVER body shot Bombers</li>
+                    <li>❌ NEVER ignore Screamer audio cues</li>
+                    <li>❌ NEVER melee Gasbags</li>
+                    <li>❌ NEVER let Bulls complete their charge</li>
+                </ul>
+            </div>
+            
+            <div class="weakness-list">
+                <h3>✅ ALWAYS DO THIS</h3>
+                <ul>
+                    <li>✓ ALWAYS prioritize Screamers</li>
+                    <li>✓ ALWAYS headshot Gasbags from range</li>
+                    <li>✓ ALWAYS sidestep Bull charges</li>
+                    <li>✓ ALWAYS listen for audio cues</li>
+                    <li>✓ ALWAYS communicate special locations</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <p>&copy; 2024 WWZ: Aftermath Guide. Unofficial fan resource.</p>
+        </div>
+    </footer>
+    
+    <!-- JavaScript -->
+    <script src="js/course-enhancements.js"></script>
+</body>
+</html>

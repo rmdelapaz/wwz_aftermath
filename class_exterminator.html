@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Exterminator Class Guide - Master fire and crowd control in World War Z: Aftermath">
-    <meta name="keywords" content="World War Z, Aftermath, Exterminator, class guide, fire, molotov, crowd control">
+    <meta name="keywords" content="World War Z, Aftermath, Exterminator, class guide, fire, molotov, crowd control, perks, skill tree">
     <meta name="author" content="WWZ Guide Team">
     <title>Exterminator Class Guide - World War Z: Aftermath</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
@@ -20,6 +20,134 @@
             text-align: center;
         }
         
+        /* Skill Tree Styling */
+        .skill-tree-container {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+            overflow-x: auto;
+        }
+        
+        .skill-tree-grid {
+            display: grid;
+            grid-template-columns: repeat(13, 1fr);
+            gap: 0.5rem;
+            min-width: 1000px;
+            margin: 1rem 0;
+        }
+        
+        .skill-column {
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            padding: 0.5rem;
+            min-height: 200px;
+        }
+        
+        .skill-column.red-perk {
+            border-color: #dc3545;
+            background: #fff5f5;
+        }
+        
+        .column-header {
+            text-align: center;
+            font-weight: bold;
+            color: #495057;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+        
+        .perk-slot {
+            background: white;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            padding: 0.5rem;
+            margin: 0.5rem 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .perk-slot:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-color: #ff6b35;
+        }
+        
+        .perk-slot.red-perk-slot {
+            background: linear-gradient(135deg, #fff5f5 0%, #ffebee 100%);
+            border-color: #dc3545;
+        }
+        
+        .perk-name {
+            font-weight: bold;
+            font-size: 0.85rem;
+            color: #2c3e50;
+            margin-bottom: 0.25rem;
+        }
+        
+        .perk-description {
+            font-size: 0.75rem;
+            color: #6c757d;
+            line-height: 1.3;
+        }
+        
+        .prestige-badge {
+            position: absolute;
+            top: 0.25rem;
+            right: 0.25rem;
+            background: #dc3545;
+            color: white;
+            font-size: 0.65rem;
+            padding: 0.1rem 0.3rem;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+        
+        .perk-details {
+            margin: 2rem 0;
+        }
+        
+        .perk-details h3 {
+            color: #2c3e50;
+            border-bottom: 2px solid #ff6b35;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .detailed-perk {
+            background: white;
+            border-left: 3px solid #ff6b35;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+        
+        .detailed-perk.red {
+            border-left-color: #dc3545;
+            background: #fff5f5;
+        }
+        
+        .perk-title {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+        
+        .perk-full-description {
+            color: #495057;
+            margin-bottom: 0.5rem;
+        }
+        
+        .perk-note {
+            font-size: 0.9rem;
+            color: #6c757d;
+            font-style: italic;
+        }
+        
+        /* Original styles continued */
         .perk-category {
             margin: 2rem 0;
             padding: 1.5rem;
@@ -31,45 +159,6 @@
             color: #495057;
             margin-bottom: 1rem;
             font-size: 1.2rem;
-        }
-        
-        .perk-list {
-            list-style: none;
-            padding: 0;
-        }
-        
-        .perk-item {
-            background: white;
-            padding: 0.75rem 1rem;
-            margin: 0.5rem 0;
-            border-radius: 4px;
-            border-left: 3px solid #ff6b35;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .perk-name {
-            font-weight: bold;
-            color: #495057;
-        }
-        
-        .perk-desc {
-            color: #6c757d;
-            font-size: 0.9rem;
-        }
-        
-        .prestige-perk {
-            border-left-color: #764ba2;
-            background: #f8f5ff;
-        }
-        
-        .core-ability {
-            background: linear-gradient(135deg, #ffe5d9 0%, #ffcdb2 100%);
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 1rem 0;
-            border: 2px solid #ff6b35;
         }
         
         .build-section {
@@ -162,6 +251,14 @@
             color: #004085;
         }
         
+        .core-ability {
+            background: linear-gradient(135deg, #ffe5d9 0%, #ffcdb2 100%);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border: 2px solid #ff6b35;
+        }
+        
         .equipment-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -179,6 +276,21 @@
         .equipment-icon {
             font-size: 2rem;
             margin-bottom: 0.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            .skill-tree-container {
+                padding: 1rem;
+            }
+            
+            .skill-tree-grid {
+                display: block;
+                min-width: auto;
+            }
+            
+            .skill-column {
+                margin-bottom: 1rem;
+            }
         }
     </style>
 </head>
@@ -235,23 +347,23 @@
             <div class="equipment-grid">
                 <div class="equipment-item">
                     <div class="equipment-icon">🔥</div>
-                    <strong>Molotov Master</strong>
-                    <p>Enhanced fire damage & area</p>
+                    <strong>Swarm Damage</strong>
+                    <p>+25% damage during swarms</p>
                 </div>
                 <div class="equipment-item">
                     <div class="equipment-icon">💣</div>
                     <strong>Claymore Expert</strong>
-                    <p>More charges & damage</p>
+                    <p>Smart mines & fire traps</p>
                 </div>
                 <div class="equipment-item">
                     <div class="equipment-icon">🌡️</div>
-                    <strong>Fire Trails</strong>
-                    <p>Kills leave burning ground</p>
+                    <strong>Fire Immunity</strong>
+                    <p>100% fire resistance</p>
                 </div>
                 <div class="equipment-item">
                     <div class="equipment-icon">🎯</div>
-                    <strong>Defense Specialist</strong>
-                    <p>+100% damage in defense</p>
+                    <strong>Defense Boost</strong>
+                    <p>+25% defense durability</p>
                 </div>
             </div>
         </section>
@@ -260,201 +372,480 @@
         <section class="card">
             <h2>🔥 Core Ability</h2>
             <div class="core-ability">
-                <h3>Molotov Cocktail</h3>
-                <p><strong>Base Effect:</strong> Throw fire bombs that create burning areas, dealing damage over time</p>
-                <p><strong>Starting Gear:</strong> 2 Molotov Cocktails and Shotgun</p>
-                <p><strong>Passive Bonus:</strong> Fire damage increased, equipment regeneration</p>
-                <p><strong>Pro Tip:</strong> Molotovs create persistent fire zones - use them to block paths and funnel zombies!</p>
+                <h3>Firestarter</h3>
+                <p><strong>Effect:</strong> Start with Molotov and Shotgun. You deal 25% more damage during swarm attacks</p>
+                <p><strong>Starting Gear:</strong> Molotov Cocktail and Shotgun</p>
+                <p><strong>Passive Bonus:</strong> Enhanced damage during defensive situations</p>
+                <p><strong>Pro Tip:</strong> The 25% damage bonus applies to ALL weapons during swarms - not just fire!</p>
             </div>
         </section>
         
-        <!-- Exterminator Perks Overview -->
+        <!-- Skill Tree Section -->
         <section class="card">
-            <h2>🔥 Exterminator Perks Overview</h2>
+            <h2>🔥 Exterminator Skill Tree</h2>
             
             <div class="warning-box">
-                <strong>⚠️ Note:</strong> The skill system uses a 13-column grid where you choose one perk per column. Red perks (columns 1, 5, 9, 13) are permanent bonuses unlocked through prestige. Exact perk positions may vary by game version.
-            </div>
-            
-            <!-- Regular Perks -->
-            <div class="perk-category">
-                <h4>🔥 Fire & Burn Perks</h4>
-                <ul class="perk-list">
-                    <li class="perk-item">
-                        <span class="perk-name">Pyromaniac</span>
-                        <span class="perk-desc">Molotovs burn 100% longer</span>
-                    </li>
-                    <li class="perk-item">
-                        <span class="perk-name">Fire Trap</span>
-                        <span class="perk-desc">Claymores leave fire patches</span>
-                    </li>
-                    <li class="perk-item">
-                        <span class="perk-name">Scorched Earth</span>
-                        <span class="perk-desc">Kills with fire/explosives leave burning ground</span>
-                    </li>
-                    <li class="perk-item">
-                        <span class="perk-name">All Fried Up</span>
-                        <span class="perk-desc">Molotov direct hits instantly kill</span>
-                    </li>
-                    <li class="perk-item">
-                        <span class="perk-name">Ghost Town</span>
-                        <span class="perk-desc">3 seconds of invisibility after molotov throw</span>
-                    </li>
+                <strong>How the Skill System Works:</strong>
+                <ul>
+                    <li>Progress through levels 1-30 to unlock new perk segments</li>
+                    <li>Choose ONE perk per segment to activate</li>
+                    <li>Red perks are special alternatives that cost more (red coins)</li>
+                    <li>You can buy multiple perks in each segment but only use one at a time</li>
+                    <li>Perks cost 150-500 yellow coins, red perks cost 150-500 red coins</li>
+                    <li>Level 10, 20, and 30 perks are automatic and always active</li>
                 </ul>
             </div>
             
-            <div class="perk-category">
-                <h4>💣 Explosive & Equipment Perks</h4>
-                <ul class="perk-list">
-                    <li class="perk-item">
-                        <span class="perk-name">Heavy Metal</span>
-                        <span class="perk-desc">Start with RPG instead of molotovs</span>
-                    </li>
-                    <li class="perk-item">
-                        <span class="perk-name">Welcoming Party</span>
-                        <span class="perk-desc">Start with claymore mines</span>
-                    </li>
-                    <li class="perk-item">
-                        <span class="perk-name">Directed Blast</span>
-                        <span class="perk-desc">Claymore damage +100%</span>
-                    </li>
-                    <li class="perk-item">
-                        <span class="perk-name">Broad Shoulders</span>
-                        <span class="perk-desc">Carry +1 equipment charge</span>
-                    </li>
-                    <li class="perk-item">
-                        <span class="perk-name">Job Satisfaction</span>
-                        <span class="perk-desc">15 kills restore equipment charge</span>
-                    </li>
-                </ul>
+            <div class="skill-tree-container">
+                <h3>Exterminator Perk Grid</h3>
+                <div class="skill-tree-grid">
+                    <!-- Column 1 - Starting Perk -->
+                    <div class="skill-column">
+                        <div class="column-header">Start</div>
+                        <div class="perk-slot">
+                            <div class="perk-name">Firestarter</div>
+                            <div class="perk-description">+25% damage during swarms</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Column 2 - Level 1-3 -->
+                    <div class="skill-column">
+                        <div class="column-header">Lvl 1-3</div>
+                        <div class="perk-slot">
+                            <div class="perk-name">Pyromaniac</div>
+                            <div class="perk-description">Molotov fire damage +50%</div>
+                        </div>
+                        <div class="perk-slot">
+                            <div class="perk-name">Hangover</div>
+                            <div class="perk-description">Molotovs burn 75% longer</div>
+                        </div>
+                        <div class="perk-slot">
+                            <div class="perk-name">Crowd Control</div>
+                            <div class="perk-description">Melee push radius +50%</div>
+                        </div>
+                        <div class="perk-slot red-perk-slot">
+                            <span class="prestige-badge">RED</span>
+                            <div class="perk-name">Minefield</div>
+                            <div class="perk-description">+1 Claymore max, start with Claymore</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Column 3 - Level 4-6 -->
+                    <div class="skill-column">
+                        <div class="column-header">Lvl 4-6</div>
+                        <div class="perk-slot">
+                            <div class="perk-name">Rage Mode</div>
+                            <div class="perk-description">Auto-escape when pinned (300s cooldown)</div>
+                        </div>
+                        <div class="perk-slot">
+                            <div class="perk-name">All Elbows</div>
+                            <div class="perk-description">No movement penalty when swarmed</div>
+                        </div>
+                        <div class="perk-slot">
+                            <div class="perk-name">Rooted</div>
+                            <div class="perk-description">Never pinned by regular zombies</div>
+                        </div>
+                        <div class="perk-slot red-perk-slot">
+                            <span class="prestige-badge">RED</span>
+                            <div class="perk-name">Stop, Drop, and Roll</div>
+                            <div class="perk-description">Ignite enemies when incapacitated</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Column 4 - Level 7-9 -->
+                    <div class="skill-column">
+                        <div class="column-header">Lvl 7-9</div>
+                        <div class="perk-slot">
+                            <div class="perk-name">Dragon Hide</div>
+                            <div class="perk-description">Fire resistance +100%</div>
+                        </div>
+                        <div class="perk-slot">
+                            <div class="perk-name">Heavy Metal</div>
+                            <div class="perk-description">Start with improved RPGL4, +100% damage</div>
+                        </div>
+                        <div class="perk-slot">
+                            <div class="perk-name">Heavy Metal II</div>
+                            <div class="perk-description">Start with improved Taiga-12, +25% damage/ammo</div>
+                        </div>
+                        <div class="perk-slot red-perk-slot">
+                            <span class="prestige-badge">RED</span>
+                            <div class="perk-name">Big Bang</div>
+                            <div class="perk-description">Start with improved MRL202, kills 50% more</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Column 5 - Level 10 -->
+                    <div class="skill-column">
+                        <div class="column-header">Lvl 10</div>
+                        <div class="perk-slot">
+                            <div class="perk-name">Bandolier</div>
+                            <div class="perk-description">Team: +25% MG ammo & defense durability</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Column 6 - Level 11-13 -->
+                    <div class="skill-column">
+                        <div class="column-header">Lvl 11-13</div>
+                        <div class="perk-slot">
+                            <div class="perk-name">Deep Pockets</div>
+                            <div class="perk-description">Ammo capacity +25%</div>
+                        </div>
+                        <div class="perk-slot">
+                            <div class="perk-name">Wheatgrass</div>
+                            <div class="perk-description">Health increased by 25%</div>
+                        </div>
+                        <div class="perk-slot">
+                            <div class="perk-name">Rifleman</div>
+                            <div class="perk-description">Start with ARK-103 Assault Rifle</div>
+                        </div>
+                        <div class="perk-slot red-perk-slot">
+                            <span class="prestige-badge">RED</span>
+                            <div class="perk-name">S890</div>
+                            <div class="perk-description">Start with S890 Combat Shotgun</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Column 7 - Level 14-16 -->
+                    <div class="skill-column">
+                        <div class="column-header">Lvl 14-16</div>
+                        <div class="perk-slot">
+                            <div class="perk-name">Green Fingered</div>
+                            <div class="perk-description">Claymores wait for 5+ targets, start with Claymore</div>
+                        </div>
+                        <div class="perk-slot">
+                            <div class="perk-name">Fire Trap</div>
+                            <div class="perk-description">Claymore explosions create fire, start with Claymore</div>
+                        </div>
+                        <div class="perk-slot">
+                            <div class="perk-name">Combat Engineer</div>
+                            <div class="perk-description">20% chance to restore Defense Kit</div>
+                        </div>
+                        <div class="perk-slot red-perk-slot">
+                            <span class="prestige-badge">RED</span>
+                            <div class="perk-name">Burnout</div>
+                            <div class="perk-description">Fire damage +25% during swarms</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Column 8 - Level 17-19 -->
+                    <div class="skill-column">
+                        <div class="column-header">Lvl 17-19</div>
+                        <div class="perk-slot">
+                            <div class="perk-name">Second Wind</div>
+                            <div class="perk-description">Regain 25% health instead of incapacitation (120s cooldown)</div>
+                        </div>
+                        <div class="perk-slot">
+                            <div class="perk-name">Job Satisfaction</div>
+                            <div class="perk-description">Kill 15 zombies for temp health (30s cooldown)</div>
+                        </div>
+                        <div class="perk-slot">
+                            <div class="perk-name">Cloak and Dagger</div>
+                            <div class="perk-description">Kill 15 zombies for 3s masking</div>
+                        </div>
+                        <div class="perk-slot red-perk-slot">
+                            <span class="prestige-badge">RED</span>
+                            <div class="perk-name">Heavy Bone</div>
+                            <div class="perk-description">Special zombies may drop MRL202</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Column 9 - Level 20 -->
+                    <div class="skill-column">
+                        <div class="column-header">Lvl 20</div>
+                        <div class="perk-slot">
+                            <div class="perk-name">Hollywood II</div>
+                            <div class="perk-description">Explosive/fire self-damage -50%</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Column 10 - Level 21-23 -->
+                    <div class="skill-column">
+                        <div class="column-header">Lvl 21-23</div>
+                        <div class="perk-slot">
+                            <div class="perk-name">Broad Shoulders</div>
+                            <div class="perk-description">Heavy weapon ammo +25%</div>
+                        </div>
+                        <div class="perk-slot">
+                            <div class="perk-name">Bullet Rain</div>
+                            <div class="perk-description">Auto weapons reload +25% faster</div>
+                        </div>
+                        <div class="perk-slot">
+                            <div class="perk-name">Third Hand</div>
+                            <div class="perk-description">Kill 15 zombies to instant reload primary</div>
+                        </div>
+                        <div class="perk-slot red-perk-slot">
+                            <span class="prestige-badge">RED</span>
+                            <div class="perk-name">Nimble Fingers</div>
+                            <div class="perk-description">Shotgun reload +25%</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Column 11 - Level 24-26 -->
+                    <div class="skill-column">
+                        <div class="column-header">Lvl 24-26</div>
+                        <div class="perk-slot">
+                            <div class="perk-name">Party at my Place</div>
+                            <div class="perk-description">Max 3 Molotovs & 4 Claymores</div>
+                        </div>
+                        <div class="perk-slot">
+                            <div class="perk-name">Pickpocket</div>
+                            <div class="perk-description">Kill 15 zombies to refill equipment (60s cooldown)</div>
+                        </div>
+                        <div class="perk-slot">
+                            <div class="perk-name">Pocket Factory</div>
+                            <div class="perk-description">Equipment regenerates (150s for max)</div>
+                        </div>
+                        <div class="perk-slot red-perk-slot">
+                            <span class="prestige-badge">RED</span>
+                            <div class="perk-name">Impromptu</div>
+                            <div class="perk-description">Molotov splash stuns specials</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Column 12 - Level 27-29 -->
+                    <div class="skill-column">
+                        <div class="column-header">Lvl 27-29</div>
+                        <div class="perk-slot">
+                            <div class="perk-name">Know-How</div>
+                            <div class="perk-description">Molotovs & Claymores kill 25% more</div>
+                        </div>
+                        <div class="perk-slot">
+                            <div class="perk-name">Hot Sauce</div>
+                            <div class="perk-description">Molotov splash damage +100%</div>
+                        </div>
+                        <div class="perk-slot">
+                            <div class="perk-name">Ghost</div>
+                            <div class="perk-description">Auto-masking when last standing</div>
+                        </div>
+                        <div class="perk-slot red-perk-slot">
+                            <span class="prestige-badge">RED</span>
+                            <div class="perk-name">Heavy Stride</div>
+                            <div class="perk-description">Claymores explode twice (5s delay)</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Column 13 - Level 30 -->
+                    <div class="skill-column">
+                        <div class="column-header">Lvl 30</div>
+                        <div class="perk-slot">
+                            <div class="perk-name">Daredevil</div>
+                            <div class="perk-description">+25% damage & +2 melee when 30+ zombies nearby</div>
+                        </div>
+                    </div>
+                </div>
             </div>
             
-            <div class="perk-category">
-                <h4>🛡️ Defense & Position Perks</h4>
-                <ul class="perk-list">
-                    <li class="perk-item">
-                        <span class="perk-name">Home Guard</span>
-                        <span class="perk-desc">+100% damage during defense events</span>
-                    </li>
-                    <li class="perk-item">
-                        <span class="perk-name">Hangover</span>
-                        <span class="perk-desc">Defense kit effects last 50% longer</span>
-                    </li>
-                    <li class="perk-item">
-                        <span class="perk-name">Bullet Rain</span>
-                        <span class="perk-desc">Defense kits grant penetration</span>
-                    </li>
-                    <li class="perk-item">
-                        <span class="perk-name">Here Kitty</span>
-                        <span class="perk-desc">Defense kits attract zombies</span>
-                    </li>
-                </ul>
-            </div>
-            
-            <div class="perk-category">
-                <h4>⚡ Utility & Support Perks</h4>
-                <ul class="perk-list">
-                    <li class="perk-item">
-                        <span class="perk-name">Third Hand</span>
-                        <span class="perk-desc">50% faster interaction speed</span>
-                    </li>
-                    <li class="perk-item">
-                        <span class="perk-name">Cloak and Dagger</span>
-                        <span class="perk-desc">Silent kills grant brief invisibility</span>
-                    </li>
-                    <li class="perk-item">
-                        <span class="perk-name">Wheatgrass</span>
-                        <span class="perk-desc">Using equipment restores health</span>
-                    </li>
-                    <li class="perk-item">
-                        <span class="perk-name">Knock Knock</span>
-                        <span class="perk-desc">Opens doors 3x faster</span>
-                    </li>
-                </ul>
-            </div>
-            
-            <!-- Prestige Perks -->
             <div class="prestige-note">
-                ⭐ Red perks are permanent bonuses that unlock as you prestige. They appear in columns 1, 5, 9, and 13. You need level 30 and 7,500 supplies to prestige.
-            </div>
-            
-            <div class="perk-category">
-                <h4>⭐ Prestige Perks (Red Perks)</h4>
-                <p style="margin-bottom: 1rem; color: #6c757d;">These permanent bonuses enhance your crowd control abilities</p>
-                <ul class="perk-list">
-                    <li class="perk-item prestige-perk">
-                        <span class="perk-name">Prestige 1-4</span>
-                        <span class="perk-desc">Core red perks for fire damage and equipment</span>
-                    </li>
-                    <li class="perk-item prestige-perk">
-                        <span class="perk-name">Prestige 6-9</span>
-                        <span class="perk-desc">Additional red perks from recent updates</span>
-                    </li>
-                </ul>
-            </div>
-            
-            <div class="warning-box">
-                <strong>💡 Important:</strong> When you prestige, you lose all purchased perks and must re-buy them. Consider saving to prestige 4+ before buying perks.
+                ⭐ Red perks are special alternative perks that provide unique effects. They cost red coins instead of yellow coins and are typically more powerful or offer different playstyles.
             </div>
         </section>
         
-        <!-- Build Recommendations -->
+        <!-- Prestige Rank Perks Section -->
         <section class="card">
-            <h2>🎯 Recommended Builds</h2>
+            <h2>⭐ Prestige Rank Perks</h2>
+            
+            <div class="warning-box">
+                <strong>About Prestige Perks:</strong>
+                <ul>
+                    <li>Unlocked by reaching Prestige Ranks 1-9</li>
+                    <li>These are PASSIVE bonuses that are always active once unlocked</li>
+                    <li>Stack with your regular perks for even more power</li>
+                    <li>Each costs 7500 yellow coins to unlock</li>
+                    <li>Persist through prestige resets</li>
+                </ul>
+            </div>
+            
+            <div class="perk-details">
+                <h3>Prestige Progression</h3>
+                
+                <div class="detailed-perk">
+                    <div class="perk-title">Rank 1: Wheatgrass II</div>
+                    <div class="perk-full-description">
+                        Health increased by 5%.
+                    </div>
+                    <div class="perk-note">Stacks with regular Wheatgrass for 30% total health increase.</div>
+                </div>
+                
+                <div class="detailed-perk">
+                    <div class="perk-title">Rank 2: Bullet Rain II</div>
+                    <div class="perk-full-description">
+                        Shotgun and semi-automatic weapons reload speed increased by 10%.
+                    </div>
+                    <div class="perk-note">Perfect for Exterminator's shotgun-heavy playstyle.</div>
+                </div>
+                
+                <div class="detailed-perk">
+                    <div class="perk-title">Rank 3: Know-How II</div>
+                    <div class="perk-full-description">
+                        Molotovs and Claymores can kill 10% more targets.
+                    </div>
+                    <div class="perk-note">Stacks with Know-How for 35% more kills with equipment.</div>
+                </div>
+                
+                <div class="detailed-perk">
+                    <div class="perk-title">Rank 4: Deep Pockets II</div>
+                    <div class="perk-full-description">
+                        Carried ammo capacity for primary weapons increased by 10%.
+                    </div>
+                    <div class="perk-note">More ammo for sustained crowd control.</div>
+                </div>
+                
+                <div class="detailed-perk">
+                    <div class="perk-title">Rank 6: Dragon Hide II</div>
+                    <div class="perk-full-description">
+                        Fire resistance for you and your team is increased by 10%.
+                    </div>
+                    <div class="perk-note">Team-wide fire protection - great for fire-heavy strategies.</div>
+                </div>
+                
+                <div class="detailed-perk">
+                    <div class="perk-title">Rank 7: Roseship</div>
+                    <div class="perk-full-description">
+                        Barbed wire can kill 10% more targets for the whole team.
+                    </div>
+                    <div class="perk-note">Improves all defensive structures team-wide.</div>
+                </div>
+                
+                <div class="detailed-perk">
+                    <div class="perk-title">Rank 8: Oily Hands</div>
+                    <div class="perk-full-description">
+                        Molotov throw distance is increased by 25%.
+                    </div>
+                    <div class="perk-note">Throw fire from safer distances - crucial for higher difficulties.</div>
+                </div>
+                
+                <div class="detailed-perk">
+                    <div class="perk-title">Rank 9: Bandolier II</div>
+                    <div class="perk-full-description">
+                        All defense kits you install can kill 10% more targets and have 10% more ammo capacity.
+                    </div>
+                    <div class="perk-note">The ultimate defensive improvement - all your installations are enhanced.</div>
+                </div>
+            </div>
+            
+            <div class="tip-box">
+                <strong>💡 Prestige Strategy:</strong> Focus on reaching at least Prestige Rank 3 for Know-How II, which directly improves your core equipment. Oily Hands at Rank 8 is particularly valuable for safer molotov throws. Dragon Hide II at Rank 6 protects your whole team from your own fire!
+            </div>
+        </section>
+        
+        <!-- Detailed Perk Descriptions -->
+        <section class="card">
+            <h2>📋 Key Perk Details</h2>
+            
+            <div class="perk-details">
+                <h3>Must-Have Perks</h3>
+                
+                <div class="detailed-perk">
+                    <div class="perk-title">Fire Trap (Level 14-16)</div>
+                    <div class="perk-full-description">
+                        Claymore explosions set fire to surrounding area. Start with Claymore.
+                    </div>
+                    <div class="perk-note">Combines explosion and fire damage - creates massive kill zones.</div>
+                </div>
+                
+                <div class="detailed-perk">
+                    <div class="perk-title">Dragon Hide (Level 7-9)</div>
+                    <div class="perk-full-description">
+                        Fire resistance increased by 100%.
+                    </div>
+                    <div class="perk-note">Essential - makes you immune to your own fire and Gasbag explosions.</div>
+                </div>
+                
+                <div class="detailed-perk">
+                    <div class="perk-title">Pocket Factory (Level 24-26)</div>
+                    <div class="perk-full-description">
+                        You won't be able to pick equipment bags on the mission but your equipment will be constantly regenerating (150 seconds to replenish to maximum).
+                    </div>
+                    <div class="perk-note">Infinite equipment over time - perfect for long missions.</div>
+                </div>
+                
+                <div class="detailed-perk">
+                    <div class="perk-title">Hot Sauce (Level 27-29)</div>
+                    <div class="perk-full-description">
+                        Molotov's splash damage increased by 100%.
+                    </div>
+                    <div class="perk-note">Doubles the impact area - one molotov can clear entire groups.</div>
+                </div>
+                
+                <div class="detailed-perk red">
+                    <div class="perk-title">Burnout (Level 14-16 - Red)</div>
+                    <div class="perk-full-description">
+                        During swarm attacks, fire damage is increased by 25%.
+                    </div>
+                    <div class="perk-note">Stacks with Firestarter for 50% total damage increase during swarms.</div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Build Recommendations with Specific Perks -->
+        <section class="card">
+            <h2>🔥 Recommended Builds</h2>
             
             <div class="build-card">
-                <h3>🌟 Beginner Build - "Fire Starter"</h3>
-                <p>Focus on basic fire control and survival. Perfect for learning positioning.</p>
+                <h3>🌟 Beginner Build - "Fire Safety"</h3>
+                <p>Focus on survivability and basic fire control. Perfect for learning the class.</p>
+                <strong>Essential Perks:</strong>
                 <ul>
-                    <li><strong>Priority:</strong> Molotov duration and equipment charges</li>
-                    <li><strong>Key Focus:</strong> Pyromaniac, Broad Shoulders, Wheatgrass</li>
-                    <li><strong>Playstyle:</strong> Block paths with fire, control swarm flow</li>
-                    <li><strong>Weapons:</strong> Shotgun + SMG for close-medium range</li>
+                    <li><strong>Level 1-3:</strong> Hangover (Molotovs burn 75% longer)</li>
+                    <li><strong>Level 7-9:</strong> Dragon Hide (100% fire resistance)</li>
+                    <li><strong>Level 11-13:</strong> Wheatgrass (25% more health)</li>
+                    <li><strong>Level 17-19:</strong> Second Wind (Avoid incapacitation)</li>
+                    <li><strong>Level 24-26:</strong> Party at my Place (3 Molotovs max)</li>
                 </ul>
                 <div class="tip-box">
-                    <strong>💡 Tip:</strong> Throw molotovs at choke points before swarms arrive to create fire barriers!</strong>
+                    <strong>💡 Tip:</strong> Focus on area denial - throw molotovs at choke points before zombies arrive!
+                    <br><strong>Best Prestige Perks:</strong> Wheatgrass II (Rank 1), Dragon Hide II (Rank 6) for survivability.
                 </div>
             </div>
             
             <div class="build-card">
-                <h3>🔥 Inferno Build - "Scorched Earth"</h3>
-                <p>Maximum fire damage and area coverage. Turn the map into hell.</p>
+                <h3>🔥 Pyromaniac Build - "Burn Everything"</h3>
+                <p>Maximum fire damage and spread. Turn the battlefield into an inferno.</p>
+                <strong>Essential Perks:</strong>
                 <ul>
-                    <li><strong>Priority:</strong> Fire spread and persistent burning</li>
-                    <li><strong>Key Focus:</strong> Scorched Earth, All Fried Up, Fire Trap</li>
-                    <li><strong>Playstyle:</strong> Chain fire kills to cover entire areas</li>
-                    <li><strong>Weapons:</strong> Flamethrower when available!</li>
+                    <li><strong>Level 1-3:</strong> Pyromaniac (50% more fire damage)</li>
+                    <li><strong>Level 14-16:</strong> Fire Trap (Claymores create fire)</li>
+                    <li><strong>Level 14-16 Red:</strong> Burnout (25% more fire damage in swarms)</li>
+                    <li><strong>Level 27-29:</strong> Hot Sauce (100% more splash damage)</li>
+                    <li><strong>Level 27-29:</strong> Know-How (25% more kills)</li>
                 </ul>
                 <div class="tip-box">
-                    <strong>💡 Tip:</strong> Fire trails from Scorched Earth stack - create overlapping burn zones!</strong>
+                    <strong>💡 Tip:</strong> Layer fire zones - Fire Trap claymores + molotovs create overlapping kill fields!
+                    <br><strong>Best Prestige Perks:</strong> Know-How II (Rank 3), Oily Hands (Rank 8) for range.
                 </div>
             </div>
             
             <div class="build-card">
-                <h3>💣 Demolition Build - "Boom Expert"</h3>
-                <p>Focus on explosives and claymores. Maximum instant damage.</p>
+                <h3>💣 Demolition Build - "Explosive Expert"</h3>
+                <p>Focus on heavy weapons and explosives for instant damage.</p>
+                <strong>Essential Perks:</strong>
                 <ul>
-                    <li><strong>Priority:</strong> Explosive damage and claymore enhancement</li>
-                    <li><strong>Key Focus:</strong> Heavy Metal, Welcoming Party, Directed Blast</li>
-                    <li><strong>Playstyle:</strong> Pre-place claymores, RPG for emergencies</li>
-                    <li><strong>Weapons:</strong> Grenade Launcher + Shotgun</li>
+                    <li><strong>Level 1-3 Red:</strong> Minefield (+1 Claymore, start with one)</li>
+                    <li><strong>Level 7-9:</strong> Heavy Metal (Start with improved RPG)</li>
+                    <li><strong>Level 14-16:</strong> Green Fingered (Smart Claymores)</li>
+                    <li><strong>Level 21-23:</strong> Broad Shoulders (25% more heavy ammo)</li>
+                    <li><strong>Level 27-29 Red:</strong> Heavy Stride (Double-exploding Claymores)</li>
                 </ul>
                 <div class="tip-box">
-                    <strong>💡 Tip:</strong> Claymores can be stacked for massive damage to Bulls!</strong>
+                    <strong>💡 Tip:</strong> Stack Claymores at Bull charge paths for instant kills!
+                    <br><strong>Best Prestige Perks:</strong> Bandolier II (Rank 9) for better defenses.
                 </div>
             </div>
             
             <div class="build-card">
-                <h3>🛡️ Fortress Build - "Defense Master"</h3>
-                <p>Specialized for defense sections and holdouts. Insane stationary damage.</p>
+                <h3>♻️ Infinite Resources Build - "Never Run Out"</h3>
+                <p>Constant equipment regeneration for endless crowd control.</p>
+                <strong>Essential Perks:</strong>
                 <ul>
-                    <li><strong>Priority:</strong> Defense bonuses and kit effectiveness</li>
-                    <li><strong>Key Focus:</strong> Home Guard, Hangover, Bullet Rain</li>
-                    <li><strong>Playstyle:</strong> Set up kill zones during defense</li>
-                    <li><strong>Weapons:</strong> MG5 or other stationary weapons</li>
+                    <li><strong>Level 14-16:</strong> Combat Engineer (20% Defense Kit restore)</li>
+                    <li><strong>Level 17-19:</strong> Job Satisfaction (Kills grant temp health)</li>
+                    <li><strong>Level 24-26:</strong> Pocket Factory (Equipment regenerates)</li>
+                    <li><strong>Level 24-26 Alt:</strong> Pickpocket (Kills refill equipment)</li>
+                    <li><strong>Level 27-29:</strong> Ghost (Auto-masking when alone)</li>
                 </ul>
                 <div class="tip-box">
-                    <strong>💡 Tip:</strong> Home Guard gives +100% damage - you become a turret during swarms!</strong>
+                    <strong>💡 Tip:</strong> With Pocket Factory, you get infinite molotovs over time - pace your throws!
+                    <br><strong>Best Prestige Perks:</strong> Know-How II (Rank 3) makes each equipment use count more.
                 </div>
             </div>
         </section>
@@ -465,21 +856,21 @@
             <div class="synergy-grid">
                 <div class="synergy-card">
                     <h3>💥 Exterminator + Hellraiser</h3>
-                    <p>The destruction duo. Fire meets explosives for total area denial.</p>
+                    <p>The destruction duo. Fire meets C4 for total devastation.</p>
                     <span class="synergy-rating synergy-excellent">EXCELLENT</span>
-                    <p><strong>Why it works:</strong> Fire funnels zombies into C4 kill zones. Maximum crowd control.</p>
+                    <p><strong>Why it works:</strong> Fire funnels zombies into explosive kill zones. Complete area control.</p>
                 </div>
                 <div class="synergy-card">
                     <h3>🔧 Exterminator + Fixer</h3>
-                    <p>Endless molotovs. Fixer restores your equipment constantly.</p>
+                    <p>Endless equipment. Fixer bags = infinite molotovs.</p>
                     <span class="synergy-rating synergy-excellent">EXCELLENT</span>
-                    <p><strong>Why it works:</strong> Equipment bags = infinite fire. Never run out of area denial.</p>
+                    <p><strong>Why it works:</strong> Fixer's supply bags bypass Pocket Factory limitation.</p>
                 </div>
                 <div class="synergy-card">
-                    <h3>🗡️ Exterminator + Slasher</h3>
-                    <p>Range and melee combo. Fire softens, Slasher finishes.</p>
+                    <h3>🛡️ Exterminator + Vanguard</h3>
+                    <p>Shield wall with fire support. Ultimate defense combo.</p>
                     <span class="synergy-rating synergy-good">GOOD</span>
-                    <p><strong>Why it works:</strong> Burning zombies are easier to melee. Slasher handles leakers.</p>
+                    <p><strong>Why it works:</strong> Vanguard blocks, Exterminator burns everything behind.</p>
                 </div>
             </div>
         </section>
@@ -491,50 +882,40 @@
             <div class="build-card">
                 <h3>🐂 Bull</h3>
                 <ul>
-                    <li>Pre-place claymores in charge paths</li>
-                    <li>Direct molotov hits stagger briefly</li>
-                    <li>Fire patches slow charge speed</li>
-                    <li>RPG to the face stops charge instantly</li>
+                    <li>Stack multiple Claymores in charge paths</li>
+                    <li>Fire Trap Claymores stop and burn simultaneously</li>
+                    <li>Direct molotov can stagger briefly</li>
+                    <li>Heavy Metal RPG instant kills</li>
                 </ul>
             </div>
             
             <div class="build-card">
                 <h3>🤢 Gasbag</h3>
                 <ul>
-                    <li>NEVER use fire on Gasbag - instant explosion!</li>
-                    <li>Let teammates handle while you clear surroundings</li>
-                    <li>If alone, use primary weapon only</li>
-                    <li>Create fire barrier between Gasbag and team</li>
+                    <li>Dragon Hide makes you immune to gas explosion</li>
+                    <li>NEVER throw molotov directly at Gasbag</li>
+                    <li>Fire on ground is safe - just not direct hits</li>
+                    <li>Let gun-focused classes handle</li>
                 </ul>
             </div>
             
             <div class="build-card">
                 <h3>👻 Lurker</h3>
                 <ul>
-                    <li>Ghost Town perk makes you invisible to Lurkers</li>
-                    <li>Molotov the ground where they hide</li>
-                    <li>Claymores at common lurk spots</li>
-                    <li>Fire reveals their position when burning</li>
+                    <li>Molotov ground where they're hiding</li>
+                    <li>Rooted perk prevents pins</li>
+                    <li>Ghost perk makes you invisible to them</li>
+                    <li>Fire reveals cloaked Lurkers</li>
                 </ul>
             </div>
             
             <div class="build-card">
                 <h3>😱 Screamer</h3>
                 <ul>
-                    <li>Molotov prevents scream if direct hit</li>
-                    <li>Always carry silenced weapon as backup</li>
-                    <li>If scream starts, pre-fire swarm spawns</li>
-                    <li>Claymores at Screamer spawn points</li>
-                </ul>
-            </div>
-            
-            <div class="build-card">
-                <h3>🎯 Bomber</h3>
-                <ul>
-                    <li>Fire instantly detonates them (use carefully)</li>
-                    <li>Can create chain reactions in groups</li>
-                    <li>Molotov behind them to push toward enemies</li>
-                    <li>Never fire when near teammates</li>
+                    <li>Impromptu perk - molotov stuns them</li>
+                    <li>Direct hit prevents scream</li>
+                    <li>Pre-fire swarm spawn points if scream starts</li>
+                    <li>Always carry silenced backup weapon</li>
                 </ul>
             </div>
         </section>
@@ -546,11 +927,11 @@
             <div class="build-card">
                 <h3>🌊 Swarm Defense</h3>
                 <ol>
-                    <li>Pre-fire all approach routes</li>
-                    <li>Layer claymores at choke points</li>
-                    <li>Save 1 molotov for emergency</li>
-                    <li>Focus pyramid bases with fire</li>
-                    <li>Use Home Guard position for +100% damage</li>
+                    <li>Pre-place Fire Trap Claymores at climb points</li>
+                    <li>Molotov approach routes before swarm arrives</li>
+                    <li>Use Firestarter + Burnout for 50% damage bonus</li>
+                    <li>Save one molotov for pyramid emergency</li>
+                    <li>Bandolier helps team's defenses last longer</li>
                 </ol>
             </div>
             
@@ -558,60 +939,11 @@
                 <h3>🏃 Running Sections</h3>
                 <ol>
                     <li>Throw molotovs backward while running</li>
-                    <li>Fire at doorways to block chasers</li>
-                    <li>Quick claymore drops at turns</li>
-                    <li>Use Ghost Town for emergency escape</li>
-                    <li>Clear path ahead with shotgun</li>
+                    <li>All Elbows prevents slowdown when swarmed</li>
+                    <li>Quick Claymore drops at corners</li>
+                    <li>Cloak and Dagger for emergency invisibility</li>
+                    <li>Dragon Hide lets you run through your own fire</li>
                 </ol>
-            </div>
-            
-            <div class="build-card">
-                <h3>👹 Boss Fights</h3>
-                <ol>
-                    <li>Save equipment for add phases</li>
-                    <li>Create fire perimeter around team</li>
-                    <li>Claymores at add spawn doors</li>
-                    <li>Direct fire damage on boss weak points</li>
-                    <li>Scorched Earth creates safe zones</li>
-                </ol>
-            </div>
-            
-            <div class="build-card">
-                <h3>🛡️ Escort Missions</h3>
-                <ol>
-                    <li>Fire walls protect objective path</li>
-                    <li>Pre-place claymores at stop points</li>
-                    <li>Molotov ahead to clear path</li>
-                    <li>Save equipment for final push</li>
-                    <li>Create burn zones at spawn points</li>
-                </ol>
-            </div>
-        </section>
-        
-        <!-- Quick Reference -->
-        <section class="card">
-            <h2>📋 Quick Reference</h2>
-            
-            <div class="build-card">
-                <h3>🔥 Fire Zone Placement</h3>
-                <ol>
-                    <li><strong>Doorways</strong> - Block entry points</li>
-                    <li><strong>Stairs</strong> - Zombies bunch up</li>
-                    <li><strong>Corners</strong> - Create turn traps</li>
-                    <li><strong>Pyramid bases</strong> - Prevent climbing</li>
-                    <li><strong>Escape routes</strong> - Cover retreats</li>
-                </ol>
-            </div>
-            
-            <div class="build-card">
-                <h3>💣 Claymore Best Spots</h3>
-                <ul>
-                    <li><strong>Fence breaks:</strong> Guaranteed multi-kills</li>
-                    <li><strong>Door frames:</strong> Funnel points</li>
-                    <li><strong>Bull paths:</strong> Instant stops</li>
-                    <li><strong>Climb spots:</strong> Clear clusters</li>
-                    <li><strong>Swarm spawns:</strong> Thin the herd</li>
-                </ul>
             </div>
         </section>
         
@@ -620,13 +952,12 @@
             <div class="warning-box">
                 <h3>⚠️ Common Exterminator Mistakes to Avoid</h3>
                 <ul>
-                    <li><strong>Wasting molotovs:</strong> Don't throw at small groups</li>
-                    <li><strong>Bad fire placement:</strong> Blocking team movement</li>
-                    <li><strong>Firing Gasbags:</strong> Instant team wipe!</li>
-                    <li><strong>Hoarding equipment:</strong> Use it or lose it</li>
-                    <li><strong>Ignoring choke points:</strong> Control the flow</li>
-                    <li><strong>Forgetting Home Guard:</strong> +100% damage is huge</li>
-                    <li><strong>Poor claymore timing:</strong> Place before combat</li>
+                    <li><strong>Wasting molotovs early:</strong> Save for swarms and emergencies</li>
+                    <li><strong>Bad fire placement:</strong> Don't block team escape routes</li>
+                    <li><strong>Igniting Gasbags:</strong> Instant explosion kills nearby teammates</li>
+                    <li><strong>Not using Dragon Hide:</strong> Essential for fire immunity</li>
+                    <li><strong>Forgetting Firestarter bonus:</strong> 25% damage during swarms!</li>
+                    <li><strong>Poor Claymore placement:</strong> Place before combat starts</li>
                 </ul>
             </div>
         </section>
@@ -636,14 +967,14 @@
             <h2>🌟 Tips for New Exterminator Players</h2>
             <div class="tip-box">
                 <ol>
-                    <li><strong>Learn the maps</strong> - Know choke points and spawn locations</li>
-                    <li><strong>Pre-place everything</strong> - Set traps before combat</li>
-                    <li><strong>Fire lasts long</strong> - Don't overlap unnecessarily</li>
-                    <li><strong>Manage equipment</strong> - Job Satisfaction refills charges</li>
-                    <li><strong>Communicate fires</strong> - Don't trap teammates</li>
-                    <li><strong>Master Ghost Town</strong> - 3 seconds of safety</li>
-                    <li><strong>Stack effects</strong> - Fire + claymore + scorched earth</li>
-                    <li><strong>Defense positioning</strong> - Find your +100% damage spot</li>
+                    <li><strong>Learn choke points</strong> - Every map has perfect fire zones</li>
+                    <li><strong>Pre-place equipment</strong> - Set up before swarms</li>
+                    <li><strong>Dragon Hide is mandatory</strong> - Fire immunity saves lives</li>
+                    <li><strong>Manage resources</strong> - Don't waste on small groups</li>
+                    <li><strong>Stack fire effects</strong> - Molotov + Fire Trap + Burnout</li>
+                    <li><strong>Communicate fire zones</strong> - Don't trap teammates</li>
+                    <li><strong>Use height advantage</strong> - Throw molotovs from above</li>
+                    <li><strong>Master Pocket Factory timing</strong> - 150s for full recharge</li>
                 </ol>
             </div>
         </section>

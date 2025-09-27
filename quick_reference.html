@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Quick Reference Sheets for World War Z: Aftermath - Printable cheat sheets and guides">
+    <meta name="keywords" content="World War Z, Aftermath, quick reference, cheat sheet, printable, guide">
+    <meta name="author" content="WWZ Guide Team">
+    <title>Quick Reference Sheets - World War Z: Aftermath</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="styles/main.css">
+    <style>
+        /* Quick Reference specific styling */
+        @media print {
+            .no-print {
+                display: none !important;
+            }
+            .page-break {
+                page-break-after: always;
+            }
+            .reference-sheet {
+                page-break-inside: avoid;
+            }
+            body {
+                font-size: 10pt;
+            }
+            .main-nav, .site-footer, .print-instructions {
+                display: none;
+            }
+        }
+        
+        .reference-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .print-instructions {
+            background: #e7f5ff;
+            border: 2px solid #74c0fc;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .reference-sheet {
+            background: white;
+            border: 2px solid #dee2e6;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        
+        .reference-sheet h2 {
+            color: #2c3e50;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .reference-sheet h3 {
+            color: #495057;
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .quick-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+        }
+        
+        .quick-table th {
+            background: #f8f9fa;
+            color: #495057;
+            padding: 0.5rem;
+            text-align: left;
+            border: 1px solid #dee2e6;
+            font-weight: bold;
+        }
+        
+        .quick-table td {
+            padding: 0.5rem;
+            border: 1px solid #dee2e6;
+        }
+        
+        .quick-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        
+        .priority-high {
+            background: #ffebee !important;
+            color: #c62828;
+            font-weight: bold;
+        }
+        
+        .priority-medium {
+            background: #fff3e0 !important;
+            color: #e65100;
+        }
+        
+        .priority-low {
+            background: #e8f5e9 !important;
+            color: #2e7d32;
+        }
+        
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .three-column {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .compact-list {
+            list-style: none;
+            padding: 0;
+            margin: 0.5rem 0;
+        }
+        
+        .compact-list li {
+            padding: 0.25rem 0;
+            border-bottom: 1px dotted #dee2e6;
+        }
+        
+        .key-point {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 0.5rem;
+            margin: 0.5rem 0;
+            font-weight: bold;
+        }
+        
+        .control-box {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            padding: 0.5rem;
+            margin: 0.25rem 0;
+        }
+        
+        .control-key {
+            display: inline-block;
+            background: white;
+            border: 1px solid #6c757d;
+            border-radius: 3px;
+            padding: 0.1rem 0.3rem;
+            font-family: monospace;
+            font-weight: bold;
+            margin: 0 0.2rem;
+        }
+        
+        .damage-good {
+            color: #28a745;
+            font-weight: bold;
+        }
+        
+        .damage-bad {
+            color: #dc3545;
+            font-weight: bold;
+        }
+        
+        .sheet-number {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: #667eea;
+            color: white;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        
+        .icon-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+        
+        .version-note {
+            font-size: 0.8rem;
+            color: #6c757d;
+            text-align: right;
+            margin-top: 0.5rem;
+        }
+        
+        @media screen and (max-width: 768px) {
+            .two-column, .three-column {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-to-main no-print">Skip to main content</a>
+    
+    <!-- Navigation -->
+    <nav class="main-nav no-print">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">⚔️ WWZ: Aftermath Guide</a>
+            <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-expanded="false">☰</button>
+            <div class="nav-links" id="nav-links">
+                <a href="index.html">Home</a>
+                <a href="beginner_guide.html">Beginner Guide</a>
+                <a href="classes_overview.html">Classes</a>
+                <a href="special_zombies.html">Special Zombies</a>
+                <a href="faq.html">FAQ</a>
+                <a href="glossary.html">Glossary</a>
+                <a href="quick_reference.html" class="current">Quick Ref</a>
+                <a href="weapons_upgrades.html">Weapons</a>
+                <a href="horde_endgame.html">Endgame</a>
+                <button id="theme-toggle" aria-label="Toggle theme">🌙</button>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Header -->
+        <header class="reference-header no-print">
+            <h1>📋 Quick Reference Sheets</h1>
+            <p>Essential information at a glance - perfect for dual monitors or printing</p>
+        </header>
+        
+        <!-- Print Instructions -->
+        <div class="print-instructions">
+            <h3>🖨️ Printing Tips</h3>
+            <ul>
+                <li>Use <strong>Ctrl+P</strong> (PC) or <strong>Cmd+P</strong> (Mac) to print</li>
+                <li>Each sheet is designed to fit on one page</li>
+                <li>Select "Print backgrounds" for colored elements</li>
+                <li>Use landscape orientation for wider sheets</li>
+                <li>Print specific sheets by selecting page numbers</li>
+            </ul>
+        </div>
+        
+        <!-- Sheet 1: Special Zombies Priority & Counters -->
+        <div class="reference-sheet">
+            <span class="sheet-number">Sheet 1</span>
+            <h2>🧟 Special Zombies - Priority & Quick Counters</h2>
+            
+            <div class="key-point">
+                ⚠️ ALWAYS KILL IN THIS ORDER: Screamer → Gasbag → Bull → Infector → Lurker → Bomber
+            </div>
+            
+            <table class="quick-table">
+                <thead>
+                    <tr>
+                        <th>Special</th>
+                        <th>Priority</th>
+                        <th>Audio Cue</th>
+                        <th>Weakness</th>
+                        <th>NEVER DO</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>😱 Screamer</strong></td>
+                        <td class="priority-high">HIGHEST</td>
+                        <td>High-pitched whine</td>
+                        <td>1-2 headshots, fragile</td>
+                        <td>Ignore the audio cue</td>
+                    </tr>
+                    <tr>
+                        <td><strong>🤢 Gasbag</strong></td>
+                        <td class="priority-high">HIGH</td>
+                        <td>Gurgling/belching</td>
+                        <td>Headshots only safe</td>
+                        <td class="damage-bad">Fire/explosives/melee</td>
+                    </tr>
+                    <tr>
+                        <td><strong>🐂 Bull</strong></td>
+                        <td class="priority-high">HIGH</td>
+                        <td>Heavy stomping, roar</td>
+                        <td>Back unarmored, sidestep charge</td>
+                        <td>Stand in charge path</td>
+                    </tr>
+                    <tr>
+                        <td><strong>🧟 Infector</strong></td>
+                        <td class="priority-medium">MEDIUM</td>
+                        <td>Retching sounds</td>
+                        <td>Can't move while spitting</td>
+                        <td>Ignore infected teammates</td>
+                    </tr>
+                    <tr>
+                        <td><strong>👻 Lurker</strong></td>
+                        <td class="priority-medium">MEDIUM</td>
+                        <td>Low growl before pounce</td>
+                        <td>Dies quickly, audio warning</td>
+                        <td>Isolate from team</td>
+                    </tr>
+                    <tr>
+                        <td><strong>🎯 Bomber</strong></td>
+                        <td class="priority-low">LOW</td>
+                        <td>Beeping (speeds up)</td>
+                        <td>Headshot instant kill</td>
+                        <td class="damage-bad">Body shots</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3>Universal Counters</h3>
+            <div class="two-column">
+                <div>
+                    <strong>Stun/Flash:</strong> Stops all specials<br>
+                    <strong>Masking Gas:</strong> Makes you invisible<br>
+                    <strong>Height Advantage:</strong> Easier headshots
+                </div>
+                <div>
+                    <strong>Explosives:</strong> Clear groups (not Gasbag!)<br>
+                    <strong>Silenced Weapons:</strong> Prevent Screamer alerts<br>
+                    <strong>Team Focus Fire:</strong> Quick elimination
+                </div>
+            </div>
+            
+            <div class="version-note">World War Z: Aftermath - 2024/2025</div>
+        </div>
+        
+        <div class="page-break"></div>
+        
+        <!-- Sheet 2: Class Roles & Best Perks -->
+        <div class="reference-sheet">
+            <span class="sheet-number">Sheet 2</span>
+            <h2>🎭 Class Quick Guide - Roles & Key Perks</h2>
+            
+            <table class="quick-table">
+                <thead>
+                    <tr>
+                        <th>Class</th>
+                        <th>Role</th>
+                        <th>Core Ability</th>
+                        <th>Best For</th>
+                        <th>Key Perks to Get</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>🏥 Medic</strong></td>
+                        <td>Healer/Support</td>
+                        <td>Stim Pistol</td>
+                        <td>Team survival</td>
+                        <td>Combat Medic, Efficiency, Fighting Fit</td>
+                    </tr>
+                    <tr>
+                        <td><strong>🔧 Fixer</strong></td>
+                        <td>Ammo Supply</td>
+                        <td>Supply Bags</td>
+                        <td>Resource management</td>
+                        <td>Explosive Ammo, Armory, Please Stand Up</td>
+                    </tr>
+                    <tr>
+                        <td><strong>🔫 Gunslinger</strong></td>
+                        <td>DPS</td>
+                        <td>Gun Expertise</td>
+                        <td>Sustained damage</td>
+                        <td>Front Line Supply, Power Nap, Welcoming Committee</td>
+                    </tr>
+                    <tr>
+                        <td><strong>🔥 Exterminator</strong></td>
+                        <td>Crowd Control</td>
+                        <td>Molotov</td>
+                        <td>Swarm defense</td>
+                        <td>Pyromaniac, Home Guard, Scorched Earth</td>
+                    </tr>
+                    <tr>
+                        <td><strong>🗡️ Slasher</strong></td>
+                        <td>Melee Tank</td>
+                        <td>Stun Gun</td>
+                        <td>Frontline control</td>
+                        <td>Rooted, All Elbows, Samurai</td>
+                    </tr>
+                    <tr>
+                        <td><strong>💥 Hellraiser</strong></td>
+                        <td>Explosives</td>
+                        <td>C4 Charges</td>
+                        <td>Area damage</td>
+                        <td>Directed Blast, Free Refill, Welcome Mat</td>
+                    </tr>
+                    <tr>
+                        <td><strong>🤖 Dronemaster</strong></td>
+                        <td>Drone Support</td>
+                        <td>Quadrocopter</td>
+                        <td>Automated help</td>
+                        <td>Buddy System, Overload, Sky Guard</td>
+                    </tr>
+                    <tr>
+                        <td><strong>🛡️ Vanguard</strong></td>
+                        <td>Shield Tank</td>
+                        <td>Electric Shield</td>
+                        <td>Team protection</td>
+                        <td>Fortified, Chain Lightning, Juggernaut</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3>Team Composition Tips</h3>
+            <div class="two-column">
+                <div>
+                    <strong>Essential:</strong>
+                    <ul class="compact-list">
+                        <li>1 Medic (always)</li>
+                        <li>1 Fixer (ammo support)</li>
+                        <li>2 DPS/Control classes</li>
+                    </ul>
+                </div>
+                <div>
+                    <strong>Strong Combos:</strong>
+                    <ul class="compact-list">
+                        <li>Hellraiser + Fixer (infinite explosives)</li>
+                        <li>Vanguard + Medic (unkillable tank)</li>
+                        <li>Exterminator + Hellraiser (area denial)</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="version-note">Perks subject to balance changes</div>
+        </div>
+        
+        <div class="page-break"></div>
+        
+        <!-- Sheet 3: Controls Quick Reference -->
+        <div class="reference-sheet">
+            <span class="sheet-number">Sheet 3</span>
+            <h2>🎮 Controls - All Platforms</h2>
+            
+            <h3>Combat Controls</h3>
+            <div class="three-column">
+                <div>
+                    <strong>PC</strong>
+                    <div class="control-box">
+                        Fire: <span class="control-key">LMB</span><br>
+                        Aim: <span class="control-key">RMB</span><br>
+                        Reload: <span class="control-key">R</span><br>
+                        Melee: <span class="control-key">V</span><br>
+                        Equipment: <span class="control-key">G</span><br>
+                        Sprint: <span class="control-key">Shift</span>
+                    </div>
+                </div>
+                <div>
+                    <strong>Xbox</strong>
+                    <div class="control-box">
+                        Fire: <span class="control-key">RT</span><br>
+                        Aim: <span class="control-key">LT</span><br>
+                        Reload: <span class="control-key">X</span><br>
+                        Melee: <span class="control-key">RS</span><br>
+                        Equipment: <span class="control-key">LB</span><br>
+                        Sprint: <span class="control-key">LS</span>
+                    </div>
+                </div>
+                <div>
+                    <strong>PlayStation</strong>
+                    <div class="control-box">
+                        Fire: <span class="control-key">R2</span><br>
+                        Aim: <span class="control-key">L2</span><br>
+                        Reload: <span class="control-key">□</span><br>
+                        Melee: <span class="control-key">R3</span><br>
+                        Equipment: <span class="control-key">L1</span><br>
+                        Sprint: <span class="control-key">L3</span>
+                    </div>
+                </div>
+            </div>
+            
+            <h3>Quick Actions</h3>
+            <table class="quick-table">
+                <thead>
+                    <tr>
+                        <th>Action</th>
+                        <th>PC</th>
+                        <th>Xbox</th>
+                        <th>PlayStation</th>
+                        <th>Note</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Switch Weapon</td>
+                        <td><span class="control-key">Q</span></td>
+                        <td><span class="control-key">Y</span></td>
+                        <td><span class="control-key">△</span></td>
+                        <td>Quick swap</td>
+                    </tr>
+                    <tr>
+                        <td>Interact</td>
+                        <td><span class="control-key">E</span></td>
+                        <td><span class="control-key">X</span></td>
+                        <td><span class="control-key">□</span></td>
+                        <td>Hold for some</td>
+                    </tr>
+                    <tr>
+                        <td>Class Ability</td>
+                        <td><span class="control-key">Q</span></td>
+                        <td><span class="control-key">RB</span></td>
+                        <td><span class="control-key">R1</span></td>
+                        <td>When available</td>
+                    </tr>
+                    <tr>
+                        <td>Toggle View</td>
+                        <td><span class="control-key">V</span></td>
+                        <td><span class="control-key">RS Click</span></td>
+                        <td><span class="control-key">R3 Click</span></td>
+                        <td>1st/3rd person</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="key-point">
+                💡 Tip: Rebind melee to Mouse4/5 on PC for easier access during combat!
+            </div>
+        </div>
+        
+        <div class="page-break"></div>
+        
+        <!-- Sheet 4: Difficulty & Rewards -->
+        <div class="reference-sheet">
+            <span class="sheet-number">Sheet 4</span>
+            <h2>📊 Difficulty Settings & Rewards</h2>
+            
+            <table class="quick-table">
+                <thead>
+                    <tr>
+                        <th>Difficulty</th>
+                        <th>Friendly Fire</th>
+                        <th>Specials</th>
+                        <th>Resources</th>
+                        <th>XP Bonus</th>
+                        <th>Supply Bonus</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Easy</strong></td>
+                        <td class="damage-good">0%</td>
+                        <td>Rare</td>
+                        <td>Abundant</td>
+                        <td>×0.5</td>
+                        <td>×0.5</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Normal</strong></td>
+                        <td class="damage-good">0%</td>
+                        <td>Some</td>
+                        <td>Plentiful</td>
+                        <td>×1.0</td>
+                        <td>×1.0</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Hard</strong></td>
+                        <td>10%</td>
+                        <td>Common</td>
+                        <td>Limited</td>
+                        <td>×1.5</td>
+                        <td>×1.5</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Insane</strong></td>
+                        <td>25%</td>
+                        <td>Frequent</td>
+                        <td>Scarce</td>
+                        <td>×2.0</td>
+                        <td>×2.0</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Extreme</strong></td>
+                        <td class="damage-bad">50%</td>
+                        <td>Constant</td>
+                        <td>Minimal</td>
+                        <td>×3.0</td>
+                        <td>×3.0</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3>Progression Tips</h3>
+            <div class="two-column">
+                <div>
+                    <strong>Optimal Path:</strong>
+                    <ol class="compact-list">
+                        <li>Start on Normal (learn basics)</li>
+                        <li>Move to Hard at level 5+</li>
+                        <li>Insane at level 15+ with perks</li>
+                        <li>Extreme at Prestige 4+</li>
+                    </ol>
+                </div>
+                <div>
+                    <strong>Currency Priority:</strong>
+                    <ol class="compact-list">
+                        <li>Class perks first</li>
+                        <li>Main weapon to Tier 3</li>
+                        <li>Secondary weapon</li>
+                        <li>Save for prestige (30k)</li>
+                    </ol>
+                </div>
+            </div>
+            
+            <div class="key-point">
+                ⚠️ Explosives ALWAYS deal 100% friendly fire regardless of difficulty!
+            </div>
+        </div>
+        
+        <div class="page-break"></div>
+        
+        <!-- Sheet 5: Swarm Defense Checklist -->
+        <div class="reference-sheet">
+            <span class="sheet-number">Sheet 5</span>
+            <h2>🌊 Swarm Defense Checklist</h2>
+            
+            <h3>Pre-Swarm Setup (30 seconds before)</h3>
+            <ul class="compact-list">
+                <li>☐ Find defensive position with good sightlines</li>
+                <li>☐ Place ALL defense kits (auto-turrets, mortars, grids)</li>
+                <li>☐ Drop Fixer ammo bags at position</li>
+                <li>☐ Set Hellraiser C4 at choke points</li>
+                <li>☐ Place Exterminator fire at entrances</li>
+                <li>☐ Reload all weapons</li>
+                <li>☐ Assign lanes/sectors to teammates</li>
+                <li>☐ Check for nearby medkits</li>
+            </ul>
+            
+            <h3>During Swarm</h3>
+            <div class="two-column">
+                <div>
+                    <strong>Priority Targets:</strong>
+                    <ol class="compact-list">
+                        <li>Screamers (always first!)</li>
+                        <li>Pyramid bases</li>
+                        <li>Special zombies</li>
+                        <li>Climbers</li>
+                        <li>Regular horde</li>
+                    </ol>
+                </div>
+                <div>
+                    <strong>Emergency Actions:</strong>
+                    <ul class="compact-list">
+                        <li>Masking grenade if overrun</li>
+                        <li>Explosive at pyramid base</li>
+                        <li>Call for help early</li>
+                        <li>Fall back if breached</li>
+                        <li>Save heavy weapons for crisis</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <h3>Defense Kit Placement Priority</h3>
+            <table class="quick-table">
+                <thead>
+                    <tr>
+                        <th>Kit Type</th>
+                        <th>Best Location</th>
+                        <th>Purpose</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Auto-Turret</strong></td>
+                        <td>High ground, wide coverage</td>
+                        <td>Continuous fire support</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Mortar</strong></td>
+                        <td>Behind defensive line</td>
+                        <td>Pyramid destruction</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Electric Grid</strong></td>
+                        <td>Fence/climb points</td>
+                        <td>Stop climbing</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Barbed Wire</strong></td>
+                        <td>Choke points</td>
+                        <td>Slow advance</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="page-break"></div>
+        
+        <!-- Sheet 6: Communication Callouts -->
+        <div class="reference-sheet">
+            <span class="sheet-number">Sheet 6</span>
+            <h2>📢 Essential Callouts & Communication</h2>
+            
+            <h3>Special Zombie Callouts</h3>
+            <div class="two-column">
+                <div>
+                    <strong>Immediate Priority:</strong>
+                    <ul class="compact-list">
+                        <li>"<strong>SCREAMER LEFT!</strong>" - Direction critical</li>
+                        <li>"<strong>Bull charging!</strong>" - Get ready to dodge</li>
+                        <li>"<strong>Gasbag close!</strong>" - Headshots only</li>
+                    </ul>
+                </div>
+                <div>
+                    <strong>Awareness Calls:</strong>
+                    <ul class="compact-list">
+                        <li>"Lurker behind" - Check six</li>
+                        <li>"Infector on roof" - Watch for spit</li>
+                        <li>"Bomber in crowd" - Don't body shot</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <h3>Tactical Communication</h3>
+            <table class="quick-table">
+                <thead>
+                    <tr>
+                        <th>Situation</th>
+                        <th>Callout</th>
+                        <th>Team Response</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Pyramid forming</td>
+                        <td>"Pyramid left wall!"</td>
+                        <td>Focus fire base / Use explosive</td>
+                    </tr>
+                    <tr>
+                        <td>Out of ammo</td>
+                        <td>"Need ammo!"</td>
+                        <td>Fixer drops bag / Cover player</td>
+                    </tr>
+                    <tr>
+                        <td>Low health</td>
+                        <td>"Need healing!"</td>
+                        <td>Medic prioritizes / Find medkit</td>
+                    </tr>
+                    <tr>
+                        <td>Pinned</td>
+                        <td>"Help!" / "Pinned!"</td>
+                        <td>Immediate rescue</td>
+                    </tr>
+                    <tr>
+                        <td>Breach</td>
+                        <td>"They're through!"</td>
+                        <td>Fall back / Reinforce</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3>Quick Chat Wheel (Console/PC)</h3>
+            <div class="control-box">
+                Hold <span class="control-key">Up on D-Pad</span> (Console) or <span class="control-key">Z</span> (PC) for quick commands:
+                <ul class="compact-list">
+                    <li>Thanks</li>
+                    <li>Sorry</li>
+                    <li>Yes/No</li>
+                    <li>Follow me</li>
+                    <li>Wait</li>
+                </ul>
+            </div>
+            
+            <div class="key-point">
+                💡 Clear, brief callouts save lives. Direction + Threat = Good callout!
+            </div>
+        </div>
+        
+        <div class="page-break"></div>
+        
+        <!-- Sheet 7: Weapon Categories Quick Guide -->
+        <div class="reference-sheet">
+            <span class="sheet-number">Sheet 7</span>
+            <h2>🔫 Weapon Categories - Quick Selection Guide</h2>
+            
+            <table class="quick-table">
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th>Best For</th>
+                        <th>Pros</th>
+                        <th>Cons</th>
+                        <th>Top Picks</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Scout Rifles</strong></td>
+                        <td>Long range</td>
+                        <td>High damage, penetration</td>
+                        <td>Slow fire rate</td>
+                        <td>Extreme Sniper</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Assault Rifles</strong></td>
+                        <td>Versatility</td>
+                        <td>Balanced stats</td>
+                        <td>Jack of all trades</td>
+                        <td>ARK-103, Assault Carbine</td>
+                    </tr>
+                    <tr>
+                        <td><strong>SMGs</strong></td>
+                        <td>Mobility</td>
+                        <td>Fast fire, quick reload</td>
+                        <td>Low damage</td>
+                        <td>Compact SMG, Geist</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Shotguns</strong></td>
+                        <td>Close range</td>
+                        <td>Massive damage</td>
+                        <td>Limited range</td>
+                        <td>Assault Shotgun</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Battle Rifles</strong></td>
+                        <td>Mid-range DPS</td>
+                        <td>Good damage</td>
+                        <td>Recoil</td>
+                        <td>Bullpup Rifle</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Heavy Weapons</strong></td>
+                        <td>Specials/Swarms</td>
+                        <td>Extreme damage</td>
+                        <td>Limited ammo</td>
+                        <td>RPG, MGL</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3>Weapon Upgrade Priority</h3>
+            <div class="two-column">
+                <div>
+                    <strong>Tier 1→3 First:</strong>
+                    <ul class="compact-list">
+                        <li>Your main weapon</li>
+                        <li>Cheaper early upgrades</li>
+                        <li>Big stat improvements</li>
+                    </ul>
+                </div>
+                <div>
+                    <strong>Tier 4-5 Later:</strong>
+                    <ul class="compact-list">
+                        <li>Expensive upgrades</li>
+                        <li>Smaller stat gains</li>
+                        <li>After class perks</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="key-point">
+                🔇 Silenced weapons prevent Screamer alerts and reduce aggro!
+            </div>
+        </div>
+        
+        <div class="page-break"></div>
+        
+        <!-- Sheet 8: Prestige Decision Tree -->
+        <div class="reference-sheet">
+            <span class="sheet-number">Sheet 8</span>
+            <h2>⭐ Prestige Guide - When & How</h2>
+            
+            <h3>Requirements</h3>
+            <ul class="compact-list">
+                <li>Level 30 in class</li>
+                <li>7,500 Supplies (blue coins)</li>
+                <li>Lose all purchased perks (keep red perks)</li>
+            </ul>
+            
+            <h3>Should You Prestige?</h3>
+            <table class="quick-table">
+                <thead>
+                    <tr>
+                        <th>Prestige Level</th>
+                        <th>Worth It?</th>
+                        <th>Why</th>
+                        <th>Yellow Coins Needed</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>0 → 1</strong></td>
+                        <td class="damage-good">YES</td>
+                        <td>First red perk huge boost</td>
+                        <td>~15,000</td>
+                    </tr>
+                    <tr>
+                        <td><strong>1 → 2</strong></td>
+                        <td class="damage-good">YES</td>
+                        <td>Core red perks</td>
+                        <td>~15,000</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2 → 3</strong></td>
+                        <td class="damage-good">YES</td>
+                        <td>Major power spike</td>
+                        <td>~15,000</td>
+                    </tr>
+                    <tr>
+                        <td><strong>3 → 4</strong></td>
+                        <td class="damage-good">YES</td>
+                        <td>4 red perks optimal</td>
+                        <td>~15,000</td>
+                    </tr>
+                    <tr>
+                        <td><strong>4 → 5</strong></td>
+                        <td>MAYBE</td>
+                        <td>Weapon skin unlock</td>
+                        <td>~20,000</td>
+                    </tr>
+                    <tr>
+                        <td><strong>5 → 9</strong></td>
+                        <td>OPTIONAL</td>
+                        <td>Completionist/new perks</td>
+                        <td>~25,000 each</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3>Prestige Strategy</h3>
+            <div class="key-point">
+                💡 BEST APPROACH: Save 60,000 yellow coins → Prestige straight to 4 → Buy essential perks back
+            </div>
+            
+            <div class="two-column">
+                <div>
+                    <strong>Before Prestige:</strong>
+                    <ol class="compact-list">
+                        <li>Farm yellow coins</li>
+                        <li>Learn which perks you love</li>
+                        <li>Note perk costs</li>
+                        <li>Have 60k+ saved</li>
+                    </ol>
+                </div>
+                <div>
+                    <strong>After Prestige:</strong>
+                    <ol class="compact-list">
+                        <li>Buy cheapest perks first</li>
+                        <li>Get core build online</li>
+                        <li>Fill remaining columns</li>
+                        <li>Save for next prestige</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        
+        <div class="page-break"></div>
+        
+        <!-- Sheet 9: Horde Mode Quick Strategy -->
+        <div class="reference-sheet">
+            <span class="sheet-number">Sheet 9</span>
+            <h2>♾️ Horde Mode XL - Wave Strategy</h2>
+            
+            <h3>Economy Management</h3>
+            <table class="quick-table">
+                <thead>
+                    <tr>
+                        <th>Wave</th>
+                        <th>Priority Purchase</th>
+                        <th>Save For</th>
+                        <th>Avoid</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>1-5</strong></td>
+                        <td>Basic defenses, ammo</td>
+                        <td>Wave 10 defenses</td>
+                        <td>Heavy weapons</td>
+                    </tr>
+                    <tr>
+                        <td><strong>6-10</strong></td>
+                        <td>Electric grids, turrets</td>
+                        <td>Wave 15 crisis</td>
+                        <td>Cosmetic upgrades</td>
+                    </tr>
+                    <tr>
+                        <td><strong>11-15</strong></td>
+                        <td>Mortar, heavy weapons</td>
+                        <td>Wave 20 boss</td>
+                        <td>Solo purchases</td>
+                    </tr>
+                    <tr>
+                        <td><strong>16-20</strong></td>
+                        <td>Team upgrades</td>
+                        <td>Wave 25+</td>
+                        <td>Wasting on death</td>
+                    </tr>
+                    <tr>
+                        <td><strong>21+</strong></td>
+                        <td>Everything useful</td>
+                        <td>Nothing</td>
+                        <td>Hoarding</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3>Defense Setup</h3>
+            <div class="two-column">
+                <div>
+                    <strong>Essential Positions:</strong>
+                    <ul class="compact-list">
+                        <li>2 players high ground</li>
+                        <li>1 player each flank</li>
+                        <li>Rotate for ammo</li>
+                        <li>Fallback plan ready</li>
+                    </ul>
+                </div>
+                <div>
+                    <strong>Wave Markers:</strong>
+                    <ul class="compact-list">
+                        <li>Wave 5: First boss</li>
+                        <li>Wave 10: Multiple specials</li>
+                        <li>Wave 15: Chaos mode</li>
+                        <li>Wave 20: Double boss</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="key-point">
+                🏆 Team coordination > Individual skill in Horde Mode!
+            </div>
+        </div>
+        
+        <div class="page-break"></div>
+        
+        <!-- Sheet 10: Common Mistakes to Avoid -->
+        <div class="reference-sheet">
+            <span class="sheet-number">Sheet 10</span>
+            <h2>❌ Top 20 Mistakes to Avoid</h2>
+            
+            <div class="two-column">
+                <div>
+                    <h3>Combat Mistakes</h3>
+                    <ol class="compact-list">
+                        <li>Body shooting Bombers</li>
+                        <li>Using fire on Gasbags</li>
+                        <li>Ignoring Screamer audio</li>
+                        <li>Standing still while shooting</li>
+                        <li>Not checking behind (Lurkers)</li>
+                        <li>Wasting heavy weapons</li>
+                        <li>Friendly fire with explosives</li>
+                        <li>Melee against groups</li>
+                        <li>Reloading during swarms</li>
+                        <li>Poor pyramid targeting</li>
+                    </ol>
+                </div>
+                <div>
+                    <h3>Tactical Mistakes</h3>
+                    <ol class="compact-list">
+                        <li>No defensive setup</li>
+                        <li>Hoarding equipment</li>
+                        <li>Solo play mentality</li>
+                        <li>Bad positioning</li>
+                        <li>No communication</li>
+                        <li>Ignoring objectives</li>
+                        <li>Wrong difficulty choice</li>
+                        <li>Not using class ability</li>
+                        <li>Forgetting defense kits</li>
+                        <li>Running ahead alone</li>
+                    </ol>
+                </div>
+            </div>
+            
+            <h3>Quick Fixes</h3>
+            <table class="quick-table">
+                <thead>
+                    <tr>
+                        <th>If This Happens...</th>
+                        <th>Do This!</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Team is wiping repeatedly</td>
+                        <td>Lower difficulty, add Medic</td>
+                    </tr>
+                    <tr>
+                        <td>Running out of ammo</td>
+                        <td>Add Fixer, use melee more</td>
+                    </tr>
+                    <tr>
+                        <td>Overrun by swarms</td>
+                        <td>Better positioning, use equipment</td>
+                    </tr>
+                    <tr>
+                        <td>Can't kill specials fast</td>
+                        <td>Focus fire, call out targets</td>
+                    </tr>
+                    <tr>
+                        <td>Dying to friendly fire</td>
+                        <td>Spread out, communicate more</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="version-note">Learn from mistakes - they make you better!</div>
+        </div>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="site-footer no-print">
+        <div class="footer-content">
+            <p>&copy; 2024 WWZ: Aftermath Guide. Unofficial fan resource.</p>
+            <p><small>Print these sheets for easy reference during gameplay!</small></p>
+        </div>
+    </footer>
+    
+    <!-- JavaScript -->
+    <script src="js/course-enhancements.js"></script>
+</body>
+</html>

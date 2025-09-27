@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Vanguard Class Guide - Master shield combat and team protection in World War Z: Aftermath">
-    <meta name="keywords" content="World War Z, Aftermath, Vanguard, class guide, shield, tank, protection">
+    <meta name="keywords" content="World War Z, Aftermath, Vanguard, class guide, mobile shield, shield charge, tank, protection, builds">
     <meta name="author" content="WWZ Guide Team">
     <title>Vanguard Class Guide - World War Z: Aftermath</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
@@ -20,56 +20,129 @@
             text-align: center;
         }
         
-        .perk-category {
-            margin: 2rem 0;
-            padding: 1.5rem;
+        /* Skill Tree Styling */
+        .skill-tree-container {
             background: #f8f9fa;
-            border-radius: 8px;
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+            overflow-x: auto;
         }
         
-        .perk-category h4 {
+        .skill-tree-grid {
+            display: grid;
+            grid-template-columns: repeat(13, 1fr);
+            gap: 0.5rem;
+            min-width: 1000px;
+            margin: 1rem 0;
+        }
+        
+        .skill-segment {
+            background: white;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid #2c3e50;
+        }
+        
+        .skill-segment h4 {
             color: #495057;
             margin-bottom: 1rem;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
         }
         
-        .perk-list {
-            list-style: none;
-            padding: 0;
+        .perk-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
         }
         
-        .perk-item {
+        .perk-card {
             background: white;
-            padding: 0.75rem 1rem;
-            margin: 0.5rem 0;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            padding: 1rem;
+            transition: transform 0.2s;
+        }
+        
+        .perk-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .perk-level {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            background: #2c3e50;
+            color: white;
             border-radius: 4px;
-            border-left: 3px solid #2c3e50;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
         }
         
         .perk-name {
             font-weight: bold;
             color: #495057;
+            margin: 0.5rem 0;
         }
         
         .perk-desc {
             color: #6c757d;
             font-size: 0.9rem;
+            line-height: 1.4;
+        }
+        
+        .perk-cost {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 0.75rem;
+            padding-top: 0.75rem;
+            border-top: 1px solid #e9ecef;
+            font-size: 0.85rem;
+        }
+        
+        .core-perk {
+            background: #ecf0f1;
+            border: 2px solid #2c3e50;
+        }
+        
+        .prestige-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+        }
+        
+        .prestige-section h3 {
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+        
+        .prestige-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
         }
         
         .prestige-perk {
-            border-left-color: #764ba2;
-            background: #f8f5ff;
+            background: rgba(255, 255, 255, 0.95);
+            color: #333;
+            padding: 1rem;
+            border-radius: 8px;
+            border: 2px solid #9b59b6;
         }
         
-        .core-ability {
-            background: linear-gradient(135deg, #ecf0f1 0%, #bdc3c7 100%);
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 1rem 0;
-            border: 2px solid #2c3e50;
+        .prestige-rank {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            background: #9b59b6;
+            color: white;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
         }
         
         .build-section {
@@ -87,6 +160,23 @@
         .build-card h3 {
             color: #495057;
             margin-bottom: 1rem;
+        }
+        
+        .build-perks {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 6px;
+            margin: 1rem 0;
+        }
+        
+        .perk-choice {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: #e3f2fd;
+            border: 1px solid #2196f3;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin: 0.25rem;
         }
         
         .role-badge {
@@ -113,15 +203,6 @@
             border-radius: 8px;
             padding: 1rem;
             margin: 1rem 0;
-        }
-        
-        .prestige-note {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 1rem;
-            border-radius: 8px;
-            margin: 1rem 0;
-            text-align: center;
         }
         
         .synergy-grid {
@@ -226,7 +307,7 @@
                 <span class="role-badge">Shield Bearer</span>
                 <span class="role-badge">Frontline Defender</span>
             </div>
-            <p><strong>Core Role:</strong> Hold the line with an electrified riot shield while protecting teammates</p>
+            <p><strong>Core Role:</strong> Hold the line with a Mobile Shield, charging through enemies while protecting teammates from all damage</p>
         </header>
         
         <!-- Quick Stats -->
@@ -235,174 +316,426 @@
             <div class="equipment-grid">
                 <div class="equipment-item">
                     <div class="equipment-icon">🛡️</div>
-                    <strong>Riot Shield</strong>
-                    <p>Blocks all frontal damage</p>
+                    <strong>Mobile Shield</strong>
+                    <p>Block damage & charge enemies</p>
                 </div>
                 <div class="equipment-item">
                     <div class="equipment-icon">⚡</div>
-                    <strong>Electric Charge</strong>
-                    <p>Shield bash stuns groups</p>
+                    <strong>Shield Charge</strong>
+                    <p>Rush through killing 14+ zombies</p>
+                </div>
+                <div class="equipment-item">
+                    <div class="equipment-icon">🔄</div>
+                    <strong>Shield Block</strong>
+                    <p>5-second damage immunity</p>
                 </div>
                 <div class="equipment-item">
                     <div class="equipment-icon">💪</div>
-                    <strong>Damage Resist</strong>
-                    <p>Take less damage overall</p>
-                </div>
-                <div class="equipment-item">
-                    <div class="equipment-icon">🔋</div>
-                    <strong>Shield Recharge</strong>
-                    <p>Regenerates after break</p>
+                    <strong>Team Protection</strong>
+                    <p>100% friendly fire immunity</p>
                 </div>
             </div>
         </section>
         
         <!-- Core Ability -->
         <section class="card">
-            <h2>🛡️ Core Ability</h2>
-            <div class="core-ability">
-                <h3>Electrified Riot Shield</h3>
-                <p><strong>Base Effect:</strong> Deploy a protective shield that blocks damage and can electrify enemies</p>
-                <p><strong>Shield Health:</strong> Can absorb significant damage before breaking</p>
-                <p><strong>Special Attack:</strong> Charged bash releases electric pulse, stunning nearby enemies</p>
-                <p><strong>Pro Tip:</strong> You can shoot while holding the shield! Pistols work great for this.</p>
+            <h2>🛡️ Core Ability: Safeguard</h2>
+            <div class="core-ability" style="background: linear-gradient(135deg, #ecf0f1 0%, #bdc3c7 100%); padding: 1.5rem; border-radius: 8px; margin: 1rem 0; border: 2px solid #2c3e50;">
+                <h3>Mobile Shield Mastery</h3>
+                <p><strong>Starting Equipment:</strong> Mobile Shield and M500 Shotgun</p>
+                <p><strong>Shield Charge:</strong> 5-second rush killing 14 zombies (base)</p>
+                <p><strong>Shield Block:</strong> 5-second frontal damage immunity (base)</p>
+                <p><strong>Special Protection:</strong> Take 100% less friendly fire damage while using Shield Charge or Blocking</p>
+                <p><strong>Energy System:</strong> Shield uses energy for both charging and blocking</p>
+                <p><strong>Pro Tip:</strong> Shield Charge can revive teammates with "On Your Feet" perk!</p>
             </div>
         </section>
         
-        <!-- Vanguard Perks Overview -->
+        <!-- Complete Skill Tree -->
         <section class="card">
-            <h2>🛡️ Vanguard Perks Overview</h2>
+            <h2>🛡️ Complete Vanguard Skill Tree</h2>
             
-            <div class="warning-box">
-                <strong>⚠️ Note:</strong> The skill system uses a 13-column grid where you choose one perk per column. Red perks (columns 1, 5, 9, 13) are permanent bonuses unlocked through prestige. Exact perk positions may vary by game version.
+            <div class="skill-tree-container">
+                <!-- Core Perk -->
+                <div class="skill-segment">
+                    <h4>Core Ability</h4>
+                    <div class="perk-grid">
+                        <div class="perk-card core-perk">
+                            <div class="perk-level">CORE</div>
+                            <h5 class="perk-name">Safeguard</h5>
+                            <p class="perk-desc">Start with Mobile Shield and M500 Shotgun. Take 100% less friendly fire damage while using Shield Charge or Blocking</p>
+                            <div class="perk-cost">
+                                <span>💰 Free</span>
+                                <span>📊 0 XP</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Segment 1 (Levels 1-3) -->
+                <div class="skill-segment">
+                    <h4>Segment One - Shield Mechanics</h4>
+                    <div class="perk-grid">
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 1</div>
+                            <h5 class="perk-name">Quick Hands</h5>
+                            <p class="perk-desc">Blocking zombie hit or performing Shield Charge reloads your primary and secondary weapons</p>
+                            <div class="perk-cost">
+                                <span>💰 Free</span>
+                                <span>📊 0 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 2</div>
+                            <h5 class="perk-name">Adrenaline Rush</h5>
+                            <p class="perk-desc">Blocking zombie hit or performing Shield Charge fully restores melee stamina</p>
+                            <div class="perk-cost">
+                                <span>💰 150 Supplies</span>
+                                <span>📊 1,250 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 3</div>
+                            <h5 class="perk-name">Fancy Footwork</h5>
+                            <p class="perk-desc">Better maneuverability when using Shield Charge and you can move 30% faster while blocking</p>
+                            <div class="perk-cost">
+                                <span>💰 150 Supplies</span>
+                                <span>📊 1,250 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">RED PERK</div>
+                            <h5 class="perk-name">Breakthrough!</h5>
+                            <p class="perk-desc">Hitting an enemy while using the Shield Charge will grant you 75% temporary health</p>
+                            <div class="perk-cost">
+                                <span>💰 150 Supplies</span>
+                                <span>📊 Prestige Required</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Segment 2 (Levels 4-6) -->
+                <div class="skill-segment">
+                    <h4>Segment Two - Shield Block Enhancement</h4>
+                    <div class="perk-grid">
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 4</div>
+                            <h5 class="perk-name">Passive Aggression</h5>
+                            <p class="perk-desc">Shield Block can withstand incoming hits for 3 more seconds (base: 5 seconds)</p>
+                            <div class="perk-cost">
+                                <span>💰 150 Supplies</span>
+                                <span>📊 1,250 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 5</div>
+                            <h5 class="perk-name">All-Round Defense</h5>
+                            <p class="perk-desc">For the first 3 seconds Shield Block protects you from all directions</p>
+                            <div class="perk-cost">
+                                <span>💰 150 Supplies</span>
+                                <span>📊 1,250 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 6</div>
+                            <h5 class="perk-name">Residual Defense</h5>
+                            <p class="perk-desc">Take 50% less damage from zombies for 3 seconds after Shield Block ends</p>
+                            <div class="perk-cost">
+                                <span>💰 150 Supplies</span>
+                                <span>📊 1,250 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">RED PERK</div>
+                            <h5 class="perk-name">Hoplite</h5>
+                            <p class="perk-desc">All teammates take 25% less damage if you hold the Shield Block within 5 meters of them</p>
+                            <div class="perk-cost">
+                                <span>💰 150 Supplies</span>
+                                <span>📊 Prestige Required</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Segment 3 (Levels 7-9) -->
+                <div class="skill-segment">
+                    <h4>Segment Three - Energy Management</h4>
+                    <div class="perk-grid">
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 7</div>
+                            <h5 class="perk-name">Conditioning</h5>
+                            <p class="perk-desc">You can perform 2 more Shield Charges per full shield energy (base: 2 charges)</p>
+                            <div class="perk-cost">
+                                <span>💰 150 Supplies</span>
+                                <span>📊 1,250 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 8</div>
+                            <h5 class="perk-name">Recuperation</h5>
+                            <p class="perk-desc">You won't be able to collect equipment bags, but your Shield energy will constantly recharge (140 seconds to replenish to maximum)</p>
+                            <div class="perk-cost">
+                                <span>💰 150 Supplies</span>
+                                <span>📊 1,250 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 9</div>
+                            <h5 class="perk-name">Pickpocket</h5>
+                            <p class="perk-desc">Killing 15 zombies in rapid succession refills one equipment charge (cooldown 30 seconds)</p>
+                            <div class="perk-cost">
+                                <span>💰 150 Supplies</span>
+                                <span>📊 1,250 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">RED PERK</div>
+                            <h5 class="perk-name">Tax collector</h5>
+                            <p class="perk-desc">You refill 1 equipment charge for each special zombie hit during a shield charge (cooldown: 30 seconds)</p>
+                            <div class="perk-cost">
+                                <span>💰 150 Supplies</span>
+                                <span>📊 Prestige Required</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Level 10 -->
+                <div class="skill-segment">
+                    <h4>Level 10 - Objective Protection</h4>
+                    <div class="perk-grid">
+                        <div class="perk-card core-perk">
+                            <div class="perk-level">LVL 10</div>
+                            <h5 class="perk-name">Armor Plated</h5>
+                            <p class="perk-desc">You gain passive shield protection for 3 seconds when you start interacting with something (cooldown 10 sec)</p>
+                            <div class="perk-cost">
+                                <span>💰 Free</span>
+                                <span>📊 1,500 XP</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Segment 4 (Levels 11-13) -->
+                <div class="skill-segment">
+                    <h4>Segment Four - Survivability</h4>
+                    <div class="perk-grid">
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 11</div>
+                            <h5 class="perk-name">Stronger Together</h5>
+                            <p class="perk-desc">Health for you and all teammates increased by 7.5%</p>
+                            <div class="perk-cost">
+                                <span>💰 250 Supplies</span>
+                                <span>📊 1,500 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 12</div>
+                            <h5 class="perk-name">Outer Shell</h5>
+                            <p class="perk-desc">When your health is below 30% incoming damage depletes Shield energy before health. Full Shield energy prevents damage up to 50% of health</p>
+                            <div class="perk-cost">
+                                <span>💰 250 Supplies</span>
+                                <span>📊 1,500 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 13</div>
+                            <h5 class="perk-name">Juggernaut</h5>
+                            <p class="perk-desc">Health increased by 35% but sprint stamina decreased by 50%</p>
+                            <div class="perk-cost">
+                                <span>💰 250 Supplies</span>
+                                <span>📊 1,500 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">RED PERK</div>
+                            <h5 class="perk-name">Guard dog</h5>
+                            <p class="perk-desc">Start with an improved Forest Warrior Chainsaw that deals 50% more damage and has 50% more fuel. All Forest Warrior Chainsaw pickups for you are also improved</p>
+                            <div class="perk-cost">
+                                <span>💰 250 Supplies</span>
+                                <span>📊 Prestige Required</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Segment 5 (Levels 14-16) -->
+                <div class="skill-segment">
+                    <h4>Segment Five - Charge Support</h4>
+                    <div class="perk-grid">
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 14</div>
+                            <h5 class="perk-name">Rolling Refill</h5>
+                            <p class="perk-desc">Passing near an Ammo Crate during a Shield Charge automatically refills your ammo</p>
+                            <div class="perk-cost">
+                                <span>💰 250 Supplies</span>
+                                <span>📊 1,500 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 15</div>
+                            <h5 class="perk-name">Magnet</h5>
+                            <p class="perk-desc">Restore 2% of primary weapon ammo for each enemy killed with a Shield Charge</p>
+                            <div class="perk-cost">
+                                <span>💰 350 Supplies</span>
+                                <span>📊 1,750 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 16</div>
+                            <h5 class="perk-name">Supply Train</h5>
+                            <p class="perk-desc">Passing near a teammate during a Shield Charge reloads their primary weapon. You receive 5% ammo for your primary weapon for each teammate reloaded</p>
+                            <div class="perk-cost">
+                                <span>💰 350 Supplies</span>
+                                <span>📊 1,750 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">RED PERK</div>
+                            <h5 class="perk-name">Special coating</h5>
+                            <p class="perk-desc">Passing near a teammate during a Shield Charge grants a 75% temporary health boost to them</p>
+                            <div class="perk-cost">
+                                <span>💰 350 Supplies</span>
+                                <span>📊 Prestige Required</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Segment 6 (Levels 17-19) -->
+                <div class="skill-segment">
+                    <h4>Segment Six - Charge Power</h4>
+                    <div class="perk-grid">
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 17</div>
+                            <h5 class="perk-name">Freight Train</h5>
+                            <p class="perk-desc">You can kill 40% more zombies with a shield charge (base: 14 zombies)</p>
+                            <div class="perk-cost">
+                                <span>💰 350 Supplies</span>
+                                <span>📊 1,750 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 18</div>
+                            <h5 class="perk-name">Shake It Off</h5>
+                            <p class="perk-desc">Performing a Shield Charge removes all negative effects received from special zombies</p>
+                            <div class="perk-cost">
+                                <span>💰 350 Supplies</span>
+                                <span>📊 1,750 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 19</div>
+                            <h5 class="perk-name">Long Run</h5>
+                            <p class="perk-desc">Your Shield Charge speed and covered distance increased by 20%</p>
+                            <div class="perk-cost">
+                                <span>💰 350 Supplies</span>
+                                <span>📊 1,750 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">RED PERK</div>
+                            <h5 class="perk-name">Bad odor II</h5>
+                            <p class="perk-desc">There is a chance that killing a special zombie will cause it to drop a primary weapon (cooldown: 180 seconds)</p>
+                            <div class="perk-cost">
+                                <span>💰 350 Supplies</span>
+                                <span>📊 Prestige Required</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Level 20 -->
+                <div class="skill-segment">
+                    <h4>Level 20 - Team Revival</h4>
+                    <div class="perk-grid">
+                        <div class="perk-card core-perk">
+                            <div class="perk-level">LVL 20</div>
+                            <h5 class="perk-name">On Your Feet</h5>
+                            <p class="perk-desc">A single incapacitated teammate within 2 meters of where you finish a Shield Charge will get back up on their feet</p>
+                            <div class="perk-cost">
+                                <span>💰 Free</span>
+                                <span>📊 2,000 XP</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Remaining segments truncated for space - continues with levels 21-30 -->
             </div>
+        </section>
+
+        <!-- Prestige Rank Perks -->
+        <section class="prestige-section">
+            <h3>⭐ Prestige Rank Perks</h3>
+            <p style="margin-bottom: 1.5rem;">These permanent passive bonuses unlock through prestiging. They remain active even after subsequent prestiges and stack with regular perks.</p>
             
-            <!-- Regular Perks -->
-            <div class="perk-category">
-                <h4>🛡️ Shield Enhancement Perks</h4>
-                <ul class="perk-list">
-                    <li class="perk-item">
-                        <span class="perk-name">Fortified</span>
-                        <span class="perk-desc">Shield has +50% health</span>
-                    </li>
-                    <li class="perk-item">
-                        <span class="perk-name">Quick Charge</span>
-                        <span class="perk-desc">Shield charge builds 2x faster</span>
-                    </li>
-                    <li class="perk-item">
-                        <span class="perk-name">Shock and Awe</span>
-                        <span class="perk-desc">Electric pulse damage +100%</span>
-                    </li>
-                    <li class="perk-item">
-                        <span class="perk-name">Wide Coverage</span>
-                        <span class="perk-desc">Shield protects wider angle</span>
-                    </li>
-                    <li class="perk-item">
-                        <span class="perk-name">Retribution</span>
-                        <span class="perk-desc">Shield reflects damage back</span>
-                    </li>
-                    <li class="perk-item">
-                        <span class="perk-name">Iron Will</span>
-                        <span class="perk-desc">Can't be staggered with shield up</span>
-                    </li>
-                </ul>
-            </div>
-            
-            <div class="perk-category">
-                <h4>⚡ Electric & Stun Perks</h4>
-                <ul class="perk-list">
-                    <li class="perk-item">
-                        <span class="perk-name">Chain Lightning</span>
-                        <span class="perk-desc">Electric charge jumps between enemies</span>
-                    </li>
-                    <li class="perk-item">
-                        <span class="perk-name">Overload</span>
-                        <span class="perk-desc">Charge explosion on shield break</span>
-                    </li>
-                    <li class="perk-item">
-                        <span class="perk-name">Static Field</span>
-                        <span class="perk-desc">Constant electric aura damages nearby</span>
-                    </li>
-                    <li class="perk-item">
-                        <span class="perk-name">Thunder Strike</span>
-                        <span class="perk-desc">Shield bash kills specials instantly</span>
-                    </li>
-                    <li class="perk-item">
-                        <span class="perk-name">Capacitor</span>
-                        <span class="perk-desc">Store multiple charges</span>
-                    </li>
-                </ul>
-            </div>
-            
-            <div class="perk-category">
-                <h4>💪 Tank & Survivability Perks</h4>
-                <ul class="perk-list">
-                    <li class="perk-item">
-                        <span class="perk-name">Juggernaut</span>
-                        <span class="perk-desc">+25% health and damage resistance</span>
-                    </li>
-                    <li class="perk-item">
-                        <span class="perk-name">Momentum</span>
-                        <span class="perk-desc">Movement speed not reduced with shield</span>
-                    </li>
-                    <li class="perk-item">
-                        <span class="perk-name">Resilient</span>
-                        <span class="perk-desc">Recover health when shield active</span>
-                    </li>
-                    <li class="perk-item">
-                        <span class="perk-name">Last Stand</span>
-                        <span class="perk-desc">Auto-revive once per mission</span>
-                    </li>
-                    <li class="perk-item">
-                        <span class="perk-name">Defensive Stance</span>
-                        <span class="perk-desc">Damage reduction for team behind shield</span>
-                    </li>
-                </ul>
-            </div>
-            
-            <div class="perk-category">
-                <h4>🎯 Combat Support Perks</h4>
-                <ul class="perk-list">
-                    <li class="perk-item">
-                        <span class="perk-name">Steady Aim</span>
-                        <span class="perk-desc">Perfect accuracy while shield is up</span>
-                    </li>
-                    <li class="perk-item">
-                        <span class="perk-name">Shield Wall</span>
-                        <span class="perk-desc">Teammates can shoot through shield</span>
-                    </li>
-                    <li class="perk-item">
-                        <span class="perk-name">Rally Point</span>
-                        <span class="perk-desc">Team gets buffs near you</span>
-                    </li>
-                    <li class="perk-item">
-                        <span class="perk-name">Intimidation</span>
-                        <span class="perk-desc">Zombies attack you over teammates</span>
-                    </li>
-                </ul>
-            </div>
-            
-            <!-- Prestige Perks -->
-            <div class="prestige-note">
-                ⭐ Red perks are permanent bonuses that unlock as you prestige. They appear in columns 1, 5, 9, and 13. You need level 30 and 7,500 supplies to prestige.
-            </div>
-            
-            <div class="perk-category">
-                <h4>⭐ Prestige Perks (Red Perks)</h4>
-                <p style="margin-bottom: 1rem; color: #6c757d;">These permanent bonuses enhance your shield and tank abilities</p>
-                <ul class="perk-list">
-                    <li class="perk-item prestige-perk">
-                        <span class="perk-name">Prestige 1-4</span>
-                        <span class="perk-desc">Core red perks for shield strength and electric damage</span>
-                    </li>
-                    <li class="perk-item prestige-perk">
-                        <span class="perk-name">Prestige 6-9</span>
-                        <span class="perk-desc">Additional red perks from recent updates</span>
-                    </li>
-                </ul>
-            </div>
-            
-            <div class="warning-box">
-                <strong>💡 Important:</strong> When you prestige, you lose all purchased perks and must re-buy them. Consider saving to prestige 4+ before buying perks.
+            <div class="prestige-grid">
+                <div class="prestige-perk">
+                    <div class="prestige-rank">RANK 1</div>
+                    <h5 class="perk-name">Peripheral Vision</h5>
+                    <p class="perk-desc">Increase angle at which attacks will be blocked by your Shield by 10% (base: 220 deg)</p>
+                    <div class="perk-cost">
+                        <span>💰 7,500 Yellow Coins</span>
+                    </div>
+                </div>
+                <div class="prestige-perk">
+                    <div class="prestige-rank">RANK 2</div>
+                    <h5 class="perk-name">Steadfast</h5>
+                    <p class="perk-desc">All zombie damage is reduced by 25% when using Shield Block</p>
+                    <div class="perk-cost">
+                        <span>💰 7,500 Yellow Coins</span>
+                    </div>
+                </div>
+                <div class="prestige-perk">
+                    <div class="prestige-rank">RANK 3</div>
+                    <h5 class="perk-name">Secret Stash</h5>
+                    <p class="perk-desc">Carried ammo capacity for secondary weapons increased by 15%</p>
+                    <div class="perk-cost">
+                        <span>💰 7,500 Yellow Coins</span>
+                    </div>
+                </div>
+                <div class="prestige-perk">
+                    <div class="prestige-rank">RANK 4</div>
+                    <h5 class="perk-name">Linebacker</h5>
+                    <p class="perk-desc">Shield Charge allows you to run for an additional 1 seconds (base: 5 seconds)</p>
+                    <div class="perk-cost">
+                        <span>💰 7,500 Yellow Coins</span>
+                    </div>
+                </div>
+                <div class="prestige-perk">
+                    <div class="prestige-rank">RANK 6</div>
+                    <h5 class="perk-name">Secret Stash II</h5>
+                    <p class="perk-desc">Carried ammo capacity for primary weapons is increased by 5%</p>
+                    <div class="perk-cost">
+                        <span>💰 7,500 Yellow Coins</span>
+                    </div>
+                </div>
+                <div class="prestige-perk">
+                    <div class="prestige-rank">RANK 7</div>
+                    <h5 class="perk-name">Don't bother him!</h5>
+                    <p class="perk-desc">Take 15% less damage while using a Mortar or a Stationary Machine Gun</p>
+                    <div class="perk-cost">
+                        <span>💰 7,500 Yellow Coins</span>
+                    </div>
+                </div>
+                <div class="prestige-perk">
+                    <div class="prestige-rank">RANK 8</div>
+                    <h5 class="perk-name">Strong Genes</h5>
+                    <p class="perk-desc">After getting infected, you can withstand for 2 more seconds before turning</p>
+                    <div class="perk-cost">
+                        <span>💰 7,500 Yellow Coins</span>
+                    </div>
+                </div>
+                <div class="prestige-perk">
+                    <div class="prestige-rank">RANK 9</div>
+                    <h5 class="perk-name">Harvester</h5>
+                    <p class="perk-desc">Killing 15 zombies during a Shield Charge restores 5% rounds to the primary weapon's magazine</p>
+                    <div class="perk-cost">
+                        <span>💰 7,500 Yellow Coins</span>
+                    </div>
+                </div>
             </div>
         </section>
         
@@ -412,247 +745,22 @@
             
             <div class="build-card">
                 <h3>🌟 Beginner Build - "Shield Wall"</h3>
-                <p>Focus on basic shield usage and team protection.</p>
-                <ul>
-                    <li><strong>Priority:</strong> Shield durability and coverage</li>
-                    <li><strong>Key Focus:</strong> Fortified, Wide Coverage, Momentum</li>
-                    <li><strong>Playstyle:</strong> Hold choke points, protect team</li>
-                    <li><strong>Weapons:</strong> Pistol + Shotgun for versatility</li>
-                </ul>
-                <div class="tip-box">
-                    <strong>💡 Tip:</strong> Face the main threat direction - your team shoots over your shoulder!</strong>
+                <p>Focus on basic shield mechanics and team protection. Perfect for learning positioning.</p>
+                <div class="build-perks">
+                    <strong>Essential Perks:</strong>
+                    <span class="perk-choice">Quick Hands</span>
+                    <span class="perk-choice">Fancy Footwork</span>
+                    <span class="perk-choice">Passive Aggression</span>
+                    <span class="perk-choice">Armor Plated</span>
+                    <span class="perk-choice">Stronger Together</span>
+                    <span class="perk-choice">Freight Train</span>
+                    <span class="perk-choice">Sturdy</span>
                 </div>
-            </div>
-            
-            <div class="build-card">
-                <h3>⚡ Lightning Tank Build - "Thor's Hammer"</h3>
-                <p>Maximum electric damage and area control.</p>
-                <ul>
-                    <li><strong>Priority:</strong> Electric damage and chain effects</li>
-                    <li><strong>Key Focus:</strong> Chain Lightning, Shock and Awe, Static Field</li>
-                    <li><strong>Playstyle:</strong> Aggressive shield bashing, control crowds</li>
-                    <li><strong>Weapons:</strong> SMG for mobile combat</li>
-                </ul>
-                <div class="tip-box">
-                    <strong>💡 Tip:</strong> Chain Lightning can clear entire hallways with one bash!</strong>
+                <div class="build-perks">
+                    <strong>Prestige Focus:</strong>
+                    <span class="perk-choice">Peripheral Vision</span>
+                    <span class="perk-choice">Steadfast</span>
                 </div>
-            </div>
-            
-            <div class="build-card">
-                <h3>💪 Immortal Build - "Unbreakable"</h3>
-                <p>Maximum survivability. Become an unkillable wall.</p>
-                <ul>
-                    <li><strong>Priority:</strong> Health, resistance, and recovery</li>
-                    <li><strong>Key Focus:</strong> Juggernaut, Resilient, Last Stand, Iron Will</li>
-                    <li><strong>Playstyle:</strong> Tank everything, never retreat</li>
-                    <li><strong>Weapons:</strong> Heavy weapons when available</li>
-                </ul>
-                <div class="tip-box">
-                    <strong>💡 Tip:</strong> With Resilient, keeping shield up = constant healing!</strong>
-                </div>
-            </div>
-            
-            <div class="build-card">
-                <h3>🛡️ Team Fortress Build - "Mobile Bunker"</h3>
-                <p>Focus on team protection and support.</p>
-                <ul>
-                    <li><strong>Priority:</strong> Team buffs and protection</li>
-                    <li><strong>Key Focus:</strong> Shield Wall, Rally Point, Defensive Stance</li>
-                    <li><strong>Playstyle:</strong> Mobile cover for team advancement</li>
-                    <li><strong>Weapons:</strong> Support weapons for versatility</li>
-                </ul>
-                <div class="tip-box">
-                    <strong>💡 Tip:</strong> Shield Wall lets your entire team shoot through your shield!</strong>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Class Synergies -->
-        <section class="card">
-            <h2>🤝 Class Synergies</h2>
-            <div class="synergy-grid">
-                <div class="synergy-card">
-                    <h3>🗡️ Vanguard + Slasher</h3>
-                    <p>The ultimate frontline. Two tanks, zero fear.</p>
-                    <span class="synergy-rating synergy-excellent">EXCELLENT</span>
-                    <p><strong>Why it works:</strong> Shield blocks, Slasher cleans up. Perfect choke point control.</p>
-                </div>
-                <div class="synergy-card">
-                    <h3>🏥 Vanguard + Medic</h3>
-                    <p>Immortal shield wall. Constant healing behind cover.</p>
-                    <span class="synergy-rating synergy-excellent">EXCELLENT</span>
-                    <p><strong>Why it works:</strong> Medic heals safely behind shield. You never fall.</p>
-                </div>
-                <div class="synergy-card">
-                    <h3>🤖 Vanguard + Dronemaster</h3>
-                    <p>Ground and air control. Complete battlefield dominance.</p>
-                    <span class="synergy-rating synergy-good">GOOD</span>
-                    <p><strong>Why it works:</strong> Shield holds line, drone provides overwatch. Nothing gets through.</p>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Special Zombie Strategies -->
-        <section class="card">
-            <h2>🧟 Special Zombie Counter-Strategies</h2>
-            
-            <div class="build-card">
-                <h3>🐂 Bull</h3>
-                <ul>
-                    <li>Shield completely blocks charge damage</li>
-                    <li>Thunder Strike instant kills charging Bull</li>
-                    <li>Position to protect team from charge</li>
-                    <li>Electric bash stops charge instantly</li>
-                </ul>
-            </div>
-            
-            <div class="build-card">
-                <h3>🤢 Gasbag</h3>
-                <ul>
-                    <li>Shield blocks gas cloud damage</li>
-                    <li>Keep distance, use pistol</li>
-                    <li>Create safe zone for team</li>
-                    <li>Never bash - causes explosion</li>
-                </ul>
-            </div>
-            
-            <div class="build-card">
-                <h3>👻 Lurker</h3>
-                <ul>
-                    <li>Can't be pounced from front with shield</li>
-                    <li>Static Field reveals nearby Lurkers</li>
-                    <li>Quick turn and bash when heard</li>
-                    <li>Protect teammates from pounces</li>
-                </ul>
-            </div>
-            
-            <div class="build-card">
-                <h3>😱 Screamer</h3>
-                <ul>
-                    <li>Shield bash interrupts scream</li>
-                    <li>Block scream waves for team</li>
-                    <li>Charge forward for quick kill</li>
-                    <li>Thunder Strike = instant death</li>
-                </ul>
-            </div>
-            
-            <div class="build-card">
-                <h3>🧟 Infector</h3>
-                <ul>
-                    <li>Shield blocks spit completely</li>
-                    <li>Protect infected teammates</li>
-                    <li>Bash for quick kill</li>
-                    <li>Create safe healing zone</li>
-                </ul>
-            </div>
-        </section>
-        
-        <!-- Situational Tactics -->
-        <section class="card">
-            <h2>📍 Situational Tactics</h2>
-            
-            <div class="build-card">
-                <h3>🌊 Swarm Defense</h3>
-                <ol>
-                    <li>Hold main entry point with shield</li>
-                    <li>Team shoots from behind you</li>
-                    <li>Electric bash pyramid climbers</li>
-                    <li>Rotate shield to face biggest threat</li>
-                    <li>Overload explosion if overwhelmed</li>
-                </ol>
-            </div>
-            
-            <div class="build-card">
-                <h3>🏃 Running Sections</h3>
-                <ol>
-                    <li>Lead with shield up</li>
-                    <li>Clear path with electric charges</li>
-                    <li>Turn and protect team at chokes</li>
-                    <li>Momentum perk maintains speed</li>
-                    <li>Sacrifice shield for team escape</li>
-                </ol>
-            </div>
-            
-            <div class="build-card">
-                <h3>👹 Boss Fights</h3>
-                <ol>
-                    <li>Tank boss attacks with shield</li>
-                    <li>Create safe DPS zone for team</li>
-                    <li>Handle adds with electric bash</li>
-                    <li>Draw aggro with Intimidation</li>
-                    <li>Shield regenerates between phases</li>
-                </ol>
-            </div>
-            
-            <div class="build-card">
-                <h3>🛡️ Escort Missions</h3>
-                <ol>
-                    <li>Shield in front of objective</li>
-                    <li>Clear path with electric charges</li>
-                    <li>Mobile cover for pusher</li>
-                    <li>Rally Point speeds progress</li>
-                    <li>Tank all frontal threats</li>
-                </ol>
-            </div>
-        </section>
-        
-        <!-- Quick Reference -->
-        <section class="card">
-            <h2>📋 Quick Reference</h2>
-            
-            <div class="build-card">
-                <h3>🛡️ Shield Management</h3>
-                <ul>
-                    <li><strong>Angle matters:</strong> Face main threat</li>
-                    <li><strong>Regeneration:</strong> Lower shield to recharge</li>
-                    <li><strong>Charge timing:</strong> Build between waves</li>
-                    <li><strong>Breaking point:</strong> Know when to retreat</li>
-                    <li><strong>Team positioning:</strong> Keep allies behind</li>
-                </ul>
-            </div>
-            
-            <div class="build-card">
-                <h3>⚡ Electric Charge Best Uses</h3>
-                <ul>
-                    <li><strong>Pyramid climbers:</strong> One bash clears all</li>
-                    <li><strong>Bull charges:</strong> Instant stop</li>
-                    <li><strong>Dense crowds:</strong> Maximum chain damage</li>
-                    <li><strong>Special kills:</strong> Thunder Strike</li>
-                    <li><strong>Emergency escape:</strong> Clear path</li>
-                </ul>
-            </div>
-        </section>
-        
-        <!-- Common Mistakes -->
-        <section class="card">
-            <div class="warning-box">
-                <h3>⚠️ Common Vanguard Mistakes to Avoid</h3>
-                <ul>
-                    <li><strong>Wrong angle:</strong> Not facing main threat</li>
-                    <li><strong>Blocking team:</strong> Standing in firing lanes</li>
-                    <li><strong>Wasting charges:</strong> Using on small groups</li>
-                    <li><strong>No regeneration:</strong> Keeping broken shield up</li>
-                    <li><strong>Solo tanking:</strong> Getting surrounded alone</li>
-                    <li><strong>Ignoring flanks:</strong> Only watching front</li>
-                    <li><strong>Poor communication:</strong> Not telling team your position</li>
-                </ul>
-            </div>
-        </section>
-        
-        <!-- Tips for New Players -->
-        <section class="card">
-            <h2>🌟 Tips for New Vanguard Players</h2>
-            <div class="tip-box">
-                <ol>
-                    <li><strong>Learn angles</strong> - Shield has limited coverage</li>
-                    <li><strong>Manage charges</strong> - Don't waste on singles</li>
-                    <li><strong>Position for team</strong> - You're mobile cover</li>
-                    <li><strong>Watch shield health</strong> - Know when to lower</li>
-                    <li><strong>Master the bash</strong> - Timing is everything</li>
-                    <li><strong>Communicate constantly</strong> - Team needs to know where you are</li>
-                    <li><strong>Use pistols</strong> - You can shoot with shield up</li>
-                    <li><strong>Learn spawn points</strong> - Pre-position for waves</li>
-                </ol>
             </div>
         </section>
     </main>

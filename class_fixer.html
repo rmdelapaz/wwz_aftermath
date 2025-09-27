@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Fixer Class Guide - Master support and supplies in World War Z: Aftermath">
-    <meta name="keywords" content="World War Z, Aftermath, Fixer, class guide, ammo, support, builds">
+    <meta name="keywords" content="World War Z, Aftermath, Fixer, class guide, supply bag, masking grenade, explosive ammo, support, builds">
     <meta name="author" content="WWZ Guide Team">
     <title>Fixer Class Guide - World War Z: Aftermath</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
@@ -20,56 +20,129 @@
             text-align: center;
         }
         
-        .perk-category {
-            margin: 2rem 0;
-            padding: 1.5rem;
+        /* Skill Tree Styling */
+        .skill-tree-container {
             background: #f8f9fa;
-            border-radius: 8px;
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+            overflow-x: auto;
         }
         
-        .perk-category h4 {
+        .skill-tree-grid {
+            display: grid;
+            grid-template-columns: repeat(13, 1fr);
+            gap: 0.5rem;
+            min-width: 1000px;
+            margin: 1rem 0;
+        }
+        
+        .skill-segment {
+            background: white;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid #4ecdc4;
+        }
+        
+        .skill-segment h4 {
             color: #495057;
             margin-bottom: 1rem;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
         }
         
-        .perk-list {
-            list-style: none;
-            padding: 0;
+        .perk-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
         }
         
-        .perk-item {
+        .perk-card {
             background: white;
-            padding: 0.75rem 1rem;
-            margin: 0.5rem 0;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            padding: 1rem;
+            transition: transform 0.2s;
+        }
+        
+        .perk-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .perk-level {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            background: #4ecdc4;
+            color: white;
             border-radius: 4px;
-            border-left: 3px solid #4ecdc4;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
         }
         
         .perk-name {
             font-weight: bold;
             color: #495057;
+            margin: 0.5rem 0;
         }
         
         .perk-desc {
             color: #6c757d;
             font-size: 0.9rem;
+            line-height: 1.4;
+        }
+        
+        .perk-cost {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 0.75rem;
+            padding-top: 0.75rem;
+            border-top: 1px solid #e9ecef;
+            font-size: 0.85rem;
+        }
+        
+        .core-perk {
+            background: #e8f5e9;
+            border: 2px solid #4caf50;
+        }
+        
+        .prestige-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+        }
+        
+        .prestige-section h3 {
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+        
+        .prestige-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
         }
         
         .prestige-perk {
-            border-left-color: #764ba2;
-            background: #f8f5ff;
+            background: rgba(255, 255, 255, 0.95);
+            color: #333;
+            padding: 1rem;
+            border-radius: 8px;
+            border: 2px solid #9b59b6;
         }
         
-        .core-ability {
-            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 1rem 0;
-            border: 2px solid #4caf50;
+        .prestige-rank {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            background: #9b59b6;
+            color: white;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
         }
         
         .build-section {
@@ -87,6 +160,23 @@
         .build-card h3 {
             color: #495057;
             margin-bottom: 1rem;
+        }
+        
+        .build-perks {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 6px;
+            margin: 1rem 0;
+        }
+        
+        .perk-choice {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: #e3f2fd;
+            border: 1px solid #2196f3;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin: 0.25rem;
         }
         
         .role-badge {
@@ -113,15 +203,6 @@
             border-radius: 8px;
             padding: 1rem;
             margin: 1rem 0;
-        }
-        
-        .prestige-note {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 1rem;
-            border-radius: 8px;
-            margin: 1rem 0;
-            text-align: center;
         }
         
         .synergy-grid {
@@ -236,161 +317,571 @@
                 <div class="equipment-item">
                     <div class="equipment-icon">💼</div>
                     <strong>Supply Bags</strong>
-                    <p>Instant ammo refill for team</p>
+                    <p>Team ammo refill + explosive rounds</p>
+                </div>
+                <div class="equipment-item">
+                    <div class="equipment-icon">💨</div>
+                    <strong>Masking Grenades</strong>
+                    <p>Team invisibility & protection</p>
                 </div>
                 <div class="equipment-item">
                     <div class="equipment-icon">💥</div>
-                    <strong>Explosive Ammo</strong>
-                    <p>Massive damage boost</p>
+                    <strong>Breaching Charge</strong>
+                    <p>Area damage & crowd control</p>
                 </div>
                 <div class="equipment-item">
-                    <div class="equipment-icon">👻</div>
-                    <strong>Masking Gas</strong>
-                    <p>Team invisibility</p>
-                </div>
-                <div class="equipment-item">
-                    <div class="equipment-icon">🛠️</div>
-                    <strong>Equipment Master</strong>
-                    <p>More charges & effects</p>
+                    <div class="equipment-icon">🔫</div>
+                    <strong>Scout Rifle</strong>
+                    <p>Long-range precision support</p>
                 </div>
             </div>
         </section>
         
         <!-- Core Ability -->
         <section class="card">
-            <h2>💼 Core Ability</h2>
-            <div class="core-ability">
-                <h3>Supply Bags</h3>
-                <p><strong>Effect:</strong> Drop ammo crates that instantly refill primary weapon ammo and grant special ammo types</p>
-                <p><strong>Cooldown:</strong> 90 seconds (can be reduced with perks)</p>
-                <p><strong>Base Bonus:</strong> Team carries 10% more ammo for primary and secondary weapons</p>
-                <p><strong>Pro Tip:</strong> Drop bags BEFORE combat starts, not during! The explosive ammo is a massive damage boost.</p>
+            <h2>💼 Core Ability: Mule</h2>
+            <div class="core-ability" style="background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%); padding: 1.5rem; border-radius: 8px; margin: 1rem 0; border: 2px solid #4caf50;">
+                <h3>Supply Bag Mastery</h3>
+                <p><strong>Starting Equipment:</strong> Supply Bag and Scout Rifle</p>
+                <p><strong>Team Buff:</strong> Increase carried ammo capacity for primary and secondary weapons by 10% for all teammates</p>
+                <p><strong>Base Uses:</strong> 4 uses per bag (can be increased to 5 with perks)</p>
+                <p><strong>Effect:</strong> Refills 10% of primary ammo (can be increased) and grants explosive ammo</p>
+                <p><strong>Pro Tip:</strong> Drop bags BEFORE combat starts. The explosive ammo is a massive team DPS boost!</p>
             </div>
         </section>
         
-        <!-- Fixer Perks Overview -->
+        <!-- Complete Skill Tree -->
         <section class="card">
-            <h2>🔧 Fixer Perks Overview</h2>
+            <h2>🔧 Complete Fixer Skill Tree</h2>
             
-            <div class="warning-box">
-                <strong>⚠️ Note:</strong> The skill system uses a 13-column grid where you choose one perk per column. Red perks (columns 1, 5, 9, 13) are permanent bonuses unlocked through prestige. Exact perk positions may vary by game version.
+            <div class="skill-tree-container">
+                <!-- Core Perk -->
+                <div class="skill-segment">
+                    <h4>Core Ability</h4>
+                    <div class="perk-grid">
+                        <div class="perk-card core-perk">
+                            <div class="perk-level">CORE</div>
+                            <h5 class="perk-name">Mule</h5>
+                            <p class="perk-desc">Start with a Supply Bag and Scout Rifle. Increase carried ammo capacity for primary and secondary weapons by 10% for all teammates</p>
+                            <div class="perk-cost">
+                                <span>💰 Free</span>
+                                <span>📊 0 XP</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Segment 1 (Levels 1-3) -->
+                <div class="skill-segment">
+                    <h4>Segment One - Supply Chain</h4>
+                    <div class="perk-grid">
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 1</div>
+                            <h5 class="perk-name">Kickback</h5>
+                            <p class="perk-desc">When a teammate uses your Supply Bag there is a 20% chance you will also gain explosive ammo</p>
+                            <div class="perk-cost">
+                                <span>💰 150 Supplies</span>
+                                <span>📊 0 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 2</div>
+                            <h5 class="perk-name">Armory</h5>
+                            <p class="perk-desc">Using a Supply Bag gives a 20% chance to restore one equipment charge. But the bag owner can only restore his equipment when someone else gains this benefit from his bag</p>
+                            <div class="perk-cost">
+                                <span>💰 150 Supplies</span>
+                                <span>📊 1,250 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 3</div>
+                            <h5 class="perk-name">Stand by Me</h5>
+                            <p class="perk-desc">Increases firearm damage by 100% for 10 seconds when reviving or unpinning a teammate</p>
+                            <div class="perk-cost">
+                                <span>💰 150 Supplies</span>
+                                <span>📊 1,250 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">RED PERK</div>
+                            <h5 class="perk-name">It might work</h5>
+                            <p class="perk-desc">You can restore a depleted automatic turret with a 20% chance (10% for the Horde mode)</p>
+                            <div class="perk-cost">
+                                <span>💰 150 Supplies</span>
+                                <span>📊 Prestige Required</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Segment 2 (Levels 4-6) -->
+                <div class="skill-segment">
+                    <h4>Segment Two - Masking Specialist</h4>
+                    <div class="perk-grid">
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 4</div>
+                            <h5 class="perk-name">Night Owl</h5>
+                            <p class="perk-desc">Masking Grenades grant an additional temporary health boost. Start with Masking Grenades</p>
+                            <div class="perk-cost">
+                                <span>💰 150 Supplies</span>
+                                <span>📊 1,250 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 5</div>
+                            <h5 class="perk-name">Side Effects</h5>
+                            <p class="perk-desc">Masking Grenade gas is lethal to zombies. Start with Masking Grenades</p>
+                            <div class="perk-cost">
+                                <span>💰 150 Supplies</span>
+                                <span>📊 1,250 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 6</div>
+                            <h5 class="perk-name">Give 'em Hell</h5>
+                            <p class="perk-desc">Reviving a teammate grants explosive ammo for both of you</p>
+                            <div class="perk-cost">
+                                <span>💰 150 Supplies</span>
+                                <span>📊 1,250 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">RED PERK</div>
+                            <h5 class="perk-name">No need for instructions</h5>
+                            <p class="perk-desc">Automatic turrets placed by you and your allies deal 25% more damage</p>
+                            <div class="perk-cost">
+                                <span>💰 150 Supplies</span>
+                                <span>📊 Prestige Required</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Segment 3 (Levels 7-9) -->
+                <div class="skill-segment">
+                    <h4>Segment Three - Combat Support</h4>
+                    <div class="perk-grid">
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 7</div>
+                            <h5 class="perk-name">Knock Knock</h5>
+                            <p class="perk-desc">You start with a Breaching Charge</p>
+                            <div class="perk-cost">
+                                <span>💰 150 Supplies</span>
+                                <span>📊 1,250 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 8</div>
+                            <h5 class="perk-name">Paramedic</h5>
+                            <p class="perk-desc">Revive speed increased by 100%</p>
+                            <div class="perk-cost">
+                                <span>💰 150 Supplies</span>
+                                <span>📊 1,250 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 9</div>
+                            <h5 class="perk-name">Cloakroom</h5>
+                            <p class="perk-desc">Reviving a teammate grants masking effect for 3 seconds for both of you</p>
+                            <div class="perk-cost">
+                                <span>💰 150 Supplies</span>
+                                <span>📊 1,250 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">RED PERK</div>
+                            <h5 class="perk-name">Cheer up</h5>
+                            <p class="perk-desc">Reviving a teammate refills one equipment charge for both of you</p>
+                            <div class="perk-cost">
+                                <span>💰 150 Supplies</span>
+                                <span>📊 Prestige Required</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Level 10 -->
+                <div class="skill-segment">
+                    <h4>Level 10 - Crisis Management</h4>
+                    <div class="perk-grid">
+                        <div class="perk-card core-perk">
+                            <div class="perk-level">LVL 10</div>
+                            <h5 class="perk-name">Please Stand Up</h5>
+                            <p class="perk-desc">If everyone in a team is incapacitated or pinned by a zombie then the Fixer is able to stand up (cooldown 60 seconds)</p>
+                            <div class="perk-cost">
+                                <span>💰 Free</span>
+                                <span>📊 1,500 XP</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Segment 4 (Levels 11-13) -->
+                <div class="skill-segment">
+                    <h4>Segment Four - Resource Management</h4>
+                    <div class="perk-grid">
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 11</div>
+                            <h5 class="perk-name">My Round I</h5>
+                            <p class="perk-desc">Increase carried ammo capacity for primary and secondary weapons by 10% for you and all teammates</p>
+                            <div class="perk-cost">
+                                <span>💰 250 Supplies</span>
+                                <span>📊 1,500 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 12</div>
+                            <h5 class="perk-name">Wheatgrass</h5>
+                            <p class="perk-desc">Health increased by 25%</p>
+                            <div class="perk-cost">
+                                <span>💰 250 Supplies</span>
+                                <span>📊 1,500 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 13</div>
+                            <h5 class="perk-name">Gunner</h5>
+                            <p class="perk-desc">Start with Sporting Carbine Pac-15</p>
+                            <div class="perk-cost">
+                                <span>💰 250 Supplies</span>
+                                <span>📊 1,500 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">RED PERK</div>
+                            <h5 class="perk-name">Scrap metal... again</h5>
+                            <p class="perk-desc">All equipment bags within 20 meters will be automatically marked if you have no equipment charges</p>
+                            <div class="perk-cost">
+                                <span>💰 250 Supplies</span>
+                                <span>📊 Prestige Required</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Segment 5 (Levels 14-16) -->
+                <div class="skill-segment">
+                    <h4>Segment Five - Equipment Mastery</h4>
+                    <div class="perk-grid">
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 14</div>
+                            <h5 class="perk-name">One for the Road</h5>
+                            <p class="perk-desc">Max Masking Grenade and Supply Bag capacity increased to 2. However Masking Grenade effect duration decreased by 3 seconds and Supply Bag contains 25% less explosive ammo</p>
+                            <div class="perk-cost">
+                                <span>💰 250 Supplies</span>
+                                <span>📊 1,500 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 15</div>
+                            <h5 class="perk-name">Pickpocket</h5>
+                            <p class="perk-desc">Kill 15 zombies in rapid succession refills one equipment charge (cooldown 90 seconds)</p>
+                            <div class="perk-cost">
+                                <span>💰 350 Supplies</span>
+                                <span>📊 1,750 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 16</div>
+                            <h5 class="perk-name">Scavenger</h5>
+                            <p class="perk-desc">Killing special zombie restores one equipment charge (cooldown 90 seconds)</p>
+                            <div class="perk-cost">
+                                <span>💰 350 Supplies</span>
+                                <span>📊 1,750 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">RED PERK</div>
+                            <h5 class="perk-name">I am not a snack</h5>
+                            <p class="perk-desc">There is a chance that killing a special zombie will cause it to drop an equipment bag (cooldown: 180 seconds)</p>
+                            <div class="perk-cost">
+                                <span>💰 350 Supplies</span>
+                                <span>📊 Prestige Required</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Segment 6 (Levels 17-19) -->
+                <div class="skill-segment">
+                    <h4>Segment Six - Ammo Restoration</h4>
+                    <div class="perk-grid">
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 17</div>
+                            <h5 class="perk-name">Instant Replay</h5>
+                            <p class="perk-desc">Anyone that uses your supply bag restores 20% of their primary weapon ammunition (base 10%)</p>
+                            <div class="perk-cost">
+                                <span>💰 350 Supplies</span>
+                                <span>📊 1,750 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 18</div>
+                            <h5 class="perk-name">Under the Table</h5>
+                            <p class="perk-desc">Anyone entering Masking Grenade gas cloud restores 10% of primary weapon ammo</p>
+                            <div class="perk-cost">
+                                <span>💰 350 Supplies</span>
+                                <span>📊 1,750 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 19</div>
+                            <h5 class="perk-name">Go Get 'Em</h5>
+                            <p class="perk-desc">Reviving a teammate will restore 25% of primary weapon's ammunition for you and your teammate</p>
+                            <div class="perk-cost">
+                                <span>💰 350 Supplies</span>
+                                <span>📊 1,750 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">RED PERK</div>
+                            <h5 class="perk-name">Almost missed</h5>
+                            <p class="perk-desc">Damage to marked enemies is increased by 10% for you and your team</p>
+                            <div class="perk-cost">
+                                <span>💰 350 Supplies</span>
+                                <span>📊 Prestige Required</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Level 20 -->
+                <div class="skill-segment">
+                    <h4>Level 20 - Peak Performance</h4>
+                    <div class="perk-grid">
+                        <div class="perk-card core-perk">
+                            <div class="perk-level">LVL 20</div>
+                            <h5 class="perk-name">Efficiency</h5>
+                            <p class="perk-desc">Supply bag contains 25% more explosive ammo. Masking grenade effect duration increased by 2 seconds</p>
+                            <div class="perk-cost">
+                                <span>💰 Free</span>
+                                <span>📊 2,000 XP</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Segment 7 (Levels 21-23) -->
+                <div class="skill-segment">
+                    <h4>Segment Seven - Weapon Specialization</h4>
+                    <div class="perk-grid">
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 21</div>
+                            <h5 class="perk-name">Lightning Hands</h5>
+                            <p class="perk-desc">All semi automatic rifles' reload speed increased by 25%</p>
+                            <div class="perk-cost">
+                                <span>💰 500 Supplies</span>
+                                <span>📊 2,000 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 22</div>
+                            <h5 class="perk-name">Power Shot</h5>
+                            <p class="perk-desc">All semi automatic rifles gain increased penetration</p>
+                            <div class="perk-cost">
+                                <span>💰 500 Supplies</span>
+                                <span>📊 2,000 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 23</div>
+                            <h5 class="perk-name">Casull 6</h5>
+                            <p class="perk-desc">Start with a Casull 6 in your secondary weapon slot</p>
+                            <div class="perk-cost">
+                                <span>💰 500 Supplies</span>
+                                <span>📊 2,000 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">RED PERK</div>
+                            <h5 class="perk-name">It Ain't Much but...</h5>
+                            <p class="perk-desc">The first 5% of ammo in the primary weapon's magazine will be explosive for the entire team</p>
+                            <div class="perk-cost">
+                                <span>💰 500 Supplies</span>
+                                <span>📊 Prestige Required</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Segment 8 (Levels 24-26) -->
+                <div class="skill-segment">
+                    <h4>Segment Eight - Advanced Equipment</h4>
+                    <div class="perk-grid">
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 24</div>
+                            <h5 class="perk-name">Fourth of July</h5>
+                            <p class="perk-desc">Your Supply Bag can be used 1 more time(s) before depleting (base 4 uses)</p>
+                            <div class="perk-cost">
+                                <span>💰 500 Supplies</span>
+                                <span>📊 2,000 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 25</div>
+                            <h5 class="perk-name">Shadow Walker</h5>
+                            <p class="perk-desc">Masking Grenade effect duration increased by 2 seconds (base 6 seconds)</p>
+                            <div class="perk-cost">
+                                <span>💰 500 Supplies</span>
+                                <span>📊 2,500 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 26</div>
+                            <h5 class="perk-name">Darkness Falls</h5>
+                            <p class="perk-desc">Masking Grenade gas cloud duration is increased by 7 seconds (base 5 seconds)</p>
+                            <div class="perk-cost">
+                                <span>💰 500 Supplies</span>
+                                <span>📊 2,500 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">RED PERK</div>
+                            <h5 class="perk-name">Hidden pocket</h5>
+                            <p class="perk-desc">Using a Supply Bag additionally restores the secondary weapon's ammunition</p>
+                            <div class="perk-cost">
+                                <span>💰 500 Supplies</span>
+                                <span>📊 Prestige Required</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Segment 9 (Levels 27-29) -->
+                <div class="skill-segment">
+                    <h4>Segment Nine - Heavy Support</h4>
+                    <div class="perk-grid">
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 27</div>
+                            <h5 class="perk-name">My Round II</h5>
+                            <p class="perk-desc">Increase carried ammo capacity for heavy weapons by 10% for all teammates</p>
+                            <div class="perk-cost">
+                                <span>💰 500 Supplies</span>
+                                <span>📊 2,500 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 28</div>
+                            <h5 class="perk-name">Bandolier</h5>
+                            <p class="perk-desc">Mortar and Stationary machinegun ammo capacity increased by 25% for all team. Durability of defenses increased by 25% for all team [base: 4 Mortar ammo, 200 machinegun ammo]</p>
+                            <div class="perk-cost">
+                                <span>💰 500 Supplies</span>
+                                <span>📊 2,500 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 29</div>
+                            <h5 class="perk-name">The Big Five 0</h5>
+                            <p class="perk-desc">Start with improved BF25 Payload Rifle that deals 50% more damage and has 50% more ammo. All BF25 Payload Rifle pickups for you also improved [base: 6 ammo]</p>
+                            <div class="perk-cost">
+                                <span>💰 500 Supplies</span>
+                                <span>📊 2,500 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">RED PERK</div>
+                            <h5 class="perk-name">3 in 1</h5>
+                            <p class="perk-desc">The first use of a placed Supply Bag will restore 10% health to you and your allies, but its total usage number is reduced by 1</p>
+                            <div class="perk-cost">
+                                <span>💰 500 Supplies</span>
+                                <span>📊 Prestige Required</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Level 30 -->
+                <div class="skill-segment">
+                    <h4>Level 30 - Ultimate Support</h4>
+                    <div class="perk-grid">
+                        <div class="perk-card core-perk">
+                            <div class="perk-level">LVL 30</div>
+                            <h5 class="perk-name">Corporate Power Nap</h5>
+                            <p class="perk-desc">Unequipped weapon automatically reloads every 10 seconds for all teammates</p>
+                            <div class="perk-cost">
+                                <span>💰 Free</span>
+                                <span>📊 3,500 XP</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Prestige Rank Perks -->
+        <section class="prestige-section">
+            <h3>⭐ Prestige Rank Perks</h3>
+            <p style="margin-bottom: 1.5rem;">These permanent passive bonuses unlock through prestiging. They remain active even after subsequent prestiges and stack with regular perks.</p>
+            
+            <div class="prestige-grid">
+                <div class="prestige-perk">
+                    <div class="prestige-rank">RANK 1</div>
+                    <h5 class="perk-name">Knock Knock II</h5>
+                    <p class="perk-desc">10% chance of using Breaching Charge without spending it</p>
+                    <div class="perk-cost">
+                        <span>💰 7,500 Yellow Coins</span>
+                    </div>
+                </div>
+                <div class="prestige-perk">
+                    <div class="prestige-rank">RANK 2</div>
+                    <h5 class="perk-name">Paramedic II</h5>
+                    <p class="perk-desc">Revive speed increased by 25%</p>
+                    <div class="perk-cost">
+                        <span>💰 7,500 Yellow Coins</span>
+                    </div>
+                </div>
+                <div class="prestige-perk">
+                    <div class="prestige-rank">RANK 3</div>
+                    <h5 class="perk-name">My Round III</h5>
+                    <p class="perk-desc">Carried ammo capacity increased for primary and secondary weapons by 5% for you and all teammates</p>
+                    <div class="perk-cost">
+                        <span>💰 7,500 Yellow Coins</span>
+                    </div>
+                </div>
+                <div class="prestige-perk">
+                    <div class="prestige-rank">RANK 4</div>
+                    <h5 class="perk-name">Bounty Hunter</h5>
+                    <p class="perk-desc">Deal 10% more damage to special zombies</p>
+                    <div class="perk-cost">
+                        <span>💰 7,500 Yellow Coins</span>
+                    </div>
+                </div>
+                <div class="prestige-perk">
+                    <div class="prestige-rank">RANK 6</div>
+                    <h5 class="perk-name">Go Get 'Em II</h5>
+                    <p class="perk-desc">Reviving a teammate will restore 10% of the primary weapon's ammunition for you and your teammate</p>
+                    <div class="perk-cost">
+                        <span>💰 7,500 Yellow Coins</span>
+                    </div>
+                </div>
+                <div class="prestige-perk">
+                    <div class="prestige-rank">RANK 7</div>
+                    <h5 class="perk-name">I made it myself!</h5>
+                    <p class="perk-desc">Autoturret ammunition is increased by 10% for the whole team</p>
+                    <div class="perk-cost">
+                        <span>💰 7,500 Yellow Coins</span>
+                    </div>
+                </div>
+                <div class="prestige-perk">
+                    <div class="prestige-rank">RANK 8</div>
+                    <h5 class="perk-name">Kevlar</h5>
+                    <p class="perk-desc">After reviving an ally, both of you take 25% less damage for 5 seconds</p>
+                    <div class="perk-cost">
+                        <span>💰 7,500 Yellow Coins</span>
+                    </div>
+                </div>
+                <div class="prestige-perk">
+                    <div class="prestige-rank">RANK 9</div>
+                    <h5 class="perk-name">Sleight of Hand</h5>
+                    <p class="perk-desc">Switch weapons 25% faster</p>
+                    <div class="perk-cost">
+                        <span>💰 7,500 Yellow Coins</span>
+                    </div>
+                </div>
             </div>
             
-            <!-- Regular Perks -->
-            <div class="perk-category">
-                <h4>💼 Supply & Resource Perks</h4>
-                <ul class="perk-list">
-                    <li class="perk-item">
-                        <span class="perk-name">Mule</span>
-                        <span class="perk-desc">Start with Supply Bag and Scout Rifle</span>
-                    </li>
-                    <li class="perk-item">
-                        <span class="perk-name">Armory</span>
-                        <span class="perk-desc">Supply Bags can restore equipment charges</span>
-                    </li>
-                    <li class="perk-item">
-                        <span class="perk-name">Pickpocket</span>
-                        <span class="perk-desc">Kills near bags drop supplies</span>
-                    </li>
-                    <li class="perk-item">
-                        <span class="perk-name">Scavenger</span>
-                        <span class="perk-desc">Find more supplies and equipment</span>
-                    </li>
-                    <li class="perk-item">
-                        <span class="perk-name">Deep Pockets</span>
-                        <span class="perk-desc">Carry more heavy weapons/ammo</span>
-                    </li>
-                </ul>
-            </div>
-            
-            <div class="perk-category">
-                <h4>💥 Ammo Enhancement Perks</h4>
-                <ul class="perk-list">
-                    <li class="perk-item">
-                        <span class="perk-name">Explosive Ammo</span>
-                        <span class="perk-desc">Supply bags grant explosive rounds</span>
-                    </li>
-                    <li class="perk-item">
-                        <span class="perk-name">Power Shot</span>
-                        <span class="perk-desc">Supply bags grant penetrating rounds</span>
-                    </li>
-                    <li class="perk-item">
-                        <span class="perk-name">Kickback</span>
-                        <span class="perk-desc">Chance to gain explosive ammo when teammates use your bag</span>
-                    </li>
-                    <li class="perk-item">
-                        <span class="perk-name">My Round</span>
-                        <span class="perk-desc">Team damage boost near supply bags</span>
-                    </li>
-                </ul>
-            </div>
-            
-            <div class="perk-category">
-                <h4>👻 Masking & Utility Perks</h4>
-                <ul class="perk-list">
-                    <li class="perk-item">
-                        <span class="perk-name">Night Owl</span>
-                        <span class="perk-desc">Masking grenades grant temp health</span>
-                    </li>
-                    <li class="perk-item">
-                        <span class="perk-name">Side Effects</span>
-                        <span class="perk-desc">Masking gas damages zombies</span>
-                    </li>
-                    <li class="perk-item">
-                        <span class="perk-name">Shadow</span>
-                        <span class="perk-desc">Speed boost after using equipment</span>
-                    </li>
-                    <li class="perk-item">
-                        <span class="perk-name">Under the Table</span>
-                        <span class="perk-desc">Masking gas restores ammo</span>
-                    </li>
-                </ul>
-            </div>
-            
-            <div class="perk-category">
-                <h4>⚔️ Combat Support Perks</h4>
-                <ul class="perk-list">
-                    <li class="perk-item">
-                        <span class="perk-name">Paramedic</span>
-                        <span class="perk-desc">50% faster revive speed</span>
-                    </li>
-                    <li class="perk-item">
-                        <span class="perk-name">Stand by Me</span>
-                        <span class="perk-desc">Damage boost when reviving teammates</span>
-                    </li>
-                    <li class="perk-item">
-                        <span class="perk-name">Please Stand Up</span>
-                        <span class="perk-desc">Self-revive if entire team is down</span>
-                    </li>
-                    <li class="perk-item">
-                        <span class="perk-name">This Is My Rifle</span>
-                        <span class="perk-desc">Start with upgraded weapon</span>
-                    </li>
-                </ul>
-            </div>
-            
-            <!-- Prestige Perks -->
-            <div class="prestige-note">
-                ⭐ Red perks are permanent bonuses that unlock as you prestige. They appear in columns 1, 5, 9, and 13. You need level 30 and 7,500 supplies to prestige.
-            </div>
-            
-            <div class="perk-category">
-                <h4>⭐ Prestige Perks (Red Perks)</h4>
-                <p style="margin-bottom: 1rem; color: #6c757d;">March 2024 Update added: "Go Get 'Em II", "I made it myself!", "Kevlar", and "Sleight of Hand" for Prestige 6-9</p>
-                <ul class="perk-list">
-                    <li class="perk-item prestige-perk">
-                        <span class="perk-name">Prestige 1-4</span>
-                        <span class="perk-desc">Core red perks for ammo and support</span>
-                    </li>
-                    <li class="perk-item prestige-perk">
-                        <span class="perk-name">Prestige 6-9</span>
-                        <span class="perk-desc">Additional red perks from recent updates</span>
-                    </li>
-                </ul>
-            </div>
-            
-            <div class="warning-box">
-                <strong>💡 Important:</strong> When you prestige, you lose all purchased perks and must re-buy them. Consider saving to prestige 4+ before buying perks.
+            <div class="tip-box" style="background: rgba(255,255,255,0.2); border: 2px solid rgba(255,255,255,0.5); color: white; margin-top: 1.5rem;">
+                <strong>💡 Note:</strong> Rank 5 prestige perk appears to be missing from the data. Focus on reaching at least Rank 3 for "My Round III" to maximize team ammo capacity!
             </div>
         </section>
         
@@ -399,45 +890,116 @@
             <h2>🎯 Recommended Builds</h2>
             
             <div class="build-card">
-                <h3>🌟 Beginner Build - "Resource Manager"</h3>
-                <p>Focus on keeping the team supplied with basic resources. Perfect for learning support timing.</p>
+                <h3>🌟 Beginner Build - "Supply Chain Manager"</h3>
+                <p>Focus on keeping the team supplied with ammo and basic support. Perfect for learning positioning and timing.</p>
+                <div class="build-perks">
+                    <strong>Essential Perks:</strong>
+                    <span class="perk-choice">Kickback</span>
+                    <span class="perk-choice">Armory</span>
+                    <span class="perk-choice">Night Owl</span>
+                    <span class="perk-choice">Paramedic</span>
+                    <span class="perk-choice">My Round I</span>
+                    <span class="perk-choice">Instant Replay</span>
+                    <span class="perk-choice">Fourth of July</span>
+                </div>
+                <div class="build-perks">
+                    <strong>Prestige Focus:</strong>
+                    <span class="perk-choice">Paramedic II</span>
+                    <span class="perk-choice">My Round III</span>
+                </div>
                 <ul>
-                    <li><strong>Priority:</strong> Supply management and equipment efficiency</li>
-                    <li><strong>Key Perks:</strong> Focus on ammo capacity, equipment charges, and bag duration</li>
-                    <li><strong>Playstyle:</strong> Drop bags before fights, save equipment for emergencies</li>
-                    <li><strong>Weapons:</strong> Assault Carbine + Compact SMG for versatility</li>
+                    <li><strong>Playstyle:</strong> Drop bags before fights, focus on team positioning</li>
+                    <li><strong>Equipment:</strong> Start with Masking Grenades, save for objectives</li>
+                    <li><strong>Weapons:</strong> Scout Rifle + Compact SMG for versatility</li>
                 </ul>
                 <div class="tip-box">
-                    <strong>💡 Tip:</strong> Always drop bags at defensive positions BEFORE combat starts!
+                    <strong>💡 Tip:</strong> With Fourth of July, your bags have 5 uses instead of 4. That's 20% more explosive ammo for the team!
                 </div>
             </div>
             
             <div class="build-card">
-                <h3>💥 Explosive Support Build - "Boom Supplier"</h3>
-                <p>Maximum damage boost for the team through explosive ammo. Essential for higher difficulties.</p>
+                <h3>💥 Explosive Support Build - "Boom Dealer"</h3>
+                <p>Maximum damage amplification through explosive ammo. Essential for Extreme difficulty and higher.</p>
+                <div class="build-perks">
+                    <strong>Essential Perks:</strong>
+                    <span class="perk-choice">Kickback</span>
+                    <span class="perk-choice">Give 'em Hell</span>
+                    <span class="perk-choice">Knock Knock</span>
+                    <span class="perk-choice">My Round I</span>
+                    <span class="perk-choice">Scavenger</span>
+                    <span class="perk-choice">Instant Replay</span>
+                    <span class="perk-choice">Efficiency</span>
+                    <span class="perk-choice">Fourth of July</span>
+                    <span class="perk-choice">My Round II</span>
+                </div>
+                <div class="build-perks">
+                    <strong>Prestige Focus:</strong>
+                    <span class="perk-choice">Knock Knock II</span>
+                    <span class="perk-choice">Bounty Hunter</span>
+                    <span class="perk-choice">My Round III</span>
+                </div>
                 <ul>
-                    <li><strong>Priority:</strong> Explosive ammo duration and effectiveness</li>
-                    <li><strong>Key Focus:</strong> Explosive ammo perks, bag cooldown reduction</li>
-                    <li><strong>Playstyle:</strong> Coordinate explosive ammo timing with team's DPS phases</li>
-                    <li><strong>Weapons:</strong> Assault Shotgun + Grenade Launcher for crowd clear</li>
+                    <li><strong>Playstyle:</strong> Coordinate explosive ammo timing with team DPS phases</li>
+                    <li><strong>Special Focus:</strong> Call out when dropping bags for maximum team damage</li>
+                    <li><strong>Combo:</strong> Breaching Charge + Explosive ammo for massive area damage</li>
                 </ul>
                 <div class="tip-box">
-                    <strong>💡 Tip:</strong> Call out when dropping explosive ammo so DPS classes can maximize damage!</strong>
+                    <strong>💡 Tip:</strong> With Efficiency, your explosive ammo lasts 25% longer - crucial for extended swarm fights!
                 </div>
             </div>
             
             <div class="build-card">
                 <h3>👻 Stealth Support Build - "Ghost Protocol"</h3>
-                <p>Focus on masking gas for objectives and emergency escapes. Great for escort missions.</p>
-                <ul>
-                    <li><strong>Priority:</strong> Masking gas effectiveness and utility</li>
-                    <li><strong>Key Focus:</strong> Masking gas perks, equipment charges</li>
-                    <li><strong>Playstyle:</strong> Save masking for objectives, revives, and escapes</li>
-                    <li><strong>Weapons:</strong> Silenced weapons mandatory</li>
-                </ul>
-                <div class="tip-box">
-                    <strong>💡 Tip:</strong> Masking gas makes the entire team invisible - perfect for objective interactions!</strong>
+                <p>Master of invisibility and tactical positioning. Perfect for escort missions and objective runs.</p>
+                <div class="build-perks">
+                    <strong>Essential Perks:</strong>
+                    <span class="perk-choice">Night Owl</span>
+                    <span class="perk-choice">Side Effects</span>
+                    <span class="perk-choice">Cloakroom</span>
+                    <span class="perk-choice">One for the Road</span>
+                    <span class="perk-choice">Under the Table</span>
+                    <span class="perk-choice">Shadow Walker</span>
+                    <span class="perk-choice">Darkness Falls</span>
                 </div>
+                <div class="build-perks">
+                    <strong>Prestige Focus:</strong>
+                    <span class="perk-choice">Paramedic II</span>
+                    <span class="perk-choice">Kevlar</span>
+                </div>
+                <ul>
+                    <li><strong>Playstyle:</strong> Save masking for objectives and emergency revives</li>
+                    <li><strong>Key Combo:</strong> Cloakroom + Kevlar = Safe revives with damage reduction</li>
+                    <li><strong>Duration:</strong> 8 seconds masking effect with Shadow Walker (6 base + 2)</li>
+                    <li><strong>Cloud Duration:</strong> 12 seconds with Darkness Falls (5 base + 7)</li>
+                </ul>
+                <div class="warning-box">
+                    <strong>⚠️ Note:</strong> One for the Road reduces masking duration by 3 seconds but gives you 2 grenades. Plan accordingly!
+                </div>
+            </div>
+            
+            <div class="build-card">
+                <h3>🔫 Hybrid Combat Build - "Armed Support"</h3>
+                <p>Balance personal combat effectiveness with team support. For players who want to fight AND support.</p>
+                <div class="build-perks">
+                    <strong>Essential Perks:</strong>
+                    <span class="perk-choice">Stand by Me</span>
+                    <span class="perk-choice">Gunner</span>
+                    <span class="perk-choice">Wheatgrass</span>
+                    <span class="perk-choice">Lightning Hands</span>
+                    <span class="perk-choice">Power Shot</span>
+                    <span class="perk-choice">Casull 6</span>
+                    <span class="perk-choice">The Big Five 0</span>
+                </div>
+                <div class="build-perks">
+                    <strong>Prestige Focus:</strong>
+                    <span class="perk-choice">Bounty Hunter</span>
+                    <span class="perk-choice">Sleight of Hand</span>
+                </div>
+                <ul>
+                    <li><strong>Weapons:</strong> Sporting Carbine + Casull 6 + BF25 Payload Rifle</li>
+                    <li><strong>Combat Bonus:</strong> +100% damage for 10 seconds when reviving (Stand by Me)</li>
+                    <li><strong>Health:</strong> +25% max health for survivability</li>
+                </ul>
             </div>
         </section>
         
@@ -447,22 +1009,66 @@
             <div class="synergy-grid">
                 <div class="synergy-card">
                     <h3>💥 Fixer + Hellraiser</h3>
-                    <p>The ultimate destruction duo. Unlimited explosive ammo for endless C4 spam.</p>
+                    <p>The ultimate destruction duo. Explosive ammo + C4 = maximum crowd clear.</p>
                     <span class="synergy-rating synergy-excellent">EXCELLENT</span>
-                    <p><strong>Why it works:</strong> Explosive ammo + C4 = maximum crowd clear. Never run out of explosives.</p>
+                    <p><strong>Key Combo:</strong> Supply Bag → Hellraiser C4 spam with explosive rounds</p>
                 </div>
                 <div class="synergy-card">
                     <h3>🔫 Fixer + Gunslinger</h3>
-                    <p>Sustained DPS machine. Gunslinger can spray freely with constant ammo.</p>
+                    <p>Sustained DPS machine. Infinite ammo meets maximum fire rate.</p>
                     <span class="synergy-rating synergy-excellent">EXCELLENT</span>
-                    <p><strong>Why it works:</strong> Infinite ammo + high fire rate = non-stop damage output.</p>
+                    <p><strong>Key Combo:</strong> Instant Replay + Front Line Supply = non-stop shooting</p>
                 </div>
                 <div class="synergy-card">
                     <h3>🏥 Fixer + Medic</h3>
-                    <p>The support backbone. Cover all team needs between you.</p>
+                    <p>Complete support coverage. Health + Ammo = full team sustain.</p>
                     <span class="synergy-rating synergy-good">GOOD</span>
-                    <p><strong>Why it works:</strong> Health + Ammo = complete team support. Masking helps safe revives.</p>
+                    <p><strong>Key Combo:</strong> Masking for safe revives, bags for sustained fights</p>
                 </div>
+                <div class="synergy-card">
+                    <h3>🔥 Fixer + Exterminator</h3>
+                    <p>Fire and explosives synergy. Molotovs + explosive ammo devastate swarms.</p>
+                    <span class="synergy-rating synergy-excellent">EXCELLENT</span>
+                    <p><strong>Key Combo:</strong> Supply bags keep fire equipment flowing</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Advanced Tips -->
+        <section class="card">
+            <h2>🎓 Advanced Fixer Techniques</h2>
+            
+            <div class="build-card">
+                <h3>📍 Supply Bag Positioning</h3>
+                <ul>
+                    <li><strong>Pre-fight:</strong> Always drop before combat, never during</li>
+                    <li><strong>Safe zones:</strong> Behind cover but easily accessible</li>
+                    <li><strong>Choke points:</strong> Where team naturally gathers to fight</li>
+                    <li><strong>Defense positions:</strong> At the main hold point, not scattered</li>
+                    <li><strong>Escape routes:</strong> Along retreat paths for running sections</li>
+                </ul>
+            </div>
+            
+            <div class="build-card">
+                <h3>⏱️ Timing Mastery</h3>
+                <ul>
+                    <li><strong>Explosive Ammo Window:</strong> Lasts ~30 seconds base, up to 37.5 with Efficiency</li>
+                    <li><strong>Masking Duration:</strong> 6 seconds base, up to 8 with perks</li>
+                    <li><strong>Equipment Cooldowns:</strong> Track your 90-second windows</li>
+                    <li><strong>Please Stand Up:</strong> 60-second cooldown - save for true emergencies</li>
+                    <li><strong>Corporate Power Nap:</strong> Every 10 seconds - remind team to weapon swap</li>
+                </ul>
+            </div>
+            
+            <div class="build-card">
+                <h3>🎯 Priority System</h3>
+                <ol>
+                    <li><strong>Heavy Weapon Users:</strong> They benefit most from explosive ammo</li>
+                    <li><strong>Hellraiser/Exterminator:</strong> Explosive classes get double value</li>
+                    <li><strong>Gunslinger:</strong> High ammo consumption needs constant supply</li>
+                    <li><strong>Medic/Dronemaster:</strong> Support classes need sustained fire</li>
+                    <li><strong>Slasher/Vanguard:</strong> Lower priority but still important</li>
+                </ol>
             </div>
         </section>
         
@@ -473,116 +1079,40 @@
             <div class="build-card">
                 <h3>🐂 Bull</h3>
                 <ul>
-                    <li>Drop explosive ammo bag before Bull spawns for quick kill</li>
-                    <li>Place breaching charges in Bull's charge path</li>
-                    <li>Masking gas makes team invisible to charge</li>
-                    <li>Save supply bags for after-charge recovery</li>
+                    <li>Drop explosive ammo bag before Bull spawns for instant kill potential</li>
+                    <li>Breaching Charge in charge path for guaranteed stun</li>
+                    <li>Masking gas makes entire team invisible to charge targeting</li>
+                    <li>Stand by Me gives 100% damage boost if teammate gets pinned</li>
                 </ul>
             </div>
             
             <div class="build-card">
                 <h3>🤢 Gasbag</h3>
                 <ul>
-                    <li>Explosive ammo pops Gasbag faster and safer</li>
-                    <li>Drop bags before engagement for team</li>
-                    <li>Masking gas prevents gas cloud damage</li>
-                    <li>Maintain maximum range when team shoots</li>
+                    <li>Explosive ammo makes Gasbag pop much faster and safer</li>
+                    <li>Side Effects masking gas can damage Gasbag while team is invisible</li>
+                    <li>Maintain maximum range when team engages</li>
+                    <li>Supply bags after kill to refill spent ammo</li>
                 </ul>
             </div>
             
             <div class="build-card">
                 <h3>👻 Lurker</h3>
                 <ul>
-                    <li>Night Owl perk reveals Lurkers through walls</li>
-                    <li>Drop masking gas for invisible revives</li>
+                    <li>Masking grenades prevent Lurker targeting entirely</li>
+                    <li>Cloakroom gives 3-second invisibility during pounce saves</li>
                     <li>Explosive ammo one-shots on headshot</li>
-                    <li>Equipment bags help flush corners</li>
+                    <li>Paramedic + Paramedic II = 125% faster pounce saves</li>
                 </ul>
             </div>
             
             <div class="build-card">
-                <h3>😱 Screamer</h3>
+                <h3>🧊 Bomber</h3>
                 <ul>
-                    <li>ALWAYS use silenced weapons as Fixer</li>
-                    <li>Breaching charges can silent kill if placed right</li>
-                    <li>Drop bags after scream for swarm fight</li>
-                    <li>Masking gas helps team escape swarm</li>
-                </ul>
-            </div>
-        </section>
-        
-        <!-- Situational Tactics -->
-        <section class="card">
-            <h2>📍 Situational Tactics</h2>
-            
-            <div class="build-card">
-                <h3>🌊 Swarm Defense</h3>
-                <ol>
-                    <li>Drop explosive ammo bag at defensive position FIRST</li>
-                    <li>Place all equipment at choke points</li>
-                    <li>Save one bag for mid-swarm emergency</li>
-                    <li>Use masking gas if position overrun</li>
-                    <li>Prioritize heavy weapon users for ammo</li>
-                </ol>
-            </div>
-            
-            <div class="build-card">
-                <h3>🏃 Running Sections</h3>
-                <ol>
-                    <li>Drop bags at checkpoint starts</li>
-                    <li>Save masking gas for objective interactions</li>
-                    <li>Use Shadow perk for speed boost</li>
-                    <li>Clear path with breaching charges</li>
-                    <li>Equipment at bottlenecks only</li>
-                </ol>
-            </div>
-            
-            <div class="build-card">
-                <h3>👹 Boss Fights</h3>
-                <ol>
-                    <li>Ensure explosive ammo for damage phases</li>
-                    <li>Save bags for add waves</li>
-                    <li>Masking gas for safe revive windows</li>
-                    <li>Heavy weapon ammo priority to DPS</li>
-                    <li>Equipment for crowd control</li>
-                </ol>
-            </div>
-            
-            <div class="build-card">
-                <h3>🛡️ Escort Missions</h3>
-                <ol>
-                    <li>Drop bags at each stop point</li>
-                    <li>Masking gas for objective pusher</li>
-                    <li>Equipment creates safe zones</li>
-                    <li>Explosive ammo for path clearing</li>
-                    <li>Save resources for final push</li>
-                </ol>
-            </div>
-        </section>
-        
-        <!-- Quick Reference -->
-        <section class="card">
-            <h2>📋 Quick Reference</h2>
-            
-            <div class="build-card">
-                <h3>💼 Supply Bag Priority Order</h3>
-                <ol>
-                    <li><strong>Heavy weapon users</strong> - Maximum damage output</li>
-                    <li><strong>Hellraiser/Exterminator</strong> - Explosive classes benefit most</li>
-                    <li><strong>Gunslinger</strong> - High ammo consumption</li>
-                    <li><strong>Support classes</strong> - Sustained fire needed</li>
-                    <li><strong>Melee classes</strong> - Lower priority</li>
-                </ol>
-            </div>
-            
-            <div class="build-card">
-                <h3>⏱️ Ability Timing Guide</h3>
-                <ul>
-                    <li><strong>Pre-swarm:</strong> Drop explosive ammo bag</li>
-                    <li><strong>Defense start:</strong> Place all equipment</li>
-                    <li><strong>Mid-fight:</strong> Second bag if needed</li>
-                    <li><strong>Emergency:</strong> Masking gas for escape</li>
-                    <li><strong>Post-fight:</strong> Resupply heavy weapons</li>
+                    <li>Breaching Charges can detonate Bombers safely from range</li>
+                    <li>Masking gas prevents Bomber aggro during objectives</li>
+                    <li>Supply bags crucial after Bomber swarm triggers</li>
+                    <li>Side Effects can kill Bombers through masking gas</li>
                 </ul>
             </div>
         </section>
@@ -592,12 +1122,14 @@
             <div class="warning-box">
                 <h3>⚠️ Common Fixer Mistakes to Avoid</h3>
                 <ul>
-                    <li><strong>Hoarding bags:</strong> Use them proactively, not reactively</li>
-                    <li><strong>Poor timing:</strong> Dropping bags during combat instead of before</li>
-                    <li><strong>Ignoring heavy weapons:</strong> They need your ammo most</li>
-                    <li><strong>Wasting masking gas:</strong> Save for objectives and emergencies</li>
-                    <li><strong>Solo play:</strong> Not coordinating explosive ammo timing</li>
-                    <li><strong>Bad positioning:</strong> Bags in unsafe or hard-to-reach spots</li>
+                    <li><strong>Reactive bag dropping:</strong> Waiting until mid-fight to drop bags</li>
+                    <li><strong>Poor positioning:</strong> Bags in exposed or hard-to-reach locations</li>
+                    <li><strong>Hoarding equipment:</strong> Saving everything "for later" that never comes</li>
+                    <li><strong>Ignoring heavy weapons:</strong> Not prioritizing payload/MGL users</li>
+                    <li><strong>Wasting masking:</strong> Using for non-critical situations</li>
+                    <li><strong>No communication:</strong> Not calling out explosive ammo timing</li>
+                    <li><strong>Forgetting Corporate Power Nap:</strong> Team doesn't know about auto-reload</li>
+                    <li><strong>Bad Please Stand Up timing:</strong> Using it too early in fights</li>
                 </ul>
             </div>
         </section>
@@ -607,14 +1139,16 @@
             <h2>🌟 Tips for New Fixer Players</h2>
             <div class="tip-box">
                 <ol>
-                    <li><strong>Learn spawn timings</strong> - Drop bags before fights, not during</li>
-                    <li><strong>Communicate constantly</strong> - Tell team when explosive ammo is active</li>
-                    <li><strong>Position bags safely</strong> - Near cover but accessible</li>
-                    <li><strong>Watch ammo counts</strong> - Know who needs resupply</li>
-                    <li><strong>Master masking gas</strong> - Practice timing for objectives</li>
-                    <li><strong>Coordinate with Medic</strong> - You two are the support backbone</li>
-                    <li><strong>Don't forget equipment</strong> - It's not just about ammo bags</li>
-                    <li><strong>Please Stand Up perk</strong> - Can save entire runs when maxed</li>
+                    <li><strong>Learn spawn triggers:</strong> Know when swarms/specials appear to pre-drop bags</li>
+                    <li><strong>Watch the killfeed:</strong> Track who's getting kills to know who needs ammo</li>
+                    <li><strong>Communicate constantly:</strong> "Explosive ammo active!" is crucial info</li>
+                    <li><strong>Master the 90-second cycle:</strong> Your equipment cooldown rhythm</li>
+                    <li><strong>Position yourself centrally:</strong> You need to reach everyone quickly</li>
+                    <li><strong>Save one bag minimum:</strong> Always keep emergency supplies available</li>
+                    <li><strong>Practice masking timing:</strong> 6-8 seconds goes fast - make it count</li>
+                    <li><strong>Coordinate with Medic:</strong> You two are the team's foundation</li>
+                    <li><strong>Track special zombies:</strong> Scavenger procs every 90 seconds on special kills</li>
+                    <li><strong>Prestige early:</strong> Those permanent perks are worth the temporary loss</li>
                 </ol>
             </div>
         </section>

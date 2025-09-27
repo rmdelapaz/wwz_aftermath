@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Hellraiser Class Guide - Master explosives and C4 in World War Z: Aftermath">
-    <meta name="keywords" content="World War Z, Aftermath, Hellraiser, class guide, C4, explosives, demolition">
+    <meta name="description" content="Hellraiser Class Guide - Master explosives and demolition in World War Z: Aftermath">
+    <meta name="keywords" content="World War Z, Aftermath, Hellraiser, class guide, C4, claymore, explosives, MGL, demolition, builds">
     <meta name="author" content="WWZ Guide Team">
     <title>Hellraiser Class Guide - World War Z: Aftermath</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
@@ -20,56 +20,129 @@
             text-align: center;
         }
         
-        .perk-category {
-            margin: 2rem 0;
-            padding: 1.5rem;
+        /* Skill Tree Styling */
+        .skill-tree-container {
             background: #f8f9fa;
-            border-radius: 8px;
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+            overflow-x: auto;
         }
         
-        .perk-category h4 {
+        .skill-tree-grid {
+            display: grid;
+            grid-template-columns: repeat(13, 1fr);
+            gap: 0.5rem;
+            min-width: 1000px;
+            margin: 1rem 0;
+        }
+        
+        .skill-segment {
+            background: white;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid #ff4500;
+        }
+        
+        .skill-segment h4 {
             color: #495057;
             margin-bottom: 1rem;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
         }
         
-        .perk-list {
-            list-style: none;
-            padding: 0;
+        .perk-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
         }
         
-        .perk-item {
+        .perk-card {
             background: white;
-            padding: 0.75rem 1rem;
-            margin: 0.5rem 0;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            padding: 1rem;
+            transition: transform 0.2s;
+        }
+        
+        .perk-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .perk-level {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            background: #ff4500;
+            color: white;
             border-radius: 4px;
-            border-left: 3px solid #ff4500;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
         }
         
         .perk-name {
             font-weight: bold;
             color: #495057;
+            margin: 0.5rem 0;
         }
         
         .perk-desc {
             color: #6c757d;
             font-size: 0.9rem;
+            line-height: 1.4;
+        }
+        
+        .perk-cost {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 0.75rem;
+            padding-top: 0.75rem;
+            border-top: 1px solid #e9ecef;
+            font-size: 0.85rem;
+        }
+        
+        .core-perk {
+            background: #ffe4e1;
+            border: 2px solid #ff4500;
+        }
+        
+        .prestige-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+        }
+        
+        .prestige-section h3 {
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+        
+        .prestige-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
         }
         
         .prestige-perk {
-            border-left-color: #764ba2;
-            background: #f8f5ff;
+            background: rgba(255, 255, 255, 0.95);
+            color: #333;
+            padding: 1rem;
+            border-radius: 8px;
+            border: 2px solid #9b59b6;
         }
         
-        .core-ability {
-            background: linear-gradient(135deg, #ffe4b5 0%, #ffd4a3 100%);
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 1rem 0;
-            border: 2px solid #ff4500;
+        .prestige-rank {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            background: #9b59b6;
+            color: white;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
         }
         
         .build-section {
@@ -87,6 +160,23 @@
         .build-card h3 {
             color: #495057;
             margin-bottom: 1rem;
+        }
+        
+        .build-perks {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 6px;
+            margin: 1rem 0;
+        }
+        
+        .perk-choice {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: #ffe4e1;
+            border: 1px solid #ff4500;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin: 0.25rem;
         }
         
         .role-badge {
@@ -113,15 +203,6 @@
             border-radius: 8px;
             padding: 1rem;
             margin: 1rem 0;
-        }
-        
-        .prestige-note {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 1rem;
-            border-radius: 8px;
-            margin: 1rem 0;
-            text-align: center;
         }
         
         .synergy-grid {
@@ -226,7 +307,7 @@
                 <span class="role-badge">Crowd Clear</span>
                 <span class="role-badge">Area Damage</span>
             </div>
-            <p><strong>Core Role:</strong> Obliterate swarms with C4 and heavy explosives while managing self-damage</p>
+            <p><strong>Core Role:</strong> Obliterate swarms with C4, Claymores, and heavy explosives while managing team-wide explosive effectiveness</p>
         </header>
         
         <!-- Quick Stats -->
@@ -236,169 +317,571 @@
                 <div class="equipment-item">
                     <div class="equipment-icon">💣</div>
                     <strong>C4 Charges</strong>
-                    <p>Remote detonated bombs</p>
+                    <p>Remote detonated area clear</p>
                 </div>
                 <div class="equipment-item">
                     <div class="equipment-icon">🎯</div>
-                    <strong>Directed Blast</strong>
-                    <p>Shaped charge damage</p>
-                </div>
-                <div class="equipment-item">
-                    <div class="equipment-icon">🔄</div>
-                    <strong>Refill System</strong>
-                    <p>Regenerate C4 from kills</p>
+                    <strong>Claymore Mines</strong>
+                    <p>Triggered explosive traps</p>
                 </div>
                 <div class="equipment-item">
                     <div class="equipment-icon">🚀</div>
-                    <strong>Heavy Weapons</strong>
-                    <p>RPG & Grenade specialist</p>
+                    <strong>Hailstorm MGL</strong>
+                    <p>Multi-grenade launcher</p>
+                </div>
+                <div class="equipment-item">
+                    <div class="equipment-icon">🔥</div>
+                    <strong>Scorched Earth</strong>
+                    <p>Fire damage zones</p>
                 </div>
             </div>
         </section>
         
         <!-- Core Ability -->
         <section class="card">
-            <h2>💣 Core Ability</h2>
-            <div class="core-ability">
-                <h3>C4 Charges</h3>
-                <p><strong>Base Effect:</strong> Place and detonate powerful C4 charges for massive area damage</p>
-                <p><strong>Starting Gear:</strong> 2 C4 Charges and Shotgun</p>
-                <p><strong>Passive Bonus:</strong> Explosion resistance and heavy weapon proficiency</p>
-                <p><strong>Pro Tip:</strong> C4 can be pre-placed before swarms and detonated at the perfect moment!</p>
+            <h2>💣 Core Ability: Demoman</h2>
+            <div class="core-ability" style="background: linear-gradient(135deg, #ffe4b5 0%, #ffd4a3 100%); padding: 1.5rem; border-radius: 8px; margin: 1rem 0; border: 2px solid #ff4500;">
+                <h3>Explosive Mastery</h3>
+                <p><strong>Starting Equipment:</strong> C4, Shotgun, and Hailstorm MGL</p>
+                <p><strong>Team Buff:</strong> At level 10, all team explosive equipment kills 25% more targets</p>
+                <p><strong>Base C4 Targets:</strong> 14 zombies per explosion (can be increased)</p>
+                <p><strong>Special Feature:</strong> Complete immunity to self-explosive damage with Unshakeable perk</p>
+                <p><strong>Pro Tip:</strong> You start with THREE powerful tools - use them all strategically!</p>
             </div>
         </section>
         
-        <!-- Hellraiser Perks Overview -->
+        <!-- Complete Skill Tree -->
         <section class="card">
-            <h2>💥 Hellraiser Perks Overview</h2>
+            <h2>💥 Complete Hellraiser Skill Tree</h2>
             
-            <div class="warning-box">
-                <strong>⚠️ Note:</strong> The skill system uses a 13-column grid where you choose one perk per column. Red perks (columns 1, 5, 9, 13) are permanent bonuses unlocked through prestige. Exact perk positions may vary by game version.
+            <div class="skill-tree-container">
+                <!-- Core Perk -->
+                <div class="skill-segment">
+                    <h4>Core Ability</h4>
+                    <div class="perk-grid">
+                        <div class="perk-card core-perk">
+                            <div class="perk-level">CORE</div>
+                            <h5 class="perk-name">Demoman</h5>
+                            <p class="perk-desc">Start with C4, Shotgun and Hailstorm MGL</p>
+                            <div class="perk-cost">
+                                <span>💰 Free</span>
+                                <span>📊 0 XP</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Segment 1 (Levels 1-3) -->
+                <div class="skill-segment">
+                    <h4>Segment One - C4 Enhancement</h4>
+                    <div class="perk-grid">
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 1</div>
+                            <h5 class="perk-name">Throwing arm</h5>
+                            <p class="perk-desc">Throw distance of a C4 increased by 50%</p>
+                            <div class="perk-cost">
+                                <span>💰 Free</span>
+                                <span>📊 0 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 2</div>
+                            <h5 class="perk-name">Here Kitty</h5>
+                            <p class="perk-desc">C4 will attract zombies for 5 seconds after being planted but can kill 35% less targets (base: 14)</p>
+                            <div class="perk-cost">
+                                <span>💰 150 Supplies</span>
+                                <span>📊 1,250 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 3</div>
+                            <h5 class="perk-name">Not Today</h5>
+                            <p class="perk-desc">You may become incapacitated 1 additional time before dying</p>
+                            <div class="perk-cost">
+                                <span>💰 150 Supplies</span>
+                                <span>📊 1,250 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">RED PERK</div>
+                            <h5 class="perk-name">The perfect composition</h5>
+                            <p class="perk-desc">The explosion radius of C4 and Claymores is increased by 25%</p>
+                            <div class="perk-cost">
+                                <span>💰 150 Supplies</span>
+                                <span>📊 Prestige Required</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Segment 2 (Levels 4-6) -->
+                <div class="skill-segment">
+                    <h4>Segment Two - Claymore Specialist</h4>
+                    <div class="perk-grid">
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 4</div>
+                            <h5 class="perk-name">Welcome Mat</h5>
+                            <p class="perk-desc">Upon trigger Claymores will attract zombies for 3 seconds before explosion. Start with Claymores</p>
+                            <div class="perk-cost">
+                                <span>💰 150 Supplies</span>
+                                <span>📊 1,250 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 5</div>
+                            <h5 class="perk-name">Green Fingered</h5>
+                            <p class="perk-desc">Planting speed of Claymores is increased by 50%. 25% chance to plant the Claymore at no cost to your equipment. Start with Claymores</p>
+                            <div class="perk-cost">
+                                <span>💰 150 Supplies</span>
+                                <span>📊 1,250 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 6</div>
+                            <h5 class="perk-name">Welcoming Committee</h5>
+                            <p class="perk-desc">Any mortar used by you or teammates can kill 25% more targets (base: 40)</p>
+                            <div class="perk-cost">
+                                <span>💰 150 Supplies</span>
+                                <span>📊 1,250 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">RED PERK</div>
+                            <h5 class="perk-name">Impact grenades</h5>
+                            <p class="perk-desc">Projectiles fired from the Hailstorm MGL explode upon contact</p>
+                            <div class="perk-cost">
+                                <span>💰 150 Supplies</span>
+                                <span>📊 Prestige Required</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Segment 3 (Levels 7-9) -->
+                <div class="skill-segment">
+                    <h4>Segment Three - Explosive Mastery</h4>
+                    <div class="perk-grid">
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 7</div>
+                            <h5 class="perk-name">Unshakeable</h5>
+                            <p class="perk-desc">Self-inflicted explosive damage reduced by 100%</p>
+                            <div class="perk-cost">
+                                <span>💰 150 Supplies</span>
+                                <span>📊 1,250 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 8</div>
+                            <h5 class="perk-name">Directed Blast</h5>
+                            <p class="perk-desc">You deal 100% more damage to zombies with all explosives</p>
+                            <div class="perk-cost">
+                                <span>💰 150 Supplies</span>
+                                <span>📊 1,250 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 9</div>
+                            <h5 class="perk-name">Nimble Thumbs</h5>
+                            <p class="perk-desc">All shotguns' reload speed increased by 50%</p>
+                            <div class="perk-cost">
+                                <span>💰 150 Supplies</span>
+                                <span>📊 1,250 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">RED PERK</div>
+                            <h5 class="perk-name">You've worn me out</h5>
+                            <p class="perk-desc">Killing enemies with equipment restores 2 grenades for the Hailstorm MGL</p>
+                            <div class="perk-cost">
+                                <span>💰 150 Supplies</span>
+                                <span>📊 Prestige Required</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Level 10 -->
+                <div class="skill-segment">
+                    <h4>Level 10 - Team Demolition</h4>
+                    <div class="perk-grid">
+                        <div class="perk-card core-perk">
+                            <div class="perk-level">LVL 10</div>
+                            <h5 class="perk-name">Demolition Squad</h5>
+                            <p class="perk-desc">Explosive equipment can kill 25% more targets. Applies for the whole team</p>
+                            <div class="perk-cost">
+                                <span>💰 Free</span>
+                                <span>📊 1,500 XP</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Segment 4 (Levels 11-13) -->
+                <div class="skill-segment">
+                    <h4>Segment Four - Combat Enhancement</h4>
+                    <div class="perk-grid">
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 11</div>
+                            <h5 class="perk-name">Bounty Hunter</h5>
+                            <p class="perk-desc">Deal 25% more damage to special zombies</p>
+                            <div class="perk-cost">
+                                <span>💰 250 Supplies</span>
+                                <span>📊 1,500 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 12</div>
+                            <h5 class="perk-name">Wheatgrass</h5>
+                            <p class="perk-desc">Health increased by 25%</p>
+                            <div class="perk-cost">
+                                <span>💰 250 Supplies</span>
+                                <span>📊 1,500 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 13</div>
+                            <h5 class="perk-name">Walk Softly</h5>
+                            <p class="perk-desc">Start with a S890 shotgun</p>
+                            <div class="perk-cost">
+                                <span>💰 250 Supplies</span>
+                                <span>📊 1,500 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">RED PERK</div>
+                            <h5 class="perk-name">Smells like gunpowder</h5>
+                            <p class="perk-desc">All Hailstorm MGLs within 10 meters will be automatically marked if you don't have a heavy weapon</p>
+                            <div class="perk-cost">
+                                <span>💰 250 Supplies</span>
+                                <span>📊 Prestige Required</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Segment 5 (Levels 14-16) -->
+                <div class="skill-segment">
+                    <h4>Segment Five - Equipment Management</h4>
+                    <div class="perk-grid">
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 14</div>
+                            <h5 class="perk-name">Tooled Up</h5>
+                            <p class="perk-desc">Increase Claymore capacity to 4 and C4 capacity to 3</p>
+                            <div class="perk-cost">
+                                <span>💰 250 Supplies</span>
+                                <span>📊 1,500 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 15</div>
+                            <h5 class="perk-name">Pickpocket</h5>
+                            <p class="perk-desc">Killing 15 zombies in rapid succession refills one equipment charge (cooldown 60 seconds)</p>
+                            <div class="perk-cost">
+                                <span>💰 350 Supplies</span>
+                                <span>📊 1,750 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 16</div>
+                            <h5 class="perk-name">I'll Take That</h5>
+                            <p class="perk-desc">Killing a special zombie restores one equipment charge (cooldown 60 seconds)</p>
+                            <div class="perk-cost">
+                                <span>💰 350 Supplies</span>
+                                <span>📊 1,750 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">RED PERK</div>
+                            <h5 class="perk-name">Shrapnel</h5>
+                            <p class="perk-desc">All your explosives can kill 10% more targets</p>
+                            <div class="perk-cost">
+                                <span>💰 350 Supplies</span>
+                                <span>📊 Prestige Required</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Segment 6 (Levels 17-19) -->
+                <div class="skill-segment">
+                    <h4>Segment Six - Ammo Management</h4>
+                    <div class="perk-grid">
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 17</div>
+                            <h5 class="perk-name">Free Refill I</h5>
+                            <p class="perk-desc">Restores 1% of primary weapon ammo for each kill made with equipment</p>
+                            <div class="perk-cost">
+                                <span>💰 350 Supplies</span>
+                                <span>📊 1,750 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 18</div>
+                            <h5 class="perk-name">Free Refill II</h5>
+                            <p class="perk-desc">Each kill made with equipment restores 1 round to your primary weapon magazine</p>
+                            <div class="perk-cost">
+                                <span>💰 350 Supplies</span>
+                                <span>📊 1,750 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 19</div>
+                            <h5 class="perk-name">Third Hand</h5>
+                            <p class="perk-desc">Killing 15 zombies in rapid succession instantly reloads your primary weapon</p>
+                            <div class="perk-cost">
+                                <span>💰 350 Supplies</span>
+                                <span>📊 1,750 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">RED PERK</div>
+                            <h5 class="perk-name">Free Refill III</h5>
+                            <p class="perk-desc">There is a chance that killing a special zombie will cause it to drop a Hailstorm MGL (cooldown: 180 seconds)</p>
+                            <div class="perk-cost">
+                                <span>💰 350 Supplies</span>
+                                <span>📊 Prestige Required</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Level 20 -->
+                <div class="skill-segment">
+                    <h4>Level 20 - Team Protection</h4>
+                    <div class="perk-grid">
+                        <div class="perk-card core-perk">
+                            <div class="perk-level">LVL 20</div>
+                            <h5 class="perk-name">Hollywood</h5>
+                            <p class="perk-desc">Explosive and fire damage dealt to yourself and your teammates reduced by 30%</p>
+                            <div class="perk-cost">
+                                <span>💰 Free</span>
+                                <span>📊 2,000 XP</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Segment 7 (Levels 21-23) -->
+                <div class="skill-segment">
+                    <h4>Segment Seven - Advanced Explosives</h4>
+                    <div class="perk-grid">
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 21</div>
+                            <h5 class="perk-name">Scorched Earth</h5>
+                            <p class="perk-desc">Claymore and C4 explosions will set the nearby area on fire</p>
+                            <div class="perk-cost">
+                                <span>💰 500 Supplies</span>
+                                <span>📊 2,000 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 22</div>
+                            <h5 class="perk-name">Deep Pockets</h5>
+                            <p class="perk-desc">Carried ammo capacity for heavy weapon increased by 35%</p>
+                            <div class="perk-cost">
+                                <span>💰 500 Supplies</span>
+                                <span>📊 2,000 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 23</div>
+                            <h5 class="perk-name">Hole Punch</h5>
+                            <p class="perk-desc">Shotgun range increased by 50%</p>
+                            <div class="perk-cost">
+                                <span>💰 500 Supplies</span>
+                                <span>📊 2,000 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">RED PERK</div>
+                            <h5 class="perk-name">Alert red!</h5>
+                            <p class="perk-desc">C4 explosions also release a gas cloud that hurts zombies</p>
+                            <div class="perk-cost">
+                                <span>💰 500 Supplies</span>
+                                <span>📊 Prestige Required</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Segment 8 (Levels 24-26) -->
+                <div class="skill-segment">
+                    <h4>Segment Eight - Heavy Weapons</h4>
+                    <div class="perk-grid">
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 24</div>
+                            <h5 class="perk-name">Senjata</h5>
+                            <p class="perk-desc">Start with a Senjata PDW in your secondary weapon slot</p>
+                            <div class="perk-cost">
+                                <span>💰 500 Supplies</span>
+                                <span>📊 2,000 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 25</div>
+                            <h5 class="perk-name">Thumper</h5>
+                            <p class="perk-desc">Start with a Thumper GL in your secondary weapon slot</p>
+                            <div class="perk-cost">
+                                <span>💰 500 Supplies</span>
+                                <span>📊 2,500 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 26</div>
+                            <h5 class="perk-name">Heavy Rain</h5>
+                            <p class="perk-desc">Start with improved Hailstorm MGL that does 50% more damage, and has 50% more ammo. All Hailstorm MGL pickups for you also improved [base: 8 ammo]</p>
+                            <div class="perk-cost">
+                                <span>💰 500 Supplies</span>
+                                <span>📊 2,500 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">RED PERK</div>
+                            <h5 class="perk-name">Ride of the Valkyries</h5>
+                            <p class="perk-desc">Start with an improved Multi-shot Rocket Launcher that kills 50% more zombies. All MRL202 Commando pickups for you are also improved [base: 4 ammo]</p>
+                            <div class="perk-cost">
+                                <span>💰 500 Supplies</span>
+                                <span>📊 Prestige Required</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Segment 9 (Levels 27-29) -->
+                <div class="skill-segment">
+                    <h4>Segment Nine - Final Mastery</h4>
+                    <div class="perk-grid">
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 27</div>
+                            <h5 class="perk-name">Knock Knock</h5>
+                            <p class="perk-desc">Start with a Breaching Charge</p>
+                            <div class="perk-cost">
+                                <span>💰 500 Supplies</span>
+                                <span>📊 2,500 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 28</div>
+                            <h5 class="perk-name">Job Satisfaction</h5>
+                            <p class="perk-desc">Killing 15 zombies in rapid succession grants a temporary health boost</p>
+                            <div class="perk-cost">
+                                <span>💰 500 Supplies</span>
+                                <span>📊 2,500 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 29</div>
+                            <h5 class="perk-name">Predator</h5>
+                            <p class="perk-desc">Killing special zombies boosts firearm damage by 50% for 10 seconds</p>
+                            <div class="perk-cost">
+                                <span>💰 500 Supplies</span>
+                                <span>📊 2,500 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">RED PERK</div>
+                            <h5 class="perk-name">All around is ashes</h5>
+                            <p class="perk-desc">The Thumper GL deals 25% increased damage</p>
+                            <div class="perk-cost">
+                                <span>💰 500 Supplies</span>
+                                <span>📊 Prestige Required</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Level 30 -->
+                <div class="skill-segment">
+                    <h4>Level 30 - Ultimate Demolition</h4>
+                    <div class="perk-grid">
+                        <div class="perk-card core-perk">
+                            <div class="perk-level">LVL 30</div>
+                            <h5 class="perk-name">Technician</h5>
+                            <p class="perk-desc">C4, Claymore Landmines and MGL can kill 25% more targets</p>
+                            <div class="perk-cost">
+                                <span>💰 Free</span>
+                                <span>📊 3,500 XP</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Prestige Rank Perks -->
+        <section class="prestige-section">
+            <h3>⭐ Prestige Rank Perks</h3>
+            <p style="margin-bottom: 1.5rem;">These permanent passive bonuses unlock through prestiging. They remain active even after subsequent prestiges and stack with regular perks.</p>
+            
+            <div class="prestige-grid">
+                <div class="prestige-perk">
+                    <div class="prestige-rank">RANK 1</div>
+                    <h5 class="perk-name">Throwing Arm II</h5>
+                    <p class="perk-desc">Throw distance of a C4 increased by 25%</p>
+                    <div class="perk-cost">
+                        <span>💰 7,500 Yellow Coins</span>
+                    </div>
+                </div>
+                <div class="prestige-perk">
+                    <div class="prestige-rank">RANK 2</div>
+                    <h5 class="perk-name">Sleight of Hand</h5>
+                    <p class="perk-desc">Switch weapons 25% faster</p>
+                    <div class="perk-cost">
+                        <span>💰 7,500 Yellow Coins</span>
+                    </div>
+                </div>
+                <div class="prestige-perk">
+                    <div class="prestige-rank">RANK 3</div>
+                    <h5 class="perk-name">Directed Blast II</h5>
+                    <p class="perk-desc">Your explosives can kill 10% more targets</p>
+                    <div class="perk-cost">
+                        <span>💰 7,500 Yellow Coins</span>
+                    </div>
+                </div>
+                <div class="prestige-perk">
+                    <div class="prestige-rank">RANK 4</div>
+                    <h5 class="perk-name">Thumper II</h5>
+                    <p class="perk-desc">Carried ammo capacity for Thumper GL increased by 1</p>
+                    <div class="perk-cost">
+                        <span>💰 7,500 Yellow Coins</span>
+                    </div>
+                </div>
+                <div class="prestige-perk">
+                    <div class="prestige-rank">RANK 6</div>
+                    <h5 class="perk-name">Hole Punch II</h5>
+                    <p class="perk-desc">A 50% range increase for pistols and secondary SMGs</p>
+                    <div class="perk-cost">
+                        <span>💰 7,500 Yellow Coins</span>
+                    </div>
+                </div>
+                <div class="prestige-perk">
+                    <div class="prestige-rank">RANK 7</div>
+                    <h5 class="perk-name">Blink of an eye</h5>
+                    <p class="perk-desc">The reload speed of secondary weapons is increased by 15%</p>
+                    <div class="perk-cost">
+                        <span>💰 7,500 Yellow Coins</span>
+                    </div>
+                </div>
+                <div class="prestige-perk">
+                    <div class="prestige-rank">RANK 8</div>
+                    <h5 class="perk-name">Knock Knock II</h5>
+                    <p class="perk-desc">10% chance of using a Breaching Charge without spending it</p>
+                    <div class="perk-cost">
+                        <span>💰 7,500 Yellow Coins</span>
+                    </div>
+                </div>
+                <div class="prestige-perk">
+                    <div class="prestige-rank">RANK 9</div>
+                    <h5 class="perk-name">Directed Blast III</h5>
+                    <p class="perk-desc">Your explosives can kill 5% more targets</p>
+                    <div class="perk-cost">
+                        <span>💰 7,500 Yellow Coins</span>
+                    </div>
+                </div>
             </div>
             
-            <!-- Regular Perks -->
-            <div class="perk-category">
-                <h4>💣 C4 Enhancement Perks</h4>
-                <ul class="perk-list">
-                    <li class="perk-item">
-                        <span class="perk-name">Welcome Mat</span>
-                        <span class="perk-desc">Start with 3 C4 charges</span>
-                    </li>
-                    <li class="perk-item">
-                        <span class="perk-name">Directed Blast</span>
-                        <span class="perk-desc">C4 damage in front increased 100%</span>
-                    </li>
-                    <li class="perk-item">
-                        <span class="perk-name">Hole Punch</span>
-                        <span class="perk-desc">C4 penetrates and damages in line</span>
-                    </li>
-                    <li class="perk-item">
-                        <span class="perk-name">Here Kitty</span>
-                        <span class="perk-desc">C4 attracts zombies before exploding</span>
-                    </li>
-                    <li class="perk-item">
-                        <span class="perk-name">Knock Knock</span>
-                        <span class="perk-desc">C4 explosion radius +30%</span>
-                    </li>
-                    <li class="perk-item">
-                        <span class="perk-name">Alert</span>
-                        <span class="perk-desc">C4 creates masking gas cloud</span>
-                    </li>
-                </ul>
-            </div>
-            
-            <div class="perk-category">
-                <h4>🔄 Refill & Regeneration Perks</h4>
-                <ul class="perk-list">
-                    <li class="perk-item">
-                        <span class="perk-name">Free Refill</span>
-                        <span class="perk-desc">15 kills restore C4 charge</span>
-                    </li>
-                    <li class="perk-item">
-                        <span class="perk-name">Deep Pockets</span>
-                        <span class="perk-desc">Carry +1 C4 charge</span>
-                    </li>
-                    <li class="perk-item">
-                        <span class="perk-name">Scavenger</span>
-                        <span class="perk-desc">1% chance per kill to restore C4</span>
-                    </li>
-                    <li class="perk-item">
-                        <span class="perk-name">Job Satisfaction</span>
-                        <span class="perk-desc">Explosive kills restore C4 faster</span>
-                    </li>
-                </ul>
-            </div>
-            
-            <div class="perk-category">
-                <h4>🚀 Heavy Weapon Perks</h4>
-                <ul class="perk-list">
-                    <li class="perk-item">
-                        <span class="perk-name">Heavy Metal</span>
-                        <span class="perk-desc">Start with MGL Grenade Launcher</span>
-                    </li>
-                    <li class="perk-item">
-                        <span class="perk-name">Third Hand</span>
-                        <span class="perk-desc">Heavy weapon reload +50% faster</span>
-                    </li>
-                    <li class="perk-item">
-                        <span class="perk-name">Nimble</span>
-                        <span class="perk-desc">Move faster with heavy weapons</span>
-                    </li>
-                    <li class="perk-item">
-                        <span class="perk-name">Broad Shoulders</span>
-                        <span class="perk-desc">Carry more heavy ammo</span>
-                    </li>
-                    <li class="perk-item">
-                        <span class="perk-name">Welcoming Committee</span>
-                        <span class="perk-desc">+50% damage with RPG/MGL</span>
-                    </li>
-                </ul>
-            </div>
-            
-            <div class="perk-category">
-                <h4>🛡️ Survivability Perks</h4>
-                <ul class="perk-list">
-                    <li class="perk-item">
-                        <span class="perk-name">Thumper</span>
-                        <span class="perk-desc">Shotgun kills grant temp health</span>
-                    </li>
-                    <li class="perk-item">
-                        <span class="perk-name">Scorched Earth</span>
-                        <span class="perk-desc">Explosive kills leave fire patches</span>
-                    </li>
-                    <li class="perk-item">
-                        <span class="perk-name">Effective Radius</span>
-                        <span class="perk-desc">Take 50% less self-explosive damage</span>
-                    </li>
-                    <li class="perk-item">
-                        <span class="perk-name">Predator</span>
-                        <span class="perk-desc">25% less damage from specials</span>
-                    </li>
-                </ul>
-            </div>
-            
-            <!-- Prestige Perks -->
-            <div class="prestige-note">
-                ⭐ Red perks are permanent bonuses that unlock as you prestige. They appear in columns 1, 5, 9, and 13. You need level 30 and 7,500 supplies to prestige.
-            </div>
-            
-            <div class="perk-category">
-                <h4>⭐ Prestige Perks (Red Perks)</h4>
-                <p style="margin-bottom: 1rem; color: #6c757d;">March 2024 Update added: "Hole Punch II", "Blink of an eye", "Knock Knock II", and "Directed Blast III" for Prestige 6-9</p>
-                <ul class="perk-list">
-                    <li class="perk-item prestige-perk">
-                        <span class="perk-name">Prestige 1-4</span>
-                        <span class="perk-desc">Core red perks for explosion damage and refills</span>
-                    </li>
-                    <li class="perk-item prestige-perk">
-                        <span class="perk-name">Prestige 6-9</span>
-                        <span class="perk-desc">Enhanced explosion perks from recent updates</span>
-                    </li>
-                </ul>
-            </div>
-            
-            <div class="warning-box">
-                <strong>💡 Important:</strong> When you prestige, you lose all purchased perks and must re-buy them. Consider saving to prestige 4+ before buying perks.
+            <div class="tip-box" style="background: rgba(255,255,255,0.2); border: 2px solid rgba(255,255,255,0.5); color: white; margin-top: 1.5rem;">
+                <strong>💡 Note:</strong> Rank 5 prestige perk appears to be missing from the data. With Directed Blast II and III, you can kill 15% more targets with explosives!
             </div>
         </section>
         
@@ -407,59 +890,119 @@
             <h2>🎯 Recommended Builds</h2>
             
             <div class="build-card">
-                <h3>🌟 Beginner Build - "Boom Basics"</h3>
-                <p>Focus on C4 management and self-preservation.</p>
+                <h3>🌟 Beginner Build - "Safe Demolition"</h3>
+                <p>Focus on survivability and basic explosive effectiveness. Perfect for learning placement and timing.</p>
+                <div class="build-perks">
+                    <strong>Essential Perks:</strong>
+                    <span class="perk-choice">Throwing arm</span>
+                    <span class="perk-choice">Not Today</span>
+                    <span class="perk-choice">Unshakeable</span>
+                    <span class="perk-choice">Wheatgrass</span>
+                    <span class="perk-choice">Tooled Up</span>
+                    <span class="perk-choice">Hollywood</span>
+                    <span class="perk-choice">Deep Pockets</span>
+                </div>
+                <div class="build-perks">
+                    <strong>Prestige Focus:</strong>
+                    <span class="perk-choice">Throwing Arm II</span>
+                    <span class="perk-choice">Directed Blast II</span>
+                </div>
                 <ul>
-                    <li><strong>Priority:</strong> Extra charges and damage reduction</li>
-                    <li><strong>Key Focus:</strong> Welcome Mat, Deep Pockets, Effective Radius</li>
-                    <li><strong>Playstyle:</strong> Pre-place C4, detonate safely</li>
-                    <li><strong>Weapons:</strong> Shotgun + any backup</li>
+                    <li><strong>Playstyle:</strong> Throw C4 from safe distance, immune to self-damage</li>
+                    <li><strong>Equipment:</strong> 3 C4 charges with Tooled Up</li>
+                    <li><strong>Survivability:</strong> +25% health, extra incapacitation, 30% explosive resistance for team</li>
                 </ul>
                 <div class="tip-box">
-                    <strong>💡 Tip:</strong> Place C4 at choke points before swarms arrive for maximum effect!</strong>
+                    <strong>💡 Tip:</strong> With Unshakeable, you can detonate C4 at point-blank range without taking damage!</strong>
                 </div>
             </div>
             
             <div class="build-card">
-                <h3>💣 Demolition Build - "Delete Button"</h3>
-                <p>Maximum C4 damage and area coverage. Erase entire swarms.</p>
+                <h3>💣 Maximum Destruction Build - "Delete Everything"</h3>
+                <p>Maximum kill potential with all explosives. For when you want to clear the entire screen.</p>
+                <div class="build-perks">
+                    <strong>Essential Perks:</strong>
+                    <span class="perk-choice">Here Kitty</span>
+                    <span class="perk-choice">Green Fingered</span>
+                    <span class="perk-choice">Directed Blast</span>
+                    <span class="perk-choice">Demolition Squad</span>
+                    <span class="perk-choice">Tooled Up</span>
+                    <span class="perk-choice">Scorched Earth</span>
+                    <span class="perk-choice">Heavy Rain</span>
+                    <span class="perk-choice">Technician</span>
+                </div>
+                <div class="build-perks">
+                    <strong>Prestige Focus:</strong>
+                    <span class="perk-choice">Directed Blast II</span>
+                    <span class="perk-choice">Directed Blast III</span>
+                </div>
                 <ul>
-                    <li><strong>Priority:</strong> Explosion size and damage</li>
-                    <li><strong>Key Focus:</strong> Directed Blast, Knock Knock, Hole Punch</li>
-                    <li><strong>Playstyle:</strong> Strategic placement for multi-kills</li>
-                    <li><strong>Weapons:</strong> Explosive Shotgun synergy</li>
+                    <li><strong>Kill Potential:</strong> +100% explosive damage, +50% more targets killed</li>
+                    <li><strong>Here Kitty:</strong> Groups zombies for massive multi-kills</li>
+                    <li><strong>Fire Zones:</strong> Scorched Earth creates lingering damage areas</li>
                 </ul>
                 <div class="tip-box">
-                    <strong>💡 Tip:</strong> Directed Blast + Hole Punch can clear entire corridors!</strong>
+                    <strong>💡 Tip:</strong> With all bonuses, your C4 can kill 21+ zombies per explosion!</strong>
                 </div>
             </div>
             
             <div class="build-card">
-                <h3>🔄 Regeneration Build - "Endless Explosions"</h3>
-                <p>Never run out of C4. Constant explosive spam.</p>
+                <h3>🔄 Regeneration Build - "Infinite Explosives"</h3>
+                <p>Never run out of equipment. Constant C4 and Claymore spam through smart kill chains.</p>
+                <div class="build-perks">
+                    <strong>Essential Perks:</strong>
+                    <span class="perk-choice">Welcome Mat</span>
+                    <span class="perk-choice">Pickpocket</span>
+                    <span class="perk-choice">I'll Take That</span>
+                    <span class="perk-choice">Free Refill I</span>
+                    <span class="perk-choice">Free Refill II</span>
+                    <span class="perk-choice">Third Hand</span>
+                    <span class="perk-choice">Job Satisfaction</span>
+                </div>
+                <div class="build-perks">
+                    <strong>Prestige Focus:</strong>
+                    <span class="perk-choice">Knock Knock II</span>
+                </div>
                 <ul>
-                    <li><strong>Priority:</strong> C4 regeneration and charges</li>
-                    <li><strong>Key Focus:</strong> Free Refill, Job Satisfaction, Scavenger</li>
-                    <li><strong>Playstyle:</strong> Aggressive C4 usage, quick refills</li>
-                    <li><strong>Weapons:</strong> Fast-killing weapons for refills</li>
+                    <li><strong>Refill Sources:</strong> 15-kill chains, special kills, equipment kills</li>
+                    <li><strong>Cooldowns:</strong> 60 seconds between refills</li>
+                    <li><strong>Bonus:</strong> Temp health from kill chains, instant reload</li>
                 </ul>
-                <div class="tip-box">
-                    <strong>💡 Tip:</strong> With proper kill chains, you can throw C4 every 15 kills!</strong>
+                <div class="warning-box">
+                    <strong>⚠️ Note:</strong> Here Kitty reduces kill count by 35% - avoid it for this build!</strong>
                 </div>
             </div>
             
             <div class="build-card">
-                <h3>🚀 Heavy Artillery Build - "Walking Tank"</h3>
-                <p>Focus on heavy weapons and RPG/MGL mastery.</p>
-                <ul>
-                    <li><strong>Priority:</strong> Heavy weapon effectiveness</li>
-                    <li><strong>Key Focus:</strong> Heavy Metal, Third Hand, Welcoming Committee</li>
-                    <li><strong>Playstyle:</strong> RPG/MGL primary, C4 backup</li>
-                    <li><strong>Weapons:</strong> MGL + RPG when available</li>
-                </ul>
-                <div class="tip-box">
-                    <strong>💡 Tip:</strong> MGL with explosive ammo from Fixer = screen clear!</strong>
+                <h3>🚀 Heavy Artillery Build - "Walking Weapons Platform"</h3>
+                <p>Focus on MGL and heavy weapon mastery with maximum ammo capacity.</p>
+                <div class="build-perks">
+                    <strong>Essential Perks:</strong>
+                    <span class="perk-choice">Welcoming Committee</span>
+                    <span class="perk-choice">Deep Pockets</span>
+                    <span class="perk-choice">Thumper</span>
+                    <span class="perk-choice">Heavy Rain</span>
+                    <span class="perk-choice">Predator</span>
                 </div>
+                <div class="build-perks">
+                    <strong>Prestige Focus:</strong>
+                    <span class="perk-choice">Thumper II</span>
+                    <span class="perk-choice">Blink of an eye</span>
+                </div>
+                <div class="build-perks">
+                    <strong>Red Perks:</strong>
+                    <span class="perk-choice">Impact grenades</span>
+                    <span class="perk-choice">You've worn me out</span>
+                    <span class="perk-choice">Free Refill III</span>
+                    <span class="perk-choice">Ride of the Valkyries</span>
+                    <span class="perk-choice">All around is ashes</span>
+                </div>
+                <ul>
+                    <li><strong>MGL:</strong> 50% more damage, 50% more ammo (12 shots), impact detonation</li>
+                    <li><strong>Thumper:</strong> +25% damage, extra ammo with prestige</li>
+                    <li><strong>Rocket Launcher:</strong> 50% more zombie kills when found</li>
+                    <li><strong>Mortar:</strong> 25% more targets (50 total)</li>
+                </ul>
             </div>
         </section>
         
@@ -469,22 +1012,76 @@
             <div class="synergy-grid">
                 <div class="synergy-card">
                     <h3>🔧 Hellraiser + Fixer</h3>
-                    <p>The destruction duo. Infinite explosives with ammo support.</p>
+                    <p>The ultimate destruction combo. Infinite explosives with ammo support.</p>
                     <span class="synergy-rating synergy-excellent">EXCELLENT</span>
-                    <p><strong>Why it works:</strong> Explosive ammo + C4 + equipment refills = non-stop explosions.</p>
+                    <p><strong>Key Combo:</strong> Explosive ammo + MGL + Equipment refills = screen clear</p>
                 </div>
                 <div class="synergy-card">
                     <h3>🔥 Hellraiser + Exterminator</h3>
-                    <p>Fire and explosions. Total area denial specialists.</p>
+                    <p>Fire and explosions everywhere. Total area denial.</p>
                     <span class="synergy-rating synergy-excellent">EXCELLENT</span>
-                    <p><strong>Why it works:</strong> C4 creates openings, fire controls flow. Maximum crowd clear.</p>
+                    <p><strong>Key Combo:</strong> Scorched Earth + Molotovs = persistent fire zones</p>
                 </div>
                 <div class="synergy-card">
                     <h3>🏥 Hellraiser + Medic</h3>
-                    <p>Explosive damage with healing support.</p>
+                    <p>Explosive damage with healing backup for aggressive play.</p>
                     <span class="synergy-rating synergy-good">GOOD</span>
-                    <p><strong>Why it works:</strong> Medic prevents self-damage deaths. Temp health for aggressive play.</p>
+                    <p><strong>Key Combo:</strong> Combat Medic stims during explosive spam</p>
                 </div>
+                <div class="synergy-card">
+                    <h3>🤖 Hellraiser + Dronemaster</h3>
+                    <p>Automated defense + manual destruction.</p>
+                    <span class="synergy-rating synergy-good">GOOD</span>
+                    <p><strong>Key Combo:</strong> Drone stuns groups for perfect C4 placement</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Advanced Tips -->
+        <section class="card">
+            <h2>🎓 Advanced Hellraiser Techniques</h2>
+            
+            <div class="build-card">
+                <h3>💣 C4 Mastery</h3>
+                <ul>
+                    <li><strong>Base Targets:</strong> 14 zombies (9 with Here Kitty)</li>
+                    <li><strong>With bonuses:</strong> Up to 21+ targets per C4</li>
+                    <li><strong>Throwing Distance:</strong> +75% with both Throwing Arm perks</li>
+                    <li><strong>Here Kitty Timer:</strong> 5-second attraction before detonation</li>
+                    <li><strong>Alert red:</strong> Creates damaging gas cloud after explosion</li>
+                </ul>
+            </div>
+            
+            <div class="build-card">
+                <h3>🎯 Claymore Tactics</h3>
+                <ul>
+                    <li><strong>Welcome Mat:</strong> 3-second attraction delay before explosion</li>
+                    <li><strong>Green Fingered:</strong> 50% faster planting, 25% chance free placement</li>
+                    <li><strong>Capacity:</strong> Up to 4 Claymores with Tooled Up</li>
+                    <li><strong>Perfect composition:</strong> +25% explosion radius</li>
+                    <li><strong>Scorched Earth:</strong> Leaves fire patch after detonation</li>
+                </ul>
+            </div>
+            
+            <div class="build-card">
+                <h3>🚀 MGL Optimization</h3>
+                <ul>
+                    <li><strong>Base Ammo:</strong> 8 rounds</li>
+                    <li><strong>Heavy Rain:</strong> 12 rounds, +50% damage</li>
+                    <li><strong>Impact Grenades:</strong> Explode on contact (red perk)</li>
+                    <li><strong>You've worn me out:</strong> Equipment kills restore 2 MGL rounds</li>
+                    <li><strong>Deep Pockets:</strong> +35% carried ammo capacity</li>
+                </ul>
+            </div>
+            
+            <div class="build-card">
+                <h3>⏱️ Cooldown Management</h3>
+                <ul>
+                    <li><strong>Pickpocket:</strong> 60-second cooldown for 15-kill refill</li>
+                    <li><strong>I'll Take That:</strong> 60-second cooldown for special kill refill</li>
+                    <li><strong>Free Refill III:</strong> 180-second cooldown for MGL drop</li>
+                    <li><strong>Track timers:</strong> Alternate refill sources for constant equipment</li>
+                </ul>
             </div>
         </section>
         
@@ -495,126 +1092,41 @@
             <div class="build-card">
                 <h3>🐂 Bull</h3>
                 <ul>
-                    <li>Pre-place C4 in charge path</li>
-                    <li>Direct hit stops charge instantly</li>
-                    <li>RPG to the face = dead Bull</li>
-                    <li>Here Kitty draws Bull to C4</li>
+                    <li>Pre-place C4 in charge path for instant kill</li>
+                    <li>Here Kitty draws Bull to C4 automatically</li>
+                    <li>Claymores with Welcome Mat create 3-second stun window</li>
+                    <li>MGL with impact grenades stops charge instantly</li>
+                    <li>Bounty Hunter gives +25% damage to specials</li>
                 </ul>
             </div>
             
             <div class="build-card">
                 <h3>🤢 Gasbag</h3>
                 <ul>
-                    <li>C4 from maximum distance</li>
-                    <li>Explosion triggers gas safely away</li>
-                    <li>Never place C4 near team</li>
-                    <li>MGL for safe ranged kills</li>
-                </ul>
-            </div>
-            
-            <div class="build-card">
-                <h3>👻 Lurker</h3>
-                <ul>
-                    <li>C4 common hiding spots</li>
-                    <li>Alert perk masks you after explosion</li>
-                    <li>Shotgun for close encounters</li>
-                    <li>Listen for growls before placing</li>
-                </ul>
-            </div>
-            
-            <div class="build-card">
-                <h3>😱 Screamer</h3>
-                <ul>
-                    <li>Quick C4 throw and detonate</li>
-                    <li>RPG for instant silent kill</li>
-                    <li>Pre-place at spawn points</li>
-                    <li>If scream starts, C4 the swarm spawn</li>
+                    <li>Throw C4 from maximum distance (75% further with perks)</li>
+                    <li>Never place Claymores near team positions</li>
+                    <li>MGL for safe ranged elimination</li>
+                    <li>Hollywood reduces gas cloud damage by 30% for team</li>
                 </ul>
             </div>
             
             <div class="build-card">
                 <h3>🧟 Bomber</h3>
                 <ul>
-                    <li>C4 creates chain reactions</li>
-                    <li>Use Bombers as walking bombs</li>
-                    <li>Place C4 behind bomber groups</li>
-                    <li>Effective Radius prevents self-damage</li>
+                    <li>Use Bombers as walking C4 - create chain reactions</li>
+                    <li>Place C4 behind Bomber groups for massive chains</li>
+                    <li>Unshakeable prevents all self-damage from chains</li>
+                    <li>Scorched Earth maximizes area denial from explosions</li>
                 </ul>
             </div>
-        </section>
-        
-        <!-- Situational Tactics -->
-        <section class="card">
-            <h2>📍 Situational Tactics</h2>
             
             <div class="build-card">
-                <h3>🌊 Swarm Defense</h3>
-                <ol>
-                    <li>Pre-place all C4 at entry points</li>
-                    <li>Wait for maximum density</li>
-                    <li>Chain detonate for cascading kills</li>
-                    <li>Use Free Refill between waves</li>
-                    <li>Save one C4 for emergency</li>
-                </ol>
-            </div>
-            
-            <div class="build-card">
-                <h3>🏃 Running Sections</h3>
-                <ol>
-                    <li>Drop C4 while running</li>
-                    <li>Detonate when chasers bunch up</li>
-                    <li>Clear path ahead with RPG</li>
-                    <li>Here Kitty buys time</li>
-                    <li>Alert for invisible escape</li>
-                </ol>
-            </div>
-            
-            <div class="build-card">
-                <h3>👹 Boss Fights</h3>
-                <ol>
-                    <li>Save C4 for add phases</li>
-                    <li>Direct damage on boss with RPG</li>
-                    <li>Pre-place at add spawn doors</li>
-                    <li>Chain explosions for quick clear</li>
-                    <li>Manage self-damage carefully</li>
-                </ol>
-            </div>
-            
-            <div class="build-card">
-                <h3>🛡️ Escort Missions</h3>
-                <ol>
-                    <li>C4 ahead of objective path</li>
-                    <li>Create safe zones with explosions</li>
-                    <li>Here Kitty draws zombies away</li>
-                    <li>Save charges for final push</li>
-                    <li>Clear climbers with single C4</li>
-                </ol>
-            </div>
-        </section>
-        
-        <!-- Quick Reference -->
-        <section class="card">
-            <h2>📋 Quick Reference</h2>
-            
-            <div class="build-card">
-                <h3>💣 C4 Placement Guide</h3>
-                <ol>
-                    <li><strong>Doorways:</strong> Maximum funnel damage</li>
-                    <li><strong>Climb spots:</strong> Clear pyramid instantly</li>
-                    <li><strong>Corners:</strong> Surprise detonation</li>
-                    <li><strong>Spawn points:</strong> Pre-emptive clear</li>
-                    <li><strong>Escape routes:</strong> Cover retreat</li>
-                </ol>
-            </div>
-            
-            <div class="build-card">
-                <h3>💥 Detonation Timing</h3>
+                <h3>🧊 Infector</h3>
                 <ul>
-                    <li><strong>Maximum density:</strong> Wait for groups</li>
-                    <li><strong>Special priority:</strong> Bulls and Gasbags first</li>
-                    <li><strong>Chain reaction:</strong> Use Bombers</li>
-                    <li><strong>Pyramid base:</strong> Single C4 clears all</li>
-                    <li><strong>Emergency only:</strong> Keep one reserved</li>
+                    <li>Quick C4 throw and detonate before spit</li>
+                    <li>Predator perk: +50% damage for 10 seconds after kill</li>
+                    <li>I'll Take That restores equipment on kill</li>
+                    <li>Breaching Charge for instant elimination</li>
                 </ul>
             </div>
         </section>
@@ -624,13 +1136,14 @@
             <div class="warning-box">
                 <h3>⚠️ Common Hellraiser Mistakes to Avoid</h3>
                 <ul>
-                    <li><strong>Self-damage:</strong> Too close to own explosions</li>
-                    <li><strong>Team damage:</strong> C4 near teammates</li>
-                    <li><strong>Waste on small groups:</strong> Save for swarms</li>
-                    <li><strong>Poor timing:</strong> Detonating too early/late</li>
-                    <li><strong>Hoarding C4:</strong> Use them to get refills</li>
-                    <li><strong>Ignoring heavy weapons:</strong> They're powerful!</li>
-                    <li><strong>Bad placement:</strong> Missing choke points</li>
+                    <li><strong>Friendly fire:</strong> Not warning team before detonating</li>
+                    <li><strong>Wasting C4:</strong> Using on small groups instead of swarms</li>
+                    <li><strong>Poor timing:</strong> Detonating too early before maximum density</li>
+                    <li><strong>Ignoring Claymores:</strong> They're powerful area denial tools</li>
+                    <li><strong>Not using MGL:</strong> You start with it - use it!</li>
+                    <li><strong>Bad Here Kitty usage:</strong> Reduces kills by 35% - plan accordingly</li>
+                    <li><strong>Hoarding equipment:</strong> Use it to trigger refill cooldowns</li>
+                    <li><strong>Missing Demolition Squad:</strong> Level 10 gives TEAM-WIDE explosive boost</li>
                 </ul>
             </div>
         </section>
@@ -640,14 +1153,16 @@
             <h2>🌟 Tips for New Hellraiser Players</h2>
             <div class="tip-box">
                 <ol>
-                    <li><strong>Learn spawn points</strong> - Pre-place for maximum effect</li>
-                    <li><strong>Master detonation timing</strong> - Wait for density</li>
-                    <li><strong>Manage self-damage</strong> - Distance is key</li>
-                    <li><strong>Chain your kills</strong> - Refills come from streaks</li>
-                    <li><strong>Communicate C4 placement</strong> - Warn teammates</li>
-                    <li><strong>Use Here Kitty wisely</strong> - 5-second timer</li>
-                    <li><strong>Don't forget shotgun</strong> - Great for refills</li>
-                    <li><strong>Practice with Directed Blast</strong> - Aim matters!</li>
+                    <li><strong>Start with Unshakeable:</strong> Eliminates self-damage worry</li>
+                    <li><strong>Learn spawn points:</strong> Pre-place C4 for maximum effect</li>
+                    <li><strong>Master the 5-second rule:</strong> Here Kitty timing is crucial</li>
+                    <li><strong>Track your cooldowns:</strong> 60/60/180 second refill timers</li>
+                    <li><strong>Communicate:</strong> Always warn before big explosions</li>
+                    <li><strong>Use all three tools:</strong> C4, Claymores, AND MGL</li>
+                    <li><strong>Combo with fire:</strong> Scorched Earth creates persistent damage</li>
+                    <li><strong>Watch for Bombers:</strong> They're free chain reaction tools</li>
+                    <li><strong>Save for swarms:</strong> Don't waste on stragglers</li>
+                    <li><strong>Prestige early:</strong> Those permanent bonuses stack up fast</li>
                 </ol>
             </div>
         </section>
