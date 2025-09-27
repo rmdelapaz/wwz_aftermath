@@ -3,30 +3,189 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Slasher — Class Guide — WWZ: Aftermath - Comprehensive guide for World War Z: Aftermath">
-    <meta name="keywords" content="World War Z, Aftermath, zombie, guide, class, slasher">
+    <meta name="description" content="Slasher Class Guide - Master melee combat and close-quarters fighting in World War Z: Aftermath">
+    <meta name="keywords" content="World War Z, Aftermath, Slasher, class guide, melee, stun gun, tank">
     <meta name="author" content="WWZ Guide Team">
-    <title>Slasher — Class Guide — WWZ: Aftermath</title>
+    <title>Slasher Class Guide - World War Z: Aftermath</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="styles/main.css">
-    <script type="module">
-        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
-        mermaid.initialize({ 
-            startOnLoad: true,
-            theme: 'default'
-        });
-    </script>
+    <style>
+        /* Class-specific styling */
+        .class-header {
+            background: linear-gradient(135deg, #8b0000 0%, #dc143c 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .perk-category {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        
+        .perk-category h4 {
+            color: #495057;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .perk-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .perk-item {
+            background: white;
+            padding: 0.75rem 1rem;
+            margin: 0.5rem 0;
+            border-radius: 4px;
+            border-left: 3px solid #dc143c;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .perk-name {
+            font-weight: bold;
+            color: #495057;
+        }
+        
+        .perk-desc {
+            color: #6c757d;
+            font-size: 0.9rem;
+        }
+        
+        .prestige-perk {
+            border-left-color: #764ba2;
+            background: #f8f5ff;
+        }
+        
+        .core-ability {
+            background: linear-gradient(135deg, #ffe0e0 0%, #ffb3b3 100%);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border: 2px solid #dc143c;
+        }
+        
+        .build-section {
+            margin: 2rem 0;
+        }
+        
+        .build-card {
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+        
+        .build-card h3 {
+            color: #495057;
+            margin-bottom: 1rem;
+        }
+        
+        .role-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: #dc143c;
+            color: white;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin: 0.25rem;
+        }
+        
+        .tip-box {
+            background: #e7f5ff;
+            border: 1px solid #74c0fc;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .warning-box {
+            background: #fff5f5;
+            border: 1px solid #ff8787;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .prestige-note {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            text-align: center;
+        }
+        
+        .synergy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .synergy-card {
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            padding: 1.25rem;
+            transition: transform 0.2s;
+        }
+        
+        .synergy-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .synergy-rating {
+            font-weight: bold;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            display: inline-block;
+            margin-top: 0.5rem;
+        }
+        
+        .synergy-excellent {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .synergy-good {
+            background: #cce5ff;
+            color: #004085;
+        }
+        
+        .equipment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .equipment-item {
+            text-align: center;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        
+        .equipment-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+    </style>
 </head>
 <body>
     <!-- Skip to main content for accessibility -->
     <a href="#main-content" class="skip-to-main">Skip to main content</a>
     
-    <!-- Progress indicator -->
-    <div class="progress-indicator" role="progressbar" aria-label="Page scroll progress">
-        <div class="progress-bar"></div>
-    </div>
-    
-
     <!-- Navigation -->
     <nav class="main-nav">
         <div class="nav-container">
@@ -43,7 +202,7 @@
                         <a href="class_fixer.html">Fixer</a>
                         <a href="class_gunslinger.html">Gunslinger</a>
                         <a href="class_exterminator.html">Exterminator</a>
-                        <a href="class_slasher.html">Slasher</a>
+                        <a href="class_slasher.html" class="current">Slasher</a>
                         <a href="class_hellraiser.html">Hellraiser</a>
                         <a href="class_dronemaster.html">Dronemaster</a>
                         <a href="class_vanguard.html">Vanguard</a>
@@ -57,79 +216,455 @@
         </div>
     </nav>
     
-
-    <!-- Breadcrumb Navigation -->
-    <nav class="breadcrumb" aria-label="Breadcrumb">
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="classes_overview.html">Classes</a></li>
-            <li aria-current="page">Slasher</li>
-        </ul>
-    </nav>
-    
     <!-- Main Content -->
     <main id="main-content">
-        <header>
-<h1>Slasher — Class Guide</h1>
-<p>Spoiler-light, beginner-focused build and habits.</p>
-
-</header><section class="card">
-<h2>Identity &amp; role</h2>
-<div class="grid">
-<div>
-<h3>Role</h3>
-<p>Melee control and stuns to protect the line.</p>
-<h3>Why pick</h3>
-<p>Low ammo stress; great when learning positioning and crowd control.</p>
-</div>
-<div>
-<h3>At a glance</h3>
-<div class="mermaid">
-          flowchart TD
-            A[Slasher] --&gt; B[Team Value]
-            B --&gt; C[Primary: Melee control and stuns to protect the line]
-            B --&gt; D[Secondary: Survivability]
-            B --&gt; E[Utility]
-        </div>
-</div>
-</div>
-</section><section class="card">
-<h2>Starter build (new player friendly)</h2>
-<p class="small">Designed to be safe and simple. Exact perk names vary by patch; focus on the effect described.</p>
-<ul>
-<li>Choose perks that <strong>buff melee damage/stagger</strong> and <strong>reduce incoming damage while swinging</strong>.</li><li>Carry a <strong>shotgun or SMG</strong> for specials that you shouldn’t melee.</li><li>Grab stuns that <strong>reset the line</strong> when a bull/charger appears.</li>
-</ul>
-<p class="tip small">Pair with teammates who can cover your weaknesses (see Classes Hub for synergies).</p>
-</section><section class="card">
-<h2>Simple gameplay loop</h2>
-<div class="mermaid">
-      flowchart LR
-        Scan[Scan the lane] --&gt; Prep[Pre-place utility]
-        Prep --&gt; Engage[Engage the horde]
-        Engage --&gt; Stabilize[Stabilize with class tools]
-        Stabilize --&gt; Recover[Ammo/Heal/Regroup]
-        Recover --&gt; Scan
-    </div>
-</section><section class="card">
-<h2>Tips</h2>
-<ul>
-<li>Don’t overextend—hold just ahead of the team to catch stragglers.</li><li>Time swings to <em>interrupt</em> lunges; back up during reloads.</li><li>Ping bulls; step aside for teammates to shoot weak points.</li>
-</ul>
-</section><footer class="small">
-<p>Unofficial guide. Use in-game descriptions for exact perk names; this page focuses on outcomes so it's patch-proof for beginners.</p>
-</footer>
+        <!-- Class Header -->
+        <header class="class-header">
+            <h1>🗡️ Slasher Class Guide</h1>
+            <div class="role-badges">
+                <span class="role-badge">Melee Tank</span>
+                <span class="role-badge">Crowd Control</span>
+                <span class="role-badge">Frontline Fighter</span>
+            </div>
+            <p><strong>Core Role:</strong> Dominate close combat with melee weapons and stun abilities while tanking damage</p>
+        </header>
+        
+        <!-- Quick Stats -->
+        <section class="card">
+            <h2>📊 Quick Stats</h2>
+            <div class="equipment-grid">
+                <div class="equipment-item">
+                    <div class="equipment-icon">⚡</div>
+                    <strong>Stun Gun</strong>
+                    <p>Area stun & damage</p>
+                </div>
+                <div class="equipment-item">
+                    <div class="equipment-icon">🗡️</div>
+                    <strong>Melee Master</strong>
+                    <p>2x targets per swing</p>
+                </div>
+                <div class="equipment-item">
+                    <div class="equipment-icon">🛡️</div>
+                    <strong>Tank Build</strong>
+                    <p>Extra health & resist</p>
+                </div>
+                <div class="equipment-item">
+                    <div class="equipment-icon">💨</div>
+                    <strong>No Slowdown</strong>
+                    <p>Full speed when swarmed</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Core Ability -->
+        <section class="card">
+            <h2>⚡ Core Ability</h2>
+            <div class="core-ability">
+                <h3>Shock Troops</h3>
+                <p><strong>Base Effect:</strong> Start with Stun Gun and enhanced melee combat abilities</p>
+                <p><strong>Passive Bonus:</strong> Melee strikes hit 2 targets, more strikes before fatigue</p>
+                <p><strong>Starting Gear:</strong> Stun Gun and Compact SMG</p>
+                <p><strong>Pro Tip:</strong> The Stun Gun can save pinned teammates instantly and clears entire groups!</p>
+            </div>
+        </section>
+        
+        <!-- Slasher Perks Overview -->
+        <section class="card">
+            <h2>🗡️ Slasher Perks Overview</h2>
+            
+            <div class="warning-box">
+                <strong>⚠️ Note:</strong> The skill system uses a 13-column grid where you choose one perk per column. Red perks (columns 1, 5, 9, 13) are permanent bonuses unlocked through prestige. Exact perk positions may vary by game version.
+            </div>
+            
+            <!-- Regular Perks -->
+            <div class="perk-category">
+                <h4>🗡️ Melee Combat Perks</h4>
+                <ul class="perk-list">
+                    <li class="perk-item">
+                        <span class="perk-name">Crowd Control</span>
+                        <span class="perk-desc">Push radius from melee +50%</span>
+                    </li>
+                    <li class="perk-item">
+                        <span class="perk-name">Heavy Strike</span>
+                        <span class="perk-desc">Melee damage +50%</span>
+                    </li>
+                    <li class="perk-item">
+                        <span class="perk-name">Samurai</span>
+                        <span class="perk-desc">Melee hits grant temp health</span>
+                    </li>
+                    <li class="perk-item">
+                        <span class="perk-name">Slice and Dice</span>
+                        <span class="perk-desc">Melee speed +50%</span>
+                    </li>
+                    <li class="perk-item">
+                        <span class="perk-name">Whirlwind</span>
+                        <span class="perk-desc">Melee hits 3 targets instead of 2</span>
+                    </li>
+                    <li class="perk-item">
+                        <span class="perk-name">Trophy Hunter</span>
+                        <span class="perk-desc">Special kills restore stamina</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="perk-category">
+                <h4>⚡ Stun Gun & Equipment Perks</h4>
+                <ul class="perk-list">
+                    <li class="perk-item">
+                        <span class="perk-name">Juiced Up</span>
+                        <span class="perk-desc">Stun Gun duration +100%</span>
+                    </li>
+                    <li class="perk-item">
+                        <span class="perk-name">Zeus</span>
+                        <span class="perk-desc">Stun Gun range +50%, hits 20 targets</span>
+                    </li>
+                    <li class="perk-item">
+                        <span class="perk-name">High Voltage</span>
+                        <span class="perk-desc">Stun Gun damage +100%</span>
+                    </li>
+                    <li class="perk-item">
+                        <span class="perk-name">Flash Sale</span>
+                        <span class="perk-desc">Start with flashbang instead</span>
+                    </li>
+                    <li class="perk-item">
+                        <span class="perk-name">Disarm</span>
+                        <span class="perk-desc">Stun Gun instantly kills specials</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="perk-category">
+                <h4>🛡️ Tank & Survivability Perks</h4>
+                <ul class="perk-list">
+                    <li class="perk-item">
+                        <span class="perk-name">Rooted</span>
+                        <span class="perk-desc">12 zombies needed to pin (up from 8)</span>
+                    </li>
+                    <li class="perk-item">
+                        <span class="perk-name">All Elbows</span>
+                        <span class="perk-desc">No speed penalty when swarmed</span>
+                    </li>
+                    <li class="perk-item">
+                        <span class="perk-name">Vigorous</span>
+                        <span class="perk-desc">+25% max health</span>
+                    </li>
+                    <li class="perk-item">
+                        <span class="perk-name">Adrenaline</span>
+                        <span class="perk-desc">Temp health from kills</span>
+                    </li>
+                    <li class="perk-item">
+                        <span class="perk-name">Bullet Dodger</span>
+                        <span class="perk-desc">90% less friendly fire during melee</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="perk-category">
+                <h4>🔫 Weapon Support Perks</h4>
+                <ul class="perk-list">
+                    <li class="perk-item">
+                        <span class="perk-name">Cloak and Dagger</span>
+                        <span class="perk-desc">Silent melee kills grant invisibility</span>
+                    </li>
+                    <li class="perk-item">
+                        <span class="perk-name">Nimble</span>
+                        <span class="perk-desc">Faster movement speed</span>
+                    </li>
+                    <li class="perk-item">
+                        <span class="perk-name">Pickpocket</span>
+                        <span class="perk-desc">Melee kills drop supplies</span>
+                    </li>
+                    <li class="perk-item">
+                        <span class="perk-name">Bloodlust</span>
+                        <span class="perk-desc">Movement speed boost after melee kills</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Prestige Perks -->
+            <div class="prestige-note">
+                ⭐ Red perks are permanent bonuses that unlock as you prestige. They appear in columns 1, 5, 9, and 13. You need level 30 and 7,500 supplies to prestige.
+            </div>
+            
+            <div class="perk-category">
+                <h4>⭐ Prestige Perks (Red Perks)</h4>
+                <p style="margin-bottom: 1rem; color: #6c757d;">These permanent bonuses enhance your melee combat abilities</p>
+                <ul class="perk-list">
+                    <li class="perk-item prestige-perk">
+                        <span class="perk-name">Prestige 1-4</span>
+                        <span class="perk-desc">Core red perks for melee damage and survivability</span>
+                    </li>
+                    <li class="perk-item prestige-perk">
+                        <span class="perk-name">Prestige 6-9</span>
+                        <span class="perk-desc">Additional red perks from recent updates</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="warning-box">
+                <strong>💡 Important:</strong> When you prestige, you lose all purchased perks and must re-buy them. Consider saving to prestige 4+ before buying perks.
+            </div>
+        </section>
+        
+        <!-- Build Recommendations -->
+        <section class="card">
+            <h2>🎯 Recommended Builds</h2>
+            
+            <div class="build-card">
+                <h3>🌟 Beginner Build - "Survivor"</h3>
+                <p>Focus on staying alive while learning melee mechanics.</p>
+                <ul>
+                    <li><strong>Priority:</strong> Health and crowd control</li>
+                    <li><strong>Key Focus:</strong> Rooted, All Elbows, Vigorous, Bullet Dodger</li>
+                    <li><strong>Playstyle:</strong> Tank damage, control crowds, support team</li>
+                    <li><strong>Weapons:</strong> Machete + Shotgun for backup</li>
+                </ul>
+                <div class="tip-box">
+                    <strong>💡 Tip:</strong> You can tank entire swarms with proper positioning. Stand in doorways!</strong>
+                </div>
+            </div>
+            
+            <div class="build-card">
+                <h3>⚡ Zeus Build - "Electric God"</h3>
+                <p>Maximum stun gun effectiveness. Control entire areas with electricity.</p>
+                <ul>
+                    <li><strong>Priority:</strong> Stun gun range, damage, and duration</li>
+                    <li><strong>Key Focus:</strong> Zeus, High Voltage, Juiced Up, Disarm</li>
+                    <li><strong>Playstyle:</strong> Save stun for emergencies and special kills</li>
+                    <li><strong>Weapons:</strong> Any melee + SMG for range</li>
+                </ul>
+                <div class="tip-box">
+                    <strong>💡 Tip:</strong> Fully upgraded stun gun can clear 20 zombies instantly!</strong>
+                </div>
+            </div>
+            
+            <div class="build-card">
+                <h3>🗡️ Samurai Build - "Blade Master"</h3>
+                <p>Pure melee focus with health sustain. Never stop swinging.</p>
+                <ul>
+                    <li><strong>Priority:</strong> Melee damage, speed, and healing</li>
+                    <li><strong>Key Focus:</strong> Samurai, Heavy Strike, Whirlwind, Trophy Hunter</li>
+                    <li><strong>Playstyle:</strong> Constant melee combat, heal through damage</li>
+                    <li><strong>Weapons:</strong> Katana or Chainsaw when available</li>
+                </ul>
+                <div class="tip-box">
+                    <strong>💡 Tip:</strong> Samurai perk gives temp health per kill - you become immortal in swarms!</strong>
+                </div>
+            </div>
+            
+            <div class="build-card">
+                <h3>👻 Assassin Build - "Silent Blade"</h3>
+                <p>Stealth melee with hit-and-run tactics.</p>
+                <ul>
+                    <li><strong>Priority:</strong> Invisibility and speed</li>
+                    <li><strong>Key Focus:</strong> Cloak and Dagger, Nimble, Bloodlust</li>
+                    <li><strong>Playstyle:</strong> Silent kills, reposition, repeat</li>
+                    <li><strong>Weapons:</strong> Knife + Silenced weapons</li>
+                </ul>
+                <div class="tip-box">
+                    <strong>💡 Tip:</strong> Chain silent kills to stay invisible almost permanently!</strong>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Class Synergies -->
+        <section class="card">
+            <h2>🤝 Class Synergies</h2>
+            <div class="synergy-grid">
+                <div class="synergy-card">
+                    <h3>🏥 Slasher + Medic</h3>
+                    <p>The unkillable frontline. Medic keeps Slasher alive forever.</p>
+                    <span class="synergy-rating synergy-excellent">EXCELLENT</span>
+                    <p><strong>Why it works:</strong> Temp health + melee healing = infinite tank. Medic heals from safety.</p>
+                </div>
+                <div class="synergy-card">
+                    <h3>🔥 Slasher + Exterminator</h3>
+                    <p>Melee and fire combo. Perfect crowd control synergy.</p>
+                    <span class="synergy-rating synergy-good">GOOD</span>
+                    <p><strong>Why it works:</strong> Fire weakens, Slasher finishes. Slasher handles leakers.</p>
+                </div>
+                <div class="synergy-card">
+                    <h3>🛡️ Slasher + Vanguard</h3>
+                    <p>Double tank frontline. Impenetrable wall of death.</p>
+                    <span class="synergy-rating synergy-excellent">EXCELLENT</span>
+                    <p><strong>Why it works:</strong> Take turns tanking. Shield + melee covers all ranges.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Special Zombie Strategies -->
+        <section class="card">
+            <h2>🧟 Special Zombie Counter-Strategies</h2>
+            
+            <div class="build-card">
+                <h3>🐂 Bull</h3>
+                <ul>
+                    <li>Stun Gun instantly stops charge</li>
+                    <li>Sidestep and melee the back</li>
+                    <li>Can tank a charge with enough health</li>
+                    <li>Flash grenades blind for easy kill</li>
+                </ul>
+            </div>
+            
+            <div class="build-card">
+                <h3>🤢 Gasbag</h3>
+                <ul>
+                    <li>NEVER melee - instant gas explosion!</li>
+                    <li>Use ranged weapon or stun gun</li>
+                    <li>Let teammates handle from distance</li>
+                    <li>If forced close, stun and run</li>
+                </ul>
+            </div>
+            
+            <div class="build-card">
+                <h3>👻 Lurker</h3>
+                <ul>
+                    <li>All Elbows perk prevents easy pounce</li>
+                    <li>Quick melee breaks grapple</li>
+                    <li>Stun Gun reveals and kills</li>
+                    <li>Listen for growl, spin and melee</li>
+                </ul>
+            </div>
+            
+            <div class="build-card">
+                <h3>😱 Screamer</h3>
+                <ul>
+                    <li>Sprint and melee before scream</li>
+                    <li>Stun Gun for instant silent kill</li>
+                    <li>Throw stun grenade if too far</li>
+                    <li>Cloak and Dagger for stealth approach</li>
+                </ul>
+            </div>
+            
+            <div class="build-card">
+                <h3>🧟 Infector</h3>
+                <ul>
+                    <li>Priority melee target - stops spit</li>
+                    <li>Dodge sideways, not backwards</li>
+                    <li>Stun to interrupt spit animation</li>
+                    <li>One heavy melee usually kills</li>
+                </ul>
+            </div>
+        </section>
+        
+        <!-- Situational Tactics -->
+        <section class="card">
+            <h2>📍 Situational Tactics</h2>
+            
+            <div class="build-card">
+                <h3>🌊 Swarm Defense</h3>
+                <ol>
+                    <li>Hold the frontline at choke points</li>
+                    <li>Save stun gun for pyramid climbers</li>
+                    <li>Use doorways to limit attack angles</li>
+                    <li>Let team shoot over your shoulder</li>
+                    <li>Rotate to rest stamina between waves</li>
+                </ol>
+            </div>
+            
+            <div class="build-card">
+                <h3>🏃 Running Sections</h3>
+                <ol>
+                    <li>Lead the charge - you're the tank</li>
+                    <li>Clear path with melee swings</li>
+                    <li>Stun gun backwards at chasers</li>
+                    <li>All Elbows means no slowdown</li>
+                    <li>Drop stun grenades at corners</li>
+                </ol>
+            </div>
+            
+            <div class="build-card">
+                <h3>👹 Boss Fights</h3>
+                <ol>
+                    <li>Handle adds while team focuses boss</li>
+                    <li>Stun gun for emergency add clear</li>
+                    <li>Tank boss melee attacks if needed</li>
+                    <li>Create space for teammates</li>
+                    <li>Samurai perk sustains through damage</li>
+                </ol>
+            </div>
+            
+            <div class="build-card">
+                <h3>🛡️ Escort Missions</h3>
+                <ol>
+                    <li>Clear melee range around objective</li>
+                    <li>You push while team covers</li>
+                    <li>Stun gun for emergency stops</li>
+                    <li>Tank zombies off the objective</li>
+                    <li>Rooted perk prevents interruption</li>
+                </ol>
+            </div>
+        </section>
+        
+        <!-- Quick Reference -->
+        <section class="card">
+            <h2>📋 Quick Reference</h2>
+            
+            <div class="build-card">
+                <h3>🗡️ Melee Combat Tips</h3>
+                <ul>
+                    <li><strong>Swing timing:</strong> Wait for zombies to group</li>
+                    <li><strong>Stamina management:</strong> Don't spam, time swings</li>
+                    <li><strong>Positioning:</strong> Back to wall, face the horde</li>
+                    <li><strong>Target priority:</strong> Specials first, then crowds</li>
+                    <li><strong>Combo attacks:</strong> Heavy + light + heavy</li>
+                </ul>
+            </div>
+            
+            <div class="build-card">
+                <h3>⚡ Stun Gun Best Uses</h3>
+                <ul>
+                    <li><strong>Pyramid climbers:</strong> Instant team save</li>
+                    <li><strong>Pinned teammate:</strong> Instant rescue</li>
+                    <li><strong>Bull charge:</strong> Instant stop</li>
+                    <li><strong>Swarm breach:</strong> Emergency clear</li>
+                    <li><strong>Special killer:</strong> With Disarm perk</li>
+                </ul>
+            </div>
+        </section>
+        
+        <!-- Common Mistakes -->
+        <section class="card">
+            <div class="warning-box">
+                <h3>⚠️ Common Slasher Mistakes to Avoid</h3>
+                <ul>
+                    <li><strong>Melee spam:</strong> Wastes stamina, time your swings</li>
+                    <li><strong>Fighting Gasbags:</strong> Never melee them!</li>
+                    <li><strong>Poor positioning:</strong> Getting surrounded with no escape</li>
+                    <li><strong>Ignoring stamina:</strong> Always keep some reserve</li>
+                    <li><strong>Wasting stun gun:</strong> Save for emergencies</li>
+                    <li><strong>Tunnel vision:</strong> Watch for specials while slashing</li>
+                    <li><strong>Solo warrior:</strong> Stay with team, you're not invincible</li>
+                </ul>
+            </div>
+        </section>
+        
+        <!-- Tips for New Players -->
+        <section class="card">
+            <h2>🌟 Tips for New Slasher Players</h2>
+            <div class="tip-box">
+                <ol>
+                    <li><strong>Master positioning</strong> - Doorways and corners are your friend</li>
+                    <li><strong>Learn melee timing</strong> - Don't button mash</li>
+                    <li><strong>Manage stamina</strong> - Always keep some for emergencies</li>
+                    <li><strong>Prioritize specials</strong> - Your job is to protect the team</li>
+                    <li><strong>Use the stun gun wisely</strong> - It's your panic button</li>
+                    <li><strong>Stay with your team</strong> - You tank, they shoot</li>
+                    <li><strong>Learn enemy sounds</strong> - React before you see them</li>
+                    <li><strong>Practice melee combos</strong> - Heavy attacks stagger more</li>
+                </ol>
+            </div>
+        </section>
     </main>
     
     <!-- Footer -->
     <footer class="site-footer">
         <div class="footer-content">
             <p>&copy; 2024 WWZ: Aftermath Guide. Unofficial fan resource.</p>
-            <p><small>Use alongside in-game tutorials | <a href="printables.html">Print Cheatsheets</a> | Press ? for shortcuts</small></p>
         </div>
     </footer>
     
     <!-- JavaScript -->
-    <script src="js/clipboard.js"></script>
     <script src="js/course-enhancements.js"></script>
 </body>
 </html>

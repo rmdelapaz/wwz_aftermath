@@ -3,30 +3,189 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Dronemaster — Class Guide — WWZ: Aftermath - Comprehensive guide for World War Z: Aftermath">
-    <meta name="keywords" content="World War Z, Aftermath, zombie, guide, class, dronemaster">
+    <meta name="description" content="Dronemaster Class Guide - Master drone support and tactical advantage in World War Z: Aftermath">
+    <meta name="keywords" content="World War Z, Aftermath, Dronemaster, class guide, drone, support, tactical">
     <meta name="author" content="WWZ Guide Team">
-    <title>Dronemaster — Class Guide — WWZ: Aftermath</title>
+    <title>Dronemaster Class Guide - World War Z: Aftermath</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="styles/main.css">
-    <script type="module">
-        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
-        mermaid.initialize({ 
-            startOnLoad: true,
-            theme: 'default'
-        });
-    </script>
+    <style>
+        /* Class-specific styling */
+        .class-header {
+            background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .perk-category {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        
+        .perk-category h4 {
+            color: #495057;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .perk-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .perk-item {
+            background: white;
+            padding: 0.75rem 1rem;
+            margin: 0.5rem 0;
+            border-radius: 4px;
+            border-left: 3px solid #4a90e2;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .perk-name {
+            font-weight: bold;
+            color: #495057;
+        }
+        
+        .perk-desc {
+            color: #6c757d;
+            font-size: 0.9rem;
+        }
+        
+        .prestige-perk {
+            border-left-color: #764ba2;
+            background: #f8f5ff;
+        }
+        
+        .core-ability {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border: 2px solid #4a90e2;
+        }
+        
+        .build-section {
+            margin: 2rem 0;
+        }
+        
+        .build-card {
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+        
+        .build-card h3 {
+            color: #495057;
+            margin-bottom: 1rem;
+        }
+        
+        .role-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: #4a90e2;
+            color: white;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin: 0.25rem;
+        }
+        
+        .tip-box {
+            background: #e7f5ff;
+            border: 1px solid #74c0fc;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .warning-box {
+            background: #fff5f5;
+            border: 1px solid #ff8787;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .prestige-note {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            text-align: center;
+        }
+        
+        .synergy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .synergy-card {
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            padding: 1.25rem;
+            transition: transform 0.2s;
+        }
+        
+        .synergy-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .synergy-rating {
+            font-weight: bold;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            display: inline-block;
+            margin-top: 0.5rem;
+        }
+        
+        .synergy-excellent {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .synergy-good {
+            background: #cce5ff;
+            color: #004085;
+        }
+        
+        .equipment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .equipment-item {
+            text-align: center;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        
+        .equipment-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+    </style>
 </head>
 <body>
     <!-- Skip to main content for accessibility -->
     <a href="#main-content" class="skip-to-main">Skip to main content</a>
     
-    <!-- Progress indicator -->
-    <div class="progress-indicator" role="progressbar" aria-label="Page scroll progress">
-        <div class="progress-bar"></div>
-    </div>
-    
-
     <!-- Navigation -->
     <nav class="main-nav">
         <div class="nav-container">
@@ -45,7 +204,7 @@
                         <a href="class_exterminator.html">Exterminator</a>
                         <a href="class_slasher.html">Slasher</a>
                         <a href="class_hellraiser.html">Hellraiser</a>
-                        <a href="class_dronemaster.html">Dronemaster</a>
+                        <a href="class_dronemaster.html" class="current">Dronemaster</a>
                         <a href="class_vanguard.html">Vanguard</a>
                     </div>
                 </div>
@@ -57,79 +216,455 @@
         </div>
     </nav>
     
-
-    <!-- Breadcrumb Navigation -->
-    <nav class="breadcrumb" aria-label="Breadcrumb">
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="classes_overview.html">Classes</a></li>
-            <li aria-current="page">Dronemaster</li>
-        </ul>
-    </nav>
-    
     <!-- Main Content -->
     <main id="main-content">
-        <header>
-<h1>Dronemaster — Class Guide</h1>
-<p>Spoiler-light, beginner-focused build and habits.</p>
-
-</header><section class="card">
-<h2>Identity &amp; role</h2>
-<div class="grid">
-<div>
-<h3>Role</h3>
-<p>Drone-based utility/control with flexible tools.</p>
-<h3>Why pick</h3>
-<p>Adds control and safety with gadgets while you learn maps.</p>
-</div>
-<div>
-<h3>At a glance</h3>
-<div class="mermaid">
-          flowchart TD
-            A[Dronemaster] --&gt; B[Team Value]
-            B --&gt; C[Primary: Drone-based utility/control with flexible tools]
-            B --&gt; D[Secondary: Survivability]
-            B --&gt; E[Utility]
-        </div>
-</div>
-</div>
-</section><section class="card">
-<h2>Starter build (new player friendly)</h2>
-<p class="small">Designed to be safe and simple. Exact perk names vary by patch; focus on the effect described.</p>
-<ul>
-<li>Pick perks that <strong>extend drone uptime</strong>, <strong>improve stuns</strong>, and <strong>support teammates</strong>.</li><li>Use a <strong>reliable AR/SMG</strong>; you’re managing tools often.</li><li>Fit utility that <strong>peels specials</strong> off the backline.</li>
-</ul>
-<p class="tip small">Pair with teammates who can cover your weaknesses (see Classes Hub for synergies).</p>
-</section><section class="card">
-<h2>Simple gameplay loop</h2>
-<div class="mermaid">
-      flowchart LR
-        Scan[Scan the lane] --&gt; Prep[Pre-place utility]
-        Prep --&gt; Engage[Engage the horde]
-        Engage --&gt; Stabilize[Stabilize with class tools]
-        Stabilize --&gt; Recover[Ammo/Heal/Regroup]
-        Recover --&gt; Scan
-    </div>
-</section><section class="card">
-<h2>Tips</h2>
-<ul>
-<li>Keep drone coverage on the weakest link (newest player or medic).</li><li>Re-deploy drones before a big wave—don’t wait for them to expire.</li><li>Ping when your stun is ready to coordinate revives.</li>
-</ul>
-</section><footer class="small">
-<p>Unofficial guide. Use in-game descriptions for exact perk names; this page focuses on outcomes so it's patch-proof for beginners.</p>
-</footer>
+        <!-- Class Header -->
+        <header class="class-header">
+            <h1>🤖 Dronemaster Class Guide</h1>
+            <div class="role-badges">
+                <span class="role-badge">Support DPS</span>
+                <span class="role-badge">Tactical Control</span>
+                <span class="role-badge">Team Buffer</span>
+            </div>
+            <p><strong>Core Role:</strong> Deploy an autonomous drone companion for continuous support fire and team advantages</p>
+        </header>
+        
+        <!-- Quick Stats -->
+        <section class="card">
+            <h2>📊 Quick Stats</h2>
+            <div class="equipment-grid">
+                <div class="equipment-item">
+                    <div class="equipment-icon">🤖</div>
+                    <strong>Drone Companion</strong>
+                    <p>AI-controlled support</p>
+                </div>
+                <div class="equipment-item">
+                    <div class="equipment-icon">⚡</div>
+                    <strong>Stun Capabilities</strong>
+                    <p>Drone can stun enemies</p>
+                </div>
+                <div class="equipment-item">
+                    <div class="equipment-icon">🎯</div>
+                    <strong>Target Marking</strong>
+                    <p>Highlight specials</p>
+                </div>
+                <div class="equipment-item">
+                    <div class="equipment-icon">🛡️</div>
+                    <strong>Team Buffs</strong>
+                    <p>Drone provides team bonuses</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Core Ability -->
+        <section class="card">
+            <h2>🤖 Core Ability</h2>
+            <div class="core-ability">
+                <h3>Quadrocopter Drone</h3>
+                <p><strong>Base Effect:</strong> Deploy an autonomous drone that follows you and attacks enemies</p>
+                <p><strong>Duration:</strong> 90 seconds base (can be extended with perks)</p>
+                <p><strong>Cooldown:</strong> Begins after drone expires or is destroyed</p>
+                <p><strong>Pro Tip:</strong> The drone prioritizes special zombies and can save teammates autonomously!</p>
+            </div>
+        </section>
+        
+        <!-- Dronemaster Perks Overview -->
+        <section class="card">
+            <h2>🤖 Dronemaster Perks Overview</h2>
+            
+            <div class="warning-box">
+                <strong>⚠️ Note:</strong> The skill system uses a 13-column grid where you choose one perk per column. Red perks (columns 1, 5, 9, 13) are permanent bonuses unlocked through prestige. Exact perk positions may vary by game version.
+            </div>
+            
+            <!-- Regular Perks -->
+            <div class="perk-category">
+                <h4>🤖 Drone Enhancement Perks</h4>
+                <ul class="perk-list">
+                    <li class="perk-item">
+                        <span class="perk-name">Overload</span>
+                        <span class="perk-desc">Drone stuns enemies every 7 seconds</span>
+                    </li>
+                    <li class="perk-item">
+                        <span class="perk-name">Buddy System</span>
+                        <span class="perk-desc">Deploy 2 drones at once</span>
+                    </li>
+                    <li class="perk-item">
+                        <span class="perk-name">Flying Factory</span>
+                        <span class="perk-desc">Drone drops supplies periodically</span>
+                    </li>
+                    <li class="perk-item">
+                        <span class="perk-name">Sky Guard</span>
+                        <span class="perk-desc">Drone duration +50%</span>
+                    </li>
+                    <li class="perk-item">
+                        <span class="perk-name">Voltage Grid</span>
+                        <span class="perk-desc">Drone creates electric field on death</span>
+                    </li>
+                    <li class="perk-item">
+                        <span class="perk-name">Pocket Factory</span>
+                        <span class="perk-desc">Start with drone ready</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="perk-category">
+                <h4>🎯 Targeting & Damage Perks</h4>
+                <ul class="perk-list">
+                    <li class="perk-item">
+                        <span class="perk-name">Smart Tech</span>
+                        <span class="perk-desc">Drone prioritizes specials</span>
+                    </li>
+                    <li class="perk-item">
+                        <span class="perk-name">Red Dot</span>
+                        <span class="perk-desc">Drone marks targets for +15% team damage</span>
+                    </li>
+                    <li class="perk-item">
+                        <span class="perk-name">Heavy Duty</span>
+                        <span class="perk-desc">Drone damage +100%</span>
+                    </li>
+                    <li class="perk-item">
+                        <span class="perk-name">Efficiency</span>
+                        <span class="perk-desc">Drone fire rate +50%</span>
+                    </li>
+                    <li class="perk-item">
+                        <span class="perk-name">Compound Interest</span>
+                        <span class="perk-desc">Drone gets stronger over time</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="perk-category">
+                <h4>🛡️ Team Support Perks</h4>
+                <ul class="perk-list">
+                    <li class="perk-item">
+                        <span class="perk-name">Combat Engineer</span>
+                        <span class="perk-desc">Team reload speed +25% near drone</span>
+                    </li>
+                    <li class="perk-item">
+                        <span class="perk-name">Eyes in the Sky</span>
+                        <span class="perk-desc">Drone reveals items through walls</span>
+                    </li>
+                    <li class="perk-item">
+                        <span class="perk-name">Saving Grace</span>
+                        <span class="perk-desc">Drone revives pinned teammates</span>
+                    </li>
+                    <li class="perk-item">
+                        <span class="perk-name">Wheatgrass</span>
+                        <span class="perk-desc">Drone heals nearby teammates</span>
+                    </li>
+                    <li class="perk-item">
+                        <span class="perk-name">Share the Wealth</span>
+                        <span class="perk-desc">Drone buffs affect whole team</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="perk-category">
+                <h4>⚡ Personal Enhancement Perks</h4>
+                <ul class="perk-list">
+                    <li class="perk-item">
+                        <span class="perk-name">Technician</span>
+                        <span class="perk-desc">+25% interaction speed</span>
+                    </li>
+                    <li class="perk-item">
+                        <span class="perk-name">Nimble</span>
+                        <span class="perk-desc">Movement speed +10%</span>
+                    </li>
+                    <li class="perk-item">
+                        <span class="perk-name">Pickpocket</span>
+                        <span class="perk-desc">Drone kills drop supplies</span>
+                    </li>
+                    <li class="perk-item">
+                        <span class="perk-name">Lobotomy</span>
+                        <span class="perk-desc">Headshot damage +50%</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Prestige Perks -->
+            <div class="prestige-note">
+                ⭐ Red perks are permanent bonuses that unlock as you prestige. They appear in columns 1, 5, 9, and 13. You need level 30 and 7,500 supplies to prestige.
+            </div>
+            
+            <div class="perk-category">
+                <h4>⭐ Prestige Perks (Red Perks)</h4>
+                <p style="margin-bottom: 1rem; color: #6c757d;">These permanent bonuses enhance your drone capabilities</p>
+                <ul class="perk-list">
+                    <li class="perk-item prestige-perk">
+                        <span class="perk-name">Prestige 1-4</span>
+                        <span class="perk-desc">Core red perks for drone effectiveness</span>
+                    </li>
+                    <li class="perk-item prestige-perk">
+                        <span class="perk-name">Prestige 6-9</span>
+                        <span class="perk-desc">Additional red perks from recent updates</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="warning-box">
+                <strong>💡 Important:</strong> When you prestige, you lose all purchased perks and must re-buy them. Consider saving to prestige 4+ before buying perks.
+            </div>
+        </section>
+        
+        <!-- Build Recommendations -->
+        <section class="card">
+            <h2>🎯 Recommended Builds</h2>
+            
+            <div class="build-card">
+                <h3>🌟 Beginner Build - "Drone Basics"</h3>
+                <p>Focus on drone uptime and survivability. Learn the mechanics safely.</p>
+                <ul>
+                    <li><strong>Priority:</strong> Drone duration and cooldown</li>
+                    <li><strong>Key Focus:</strong> Sky Guard, Pocket Factory, Smart Tech</li>
+                    <li><strong>Playstyle:</strong> Keep drone active, let it handle specials</li>
+                    <li><strong>Weapons:</strong> Assault Rifle + SMG for versatility</li>
+                </ul>
+                <div class="tip-box">
+                    <strong>💡 Tip:</strong> Deploy your drone at the start of combat, not during!</strong>
+                </div>
+            </div>
+            
+            <div class="build-card">
+                <h3>⚡ Stun Master Build - "Shock and Awe"</h3>
+                <p>Maximum crowd control through drone stuns. Control the battlefield.</p>
+                <ul>
+                    <li><strong>Priority:</strong> Stun frequency and area control</li>
+                    <li><strong>Key Focus:</strong> Overload, Voltage Grid, Buddy System</li>
+                    <li><strong>Playstyle:</strong> Use drone to lockdown areas</li>
+                    <li><strong>Weapons:</strong> Shotgun for close support</li>
+                </ul>
+                <div class="tip-box">
+                    <strong>💡 Tip:</strong> Overload stuns can interrupt Bull charges!</strong>
+                </div>
+            </div>
+            
+            <div class="build-card">
+                <h3>🎯 DPS Support Build - "Death From Above"</h3>
+                <p>Maximum drone damage output. Your flying friend becomes a killer.</p>
+                <ul>
+                    <li><strong>Priority:</strong> Drone damage and targeting</li>
+                    <li><strong>Key Focus:</strong> Heavy Duty, Efficiency, Compound Interest</li>
+                    <li><strong>Playstyle:</strong> Let drone rack up kills while you support</li>
+                    <li><strong>Weapons:</strong> Sniper for long-range support</li>
+                </ul>
+                <div class="tip-box">
+                    <strong>💡 Tip:</strong> Compound Interest makes your drone stronger the longer it lives!</strong>
+                </div>
+            </div>
+            
+            <div class="build-card">
+                <h3>🛡️ Team Buffer Build - "Guardian Angel"</h3>
+                <p>Focus on team support through drone abilities. Everyone benefits.</p>
+                <ul>
+                    <li><strong>Priority:</strong> Team buffs and utility</li>
+                    <li><strong>Key Focus:</strong> Combat Engineer, Saving Grace, Share the Wealth</li>
+                    <li><strong>Playstyle:</strong> Stay central, maximize buff coverage</li>
+                    <li><strong>Weapons:</strong> Balanced loadout for flexibility</li>
+                </ul>
+                <div class="tip-box">
+                    <strong>💡 Tip:</strong> Saving Grace can revive teammates from across the map!</strong>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Class Synergies -->
+        <section class="card">
+            <h2>🤝 Class Synergies</h2>
+            <div class="synergy-grid">
+                <div class="synergy-card">
+                    <h3>🔧 Dronemaster + Fixer</h3>
+                    <p>Tech support combo. Buffs and supplies everywhere.</p>
+                    <span class="synergy-rating synergy-excellent">EXCELLENT</span>
+                    <p><strong>Why it works:</strong> Flying Factory + Supply Bags = infinite resources. Team never runs dry.</p>
+                </div>
+                <div class="synergy-card">
+                    <h3>🏥 Dronemaster + Medic</h3>
+                    <p>Double healing support. Team becomes unkillable.</p>
+                    <span class="synergy-rating synergy-good">GOOD</span>
+                    <p><strong>Why it works:</strong> Wheatgrass drone + Medic heals = constant health regen.</p>
+                </div>
+                <div class="synergy-card">
+                    <h3>🛡️ Dronemaster + Vanguard</h3>
+                    <p>Shield and drone protection. Complete battlefield control.</p>
+                    <span class="synergy-rating synergy-excellent">EXCELLENT</span>
+                    <p><strong>Why it works:</strong> Vanguard holds line, drone provides overwatch. Perfect defense.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Special Zombie Strategies -->
+        <section class="card">
+            <h2>🧟 Special Zombie Counter-Strategies</h2>
+            
+            <div class="build-card">
+                <h3>🐂 Bull</h3>
+                <ul>
+                    <li>Drone auto-targets charging Bulls</li>
+                    <li>Overload stun interrupts charge</li>
+                    <li>Deploy drone before Bull spawns</li>
+                    <li>Voltage Grid on drone death stops Bull</li>
+                </ul>
+            </div>
+            
+            <div class="build-card">
+                <h3>🤢 Gasbag</h3>
+                <ul>
+                    <li>Drone engages from safe distance</li>
+                    <li>Smart Tech prioritizes Gasbag</li>
+                    <li>You focus on other threats</li>
+                    <li>Red Dot marks for team focus</li>
+                </ul>
+            </div>
+            
+            <div class="build-card">
+                <h3>👻 Lurker</h3>
+                <ul>
+                    <li>Drone reveals hidden Lurkers</li>
+                    <li>Auto-targets when they appear</li>
+                    <li>Saving Grace if you're pinned</li>
+                    <li>Buddy System covers more area</li>
+                </ul>
+            </div>
+            
+            <div class="build-card">
+                <h3>😱 Screamer</h3>
+                <ul>
+                    <li>Smart Tech kills Screamers first</li>
+                    <li>Drone continues during scream</li>
+                    <li>Deploy early for prevention</li>
+                    <li>Stun stops scream mid-cast</li>
+                </ul>
+            </div>
+            
+            <div class="build-card">
+                <h3>🧟 Infector</h3>
+                <ul>
+                    <li>High priority target for drone</li>
+                    <li>Marks them for team</li>
+                    <li>Drone doesn't get infected</li>
+                    <li>Perfect counter from safety</li>
+                </ul>
+            </div>
+        </section>
+        
+        <!-- Situational Tactics -->
+        <section class="card">
+            <h2>📍 Situational Tactics</h2>
+            
+            <div class="build-card">
+                <h3>🌊 Swarm Defense</h3>
+                <ol>
+                    <li>Deploy drone at defense start</li>
+                    <li>Position for maximum coverage</li>
+                    <li>Let drone handle climbers</li>
+                    <li>Focus on drone survival</li>
+                    <li>Redeploy between waves if needed</li>
+                </ol>
+            </div>
+            
+            <div class="build-card">
+                <h3>🏃 Running Sections</h3>
+                <ol>
+                    <li>Deploy drone before running</li>
+                    <li>It covers your retreat</li>
+                    <li>Stuns slow chasers</li>
+                    <li>Flying Factory drops supplies</li>
+                    <li>Sacrifice drone if needed</li>
+                </ol>
+            </div>
+            
+            <div class="build-card">
+                <h3>👹 Boss Fights</h3>
+                <ol>
+                    <li>Drone handles adds automatically</li>
+                    <li>You focus boss weak points</li>
+                    <li>Red Dot marks boss for team</li>
+                    <li>Save drone for add phases</li>
+                    <li>Compound Interest maximizes damage</li>
+                </ol>
+            </div>
+            
+            <div class="build-card">
+                <h3>🛡️ Escort Missions</h3>
+                <ol>
+                    <li>Drone protects objective pusher</li>
+                    <li>Clears path ahead</li>
+                    <li>Saving Grace for emergencies</li>
+                    <li>Combat Engineer speeds interactions</li>
+                    <li>Deploy fresh for final push</li>
+                </ol>
+            </div>
+        </section>
+        
+        <!-- Quick Reference -->
+        <section class="card">
+            <h2>📋 Quick Reference</h2>
+            
+            <div class="build-card">
+                <h3>🤖 Drone Deployment Tips</h3>
+                <ul>
+                    <li><strong>Pre-combat:</strong> Deploy before engagement</li>
+                    <li><strong>High ground:</strong> Better drone coverage</li>
+                    <li><strong>Central position:</strong> Maximum team buff range</li>
+                    <li><strong>Safe timing:</strong> Not while being chased</li>
+                    <li><strong>Fresh deploy:</strong> Before major events</li>
+                </ul>
+            </div>
+            
+            <div class="build-card">
+                <h3>🎯 Priority Management</h3>
+                <ul>
+                    <li><strong>Let drone handle:</strong> Specials and climbers</li>
+                    <li><strong>You focus on:</strong> Objectives and team support</li>
+                    <li><strong>Combined fire:</strong> Bulls and bosses</li>
+                    <li><strong>Drone saves:</strong> Pinned teammates</li>
+                    <li><strong>Manual control:</strong> Mark priority targets</li>
+                </ul>
+            </div>
+        </section>
+        
+        <!-- Common Mistakes -->
+        <section class="card">
+            <div class="warning-box">
+                <h3>⚠️ Common Dronemaster Mistakes to Avoid</h3>
+                <ul>
+                    <li><strong>Late deployment:</strong> Deploy before combat, not during</li>
+                    <li><strong>Ignoring drone:</strong> It needs protection too</li>
+                    <li><strong>Poor positioning:</strong> Drone needs line of sight</li>
+                    <li><strong>Wasting on small fights:</strong> Save for swarms</li>
+                    <li><strong>Forgetting buffs:</strong> Stay near team for buffs</li>
+                    <li><strong>No communication:</strong> Tell team about drone status</li>
+                    <li><strong>Overlap with Vanguard:</strong> Coordinate deployments</li>
+                </ul>
+            </div>
+        </section>
+        
+        <!-- Tips for New Players -->
+        <section class="card">
+            <h2>🌟 Tips for New Dronemaster Players</h2>
+            <div class="tip-box">
+                <ol>
+                    <li><strong>Deploy early</strong> - Before combat for full duration</li>
+                    <li><strong>Trust the drone</strong> - It's smarter than you think</li>
+                    <li><strong>Position matters</strong> - High ground = better coverage</li>
+                    <li><strong>Watch the timer</strong> - Know when it expires</li>
+                    <li><strong>Protect your drone</strong> - It can be destroyed</li>
+                    <li><strong>Coordinate with team</strong> - Buffs need proximity</li>
+                    <li><strong>Learn spawn timings</strong> - Deploy for maximum value</li>
+                    <li><strong>Master Buddy System</strong> - Two drones is game-changing</li>
+                </ol>
+            </div>
+        </section>
     </main>
     
     <!-- Footer -->
     <footer class="site-footer">
         <div class="footer-content">
             <p>&copy; 2024 WWZ: Aftermath Guide. Unofficial fan resource.</p>
-            <p><small>Use alongside in-game tutorials | <a href="printables.html">Print Cheatsheets</a> | Press ? for shortcuts</small></p>
         </div>
     </footer>
     
     <!-- JavaScript -->
-    <script src="js/clipboard.js"></script>
     <script src="js/course-enhancements.js"></script>
 </body>
 </html>

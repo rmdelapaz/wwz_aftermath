@@ -3,30 +3,189 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Gunslinger — Class Guide — WWZ: Aftermath - Comprehensive guide for World War Z: Aftermath">
-    <meta name="keywords" content="World War Z, Aftermath, zombie, guide, class, gunslinger">
+    <meta name="description" content="Gunslinger Class Guide - Master DPS and precision shooting in World War Z: Aftermath">
+    <meta name="keywords" content="World War Z, Aftermath, Gunslinger, class guide, DPS, damage, builds">
     <meta name="author" content="WWZ Guide Team">
-    <title>Gunslinger — Class Guide — WWZ: Aftermath</title>
+    <title>Gunslinger Class Guide - World War Z: Aftermath</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="styles/main.css">
-    <script type="module">
-        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
-        mermaid.initialize({ 
-            startOnLoad: true,
-            theme: 'default'
-        });
-    </script>
+    <style>
+        /* Class-specific styling */
+        .class-header {
+            background: linear-gradient(135deg, #ff6b6b 0%, #c44569 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .perk-category {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        
+        .perk-category h4 {
+            color: #495057;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .perk-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .perk-item {
+            background: white;
+            padding: 0.75rem 1rem;
+            margin: 0.5rem 0;
+            border-radius: 4px;
+            border-left: 3px solid #ff6b6b;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .perk-name {
+            font-weight: bold;
+            color: #495057;
+        }
+        
+        .perk-desc {
+            color: #6c757d;
+            font-size: 0.9rem;
+        }
+        
+        .prestige-perk {
+            border-left-color: #764ba2;
+            background: #f8f5ff;
+        }
+        
+        .core-ability {
+            background: linear-gradient(135deg, #ffe0e0 0%, #ffcccb 100%);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border: 2px solid #ff6b6b;
+        }
+        
+        .build-section {
+            margin: 2rem 0;
+        }
+        
+        .build-card {
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+        
+        .build-card h3 {
+            color: #495057;
+            margin-bottom: 1rem;
+        }
+        
+        .role-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: #ff6b6b;
+            color: white;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin: 0.25rem;
+        }
+        
+        .tip-box {
+            background: #e7f5ff;
+            border: 1px solid #74c0fc;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .warning-box {
+            background: #fff5f5;
+            border: 1px solid #ff8787;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .prestige-note {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            text-align: center;
+        }
+        
+        .synergy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .synergy-card {
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            padding: 1.25rem;
+            transition: transform 0.2s;
+        }
+        
+        .synergy-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .synergy-rating {
+            font-weight: bold;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            display: inline-block;
+            margin-top: 0.5rem;
+        }
+        
+        .synergy-excellent {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .synergy-good {
+            background: #cce5ff;
+            color: #004085;
+        }
+        
+        .equipment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .equipment-item {
+            text-align: center;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        
+        .equipment-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+    </style>
 </head>
 <body>
     <!-- Skip to main content for accessibility -->
     <a href="#main-content" class="skip-to-main">Skip to main content</a>
     
-    <!-- Progress indicator -->
-    <div class="progress-indicator" role="progressbar" aria-label="Page scroll progress">
-        <div class="progress-bar"></div>
-    </div>
-    
-
     <!-- Navigation -->
     <nav class="main-nav">
         <div class="nav-container">
@@ -41,7 +200,7 @@
                         <a href="classes_overview.html">Overview</a>
                         <a href="class_medic.html">Medic</a>
                         <a href="class_fixer.html">Fixer</a>
-                        <a href="class_gunslinger.html">Gunslinger</a>
+                        <a href="class_gunslinger.html" class="current">Gunslinger</a>
                         <a href="class_exterminator.html">Exterminator</a>
                         <a href="class_slasher.html">Slasher</a>
                         <a href="class_hellraiser.html">Hellraiser</a>
@@ -57,79 +216,447 @@
         </div>
     </nav>
     
-
-    <!-- Breadcrumb Navigation -->
-    <nav class="breadcrumb" aria-label="Breadcrumb">
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="classes_overview.html">Classes</a></li>
-            <li aria-current="page">Gunslinger</li>
-        </ul>
-    </nav>
-    
     <!-- Main Content -->
     <main id="main-content">
-        <header>
-<h1>Gunslinger — Class Guide</h1>
-<p>Spoiler-light, beginner-focused build and habits.</p>
-
-</header><section class="card">
-<h2>Identity &amp; role</h2>
-<div class="grid">
-<div>
-<h3>Role</h3>
-<p>Ranged DPS with accurate gunplay.</p>
-<h3>Why pick</h3>
-<p>Very straightforward: aim well and delete threats quickly.</p>
-</div>
-<div>
-<h3>At a glance</h3>
-<div class="mermaid">
-          flowchart TD
-            A[Gunslinger] --&gt; B[Team Value]
-            B --&gt; C[Primary: Ranged DPS with accurate gunplay]
-            B --&gt; D[Secondary: Survivability]
-            B --&gt; E[Utility]
-        </div>
-</div>
-</div>
-</section><section class="card">
-<h2>Starter build (new player friendly)</h2>
-<p class="small">Designed to be safe and simple. Exact perk names vary by patch; focus on the effect described.</p>
-<ul>
-<li>Favor perks that <strong>reduce recoil</strong>, <strong>boost weak-spot damage</strong>, and <strong>increase magazine size</strong>.</li><li>Use an <strong>AR/Carbine</strong> and a <strong>reliable pistol</strong> to learn burst control.</li><li>Carry a <strong>frag or stun</strong> for panic moments.</li>
-</ul>
-<p class="tip small">Pair with teammates who can cover your weaknesses (see Classes Hub for synergies).</p>
-</section><section class="card">
-<h2>Simple gameplay loop</h2>
-<div class="mermaid">
-      flowchart LR
-        Scan[Scan the lane] --&gt; Prep[Pre-place utility]
-        Prep --&gt; Engage[Engage the horde]
-        Engage --&gt; Stabilize[Stabilize with class tools]
-        Stabilize --&gt; Recover[Ammo/Heal/Regroup]
-        Recover --&gt; Scan
-    </div>
-</section><section class="card">
-<h2>Tips</h2>
-<ul>
-<li>Aim chest-to-head transitions on commons; reserve full ADS for specials.</li><li>Reload behind cover; call reloads so teammates know your gun is down.</li><li>Don’t tunnel-vision—periodically scan flanks and backline.</li>
-</ul>
-</section><footer class="small">
-<p>Unofficial guide. Use in-game descriptions for exact perk names; this page focuses on outcomes so it's patch-proof for beginners.</p>
-</footer>
+        <!-- Class Header -->
+        <header class="class-header">
+            <h1>🔫 Gunslinger Class Guide</h1>
+            <div class="role-badges">
+                <span class="role-badge">DPS</span>
+                <span class="role-badge">Crowd Control</span>
+                <span class="role-badge">Precision Damage</span>
+            </div>
+            <p><strong>Core Role:</strong> Deliver sustained high damage through superior gunplay and never-ending ammunition</p>
+        </header>
+        
+        <!-- Quick Stats -->
+        <section class="card">
+            <h2>📊 Quick Stats</h2>
+            <div class="equipment-grid">
+                <div class="equipment-item">
+                    <div class="equipment-icon">🎯</div>
+                    <strong>Headshot Master</strong>
+                    <p>Bonus damage & ammo refund</p>
+                </div>
+                <div class="equipment-item">
+                    <div class="equipment-icon">♻️</div>
+                    <strong>Auto-Reload</strong>
+                    <p>Weapons reload when swapped</p>
+                </div>
+                <div class="equipment-item">
+                    <div class="equipment-icon">💥</div>
+                    <strong>Grenade Expert</strong>
+                    <p>Enhanced frag grenades</p>
+                </div>
+                <div class="equipment-item">
+                    <div class="equipment-icon">🔄</div>
+                    <strong>Infinite Ammo</strong>
+                    <p>Never run dry with perks</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Core Ability -->
+        <section class="card">
+            <h2>🎯 Core Ability</h2>
+            <div class="core-ability">
+                <h3>Superior Gunplay</h3>
+                <p><strong>Base Effect:</strong> No accuracy penalty while moving, reduced recoil</p>
+                <p><strong>Starting Gear:</strong> Compact SMG and Frag Grenade</p>
+                <p><strong>Passive Bonus:</strong> Enhanced weapon handling and reload speeds</p>
+                <p><strong>Pro Tip:</strong> You can accurately shoot while sprinting - use this to kite zombies while dealing damage!</p>
+            </div>
+        </section>
+        
+        <!-- Gunslinger Perks Overview -->
+        <section class="card">
+            <h2>🔫 Gunslinger Perks Overview</h2>
+            
+            <div class="warning-box">
+                <strong>⚠️ Note:</strong> The skill system uses a 13-column grid where you choose one perk per column. Red perks (columns 1, 5, 9, 13) are permanent bonuses unlocked through prestige. Exact perk positions may vary by game version.
+            </div>
+            
+            <!-- Regular Perks -->
+            <div class="perk-category">
+                <h4>🎯 Headshot & Precision Perks</h4>
+                <ul class="perk-list">
+                    <li class="perk-item">
+                        <span class="perk-name">Front Line Supply</span>
+                        <span class="perk-desc">Headshots restore ammo to magazine</span>
+                    </li>
+                    <li class="perk-item">
+                        <span class="perk-name">Welcoming Committee</span>
+                        <span class="perk-desc">+100% damage for first magazine</span>
+                    </li>
+                    <li class="perk-item">
+                        <span class="perk-name">Eagle Eye</span>
+                        <span class="perk-desc">Automatic headshot targeting assistance</span>
+                    </li>
+                    <li class="perk-item">
+                        <span class="perk-name">Thrifty</span>
+                        <span class="perk-desc">Headshots have chance not to consume ammo</span>
+                    </li>
+                    <li class="perk-item">
+                        <span class="perk-name">Gimme A Reason</span>
+                        <span class="perk-desc">No movement accuracy penalty</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="perk-category">
+                <h4>♻️ Reload & Ammo Perks</h4>
+                <ul class="perk-list">
+                    <li class="perk-item">
+                        <span class="perk-name">Power Nap</span>
+                        <span class="perk-desc">Unequipped weapons auto-reload after 10 seconds</span>
+                    </li>
+                    <li class="perk-item">
+                        <span class="perk-name">Swapping Mags</span>
+                        <span class="perk-desc">+25% reload speed on all weapons</span>
+                    </li>
+                    <li class="perk-item">
+                        <span class="perk-name">Adrenaline</span>
+                        <span class="perk-desc">Fast reload when magazine nearly empty</span>
+                    </li>
+                    <li class="perk-item">
+                        <span class="perk-name">Annihilator</span>
+                        <span class="perk-desc">Last 5 bullets deal double damage</span>
+                    </li>
+                    <li class="perk-item">
+                        <span class="perk-name">Desperado</span>
+                        <span class="perk-desc">Faster fire rate at low ammo</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="perk-category">
+                <h4>💥 Grenade & Equipment Perks</h4>
+                <ul class="perk-list">
+                    <li class="perk-item">
+                        <span class="perk-name">Fire In The Hole</span>
+                        <span class="perk-desc">Frag grenades kill 25% more targets</span>
+                    </li>
+                    <li class="perk-item">
+                        <span class="perk-name">Impact Grenades</span>
+                        <span class="perk-desc">Grenades explode on impact</span>
+                    </li>
+                    <li class="perk-item">
+                        <span class="perk-name">Happy Hour</span>
+                        <span class="perk-desc">Start with additional grenades</span>
+                    </li>
+                    <li class="perk-item">
+                        <span class="perk-name">Loud and Clear</span>
+                        <span class="perk-desc">Grenade explosions mark specials</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="perk-category">
+                <h4>⚡ Speed & Agility Perks</h4>
+                <ul class="perk-list">
+                    <li class="perk-item">
+                        <span class="perk-name">Slippery</span>
+                        <span class="perk-desc">Move faster when aiming down sights</span>
+                    </li>
+                    <li class="perk-item">
+                        <span class="perk-name">Nimble</span>
+                        <span class="perk-desc">Faster movement speed overall</span>
+                    </li>
+                    <li class="perk-item">
+                        <span class="perk-name">Seek and Destroy</span>
+                        <span class="perk-desc">Speed boost after special kills</span>
+                    </li>
+                    <li class="perk-item">
+                        <span class="perk-name">Gun Fanatic</span>
+                        <span class="perk-desc">Faster weapon swap speed</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Prestige Perks -->
+            <div class="prestige-note">
+                ⭐ Red perks are permanent bonuses that unlock as you prestige. They appear in columns 1, 5, 9, and 13. You need level 30 and 7,500 supplies to prestige.
+            </div>
+            
+            <div class="perk-category">
+                <h4>⭐ Prestige Perks (Red Perks)</h4>
+                <p style="margin-bottom: 1rem; color: #6c757d;">These permanent bonuses enhance your core gunplay abilities</p>
+                <ul class="perk-list">
+                    <li class="perk-item prestige-perk">
+                        <span class="perk-name">Prestige 1-4</span>
+                        <span class="perk-desc">Core red perks for damage and ammo efficiency</span>
+                    </li>
+                    <li class="perk-item prestige-perk">
+                        <span class="perk-name">Prestige 6-9</span>
+                        <span class="perk-desc">Additional red perks from recent updates</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="warning-box">
+                <strong>💡 Important:</strong> When you prestige, you lose all purchased perks and must re-buy them. Consider saving to prestige 4+ before buying perks.
+            </div>
+        </section>
+        
+        <!-- Build Recommendations -->
+        <section class="card">
+            <h2>🎯 Recommended Builds</h2>
+            
+            <div class="build-card">
+                <h3>🌟 Beginner Build - "Spray and Pray"</h3>
+                <p>Focus on ammo efficiency and forgiveness. Perfect for learning positioning.</p>
+                <ul>
+                    <li><strong>Priority:</strong> Ammo regeneration and reload speed</li>
+                    <li><strong>Key Focus:</strong> Power Nap, Swapping Mags, movement perks</li>
+                    <li><strong>Playstyle:</strong> Constant weapon swapping, mobile shooting</li>
+                    <li><strong>Weapons:</strong> Assault Rifle + SMG for versatility</li>
+                </ul>
+                <div class="tip-box">
+                    <strong>💡 Tip:</strong> Let Power Nap reload your weapons while you use the other. Never stop shooting!
+                </div>
+            </div>
+            
+            <div class="build-card">
+                <h3>🎯 Headshot Build - "Precision Marksman"</h3>
+                <p>Maximum efficiency through headshots. For players with good aim.</p>
+                <ul>
+                    <li><strong>Priority:</strong> Headshot bonuses and ammo refunds</li>
+                    <li><strong>Key Focus:</strong> Front Line Supply, Eagle Eye, Thrifty</li>
+                    <li><strong>Playstyle:</strong> Careful shots, infinite ammo through headshots</li>
+                    <li><strong>Weapons:</strong> Battle Rifle + Pistol for precision</li>
+                </ul>
+                <div class="tip-box">
+                    <strong>💡 Tip:</strong> With proper headshot chains, you literally never need to reload!
+                </div>
+            </div>
+            
+            <div class="build-card">
+                <h3>💥 Grenade Master Build - "Boom Boom"</h3>
+                <p>Focus on explosive crowd control. Great for tight maps and swarms.</p>
+                <ul>
+                    <li><strong>Priority:</strong> Grenade enhancements and equipment</li>
+                    <li><strong>Key Focus:</strong> Fire In The Hole, Impact Grenades, Happy Hour</li>
+                    <li><strong>Playstyle:</strong> Save grenades for pyramids and special spawns</li>
+                    <li><strong>Weapons:</strong> SMG + Grenade Launcher when available</li>
+                </ul>
+                <div class="tip-box">
+                    <strong>💡 Tip:</strong> Impact grenades can instantly clear pyramid bases!
+                </div>
+            </div>
+            
+            <div class="build-card">
+                <h3>⚡ Speed Demon Build - "Run and Gun"</h3>
+                <p>Maximum mobility while maintaining damage. For aggressive players.</p>
+                <ul>
+                    <li><strong>Priority:</strong> Movement speed and weapon handling</li>
+                    <li><strong>Key Focus:</strong> Slippery, Nimble, Seek and Destroy</li>
+                    <li><strong>Playstyle:</strong> Constant movement, never stop to aim</li>
+                    <li><strong>Weapons:</strong> Dual SMGs for maximum mobility</li>
+                </ul>
+                <div class="tip-box">
+                    <strong>💡 Tip:</strong> You can outrun most zombies while shooting backwards!
+                </div>
+            </div>
+        </section>
+        
+        <!-- Class Synergies -->
+        <section class="card">
+            <h2>🤝 Class Synergies</h2>
+            <div class="synergy-grid">
+                <div class="synergy-card">
+                    <h3>🔧 Gunslinger + Fixer</h3>
+                    <p>The perfect DPS combo. Infinite ammo meets infinite supply.</p>
+                    <span class="synergy-rating synergy-excellent">EXCELLENT</span>
+                    <p><strong>Why it works:</strong> Explosive ammo + high fire rate = maximum damage. Never reload, never stop.</p>
+                </div>
+                <div class="synergy-card">
+                    <h3>🏥 Gunslinger + Medic</h3>
+                    <p>Sustained DPS with survival. Medic keeps you shooting.</p>
+                    <span class="synergy-rating synergy-good">GOOD</span>
+                    <p><strong>Why it works:</strong> Damage buffs from healing + constant fire = team carry potential.</p>
+                </div>
+                <div class="synergy-card">
+                    <h3>🔥 Gunslinger + Exterminator</h3>
+                    <p>Ranged and area damage combo. Cover all ranges.</p>
+                    <span class="synergy-rating synergy-good">GOOD</span>
+                    <p><strong>Why it works:</strong> Gunslinger handles distance, Exterminator controls crowds.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Special Zombie Strategies -->
+        <section class="card">
+            <h2>🧟 Special Zombie Counter-Strategies</h2>
+            
+            <div class="build-card">
+                <h3>🐂 Bull</h3>
+                <ul>
+                    <li>Constant headshots during charge wind-up for quick kill</li>
+                    <li>Use Slippery perk to sidestep while shooting</li>
+                    <li>Save grenades for emergency Bull stops</li>
+                    <li>Focus fire the head once visor breaks</li>
+                </ul>
+            </div>
+            
+            <div class="build-card">
+                <h3>🤢 Gasbag</h3>
+                <ul>
+                    <li>Maximum range engagement always</li>
+                    <li>Headshot chains prevent approach</li>
+                    <li>Never use grenades - causes instant explosion</li>
+                    <li>Welcoming Committee perk melts them instantly</li>
+                </ul>
+            </div>
+            
+            <div class="build-card">
+                <h3>👻 Lurker</h3>
+                <ul>
+                    <li>Listen for audio cues while shooting</li>
+                    <li>Quick 180 spins to check behind</li>
+                    <li>Grenades flush them from corners</li>
+                    <li>Seek and Destroy speed helps escape</li>
+                </ul>
+            </div>
+            
+            <div class="build-card">
+                <h3>😱 Screamer</h3>
+                <ul>
+                    <li>PRIORITY TARGET - instant headshot required</li>
+                    <li>Always carry silenced secondary</li>
+                    <li>Eagle Eye perk helps quick acquisition</li>
+                    <li>If scream starts, grenade the swarm spawn</li>
+                </ul>
+            </div>
+            
+            <div class="build-card">
+                <h3>🎯 Bomber</h3>
+                <ul>
+                    <li>NEVER shoot the body - headshots only</li>
+                    <li>Let them get close then sidestep</li>
+                    <li>Leg shots to stumble if needed</li>
+                    <li>Grenades at feet don't trigger explosion</li>
+                </ul>
+            </div>
+        </section>
+        
+        <!-- Situational Tactics -->
+        <section class="card">
+            <h2>📍 Situational Tactics</h2>
+            
+            <div class="build-card">
+                <h3>🌊 Swarm Defense</h3>
+                <ol>
+                    <li>Find elevated position with good sightlines</li>
+                    <li>Pre-damage approaching waves at range</li>
+                    <li>Save grenades for pyramid bases</li>
+                    <li>Use Power Nap between waves</li>
+                    <li>Focus specials first, always</li>
+                </ol>
+            </div>
+            
+            <div class="build-card">
+                <h3>🏃 Running Sections</h3>
+                <ol>
+                    <li>Sprint-shoot constantly (no accuracy penalty)</li>
+                    <li>Clear path ahead for team</li>
+                    <li>Throw grenades backwards at chasers</li>
+                    <li>Swap weapons instead of reloading</li>
+                    <li>Call out specials immediately</li>
+                </ol>
+            </div>
+            
+            <div class="build-card">
+                <h3>👹 Boss Fights</h3>
+                <ol>
+                    <li>Maintain constant DPS on weak points</li>
+                    <li>Clear adds quickly between phases</li>
+                    <li>Save grenades for add waves</li>
+                    <li>Use high-damage weapons for boss phases</li>
+                    <li>Swap weapons to avoid reload downtime</li>
+                </ol>
+            </div>
+            
+            <div class="build-card">
+                <h3>🛡️ Escort Missions</h3>
+                <ol>
+                    <li>Clear path ahead constantly</li>
+                    <li>Circle-strafe around objective</li>
+                    <li>Grenades for emergency clears</li>
+                    <li>Headshot chains to conserve ammo</li>
+                    <li>Never stop moving or shooting</li>
+                </ol>
+            </div>
+        </section>
+        
+        <!-- Quick Reference -->
+        <section class="card">
+            <h2>📋 Quick Reference</h2>
+            
+            <div class="build-card">
+                <h3>🎯 Target Priority</h3>
+                <ol>
+                    <li><strong>Screamer</strong> - Always first, prevent swarms</li>
+                    <li><strong>Gasbag</strong> - Range threat to team</li>
+                    <li><strong>Bull</strong> - Can wipe team if ignored</li>
+                    <li><strong>Lurker</strong> - Disrupts your DPS</li>
+                    <li><strong>Regular zombies</strong> - Constant thinning</li>
+                </ol>
+            </div>
+            
+            <div class="build-card">
+                <h3>⚡ Movement Tips</h3>
+                <ul>
+                    <li><strong>Circle-strafe:</strong> Move in circles while shooting center</li>
+                    <li><strong>Backpedal:</strong> Shoot while retreating</li>
+                    <li><strong>Jump-shot:</strong> Jump over zombies while shooting down</li>
+                    <li><strong>Slide-shoot:</strong> Maintain accuracy while sliding</li>
+                    <li><strong>Corner-peek:</strong> Use corners to funnel zombies</li>
+                </ul>
+            </div>
+        </section>
+        
+        <!-- Common Mistakes -->
+        <section class="card">
+            <div class="warning-box">
+                <h3>⚠️ Common Gunslinger Mistakes to Avoid</h3>
+                <ul>
+                    <li><strong>Standing still:</strong> You have no accuracy penalty while moving!</li>
+                    <li><strong>Reloading too much:</strong> Swap weapons instead</li>
+                    <li><strong>Ignoring headshots:</strong> They refund ammo!</li>
+                    <li><strong>Wasting grenades:</strong> Save for pyramids and emergencies</li>
+                    <li><strong>Poor positioning:</strong> Always need escape routes</li>
+                    <li><strong>Tunnel vision:</strong> Check flanks constantly</li>
+                    <li><strong>Not using Power Nap:</strong> Free reloads while using other gun</li>
+                </ul>
+            </div>
+        </section>
+        
+        <!-- Tips for New Players -->
+        <section class="card">
+            <h2>🌟 Tips for New Gunslinger Players</h2>
+            <div class="tip-box">
+                <ol>
+                    <li><strong>Always be moving</strong> - Standing still = death</li>
+                    <li><strong>Aim for the head</strong> - Headshots refund ammo and deal more damage</li>
+                    <li><strong>Master weapon swapping</strong> - Faster than reloading</li>
+                    <li><strong>Learn spawn points</strong> - Pre-aim where zombies appear</li>
+                    <li><strong>Manage grenades</strong> - Don't waste on small groups</li>
+                    <li><strong>Position smartly</strong> - High ground and escape routes</li>
+                    <li><strong>Communicate specials</strong> - You see them first at range</li>
+                    <li><strong>Practice circle-strafing</strong> - Key survival technique</li>
+                </ol>
+            </div>
+        </section>
     </main>
     
     <!-- Footer -->
     <footer class="site-footer">
         <div class="footer-content">
             <p>&copy; 2024 WWZ: Aftermath Guide. Unofficial fan resource.</p>
-            <p><small>Use alongside in-game tutorials | <a href="printables.html">Print Cheatsheets</a> | Press ? for shortcuts</small></p>
         </div>
     </footer>
     
     <!-- JavaScript -->
-    <script src="js/clipboard.js"></script>
     <script src="js/course-enhancements.js"></script>
 </body>
 </html>

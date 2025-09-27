@@ -3,30 +3,189 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Exterminator — Class Guide — WWZ: Aftermath - Comprehensive guide for World War Z: Aftermath">
-    <meta name="keywords" content="World War Z, Aftermath, zombie, guide, class, exterminator">
+    <meta name="description" content="Exterminator Class Guide - Master fire and crowd control in World War Z: Aftermath">
+    <meta name="keywords" content="World War Z, Aftermath, Exterminator, class guide, fire, molotov, crowd control">
     <meta name="author" content="WWZ Guide Team">
-    <title>Exterminator — Class Guide — WWZ: Aftermath</title>
+    <title>Exterminator Class Guide - World War Z: Aftermath</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="styles/main.css">
-    <script type="module">
-        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
-        mermaid.initialize({ 
-            startOnLoad: true,
-            theme: 'default'
-        });
-    </script>
+    <style>
+        /* Class-specific styling */
+        .class-header {
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .perk-category {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        
+        .perk-category h4 {
+            color: #495057;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .perk-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .perk-item {
+            background: white;
+            padding: 0.75rem 1rem;
+            margin: 0.5rem 0;
+            border-radius: 4px;
+            border-left: 3px solid #ff6b35;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .perk-name {
+            font-weight: bold;
+            color: #495057;
+        }
+        
+        .perk-desc {
+            color: #6c757d;
+            font-size: 0.9rem;
+        }
+        
+        .prestige-perk {
+            border-left-color: #764ba2;
+            background: #f8f5ff;
+        }
+        
+        .core-ability {
+            background: linear-gradient(135deg, #ffe5d9 0%, #ffcdb2 100%);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border: 2px solid #ff6b35;
+        }
+        
+        .build-section {
+            margin: 2rem 0;
+        }
+        
+        .build-card {
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+        
+        .build-card h3 {
+            color: #495057;
+            margin-bottom: 1rem;
+        }
+        
+        .role-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: #ff6b35;
+            color: white;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin: 0.25rem;
+        }
+        
+        .tip-box {
+            background: #e7f5ff;
+            border: 1px solid #74c0fc;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .warning-box {
+            background: #fff5f5;
+            border: 1px solid #ff8787;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .prestige-note {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            text-align: center;
+        }
+        
+        .synergy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .synergy-card {
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            padding: 1.25rem;
+            transition: transform 0.2s;
+        }
+        
+        .synergy-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .synergy-rating {
+            font-weight: bold;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            display: inline-block;
+            margin-top: 0.5rem;
+        }
+        
+        .synergy-excellent {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .synergy-good {
+            background: #cce5ff;
+            color: #004085;
+        }
+        
+        .equipment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .equipment-item {
+            text-align: center;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        
+        .equipment-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+    </style>
 </head>
 <body>
     <!-- Skip to main content for accessibility -->
     <a href="#main-content" class="skip-to-main">Skip to main content</a>
     
-    <!-- Progress indicator -->
-    <div class="progress-indicator" role="progressbar" aria-label="Page scroll progress">
-        <div class="progress-bar"></div>
-    </div>
-    
-
     <!-- Navigation -->
     <nav class="main-nav">
         <div class="nav-container">
@@ -42,7 +201,7 @@
                         <a href="class_medic.html">Medic</a>
                         <a href="class_fixer.html">Fixer</a>
                         <a href="class_gunslinger.html">Gunslinger</a>
-                        <a href="class_exterminator.html">Exterminator</a>
+                        <a href="class_exterminator.html" class="current">Exterminator</a>
                         <a href="class_slasher.html">Slasher</a>
                         <a href="class_hellraiser.html">Hellraiser</a>
                         <a href="class_dronemaster.html">Dronemaster</a>
@@ -57,79 +216,447 @@
         </div>
     </nav>
     
-
-    <!-- Breadcrumb Navigation -->
-    <nav class="breadcrumb" aria-label="Breadcrumb">
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="classes_overview.html">Classes</a></li>
-            <li aria-current="page">Exterminator</li>
-        </ul>
-    </nav>
-    
     <!-- Main Content -->
     <main id="main-content">
-        <header>
-<h1>Exterminator — Class Guide</h1>
-<p>Spoiler-light, beginner-focused build and habits.</p>
-
-</header><section class="card">
-<h2>Identity &amp; role</h2>
-<div class="grid">
-<div>
-<h3>Role</h3>
-<p>Crowd control via fire and area denial.</p>
-<h3>Why pick</h3>
-<p>Excellent at stabilizing swarms for struggling teams.</p>
-</div>
-<div>
-<h3>At a glance</h3>
-<div class="mermaid">
-          flowchart TD
-            A[Exterminator] --&gt; B[Team Value]
-            B --&gt; C[Primary: Crowd control via fire and area denial]
-            B --&gt; D[Secondary: Survivability]
-            B --&gt; E[Utility]
-        </div>
-</div>
-</div>
-</section><section class="card">
-<h2>Starter build (new player friendly)</h2>
-<p class="small">Designed to be safe and simple. Exact perk names vary by patch; focus on the effect described.</p>
-<ul>
-<li>Stack perks that <strong>improve molotov uptime</strong> and <strong>increase fire area/duration</strong>.</li><li>Carry <strong>SMG/Shotgun</strong> for close-range add clear.</li><li>Pick utilities that <strong>slow and funnel</strong> (barbed wire, voltage).</li>
-</ul>
-<p class="tip small">Pair with teammates who can cover your weaknesses (see Classes Hub for synergies).</p>
-</section><section class="card">
-<h2>Simple gameplay loop</h2>
-<div class="mermaid">
-      flowchart LR
-        Scan[Scan the lane] --&gt; Prep[Pre-place utility]
-        Prep --&gt; Engage[Engage the horde]
-        Engage --&gt; Stabilize[Stabilize with class tools]
-        Stabilize --&gt; Recover[Ammo/Heal/Regroup]
-        Recover --&gt; Scan
-    </div>
-</section><section class="card">
-<h2>Tips</h2>
-<ul>
-<li>Throw fire slightly <em>up-lane</em> so the horde walks into it.</li><li>Avoid blocking teammates’ sight lines with smoke/fire at long range.</li><li>Synergize with Fixer ammo drops before major holds.</li>
-</ul>
-</section><footer class="small">
-<p>Unofficial guide. Use in-game descriptions for exact perk names; this page focuses on outcomes so it's patch-proof for beginners.</p>
-</footer>
+        <!-- Class Header -->
+        <header class="class-header">
+            <h1>🔥 Exterminator Class Guide</h1>
+            <div class="role-badges">
+                <span class="role-badge">Crowd Control</span>
+                <span class="role-badge">Area Denial</span>
+                <span class="role-badge">Fire Specialist</span>
+            </div>
+            <p><strong>Core Role:</strong> Control swarms with fire and explosives, creating kill zones and protecting the team</p>
+        </header>
+        
+        <!-- Quick Stats -->
+        <section class="card">
+            <h2>📊 Quick Stats</h2>
+            <div class="equipment-grid">
+                <div class="equipment-item">
+                    <div class="equipment-icon">🔥</div>
+                    <strong>Molotov Master</strong>
+                    <p>Enhanced fire damage & area</p>
+                </div>
+                <div class="equipment-item">
+                    <div class="equipment-icon">💣</div>
+                    <strong>Claymore Expert</strong>
+                    <p>More charges & damage</p>
+                </div>
+                <div class="equipment-item">
+                    <div class="equipment-icon">🌡️</div>
+                    <strong>Fire Trails</strong>
+                    <p>Kills leave burning ground</p>
+                </div>
+                <div class="equipment-item">
+                    <div class="equipment-icon">🎯</div>
+                    <strong>Defense Specialist</strong>
+                    <p>+100% damage in defense</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Core Ability -->
+        <section class="card">
+            <h2>🔥 Core Ability</h2>
+            <div class="core-ability">
+                <h3>Molotov Cocktail</h3>
+                <p><strong>Base Effect:</strong> Throw fire bombs that create burning areas, dealing damage over time</p>
+                <p><strong>Starting Gear:</strong> 2 Molotov Cocktails and Shotgun</p>
+                <p><strong>Passive Bonus:</strong> Fire damage increased, equipment regeneration</p>
+                <p><strong>Pro Tip:</strong> Molotovs create persistent fire zones - use them to block paths and funnel zombies!</p>
+            </div>
+        </section>
+        
+        <!-- Exterminator Perks Overview -->
+        <section class="card">
+            <h2>🔥 Exterminator Perks Overview</h2>
+            
+            <div class="warning-box">
+                <strong>⚠️ Note:</strong> The skill system uses a 13-column grid where you choose one perk per column. Red perks (columns 1, 5, 9, 13) are permanent bonuses unlocked through prestige. Exact perk positions may vary by game version.
+            </div>
+            
+            <!-- Regular Perks -->
+            <div class="perk-category">
+                <h4>🔥 Fire & Burn Perks</h4>
+                <ul class="perk-list">
+                    <li class="perk-item">
+                        <span class="perk-name">Pyromaniac</span>
+                        <span class="perk-desc">Molotovs burn 100% longer</span>
+                    </li>
+                    <li class="perk-item">
+                        <span class="perk-name">Fire Trap</span>
+                        <span class="perk-desc">Claymores leave fire patches</span>
+                    </li>
+                    <li class="perk-item">
+                        <span class="perk-name">Scorched Earth</span>
+                        <span class="perk-desc">Kills with fire/explosives leave burning ground</span>
+                    </li>
+                    <li class="perk-item">
+                        <span class="perk-name">All Fried Up</span>
+                        <span class="perk-desc">Molotov direct hits instantly kill</span>
+                    </li>
+                    <li class="perk-item">
+                        <span class="perk-name">Ghost Town</span>
+                        <span class="perk-desc">3 seconds of invisibility after molotov throw</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="perk-category">
+                <h4>💣 Explosive & Equipment Perks</h4>
+                <ul class="perk-list">
+                    <li class="perk-item">
+                        <span class="perk-name">Heavy Metal</span>
+                        <span class="perk-desc">Start with RPG instead of molotovs</span>
+                    </li>
+                    <li class="perk-item">
+                        <span class="perk-name">Welcoming Party</span>
+                        <span class="perk-desc">Start with claymore mines</span>
+                    </li>
+                    <li class="perk-item">
+                        <span class="perk-name">Directed Blast</span>
+                        <span class="perk-desc">Claymore damage +100%</span>
+                    </li>
+                    <li class="perk-item">
+                        <span class="perk-name">Broad Shoulders</span>
+                        <span class="perk-desc">Carry +1 equipment charge</span>
+                    </li>
+                    <li class="perk-item">
+                        <span class="perk-name">Job Satisfaction</span>
+                        <span class="perk-desc">15 kills restore equipment charge</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="perk-category">
+                <h4>🛡️ Defense & Position Perks</h4>
+                <ul class="perk-list">
+                    <li class="perk-item">
+                        <span class="perk-name">Home Guard</span>
+                        <span class="perk-desc">+100% damage during defense events</span>
+                    </li>
+                    <li class="perk-item">
+                        <span class="perk-name">Hangover</span>
+                        <span class="perk-desc">Defense kit effects last 50% longer</span>
+                    </li>
+                    <li class="perk-item">
+                        <span class="perk-name">Bullet Rain</span>
+                        <span class="perk-desc">Defense kits grant penetration</span>
+                    </li>
+                    <li class="perk-item">
+                        <span class="perk-name">Here Kitty</span>
+                        <span class="perk-desc">Defense kits attract zombies</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="perk-category">
+                <h4>⚡ Utility & Support Perks</h4>
+                <ul class="perk-list">
+                    <li class="perk-item">
+                        <span class="perk-name">Third Hand</span>
+                        <span class="perk-desc">50% faster interaction speed</span>
+                    </li>
+                    <li class="perk-item">
+                        <span class="perk-name">Cloak and Dagger</span>
+                        <span class="perk-desc">Silent kills grant brief invisibility</span>
+                    </li>
+                    <li class="perk-item">
+                        <span class="perk-name">Wheatgrass</span>
+                        <span class="perk-desc">Using equipment restores health</span>
+                    </li>
+                    <li class="perk-item">
+                        <span class="perk-name">Knock Knock</span>
+                        <span class="perk-desc">Opens doors 3x faster</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Prestige Perks -->
+            <div class="prestige-note">
+                ⭐ Red perks are permanent bonuses that unlock as you prestige. They appear in columns 1, 5, 9, and 13. You need level 30 and 7,500 supplies to prestige.
+            </div>
+            
+            <div class="perk-category">
+                <h4>⭐ Prestige Perks (Red Perks)</h4>
+                <p style="margin-bottom: 1rem; color: #6c757d;">These permanent bonuses enhance your crowd control abilities</p>
+                <ul class="perk-list">
+                    <li class="perk-item prestige-perk">
+                        <span class="perk-name">Prestige 1-4</span>
+                        <span class="perk-desc">Core red perks for fire damage and equipment</span>
+                    </li>
+                    <li class="perk-item prestige-perk">
+                        <span class="perk-name">Prestige 6-9</span>
+                        <span class="perk-desc">Additional red perks from recent updates</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="warning-box">
+                <strong>💡 Important:</strong> When you prestige, you lose all purchased perks and must re-buy them. Consider saving to prestige 4+ before buying perks.
+            </div>
+        </section>
+        
+        <!-- Build Recommendations -->
+        <section class="card">
+            <h2>🎯 Recommended Builds</h2>
+            
+            <div class="build-card">
+                <h3>🌟 Beginner Build - "Fire Starter"</h3>
+                <p>Focus on basic fire control and survival. Perfect for learning positioning.</p>
+                <ul>
+                    <li><strong>Priority:</strong> Molotov duration and equipment charges</li>
+                    <li><strong>Key Focus:</strong> Pyromaniac, Broad Shoulders, Wheatgrass</li>
+                    <li><strong>Playstyle:</strong> Block paths with fire, control swarm flow</li>
+                    <li><strong>Weapons:</strong> Shotgun + SMG for close-medium range</li>
+                </ul>
+                <div class="tip-box">
+                    <strong>💡 Tip:</strong> Throw molotovs at choke points before swarms arrive to create fire barriers!</strong>
+                </div>
+            </div>
+            
+            <div class="build-card">
+                <h3>🔥 Inferno Build - "Scorched Earth"</h3>
+                <p>Maximum fire damage and area coverage. Turn the map into hell.</p>
+                <ul>
+                    <li><strong>Priority:</strong> Fire spread and persistent burning</li>
+                    <li><strong>Key Focus:</strong> Scorched Earth, All Fried Up, Fire Trap</li>
+                    <li><strong>Playstyle:</strong> Chain fire kills to cover entire areas</li>
+                    <li><strong>Weapons:</strong> Flamethrower when available!</li>
+                </ul>
+                <div class="tip-box">
+                    <strong>💡 Tip:</strong> Fire trails from Scorched Earth stack - create overlapping burn zones!</strong>
+                </div>
+            </div>
+            
+            <div class="build-card">
+                <h3>💣 Demolition Build - "Boom Expert"</h3>
+                <p>Focus on explosives and claymores. Maximum instant damage.</p>
+                <ul>
+                    <li><strong>Priority:</strong> Explosive damage and claymore enhancement</li>
+                    <li><strong>Key Focus:</strong> Heavy Metal, Welcoming Party, Directed Blast</li>
+                    <li><strong>Playstyle:</strong> Pre-place claymores, RPG for emergencies</li>
+                    <li><strong>Weapons:</strong> Grenade Launcher + Shotgun</li>
+                </ul>
+                <div class="tip-box">
+                    <strong>💡 Tip:</strong> Claymores can be stacked for massive damage to Bulls!</strong>
+                </div>
+            </div>
+            
+            <div class="build-card">
+                <h3>🛡️ Fortress Build - "Defense Master"</h3>
+                <p>Specialized for defense sections and holdouts. Insane stationary damage.</p>
+                <ul>
+                    <li><strong>Priority:</strong> Defense bonuses and kit effectiveness</li>
+                    <li><strong>Key Focus:</strong> Home Guard, Hangover, Bullet Rain</li>
+                    <li><strong>Playstyle:</strong> Set up kill zones during defense</li>
+                    <li><strong>Weapons:</strong> MG5 or other stationary weapons</li>
+                </ul>
+                <div class="tip-box">
+                    <strong>💡 Tip:</strong> Home Guard gives +100% damage - you become a turret during swarms!</strong>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Class Synergies -->
+        <section class="card">
+            <h2>🤝 Class Synergies</h2>
+            <div class="synergy-grid">
+                <div class="synergy-card">
+                    <h3>💥 Exterminator + Hellraiser</h3>
+                    <p>The destruction duo. Fire meets explosives for total area denial.</p>
+                    <span class="synergy-rating synergy-excellent">EXCELLENT</span>
+                    <p><strong>Why it works:</strong> Fire funnels zombies into C4 kill zones. Maximum crowd control.</p>
+                </div>
+                <div class="synergy-card">
+                    <h3>🔧 Exterminator + Fixer</h3>
+                    <p>Endless molotovs. Fixer restores your equipment constantly.</p>
+                    <span class="synergy-rating synergy-excellent">EXCELLENT</span>
+                    <p><strong>Why it works:</strong> Equipment bags = infinite fire. Never run out of area denial.</p>
+                </div>
+                <div class="synergy-card">
+                    <h3>🗡️ Exterminator + Slasher</h3>
+                    <p>Range and melee combo. Fire softens, Slasher finishes.</p>
+                    <span class="synergy-rating synergy-good">GOOD</span>
+                    <p><strong>Why it works:</strong> Burning zombies are easier to melee. Slasher handles leakers.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Special Zombie Strategies -->
+        <section class="card">
+            <h2>🧟 Special Zombie Counter-Strategies</h2>
+            
+            <div class="build-card">
+                <h3>🐂 Bull</h3>
+                <ul>
+                    <li>Pre-place claymores in charge paths</li>
+                    <li>Direct molotov hits stagger briefly</li>
+                    <li>Fire patches slow charge speed</li>
+                    <li>RPG to the face stops charge instantly</li>
+                </ul>
+            </div>
+            
+            <div class="build-card">
+                <h3>🤢 Gasbag</h3>
+                <ul>
+                    <li>NEVER use fire on Gasbag - instant explosion!</li>
+                    <li>Let teammates handle while you clear surroundings</li>
+                    <li>If alone, use primary weapon only</li>
+                    <li>Create fire barrier between Gasbag and team</li>
+                </ul>
+            </div>
+            
+            <div class="build-card">
+                <h3>👻 Lurker</h3>
+                <ul>
+                    <li>Ghost Town perk makes you invisible to Lurkers</li>
+                    <li>Molotov the ground where they hide</li>
+                    <li>Claymores at common lurk spots</li>
+                    <li>Fire reveals their position when burning</li>
+                </ul>
+            </div>
+            
+            <div class="build-card">
+                <h3>😱 Screamer</h3>
+                <ul>
+                    <li>Molotov prevents scream if direct hit</li>
+                    <li>Always carry silenced weapon as backup</li>
+                    <li>If scream starts, pre-fire swarm spawns</li>
+                    <li>Claymores at Screamer spawn points</li>
+                </ul>
+            </div>
+            
+            <div class="build-card">
+                <h3>🎯 Bomber</h3>
+                <ul>
+                    <li>Fire instantly detonates them (use carefully)</li>
+                    <li>Can create chain reactions in groups</li>
+                    <li>Molotov behind them to push toward enemies</li>
+                    <li>Never fire when near teammates</li>
+                </ul>
+            </div>
+        </section>
+        
+        <!-- Situational Tactics -->
+        <section class="card">
+            <h2>📍 Situational Tactics</h2>
+            
+            <div class="build-card">
+                <h3>🌊 Swarm Defense</h3>
+                <ol>
+                    <li>Pre-fire all approach routes</li>
+                    <li>Layer claymores at choke points</li>
+                    <li>Save 1 molotov for emergency</li>
+                    <li>Focus pyramid bases with fire</li>
+                    <li>Use Home Guard position for +100% damage</li>
+                </ol>
+            </div>
+            
+            <div class="build-card">
+                <h3>🏃 Running Sections</h3>
+                <ol>
+                    <li>Throw molotovs backward while running</li>
+                    <li>Fire at doorways to block chasers</li>
+                    <li>Quick claymore drops at turns</li>
+                    <li>Use Ghost Town for emergency escape</li>
+                    <li>Clear path ahead with shotgun</li>
+                </ol>
+            </div>
+            
+            <div class="build-card">
+                <h3>👹 Boss Fights</h3>
+                <ol>
+                    <li>Save equipment for add phases</li>
+                    <li>Create fire perimeter around team</li>
+                    <li>Claymores at add spawn doors</li>
+                    <li>Direct fire damage on boss weak points</li>
+                    <li>Scorched Earth creates safe zones</li>
+                </ol>
+            </div>
+            
+            <div class="build-card">
+                <h3>🛡️ Escort Missions</h3>
+                <ol>
+                    <li>Fire walls protect objective path</li>
+                    <li>Pre-place claymores at stop points</li>
+                    <li>Molotov ahead to clear path</li>
+                    <li>Save equipment for final push</li>
+                    <li>Create burn zones at spawn points</li>
+                </ol>
+            </div>
+        </section>
+        
+        <!-- Quick Reference -->
+        <section class="card">
+            <h2>📋 Quick Reference</h2>
+            
+            <div class="build-card">
+                <h3>🔥 Fire Zone Placement</h3>
+                <ol>
+                    <li><strong>Doorways</strong> - Block entry points</li>
+                    <li><strong>Stairs</strong> - Zombies bunch up</li>
+                    <li><strong>Corners</strong> - Create turn traps</li>
+                    <li><strong>Pyramid bases</strong> - Prevent climbing</li>
+                    <li><strong>Escape routes</strong> - Cover retreats</li>
+                </ol>
+            </div>
+            
+            <div class="build-card">
+                <h3>💣 Claymore Best Spots</h3>
+                <ul>
+                    <li><strong>Fence breaks:</strong> Guaranteed multi-kills</li>
+                    <li><strong>Door frames:</strong> Funnel points</li>
+                    <li><strong>Bull paths:</strong> Instant stops</li>
+                    <li><strong>Climb spots:</strong> Clear clusters</li>
+                    <li><strong>Swarm spawns:</strong> Thin the herd</li>
+                </ul>
+            </div>
+        </section>
+        
+        <!-- Common Mistakes -->
+        <section class="card">
+            <div class="warning-box">
+                <h3>⚠️ Common Exterminator Mistakes to Avoid</h3>
+                <ul>
+                    <li><strong>Wasting molotovs:</strong> Don't throw at small groups</li>
+                    <li><strong>Bad fire placement:</strong> Blocking team movement</li>
+                    <li><strong>Firing Gasbags:</strong> Instant team wipe!</li>
+                    <li><strong>Hoarding equipment:</strong> Use it or lose it</li>
+                    <li><strong>Ignoring choke points:</strong> Control the flow</li>
+                    <li><strong>Forgetting Home Guard:</strong> +100% damage is huge</li>
+                    <li><strong>Poor claymore timing:</strong> Place before combat</li>
+                </ul>
+            </div>
+        </section>
+        
+        <!-- Tips for New Players -->
+        <section class="card">
+            <h2>🌟 Tips for New Exterminator Players</h2>
+            <div class="tip-box">
+                <ol>
+                    <li><strong>Learn the maps</strong> - Know choke points and spawn locations</li>
+                    <li><strong>Pre-place everything</strong> - Set traps before combat</li>
+                    <li><strong>Fire lasts long</strong> - Don't overlap unnecessarily</li>
+                    <li><strong>Manage equipment</strong> - Job Satisfaction refills charges</li>
+                    <li><strong>Communicate fires</strong> - Don't trap teammates</li>
+                    <li><strong>Master Ghost Town</strong> - 3 seconds of safety</li>
+                    <li><strong>Stack effects</strong> - Fire + claymore + scorched earth</li>
+                    <li><strong>Defense positioning</strong> - Find your +100% damage spot</li>
+                </ol>
+            </div>
+        </section>
     </main>
     
     <!-- Footer -->
     <footer class="site-footer">
         <div class="footer-content">
             <p>&copy; 2024 WWZ: Aftermath Guide. Unofficial fan resource.</p>
-            <p><small>Use alongside in-game tutorials | <a href="printables.html">Print Cheatsheets</a> | Press ? for shortcuts</small></p>
         </div>
     </footer>
     
     <!-- JavaScript -->
-    <script src="js/clipboard.js"></script>
     <script src="js/course-enhancements.js"></script>
 </body>
 </html>

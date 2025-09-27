@@ -9,21 +9,6 @@
     <title>Fixer Class Guide - World War Z: Aftermath</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="styles/main.css">
-    <script type="module">
-        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
-        mermaid.initialize({ 
-            startOnLoad: true,
-            theme: 'default',
-            themeVariables: {
-                primaryColor: '#ff6b6b',
-                primaryTextColor: '#fff',
-                primaryBorderColor: '#ff5252',
-                lineColor: '#5c7cfa',
-                secondaryColor: '#4ecdc4',
-                tertiaryColor: '#ffe66d'
-            }
-        });
-    </script>
     <style>
         /* Class-specific styling */
         .class-header {
@@ -35,82 +20,99 @@
             text-align: center;
         }
         
-        .skill-tree-container {
-            background: #f8f9fa;
-            padding: 2rem;
-            border-radius: 12px;
+        .perk-category {
             margin: 2rem 0;
-            overflow-x: auto;
-        }
-        
-        .skill-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 1rem 0;
-        }
-        
-        .skill-table th {
-            background: #495057;
-            color: white;
-            padding: 1rem;
-            text-align: left;
-            position: sticky;
-            top: 0;
-        }
-        
-        .skill-table td {
-            padding: 0.75rem;
-            border: 1px solid #dee2e6;
-            vertical-align: top;
-        }
-        
-        .skill-table tr:nth-child(even) {
+            padding: 1.5rem;
             background: #f8f9fa;
+            border-radius: 8px;
         }
         
-        .tier-header {
-            background: #6c757d;
-            color: white;
-            font-weight: bold;
+        .perk-category h4 {
+            color: #495057;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
         }
         
-        .prestige-tier {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            font-weight: bold;
+        .perk-list {
+            list-style: none;
+            padding: 0;
         }
         
-        .perk-choice {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-            min-height: 80px;
-        }
-        
-        .perk-option {
+        .perk-item {
             background: white;
-            padding: 0.5rem;
+            padding: 0.75rem 1rem;
+            margin: 0.5rem 0;
             border-radius: 4px;
-            border: 2px solid #dee2e6;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-        
-        .perk-option:hover {
-            border-color: #4ecdc4;
-            transform: translateX(2px);
+            border-left: 3px solid #4ecdc4;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
         
         .perk-name {
             font-weight: bold;
             color: #495057;
-            font-size: 0.9rem;
         }
         
         .perk-desc {
-            font-size: 0.85rem;
             color: #6c757d;
-            margin-top: 0.25rem;
+            font-size: 0.9rem;
+        }
+        
+        .prestige-perk {
+            border-left-color: #764ba2;
+            background: #f8f5ff;
+        }
+        
+        .core-ability {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border: 2px solid #4caf50;
+        }
+        
+        .build-section {
+            margin: 2rem 0;
+        }
+        
+        .build-card {
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+        
+        .build-card h3 {
+            color: #495057;
+            margin-bottom: 1rem;
+        }
+        
+        .role-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: #4ecdc4;
+            color: white;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin: 0.25rem;
+        }
+        
+        .tip-box {
+            background: #e7f5ff;
+            border: 1px solid #74c0fc;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .warning-box {
+            background: #fff5f5;
+            border: 1px solid #ff8787;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
         }
         
         .prestige-note {
@@ -160,143 +162,6 @@
             color: #004085;
         }
         
-        .synergy-moderate {
-            background: #fff3cd;
-            color: #856404;
-        }
-        
-        .counter-strategy {
-            background: #fff5f5;
-            border-left: 4px solid #ff6b6b;
-            padding: 1rem;
-            margin: 1rem 0;
-            border-radius: 4px;
-        }
-        
-        .special-zombie {
-            margin: 1.5rem 0;
-            padding: 1.5rem;
-            background: white;
-            border-radius: 8px;
-            border: 1px solid #dee2e6;
-        }
-        
-        .special-header {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 1rem;
-        }
-        
-        .special-icon {
-            font-size: 2.5rem;
-        }
-        
-        .special-name {
-            font-size: 1.25rem;
-            font-weight: bold;
-            color: #dc3545;
-        }
-        
-        .build-tabs {
-            display: flex;
-            gap: 0.5rem;
-            margin: 1rem 0;
-            flex-wrap: wrap;
-        }
-        
-        .build-tab {
-            padding: 0.75rem 1.5rem;
-            background: white;
-            border: 2px solid #dee2e6;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-        
-        .build-tab.active {
-            background: #4ecdc4;
-            color: white;
-            border-color: #4ecdc4;
-        }
-        
-        .build-content {
-            display: none;
-            padding: 1.5rem;
-            background: white;
-            border-radius: 8px;
-            border: 1px solid #dee2e6;
-        }
-        
-        .build-content.active {
-            display: block;
-        }
-        
-        .perk-list {
-            list-style: none;
-            padding: 0;
-        }
-        
-        .perk-list li {
-            padding: 0.75rem;
-            margin: 0.5rem 0;
-            background: #f8f9fa;
-            border-radius: 4px;
-            border-left: 3px solid #4ecdc4;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .perk-tier {
-            background: #6c757d;
-            color: white;
-            padding: 0.2rem 0.5rem;
-            border-radius: 4px;
-            font-size: 0.8rem;
-        }
-        
-        .role-badge {
-            display: inline-block;
-            padding: 0.25rem 0.75rem;
-            background: #4ecdc4;
-            color: white;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            margin: 0.25rem;
-        }
-        
-        .difficulty-stars {
-            color: #ffd700;
-            font-size: 1.5rem;
-            margin: 0.5rem 0;
-        }
-        
-        .difficulty-indicator {
-            display: flex;
-            gap: 2rem;
-            padding: 1rem;
-            background: #f8f9fa;
-            border-radius: 8px;
-            margin: 1rem 0;
-        }
-        
-        .tip-box {
-            background: #e7f5ff;
-            border: 1px solid #74c0fc;
-            border-radius: 8px;
-            padding: 1rem;
-            margin: 1rem 0;
-        }
-        
-        .warning-box {
-            background: #fff5f5;
-            border: 1px solid #ff8787;
-            border-radius: 8px;
-            padding: 1rem;
-            margin: 1rem 0;
-        }
-        
         .equipment-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -315,158 +180,11 @@
             font-size: 2rem;
             margin-bottom: 0.5rem;
         }
-        
-        .quick-ref-card {
-            background: #e8f5e9;
-            border: 2px solid #4caf50;
-            border-radius: 8px;
-            padding: 1rem;
-            margin: 1rem 0;
-        }
-        
-        .quick-ref-card h3 {
-            margin-top: 0;
-            color: #2e7d32;
-        }
-        
-        .team-comp {
-            background: #f3e5f5;
-            border: 2px solid #ab47bc;
-            border-radius: 8px;
-            padding: 1rem;
-            margin: 1rem 0;
-        }
-        
-        .comp-visual {
-            font-size: 1.5rem;
-            padding: 1rem;
-            background: white;
-            border-radius: 4px;
-            text-align: center;
-            margin: 0.5rem 0;
-        }
-        
-        .situation-tabs {
-            display: flex;
-            gap: 0.5rem;
-            margin: 1rem 0;
-            flex-wrap: wrap;
-        }
-        
-        .situation-tabs button {
-            padding: 0.5rem 1rem;
-            background: white;
-            border: 1px solid #dee2e6;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-        
-        .situation-tabs button.active {
-            background: #28a745;
-            color: white;
-            border-color: #28a745;
-        }
-        
-        .situation-content {
-            display: none;
-            padding: 1rem;
-            background: #f8f9fa;
-            border-radius: 4px;
-            margin-top: 0.5rem;
-        }
-        
-        .situation-content.active {
-            display: block;
-        }
-        
-        .loadout-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 1rem;
-            margin: 1rem 0;
-        }
-        
-        .loadout-card {
-            background: white;
-            border: 2px solid #dee2e6;
-            border-radius: 8px;
-            padding: 1rem;
-            text-align: center;
-            transition: all 0.2s;
-        }
-        
-        .loadout-card:hover {
-            border-color: #007bff;
-            transform: translateY(-2px);
-        }
-        
-        .loadout-card h4 {
-            margin: 0 0 0.5rem 0;
-            color: #495057;
-        }
-        
-        .loadout-card p {
-            margin: 0.5rem 0;
-            font-weight: bold;
-            color: #007bff;
-        }
-        
-        .loadout-card small {
-            color: #6c757d;
-        }
-        
-        .prestige-info {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 1rem 0;
-        }
-        
-        .prestige-info h3 {
-            color: white;
-            margin-top: 0;
-        }
-        
-        .prestige-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-        
-        .prestige-level {
-            background: rgba(255, 255, 255, 0.2);
-            padding: 0.75rem;
-            border-radius: 4px;
-            text-align: center;
-        }
-        
-        @media (max-width: 768px) {
-            .skill-table {
-                font-size: 0.85rem;
-            }
-            
-            .synergy-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .difficulty-indicator {
-                flex-direction: column;
-                gap: 0.5rem;
-            }
-        }
     </style>
 </head>
 <body>
     <!-- Skip to main content for accessibility -->
     <a href="#main-content" class="skip-to-main">Skip to main content</a>
-    
-    <!-- Progress indicator -->
-    <div class="progress-indicator" role="progressbar" aria-label="Page scroll progress">
-        <div class="progress-bar"></div>
-    </div>
     
     <!-- Navigation -->
     <nav class="main-nav">
@@ -498,15 +216,6 @@
         </div>
     </nav>
     
-    <!-- Breadcrumb Navigation -->
-    <nav class="breadcrumb" aria-label="Breadcrumb">
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="classes_overview.html">Classes</a></li>
-            <li aria-current="page">Fixer</li>
-        </ul>
-    </nav>
-    
     <!-- Main Content -->
     <main id="main-content">
         <!-- Class Header -->
@@ -516,9 +225,6 @@
                 <span class="role-badge">Support</span>
                 <span class="role-badge">Ammo Supply</span>
                 <span class="role-badge">Team Utility</span>
-            </div>
-            <div class="difficulty-stars">
-                Difficulty: ⭐⭐☆☆☆ (Beginner Friendly)
             </div>
             <p><strong>Core Role:</strong> Keep your team supplied with ammo, explosives, and equipment while providing tactical support</p>
         </header>
@@ -535,276 +241,156 @@
                 <div class="equipment-item">
                     <div class="equipment-icon">💥</div>
                     <strong>Explosive Ammo</strong>
-                    <p>Team damage boost</p>
-                </div>
-                <div class="equipment-item">
-                    <div class="equipment-icon">🛠️</div>
-                    <strong>Equipment Master</strong>
-                    <p>More charges & effects</p>
+                    <p>Massive damage boost</p>
                 </div>
                 <div class="equipment-item">
                     <div class="equipment-icon">👻</div>
                     <strong>Masking Gas</strong>
                     <p>Team invisibility</p>
                 </div>
+                <div class="equipment-item">
+                    <div class="equipment-icon">🛠️</div>
+                    <strong>Equipment Master</strong>
+                    <p>More charges & effects</p>
+                </div>
             </div>
         </section>
         
-        <!-- Complete Skill Tree with Prestige -->
+        <!-- Core Ability -->
         <section class="card">
-            <h2>📚 Complete Skill Tree (All Perks + Prestige)</h2>
+            <h2>💼 Core Ability</h2>
+            <div class="core-ability">
+                <h3>Supply Bags</h3>
+                <p><strong>Effect:</strong> Drop ammo crates that instantly refill primary weapon ammo and grant special ammo types</p>
+                <p><strong>Cooldown:</strong> 90 seconds (can be reduced with perks)</p>
+                <p><strong>Base Bonus:</strong> Team carries 10% more ammo for primary and secondary weapons</p>
+                <p><strong>Pro Tip:</strong> Drop bags BEFORE combat starts, not during! The explosive ammo is a massive damage boost.</p>
+            </div>
+        </section>
+        
+        <!-- Fixer Perks Overview -->
+        <section class="card">
+            <h2>🔧 Fixer Perks Overview</h2>
             
-            <div class="prestige-note">
-                ⭐ Prestige perks unlock after reaching level 30 and prestiging. Each prestige level unlocks a new tier of powerful perks!
+            <div class="warning-box">
+                <strong>⚠️ Note:</strong> The skill system uses a 13-column grid where you choose one perk per column. Red perks (columns 1, 5, 9, 13) are permanent bonuses unlocked through prestige. Exact perk positions may vary by game version.
             </div>
             
-            <div class="skill-tree-container">
-                <table class="skill-table">
-                    <thead>
-                        <tr>
-                            <th>Tier</th>
-                            <th>Column 1</th>
-                            <th>Column 2</th>
-                            <th>Column 3</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- Core -->
-                        <tr class="tier-header">
-                            <td>CORE<br><small>Unlocked at Start</small></td>
-                            <td colspan="3" style="text-align: center;">
-                                <strong>Supply Bags:</strong> Drop ammo crates that instantly refill primary weapon ammo for all teammates (90s cooldown)
-                            </td>
-                        </tr>
-                        
-                        <!-- Tier 1 -->
-                        <tr>
-                            <td class="tier-header">Tier 1<br><small>Level 2</small></td>
-                            <td>
-                                <div class="perk-option">
-                                    <span class="perk-name">Sapper</span>
-                                    <span class="perk-desc">Start with Breaching Charge</span>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="perk-option">
-                                    <span class="perk-name">Coffee Break</span>
-                                    <span class="perk-desc">Start with +1 equipment charge</span>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="perk-option">
-                                    <span class="perk-name">Wheatgrass</span>
-                                    <span class="perk-desc">Using equipment restores 10% health</span>
-                                </div>
-                            </td>
-                        </tr>
-                        
-                        <!-- Tier 2 -->
-                        <tr>
-                            <td class="tier-header">Tier 2<br><small>Level 7</small></td>
-                            <td>
-                                <div class="perk-option">
-                                    <span class="perk-name">Explosive Ammo</span>
-                                    <span class="perk-desc">Supply bags grant explosive rounds for 60s</span>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="perk-option">
-                                    <span class="perk-name">Side Pockets</span>
-                                    <span class="perk-desc">10% chance not to consume equipment</span>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="perk-option">
-                                    <span class="perk-name">Power Nap</span>
-                                    <span class="perk-desc">25% temp health when using equipment</span>
-                                </div>
-                            </td>
-                        </tr>
-                        
-                        <!-- Tier 3 -->
-                        <tr>
-                            <td class="tier-header">Tier 3<br><small>Level 12</small></td>
-                            <td>
-                                <div class="perk-option">
-                                    <span class="perk-name">Pickpocket</span>
-                                    <span class="perk-desc">Killing 15 zombies near bag drops supplies</span>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="perk-option">
-                                    <span class="perk-name">Armory Access</span>
-                                    <span class="perk-desc">Heavy weapons get +1 magazine</span>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="perk-option">
-                                    <span class="perk-name">Third Hand</span>
-                                    <span class="perk-desc">50% faster interaction speed</span>
-                                </div>
-                            </td>
-                        </tr>
-                        
-                        <!-- Tier 4 -->
-                        <tr>
-                            <td class="tier-header">Tier 4<br><small>Level 17</small></td>
-                            <td>
-                                <div class="perk-option">
-                                    <span class="perk-name">Night Owl</span>
-                                    <span class="perk-desc">See equipment/weapons through walls</span>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="perk-option">
-                                    <span class="perk-name">This Is My Rifle</span>
-                                    <span class="perk-desc">Start with weapon at Tier 2</span>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="perk-option">
-                                    <span class="perk-name">Power Shot</span>
-                                    <span class="perk-desc">Supply bags grant penetrating rounds</span>
-                                </div>
-                            </td>
-                        </tr>
-                        
-                        <!-- Tier 5 -->
-                        <tr>
-                            <td class="tier-header">Tier 5<br><small>Level 22</small></td>
-                            <td>
-                                <div class="perk-option">
-                                    <span class="perk-name">Masking Grenades</span>
-                                    <span class="perk-desc">Equipment replaced with masking gas</span>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="perk-option">
-                                    <span class="perk-name">Artisan</span>
-                                    <span class="perk-desc">Equipment affects 50% larger area</span>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="perk-option">
-                                    <span class="perk-name">Shadow</span>
-                                    <span class="perk-desc">25% speed boost after using equipment</span>
-                                </div>
-                            </td>
-                        </tr>
-                        
-                        <!-- Tier 6 -->
-                        <tr class="tier-header">
-                            <td>Tier 6<br><small>Level 27</small></td>
-                            <td colspan="3" style="text-align: center;">
-                                <div class="perk-option">
-                                    <strong>Resupply:</strong> Killing 60 zombies instantly recharges Supply Bags ability
-                                </div>
-                            </td>
-                        </tr>
-                        
-                        <!-- Prestige 1 -->
-                        <tr>
-                            <td class="prestige-tier">Prestige 1<br><small>Level 30+</small></td>
-                            <td>
-                                <div class="perk-option">
-                                    <span class="perk-name">One for the Road</span>
-                                    <span class="perk-desc">Carry 25% more ammo</span>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="perk-option">
-                                    <span class="perk-name">Ammo Fixer</span>
-                                    <span class="perk-desc">Supply bags refill equipment</span>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="perk-option">
-                                    <span class="perk-name">I'll Take That</span>
-                                    <span class="perk-desc">50% chance to find extra equipment</span>
-                                </div>
-                            </td>
-                        </tr>
-                        
-                        <!-- Prestige 2 -->
-                        <tr>
-                            <td class="prestige-tier">Prestige 2<br><small>2nd Prestige</small></td>
-                            <td>
-                                <div class="perk-option">
-                                    <span class="perk-name">Scavenger</span>
-                                    <span class="perk-desc">Kills have 1% chance to restore equipment</span>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="perk-option">
-                                    <span class="perk-name">Swapping Mags</span>
-                                    <span class="perk-desc">25% faster reload speed</span>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="perk-option">
-                                    <span class="perk-name">Under the Table</span>
-                                    <span class="perk-desc">Start with extra supply bag charge</span>
-                                </div>
-                            </td>
-                        </tr>
-                        
-                        <!-- Prestige 3 -->
-                        <tr>
-                            <td class="prestige-tier">Prestige 3<br><small>3rd Prestige</small></td>
-                            <td>
-                                <div class="perk-option">
-                                    <span class="perk-name">Deep Pockets</span>
-                                    <span class="perk-desc">Carry +1 heavy weapon</span>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="perk-option">
-                                    <span class="perk-name">Arms Dealer</span>
-                                    <span class="perk-desc">Heavy weapons deal 25% more damage</span>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="perk-option">
-                                    <span class="perk-name">My Round</span>
-                                    <span class="perk-desc">Team gets 10% damage boost near bags</span>
-                                </div>
-                            </td>
-                        </tr>
-                        
-                        <!-- Prestige 4 -->
-                        <tr>
-                            <td class="prestige-tier">Prestige 4<br><small>4th Prestige</small></td>
-                            <td>
-                                <div class="perk-option">
-                                    <span class="perk-name">Bullet Rain</span>
-                                    <span class="perk-desc">Supply bags last 2x longer</span>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="perk-option">
-                                    <span class="perk-name">Hangover</span>
-                                    <span class="perk-desc">Explosive ammo lasts 30s longer</span>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="perk-option">
-                                    <span class="perk-name">In the Zone</span>
-                                    <span class="perk-desc">Movement speed +10% after bag pickup</span>
-                                </div>
-                            </td>
-                        </tr>
-                        
-                        <!-- Prestige 5 -->
-                        <tr>
-                            <td class="prestige-tier">Prestige 5<br><small>Max Prestige</small></td>
-                            <td colspan="3" style="text-align: center;">
-                                <div class="perk-option">
-                                    <strong>Master Fixer:</strong> Supply bags grant ALL ammo types simultaneously (explosive, penetrating, fire) and instantly reload all weapons
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+            <!-- Regular Perks -->
+            <div class="perk-category">
+                <h4>💼 Supply & Resource Perks</h4>
+                <ul class="perk-list">
+                    <li class="perk-item">
+                        <span class="perk-name">Mule</span>
+                        <span class="perk-desc">Start with Supply Bag and Scout Rifle</span>
+                    </li>
+                    <li class="perk-item">
+                        <span class="perk-name">Armory</span>
+                        <span class="perk-desc">Supply Bags can restore equipment charges</span>
+                    </li>
+                    <li class="perk-item">
+                        <span class="perk-name">Pickpocket</span>
+                        <span class="perk-desc">Kills near bags drop supplies</span>
+                    </li>
+                    <li class="perk-item">
+                        <span class="perk-name">Scavenger</span>
+                        <span class="perk-desc">Find more supplies and equipment</span>
+                    </li>
+                    <li class="perk-item">
+                        <span class="perk-name">Deep Pockets</span>
+                        <span class="perk-desc">Carry more heavy weapons/ammo</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="perk-category">
+                <h4>💥 Ammo Enhancement Perks</h4>
+                <ul class="perk-list">
+                    <li class="perk-item">
+                        <span class="perk-name">Explosive Ammo</span>
+                        <span class="perk-desc">Supply bags grant explosive rounds</span>
+                    </li>
+                    <li class="perk-item">
+                        <span class="perk-name">Power Shot</span>
+                        <span class="perk-desc">Supply bags grant penetrating rounds</span>
+                    </li>
+                    <li class="perk-item">
+                        <span class="perk-name">Kickback</span>
+                        <span class="perk-desc">Chance to gain explosive ammo when teammates use your bag</span>
+                    </li>
+                    <li class="perk-item">
+                        <span class="perk-name">My Round</span>
+                        <span class="perk-desc">Team damage boost near supply bags</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="perk-category">
+                <h4>👻 Masking & Utility Perks</h4>
+                <ul class="perk-list">
+                    <li class="perk-item">
+                        <span class="perk-name">Night Owl</span>
+                        <span class="perk-desc">Masking grenades grant temp health</span>
+                    </li>
+                    <li class="perk-item">
+                        <span class="perk-name">Side Effects</span>
+                        <span class="perk-desc">Masking gas damages zombies</span>
+                    </li>
+                    <li class="perk-item">
+                        <span class="perk-name">Shadow</span>
+                        <span class="perk-desc">Speed boost after using equipment</span>
+                    </li>
+                    <li class="perk-item">
+                        <span class="perk-name">Under the Table</span>
+                        <span class="perk-desc">Masking gas restores ammo</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="perk-category">
+                <h4>⚔️ Combat Support Perks</h4>
+                <ul class="perk-list">
+                    <li class="perk-item">
+                        <span class="perk-name">Paramedic</span>
+                        <span class="perk-desc">50% faster revive speed</span>
+                    </li>
+                    <li class="perk-item">
+                        <span class="perk-name">Stand by Me</span>
+                        <span class="perk-desc">Damage boost when reviving teammates</span>
+                    </li>
+                    <li class="perk-item">
+                        <span class="perk-name">Please Stand Up</span>
+                        <span class="perk-desc">Self-revive if entire team is down</span>
+                    </li>
+                    <li class="perk-item">
+                        <span class="perk-name">This Is My Rifle</span>
+                        <span class="perk-desc">Start with upgraded weapon</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Prestige Perks -->
+            <div class="prestige-note">
+                ⭐ Red perks are permanent bonuses that unlock as you prestige. They appear in columns 1, 5, 9, and 13. You need level 30 and 7,500 supplies to prestige.
+            </div>
+            
+            <div class="perk-category">
+                <h4>⭐ Prestige Perks (Red Perks)</h4>
+                <p style="margin-bottom: 1rem; color: #6c757d;">March 2024 Update added: "Go Get 'Em II", "I made it myself!", "Kevlar", and "Sleight of Hand" for Prestige 6-9</p>
+                <ul class="perk-list">
+                    <li class="perk-item prestige-perk">
+                        <span class="perk-name">Prestige 1-4</span>
+                        <span class="perk-desc">Core red perks for ammo and support</span>
+                    </li>
+                    <li class="perk-item prestige-perk">
+                        <span class="perk-name">Prestige 6-9</span>
+                        <span class="perk-desc">Additional red perks from recent updates</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="warning-box">
+                <strong>💡 Important:</strong> When you prestige, you lose all purchased perks and must re-buy them. Consider saving to prestige 4+ before buying perks.
             </div>
         </section>
         
@@ -812,66 +398,45 @@
         <section class="card">
             <h2>🎯 Recommended Builds</h2>
             
-            <div class="build-tabs">
-                <button class="build-tab active" onclick="showBuild('beginner')">🌟 Beginner</button>
-                <button class="build-tab" onclick="showBuild('support')">💚 Pure Support</button>
-                <button class="build-tab" onclick="showBuild('combat')">⚔️ Combat Support</button>
-            </div>
-            
-            <div id="beginner-build" class="build-content active">
-                <h3>Beginner Build - "Resource Manager"</h3>
-                <div class="difficulty-indicator">
-                    <span>Execution Difficulty: 🎮⚪⚪⚪⚪</span>
-                    <span>Gear Dependency: 🔧⚪⚪⚪⚪</span>
-                </div>
-                <p>Focus on keeping the team supplied with ammo and basic resources. Perfect for learning the support role.</p>
-                <ul class="perk-list">
-                    <li>Coffee Break <span class="perk-tier">T1</span></li>
-                    <li>Side Pockets <span class="perk-tier">T2</span></li>
-                    <li>Third Hand <span class="perk-tier">T3</span></li>
-                    <li>Night Owl <span class="perk-tier">T4</span></li>
-                    <li>Artisan <span class="perk-tier">T5</span></li>
+            <div class="build-card">
+                <h3>🌟 Beginner Build - "Resource Manager"</h3>
+                <p>Focus on keeping the team supplied with basic resources. Perfect for learning support timing.</p>
+                <ul>
+                    <li><strong>Priority:</strong> Supply management and equipment efficiency</li>
+                    <li><strong>Key Perks:</strong> Focus on ammo capacity, equipment charges, and bag duration</li>
+                    <li><strong>Playstyle:</strong> Drop bags before fights, save equipment for emergencies</li>
+                    <li><strong>Weapons:</strong> Assault Carbine + Compact SMG for versatility</li>
                 </ul>
                 <div class="tip-box">
-                    <strong>💡 Pro Tip:</strong> Drop supply bags before every defense section. Save equipment charges for emergencies.
+                    <strong>💡 Tip:</strong> Always drop bags at defensive positions BEFORE combat starts!
                 </div>
             </div>
             
-            <div id="support-build" class="build-content">
-                <h3>Pure Support Build - "Team Backbone"</h3>
-                <div class="difficulty-indicator">
-                    <span>Execution Difficulty: 🎮🎮⚪⚪⚪</span>
-                    <span>Gear Dependency: 🔧🔧⚪⚪⚪</span>
-                </div>
-                <p>Maximum team utility with explosive ammo and masking gas. Essential for higher difficulties.</p>
-                <ul class="perk-list">
-                    <li>Wheatgrass <span class="perk-tier">T1</span></li>
-                    <li>Explosive Ammo <span class="perk-tier">T2</span></li>
-                    <li>Pickpocket <span class="perk-tier">T3</span></li>
-                    <li>Power Shot <span class="perk-tier">T4</span></li>
-                    <li>Masking Grenades <span class="perk-tier">T5</span></li>
+            <div class="build-card">
+                <h3>💥 Explosive Support Build - "Boom Supplier"</h3>
+                <p>Maximum damage boost for the team through explosive ammo. Essential for higher difficulties.</p>
+                <ul>
+                    <li><strong>Priority:</strong> Explosive ammo duration and effectiveness</li>
+                    <li><strong>Key Focus:</strong> Explosive ammo perks, bag cooldown reduction</li>
+                    <li><strong>Playstyle:</strong> Coordinate explosive ammo timing with team's DPS phases</li>
+                    <li><strong>Weapons:</strong> Assault Shotgun + Grenade Launcher for crowd clear</li>
                 </ul>
                 <div class="tip-box">
-                    <strong>💡 Pro Tip:</strong> Coordinate explosive ammo timing with your team's DPS. Masking gas saves lives during objectives.
+                    <strong>💡 Tip:</strong> Call out when dropping explosive ammo so DPS classes can maximize damage!</strong>
                 </div>
             </div>
             
-            <div id="combat-build" class="build-content">
-                <h3>Combat Support Build - "Armed Support"</h3>
-                <div class="difficulty-indicator">
-                    <span>Execution Difficulty: 🎮🎮🎮🎮⚪</span>
-                    <span>Gear Dependency: 🔧🔧🔧⚪⚪</span>
-                </div>
-                <p>Aggressive support style with breaching charges and heavy weapon focus. For experienced players.</p>
-                <ul class="perk-list">
-                    <li>Sapper <span class="perk-tier">T1</span></li>
-                    <li>Explosive Ammo <span class="perk-tier">T2</span></li>
-                    <li>Armory Access <span class="perk-tier">T3</span></li>
-                    <li>This Is My Rifle <span class="perk-tier">T4</span></li>
-                    <li>Shadow <span class="perk-tier">T5</span></li>
+            <div class="build-card">
+                <h3>👻 Stealth Support Build - "Ghost Protocol"</h3>
+                <p>Focus on masking gas for objectives and emergency escapes. Great for escort missions.</p>
+                <ul>
+                    <li><strong>Priority:</strong> Masking gas effectiveness and utility</li>
+                    <li><strong>Key Focus:</strong> Masking gas perks, equipment charges</li>
+                    <li><strong>Playstyle:</strong> Save masking for objectives, revives, and escapes</li>
+                    <li><strong>Weapons:</strong> Silenced weapons mandatory</li>
                 </ul>
                 <div class="tip-box">
-                    <strong>💡 Pro Tip:</strong> Use breaching charges offensively on pyramids. Speed boost helps reposition quickly.
+                    <strong>💡 Tip:</strong> Masking gas makes the entire team invisible - perfect for objective interactions!</strong>
                 </div>
             </div>
         </section>
@@ -882,187 +447,135 @@
             <div class="synergy-grid">
                 <div class="synergy-card">
                     <h3>💥 Fixer + Hellraiser</h3>
-                    <p>The ultimate destruction duo. Fixer provides unlimited explosive ammo while Hellraiser never runs out of C4.</p>
+                    <p>The ultimate destruction duo. Unlimited explosive ammo for endless C4 spam.</p>
                     <span class="synergy-rating synergy-excellent">EXCELLENT</span>
-                    <p><strong>Why it works:</strong> Explosive ammo + C4 = maximum crowd clear. Masking gas protects from self-damage.</p>
+                    <p><strong>Why it works:</strong> Explosive ammo + C4 = maximum crowd clear. Never run out of explosives.</p>
                 </div>
                 <div class="synergy-card">
                     <h3>🔫 Fixer + Gunslinger</h3>
-                    <p>Sustained DPS machine. Gunslinger can spray freely with constant ammo supply.</p>
-                    <span class="synergy-rating synergy-good">GOOD</span>
-                    <p><strong>Why it works:</strong> Never reload, never stop shooting. Explosive rounds maximize headshot damage.</p>
+                    <p>Sustained DPS machine. Gunslinger can spray freely with constant ammo.</p>
+                    <span class="synergy-rating synergy-excellent">EXCELLENT</span>
+                    <p><strong>Why it works:</strong> Infinite ammo + high fire rate = non-stop damage output.</p>
                 </div>
                 <div class="synergy-card">
-                    <h3>🔥 Fixer + Exterminator</h3>
-                    <p>Area denial experts. Equipment bags restore molotovs for endless fire zones.</p>
+                    <h3>🏥 Fixer + Medic</h3>
+                    <p>The support backbone. Cover all team needs between you.</p>
                     <span class="synergy-rating synergy-good">GOOD</span>
-                    <p><strong>Why it works:</strong> Infinite molotovs with equipment restoration. Fire + explosives clear everything.</p>
+                    <p><strong>Why it works:</strong> Health + Ammo = complete team support. Masking helps safe revives.</p>
                 </div>
             </div>
         </section>
         
-        <!-- Team Compositions -->
+        <!-- Special Zombie Strategies -->
         <section class="card">
-            <h2>👥 Team Composition Templates</h2>
-            <div class="team-comp">
-                <h3>Meta Support Comp</h3>
-                <div class="comp-visual">
-                    🔧 Fixer + 🏥 Medic + 💥 Hellraiser + 🗡️ Slasher
-                </div>
-                <p><strong>Why it works:</strong> Double support ensures resources and health. Hellraiser clears swarms while Slasher handles close combat.</p>
-            </div>
-            <div class="team-comp">
-                <h3>Explosive Devastation</h3>
-                <div class="comp-visual">
-                    🔧 Fixer + 💥 Hellraiser + 🔥 Exterminator + 🔫 Gunslinger
-                </div>
-                <p><strong>Why it works:</strong> Maximum area damage with unlimited ammo. Everything explodes or burns.</p>
-            </div>
-        </section>
-        
-        <!-- Special Zombie Counter Strategies -->
-        <section class="card">
-            <h2>🧟 Special Zombie Counter-Strategies (Fixer-Specific)</h2>
+            <h2>🧟 Special Zombie Counter-Strategies</h2>
             
-            <div class="special-zombie">
-                <div class="special-header">
-                    <span class="special-icon">🐂</span>
-                    <span class="special-name">BULL</span>
-                </div>
-                <div class="counter-strategy">
-                    <h4>Fixer Strategy:</h4>
-                    <ul>
-                        <li>Drop <strong>explosive ammo bag</strong> before Bull spawns</li>
-                        <li>Place breaching charges <strong>in Bull's path</strong></li>
-                        <li>Masking gas makes team <strong>invisible to charge</strong></li>
-                        <li>Save supply bags for <strong>after charge recovery</strong></li>
-                    </ul>
-                    <p><strong>Equipment:</strong> Breaching charges or claymores in charge path</p>
-                </div>
+            <div class="build-card">
+                <h3>🐂 Bull</h3>
+                <ul>
+                    <li>Drop explosive ammo bag before Bull spawns for quick kill</li>
+                    <li>Place breaching charges in Bull's charge path</li>
+                    <li>Masking gas makes team invisible to charge</li>
+                    <li>Save supply bags for after-charge recovery</li>
+                </ul>
             </div>
             
-            <div class="special-zombie">
-                <div class="special-header">
-                    <span class="special-icon">🤢</span>
-                    <span class="special-name">GASBAG</span>
-                </div>
-                <div class="counter-strategy">
-                    <h4>Fixer Strategy:</h4>
-                    <ul>
-                        <li><strong>Explosive ammo</strong> pops Gasbag faster</li>
-                        <li>Drop bags <strong>before engagement</strong> for team</li>
-                        <li>Masking gas prevents <strong>gas cloud damage</strong></li>
-                        <li><strong>Maximum range</strong> when team shoots</li>
-                    </ul>
-                    <p><strong>Equipment:</strong> Fire grenades burn gas clouds away</p>
-                </div>
+            <div class="build-card">
+                <h3>🤢 Gasbag</h3>
+                <ul>
+                    <li>Explosive ammo pops Gasbag faster and safer</li>
+                    <li>Drop bags before engagement for team</li>
+                    <li>Masking gas prevents gas cloud damage</li>
+                    <li>Maintain maximum range when team shoots</li>
+                </ul>
             </div>
             
-            <div class="special-zombie">
-                <div class="special-header">
-                    <span class="special-icon">👻</span>
-                    <span class="special-name">LURKER</span>
-                </div>
-                <div class="counter-strategy">
-                    <h4>Fixer Strategy:</h4>
-                    <ul>
-                        <li>Night Owl perk <strong>sees Lurkers through walls</strong></li>
-                        <li>Drop masking gas for <strong>invisible revives</strong></li>
-                        <li>Equipment bags help team <strong>flush out corners</strong></li>
-                        <li>Explosive ammo <strong>one-shots</strong> on headshot</li>
-                    </ul>
-                    <p><strong>Equipment:</strong> Flashbangs reveal hiding spots</p>
-                </div>
+            <div class="build-card">
+                <h3>👻 Lurker</h3>
+                <ul>
+                    <li>Night Owl perk reveals Lurkers through walls</li>
+                    <li>Drop masking gas for invisible revives</li>
+                    <li>Explosive ammo one-shots on headshot</li>
+                    <li>Equipment bags help flush corners</li>
+                </ul>
             </div>
             
-            <div class="special-zombie">
-                <div class="special-header">
-                    <span class="special-icon">😱</span>
-                    <span class="special-name">SCREAMER</span>
-                </div>
-                <div class="counter-strategy">
-                    <h4>Fixer Strategy:</h4>
-                    <ul>
-                        <li><strong>Silenced weapons mandatory</strong> for Fixer</li>
-                        <li>Breaching charge can <strong>silent kill</strong> if placed right</li>
-                        <li>Drop bags <strong>after scream</strong> for swarm fight</li>
-                        <li>Masking gas helps team <strong>escape swarm</strong></li>
-                    </ul>
-                    <p><strong>Equipment:</strong> Taser for silent kills</p>
-                </div>
+            <div class="build-card">
+                <h3>😱 Screamer</h3>
+                <ul>
+                    <li>ALWAYS use silenced weapons as Fixer</li>
+                    <li>Breaching charges can silent kill if placed right</li>
+                    <li>Drop bags after scream for swarm fight</li>
+                    <li>Masking gas helps team escape swarm</li>
+                </ul>
             </div>
         </section>
         
         <!-- Situational Tactics -->
         <section class="card">
             <h2>📍 Situational Tactics</h2>
-            <div class="situation-tabs">
-                <button class="tab active" onclick="showSituation('swarm')">🌊 Swarm Defense</button>
-                <button class="tab" onclick="showSituation('running')">🏃 Running Section</button>
-                <button class="tab" onclick="showSituation('boss')">👹 Boss Fight</button>
-                <button class="tab" onclick="showSituation('escort')">🛡️ Escort Mission</button>
-            </div>
             
-            <div id="swarm-situation" class="situation-content active">
-                <h4>Swarm Defense Priorities:</h4>
+            <div class="build-card">
+                <h3>🌊 Swarm Defense</h3>
                 <ol>
-                    <li>Drop <strong>explosive ammo bag</strong> at defensive position</li>
-                    <li>Place equipment at <strong>choke points</strong></li>
-                    <li>Save one bag for <strong>mid-swarm emergency</strong></li>
-                    <li>Use masking gas if <strong>position overrun</strong></li>
-                    <li>Prioritize <strong>heavy weapon ammo</strong> users</li>
+                    <li>Drop explosive ammo bag at defensive position FIRST</li>
+                    <li>Place all equipment at choke points</li>
+                    <li>Save one bag for mid-swarm emergency</li>
+                    <li>Use masking gas if position overrun</li>
+                    <li>Prioritize heavy weapon users for ammo</li>
                 </ol>
             </div>
             
-            <div id="running-situation" class="situation-content">
-                <h4>Running Section Priorities:</h4>
+            <div class="build-card">
+                <h3>🏃 Running Sections</h3>
                 <ol>
-                    <li>Drop bags at <strong>checkpoint starts</strong></li>
-                    <li>Save masking gas for <strong>objective interactions</strong></li>
-                    <li>Use Shadow perk for <strong>speed boost</strong></li>
-                    <li>Clear path with <strong>breaching charges</strong></li>
-                    <li>Equipment at <strong>bottlenecks</strong></li>
+                    <li>Drop bags at checkpoint starts</li>
+                    <li>Save masking gas for objective interactions</li>
+                    <li>Use Shadow perk for speed boost</li>
+                    <li>Clear path with breaching charges</li>
+                    <li>Equipment at bottlenecks only</li>
                 </ol>
             </div>
             
-            <div id="boss-situation" class="situation-content">
-                <h4>Boss Fight Priorities:</h4>
+            <div class="build-card">
+                <h3>👹 Boss Fights</h3>
                 <ol>
-                    <li>Ensure team has <strong>explosive ammo</strong> for damage phases</li>
-                    <li>Save bags for <strong>add waves</strong></li>
-                    <li>Masking gas for <strong>revive windows</strong></li>
-                    <li>Heavy weapon ammo <strong>priority to DPS</strong></li>
-                    <li>Equipment for <strong>crowd control</strong></li>
+                    <li>Ensure explosive ammo for damage phases</li>
+                    <li>Save bags for add waves</li>
+                    <li>Masking gas for safe revive windows</li>
+                    <li>Heavy weapon ammo priority to DPS</li>
+                    <li>Equipment for crowd control</li>
                 </ol>
             </div>
             
-            <div id="escort-situation" class="situation-content">
-                <h4>Escort Mission Priorities:</h4>
+            <div class="build-card">
+                <h3>🛡️ Escort Missions</h3>
                 <ol>
-                    <li>Drop bags at <strong>each stop point</strong></li>
-                    <li>Masking gas for <strong>objective pusher</strong></li>
-                    <li>Equipment creates <strong>safe zones</strong></li>
-                    <li>Explosive ammo for <strong>path clearing</strong></li>
-                    <li>Save resources for <strong>final push</strong></li>
+                    <li>Drop bags at each stop point</li>
+                    <li>Masking gas for objective pusher</li>
+                    <li>Equipment creates safe zones</li>
+                    <li>Explosive ammo for path clearing</li>
+                    <li>Save resources for final push</li>
                 </ol>
             </div>
         </section>
         
-        <!-- Quick Reference Cards -->
+        <!-- Quick Reference -->
         <section class="card">
             <h2>📋 Quick Reference</h2>
-            <div class="quick-ref-card">
+            
+            <div class="build-card">
                 <h3>💼 Supply Bag Priority Order</h3>
                 <ol>
                     <li><strong>Heavy weapon users</strong> - Maximum damage output</li>
-                    <li><strong>Hellraiser/Exterminator</strong> - Explosive classes</li>
+                    <li><strong>Hellraiser/Exterminator</strong> - Explosive classes benefit most</li>
                     <li><strong>Gunslinger</strong> - High ammo consumption</li>
-                    <li><strong>Medic/Support</strong> - Sustained fire needed</li>
+                    <li><strong>Support classes</strong> - Sustained fire needed</li>
                     <li><strong>Melee classes</strong> - Lower priority</li>
                 </ol>
             </div>
             
-            <div class="quick-ref-card">
+            <div class="build-card">
                 <h3>⏱️ Ability Timing Guide</h3>
                 <ul>
                     <li><strong>Pre-swarm:</strong> Drop explosive ammo bag</li>
@@ -1071,33 +584,6 @@
                     <li><strong>Emergency:</strong> Masking gas for escape</li>
                     <li><strong>Post-fight:</strong> Resupply heavy weapons</li>
                 </ul>
-            </div>
-        </section>
-        
-        <!-- Loadout Recommendations -->
-        <section class="card">
-            <h2>🎯 Loadout Quick Picks</h2>
-            <div class="loadout-grid">
-                <div class="loadout-card">
-                    <h4>🎯 Balanced</h4>
-                    <p>Assault Carbine + Compact SMG</p>
-                    <small>Versatile range coverage</small>
-                </div>
-                <div class="loadout-card">
-                    <h4>💥 Explosive</h4>
-                    <p>Assault Shotgun + Grenade Launcher</p>
-                    <small>Maximum crowd clear</small>
-                </div>
-                <div class="loadout-card">
-                    <h4>🔫 Support Fire</h4>
-                    <p>LMG + Machine Pistol</p>
-                    <small>Suppressive fire</small>
-                </div>
-                <div class="loadout-card">
-                    <h4>🎯 Precision</h4>
-                    <p>Battle Rifle + Pistol</p>
-                    <small>Ammo efficient</small>
-                </div>
             </div>
         </section>
         
@@ -1116,35 +602,6 @@
             </div>
         </section>
         
-        <!-- Prestige Information -->
-        <section class="prestige-info">
-            <h3>⭐ Prestige System & Rewards</h3>
-            <p>After reaching max level (30), you can prestige to unlock powerful new perks and cosmetics:</p>
-            <div class="prestige-grid">
-                <div class="prestige-level">
-                    <strong>Prestige 1</strong>
-                    <p>Ammo perks + Blue skin</p>
-                </div>
-                <div class="prestige-level">
-                    <strong>Prestige 2</strong>
-                    <p>Scavenger perks + Outfit</p>
-                </div>
-                <div class="prestige-level">
-                    <strong>Prestige 3</strong>
-                    <p>Heavy weapon perks + Gold skin</p>
-                </div>
-                <div class="prestige-level">
-                    <strong>Prestige 4</strong>
-                    <p>Duration perks + Emblem</p>
-                </div>
-                <div class="prestige-level">
-                    <strong>Prestige 5</strong>
-                    <p>Master Fixer + Red skin</p>
-                </div>
-            </div>
-            <p><strong>Note:</strong> Each prestige adds 15 powerful perks to choose from, making you significantly stronger!</p>
-        </section>
-        
         <!-- Tips for New Players -->
         <section class="card">
             <h2>🌟 Tips for New Fixer Players</h2>
@@ -1157,59 +614,20 @@
                     <li><strong>Master masking gas</strong> - Practice timing for objectives</li>
                     <li><strong>Coordinate with Medic</strong> - You two are the support backbone</li>
                     <li><strong>Don't forget equipment</strong> - It's not just about ammo bags</li>
+                    <li><strong>Please Stand Up perk</strong> - Can save entire runs when maxed</li>
                 </ol>
             </div>
         </section>
     </main>
     
-    <!-- Lesson Navigation -->
-    <nav class="lesson-nav" aria-label="Class Navigation">
-        <a href="class_medic.html">← Medic</a>
-        <a href="index.html">🏠 Home</a>
-        <a href="class_gunslinger.html">Next: Gunslinger →</a>
-    </nav>
-    
     <!-- Footer -->
     <footer class="site-footer">
         <div class="footer-content">
             <p>&copy; 2024 WWZ: Aftermath Guide. Unofficial fan resource.</p>
-            <p><small>Use alongside in-game tutorials | <a href="printables.html">Print Cheatsheets</a> | Press ? for shortcuts</small></p>
         </div>
     </footer>
     
     <!-- JavaScript -->
-    <script src="js/clipboard.js"></script>
     <script src="js/course-enhancements.js"></script>
-    <script>
-        // Build tab switching
-        function showBuild(buildName) {
-            // Hide all builds
-            document.querySelectorAll('.build-content').forEach(content => {
-                content.classList.remove('active');
-            });
-            document.querySelectorAll('.build-tab').forEach(tab => {
-                tab.classList.remove('active');
-            });
-            
-            // Show selected build
-            document.getElementById(buildName + '-build').classList.add('active');
-            event.target.classList.add('active');
-        }
-        
-        // Situation tab switching
-        function showSituation(situationName) {
-            // Hide all situations
-            document.querySelectorAll('.situation-content').forEach(content => {
-                content.classList.remove('active');
-            });
-            document.querySelectorAll('.situation-tabs button').forEach(tab => {
-                tab.classList.remove('active');
-            });
-            
-            // Show selected situation
-            document.getElementById(situationName + '-situation').classList.add('active');
-            event.target.classList.add('active');
-        }
-    </script>
 </body>
 </html>

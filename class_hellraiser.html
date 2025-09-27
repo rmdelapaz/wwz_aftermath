@@ -3,30 +3,189 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Hellraiser — Class Guide — WWZ: Aftermath - Comprehensive guide for World War Z: Aftermath">
-    <meta name="keywords" content="World War Z, Aftermath, zombie, guide, class, hellraiser">
+    <meta name="description" content="Hellraiser Class Guide - Master explosives and C4 in World War Z: Aftermath">
+    <meta name="keywords" content="World War Z, Aftermath, Hellraiser, class guide, C4, explosives, demolition">
     <meta name="author" content="WWZ Guide Team">
-    <title>Hellraiser — Class Guide — WWZ: Aftermath</title>
+    <title>Hellraiser Class Guide - World War Z: Aftermath</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="styles/main.css">
-    <script type="module">
-        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
-        mermaid.initialize({ 
-            startOnLoad: true,
-            theme: 'default'
-        });
-    </script>
+    <style>
+        /* Class-specific styling */
+        .class-header {
+            background: linear-gradient(135deg, #ff4500 0%, #ff8c00 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .perk-category {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        
+        .perk-category h4 {
+            color: #495057;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .perk-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .perk-item {
+            background: white;
+            padding: 0.75rem 1rem;
+            margin: 0.5rem 0;
+            border-radius: 4px;
+            border-left: 3px solid #ff4500;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .perk-name {
+            font-weight: bold;
+            color: #495057;
+        }
+        
+        .perk-desc {
+            color: #6c757d;
+            font-size: 0.9rem;
+        }
+        
+        .prestige-perk {
+            border-left-color: #764ba2;
+            background: #f8f5ff;
+        }
+        
+        .core-ability {
+            background: linear-gradient(135deg, #ffe4b5 0%, #ffd4a3 100%);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border: 2px solid #ff4500;
+        }
+        
+        .build-section {
+            margin: 2rem 0;
+        }
+        
+        .build-card {
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+        
+        .build-card h3 {
+            color: #495057;
+            margin-bottom: 1rem;
+        }
+        
+        .role-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: #ff4500;
+            color: white;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin: 0.25rem;
+        }
+        
+        .tip-box {
+            background: #e7f5ff;
+            border: 1px solid #74c0fc;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .warning-box {
+            background: #fff5f5;
+            border: 1px solid #ff8787;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .prestige-note {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            text-align: center;
+        }
+        
+        .synergy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .synergy-card {
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            padding: 1.25rem;
+            transition: transform 0.2s;
+        }
+        
+        .synergy-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .synergy-rating {
+            font-weight: bold;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            display: inline-block;
+            margin-top: 0.5rem;
+        }
+        
+        .synergy-excellent {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .synergy-good {
+            background: #cce5ff;
+            color: #004085;
+        }
+        
+        .equipment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .equipment-item {
+            text-align: center;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        
+        .equipment-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+    </style>
 </head>
 <body>
     <!-- Skip to main content for accessibility -->
     <a href="#main-content" class="skip-to-main">Skip to main content</a>
     
-    <!-- Progress indicator -->
-    <div class="progress-indicator" role="progressbar" aria-label="Page scroll progress">
-        <div class="progress-bar"></div>
-    </div>
-    
-
     <!-- Navigation -->
     <nav class="main-nav">
         <div class="nav-container">
@@ -44,7 +203,7 @@
                         <a href="class_gunslinger.html">Gunslinger</a>
                         <a href="class_exterminator.html">Exterminator</a>
                         <a href="class_slasher.html">Slasher</a>
-                        <a href="class_hellraiser.html">Hellraiser</a>
+                        <a href="class_hellraiser.html" class="current">Hellraiser</a>
                         <a href="class_dronemaster.html">Dronemaster</a>
                         <a href="class_vanguard.html">Vanguard</a>
                     </div>
@@ -57,79 +216,451 @@
         </div>
     </nav>
     
-
-    <!-- Breadcrumb Navigation -->
-    <nav class="breadcrumb" aria-label="Breadcrumb">
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="classes_overview.html">Classes</a></li>
-            <li aria-current="page">Hellraiser</li>
-        </ul>
-    </nav>
-    
     <!-- Main Content -->
     <main id="main-content">
-        <header>
-<h1>Hellraiser — Class Guide</h1>
-<p>Spoiler-light, beginner-focused build and habits.</p>
-
-</header><section class="card">
-<h2>Identity &amp; role</h2>
-<div class="grid">
-<div>
-<h3>Role</h3>
-<p>Explosives-focused DPS for clustered swarms.</p>
-<h3>Why pick</h3>
-<p>Deletes big waves when placed well; satisfying and powerful.</p>
-</div>
-<div>
-<h3>At a glance</h3>
-<div class="mermaid">
-          flowchart TD
-            A[Hellraiser] --&gt; B[Team Value]
-            B --&gt; C[Primary: Explosives-focused DPS for clustered swarms]
-            B --&gt; D[Secondary: Survivability]
-            B --&gt; E[Utility]
-        </div>
-</div>
-</div>
-</section><section class="card">
-<h2>Starter build (new player friendly)</h2>
-<p class="small">Designed to be safe and simple. Exact perk names vary by patch; focus on the effect described.</p>
-<ul>
-<li>Invest in perks that <strong>increase explosive capacity/damage</strong> and <strong>reduce self-damage</strong>.</li><li>Carry a <strong>carbine or DMR</strong> to pick specials between explosives.</li><li>Practice grenade <strong>bank shots</strong> off walls into choke points.</li>
-</ul>
-<p class="tip small">Pair with teammates who can cover your weaknesses (see Classes Hub for synergies).</p>
-</section><section class="card">
-<h2>Simple gameplay loop</h2>
-<div class="mermaid">
-      flowchart LR
-        Scan[Scan the lane] --&gt; Prep[Pre-place utility]
-        Prep --&gt; Engage[Engage the horde]
-        Engage --&gt; Stabilize[Stabilize with class tools]
-        Stabilize --&gt; Recover[Ammo/Heal/Regroup]
-        Recover --&gt; Scan
-    </div>
-</section><section class="card">
-<h2>Tips</h2>
-<ul>
-<li>Call out throws so Slasher/Vanguard don’t push into your blast.</li><li>Avoid blowing up oil/gas at teammates’ feet—step forward first.</li><li>Use explosives to <em>save</em> a failed hold, not to pad damage.</li>
-</ul>
-</section><footer class="small">
-<p>Unofficial guide. Use in-game descriptions for exact perk names; this page focuses on outcomes so it's patch-proof for beginners.</p>
-</footer>
+        <!-- Class Header -->
+        <header class="class-header">
+            <h1>💥 Hellraiser Class Guide</h1>
+            <div class="role-badges">
+                <span class="role-badge">Demolition Expert</span>
+                <span class="role-badge">Crowd Clear</span>
+                <span class="role-badge">Area Damage</span>
+            </div>
+            <p><strong>Core Role:</strong> Obliterate swarms with C4 and heavy explosives while managing self-damage</p>
+        </header>
+        
+        <!-- Quick Stats -->
+        <section class="card">
+            <h2>📊 Quick Stats</h2>
+            <div class="equipment-grid">
+                <div class="equipment-item">
+                    <div class="equipment-icon">💣</div>
+                    <strong>C4 Charges</strong>
+                    <p>Remote detonated bombs</p>
+                </div>
+                <div class="equipment-item">
+                    <div class="equipment-icon">🎯</div>
+                    <strong>Directed Blast</strong>
+                    <p>Shaped charge damage</p>
+                </div>
+                <div class="equipment-item">
+                    <div class="equipment-icon">🔄</div>
+                    <strong>Refill System</strong>
+                    <p>Regenerate C4 from kills</p>
+                </div>
+                <div class="equipment-item">
+                    <div class="equipment-icon">🚀</div>
+                    <strong>Heavy Weapons</strong>
+                    <p>RPG & Grenade specialist</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Core Ability -->
+        <section class="card">
+            <h2>💣 Core Ability</h2>
+            <div class="core-ability">
+                <h3>C4 Charges</h3>
+                <p><strong>Base Effect:</strong> Place and detonate powerful C4 charges for massive area damage</p>
+                <p><strong>Starting Gear:</strong> 2 C4 Charges and Shotgun</p>
+                <p><strong>Passive Bonus:</strong> Explosion resistance and heavy weapon proficiency</p>
+                <p><strong>Pro Tip:</strong> C4 can be pre-placed before swarms and detonated at the perfect moment!</p>
+            </div>
+        </section>
+        
+        <!-- Hellraiser Perks Overview -->
+        <section class="card">
+            <h2>💥 Hellraiser Perks Overview</h2>
+            
+            <div class="warning-box">
+                <strong>⚠️ Note:</strong> The skill system uses a 13-column grid where you choose one perk per column. Red perks (columns 1, 5, 9, 13) are permanent bonuses unlocked through prestige. Exact perk positions may vary by game version.
+            </div>
+            
+            <!-- Regular Perks -->
+            <div class="perk-category">
+                <h4>💣 C4 Enhancement Perks</h4>
+                <ul class="perk-list">
+                    <li class="perk-item">
+                        <span class="perk-name">Welcome Mat</span>
+                        <span class="perk-desc">Start with 3 C4 charges</span>
+                    </li>
+                    <li class="perk-item">
+                        <span class="perk-name">Directed Blast</span>
+                        <span class="perk-desc">C4 damage in front increased 100%</span>
+                    </li>
+                    <li class="perk-item">
+                        <span class="perk-name">Hole Punch</span>
+                        <span class="perk-desc">C4 penetrates and damages in line</span>
+                    </li>
+                    <li class="perk-item">
+                        <span class="perk-name">Here Kitty</span>
+                        <span class="perk-desc">C4 attracts zombies before exploding</span>
+                    </li>
+                    <li class="perk-item">
+                        <span class="perk-name">Knock Knock</span>
+                        <span class="perk-desc">C4 explosion radius +30%</span>
+                    </li>
+                    <li class="perk-item">
+                        <span class="perk-name">Alert</span>
+                        <span class="perk-desc">C4 creates masking gas cloud</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="perk-category">
+                <h4>🔄 Refill & Regeneration Perks</h4>
+                <ul class="perk-list">
+                    <li class="perk-item">
+                        <span class="perk-name">Free Refill</span>
+                        <span class="perk-desc">15 kills restore C4 charge</span>
+                    </li>
+                    <li class="perk-item">
+                        <span class="perk-name">Deep Pockets</span>
+                        <span class="perk-desc">Carry +1 C4 charge</span>
+                    </li>
+                    <li class="perk-item">
+                        <span class="perk-name">Scavenger</span>
+                        <span class="perk-desc">1% chance per kill to restore C4</span>
+                    </li>
+                    <li class="perk-item">
+                        <span class="perk-name">Job Satisfaction</span>
+                        <span class="perk-desc">Explosive kills restore C4 faster</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="perk-category">
+                <h4>🚀 Heavy Weapon Perks</h4>
+                <ul class="perk-list">
+                    <li class="perk-item">
+                        <span class="perk-name">Heavy Metal</span>
+                        <span class="perk-desc">Start with MGL Grenade Launcher</span>
+                    </li>
+                    <li class="perk-item">
+                        <span class="perk-name">Third Hand</span>
+                        <span class="perk-desc">Heavy weapon reload +50% faster</span>
+                    </li>
+                    <li class="perk-item">
+                        <span class="perk-name">Nimble</span>
+                        <span class="perk-desc">Move faster with heavy weapons</span>
+                    </li>
+                    <li class="perk-item">
+                        <span class="perk-name">Broad Shoulders</span>
+                        <span class="perk-desc">Carry more heavy ammo</span>
+                    </li>
+                    <li class="perk-item">
+                        <span class="perk-name">Welcoming Committee</span>
+                        <span class="perk-desc">+50% damage with RPG/MGL</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="perk-category">
+                <h4>🛡️ Survivability Perks</h4>
+                <ul class="perk-list">
+                    <li class="perk-item">
+                        <span class="perk-name">Thumper</span>
+                        <span class="perk-desc">Shotgun kills grant temp health</span>
+                    </li>
+                    <li class="perk-item">
+                        <span class="perk-name">Scorched Earth</span>
+                        <span class="perk-desc">Explosive kills leave fire patches</span>
+                    </li>
+                    <li class="perk-item">
+                        <span class="perk-name">Effective Radius</span>
+                        <span class="perk-desc">Take 50% less self-explosive damage</span>
+                    </li>
+                    <li class="perk-item">
+                        <span class="perk-name">Predator</span>
+                        <span class="perk-desc">25% less damage from specials</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Prestige Perks -->
+            <div class="prestige-note">
+                ⭐ Red perks are permanent bonuses that unlock as you prestige. They appear in columns 1, 5, 9, and 13. You need level 30 and 7,500 supplies to prestige.
+            </div>
+            
+            <div class="perk-category">
+                <h4>⭐ Prestige Perks (Red Perks)</h4>
+                <p style="margin-bottom: 1rem; color: #6c757d;">March 2024 Update added: "Hole Punch II", "Blink of an eye", "Knock Knock II", and "Directed Blast III" for Prestige 6-9</p>
+                <ul class="perk-list">
+                    <li class="perk-item prestige-perk">
+                        <span class="perk-name">Prestige 1-4</span>
+                        <span class="perk-desc">Core red perks for explosion damage and refills</span>
+                    </li>
+                    <li class="perk-item prestige-perk">
+                        <span class="perk-name">Prestige 6-9</span>
+                        <span class="perk-desc">Enhanced explosion perks from recent updates</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="warning-box">
+                <strong>💡 Important:</strong> When you prestige, you lose all purchased perks and must re-buy them. Consider saving to prestige 4+ before buying perks.
+            </div>
+        </section>
+        
+        <!-- Build Recommendations -->
+        <section class="card">
+            <h2>🎯 Recommended Builds</h2>
+            
+            <div class="build-card">
+                <h3>🌟 Beginner Build - "Boom Basics"</h3>
+                <p>Focus on C4 management and self-preservation.</p>
+                <ul>
+                    <li><strong>Priority:</strong> Extra charges and damage reduction</li>
+                    <li><strong>Key Focus:</strong> Welcome Mat, Deep Pockets, Effective Radius</li>
+                    <li><strong>Playstyle:</strong> Pre-place C4, detonate safely</li>
+                    <li><strong>Weapons:</strong> Shotgun + any backup</li>
+                </ul>
+                <div class="tip-box">
+                    <strong>💡 Tip:</strong> Place C4 at choke points before swarms arrive for maximum effect!</strong>
+                </div>
+            </div>
+            
+            <div class="build-card">
+                <h3>💣 Demolition Build - "Delete Button"</h3>
+                <p>Maximum C4 damage and area coverage. Erase entire swarms.</p>
+                <ul>
+                    <li><strong>Priority:</strong> Explosion size and damage</li>
+                    <li><strong>Key Focus:</strong> Directed Blast, Knock Knock, Hole Punch</li>
+                    <li><strong>Playstyle:</strong> Strategic placement for multi-kills</li>
+                    <li><strong>Weapons:</strong> Explosive Shotgun synergy</li>
+                </ul>
+                <div class="tip-box">
+                    <strong>💡 Tip:</strong> Directed Blast + Hole Punch can clear entire corridors!</strong>
+                </div>
+            </div>
+            
+            <div class="build-card">
+                <h3>🔄 Regeneration Build - "Endless Explosions"</h3>
+                <p>Never run out of C4. Constant explosive spam.</p>
+                <ul>
+                    <li><strong>Priority:</strong> C4 regeneration and charges</li>
+                    <li><strong>Key Focus:</strong> Free Refill, Job Satisfaction, Scavenger</li>
+                    <li><strong>Playstyle:</strong> Aggressive C4 usage, quick refills</li>
+                    <li><strong>Weapons:</strong> Fast-killing weapons for refills</li>
+                </ul>
+                <div class="tip-box">
+                    <strong>💡 Tip:</strong> With proper kill chains, you can throw C4 every 15 kills!</strong>
+                </div>
+            </div>
+            
+            <div class="build-card">
+                <h3>🚀 Heavy Artillery Build - "Walking Tank"</h3>
+                <p>Focus on heavy weapons and RPG/MGL mastery.</p>
+                <ul>
+                    <li><strong>Priority:</strong> Heavy weapon effectiveness</li>
+                    <li><strong>Key Focus:</strong> Heavy Metal, Third Hand, Welcoming Committee</li>
+                    <li><strong>Playstyle:</strong> RPG/MGL primary, C4 backup</li>
+                    <li><strong>Weapons:</strong> MGL + RPG when available</li>
+                </ul>
+                <div class="tip-box">
+                    <strong>💡 Tip:</strong> MGL with explosive ammo from Fixer = screen clear!</strong>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Class Synergies -->
+        <section class="card">
+            <h2>🤝 Class Synergies</h2>
+            <div class="synergy-grid">
+                <div class="synergy-card">
+                    <h3>🔧 Hellraiser + Fixer</h3>
+                    <p>The destruction duo. Infinite explosives with ammo support.</p>
+                    <span class="synergy-rating synergy-excellent">EXCELLENT</span>
+                    <p><strong>Why it works:</strong> Explosive ammo + C4 + equipment refills = non-stop explosions.</p>
+                </div>
+                <div class="synergy-card">
+                    <h3>🔥 Hellraiser + Exterminator</h3>
+                    <p>Fire and explosions. Total area denial specialists.</p>
+                    <span class="synergy-rating synergy-excellent">EXCELLENT</span>
+                    <p><strong>Why it works:</strong> C4 creates openings, fire controls flow. Maximum crowd clear.</p>
+                </div>
+                <div class="synergy-card">
+                    <h3>🏥 Hellraiser + Medic</h3>
+                    <p>Explosive damage with healing support.</p>
+                    <span class="synergy-rating synergy-good">GOOD</span>
+                    <p><strong>Why it works:</strong> Medic prevents self-damage deaths. Temp health for aggressive play.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Special Zombie Strategies -->
+        <section class="card">
+            <h2>🧟 Special Zombie Counter-Strategies</h2>
+            
+            <div class="build-card">
+                <h3>🐂 Bull</h3>
+                <ul>
+                    <li>Pre-place C4 in charge path</li>
+                    <li>Direct hit stops charge instantly</li>
+                    <li>RPG to the face = dead Bull</li>
+                    <li>Here Kitty draws Bull to C4</li>
+                </ul>
+            </div>
+            
+            <div class="build-card">
+                <h3>🤢 Gasbag</h3>
+                <ul>
+                    <li>C4 from maximum distance</li>
+                    <li>Explosion triggers gas safely away</li>
+                    <li>Never place C4 near team</li>
+                    <li>MGL for safe ranged kills</li>
+                </ul>
+            </div>
+            
+            <div class="build-card">
+                <h3>👻 Lurker</h3>
+                <ul>
+                    <li>C4 common hiding spots</li>
+                    <li>Alert perk masks you after explosion</li>
+                    <li>Shotgun for close encounters</li>
+                    <li>Listen for growls before placing</li>
+                </ul>
+            </div>
+            
+            <div class="build-card">
+                <h3>😱 Screamer</h3>
+                <ul>
+                    <li>Quick C4 throw and detonate</li>
+                    <li>RPG for instant silent kill</li>
+                    <li>Pre-place at spawn points</li>
+                    <li>If scream starts, C4 the swarm spawn</li>
+                </ul>
+            </div>
+            
+            <div class="build-card">
+                <h3>🧟 Bomber</h3>
+                <ul>
+                    <li>C4 creates chain reactions</li>
+                    <li>Use Bombers as walking bombs</li>
+                    <li>Place C4 behind bomber groups</li>
+                    <li>Effective Radius prevents self-damage</li>
+                </ul>
+            </div>
+        </section>
+        
+        <!-- Situational Tactics -->
+        <section class="card">
+            <h2>📍 Situational Tactics</h2>
+            
+            <div class="build-card">
+                <h3>🌊 Swarm Defense</h3>
+                <ol>
+                    <li>Pre-place all C4 at entry points</li>
+                    <li>Wait for maximum density</li>
+                    <li>Chain detonate for cascading kills</li>
+                    <li>Use Free Refill between waves</li>
+                    <li>Save one C4 for emergency</li>
+                </ol>
+            </div>
+            
+            <div class="build-card">
+                <h3>🏃 Running Sections</h3>
+                <ol>
+                    <li>Drop C4 while running</li>
+                    <li>Detonate when chasers bunch up</li>
+                    <li>Clear path ahead with RPG</li>
+                    <li>Here Kitty buys time</li>
+                    <li>Alert for invisible escape</li>
+                </ol>
+            </div>
+            
+            <div class="build-card">
+                <h3>👹 Boss Fights</h3>
+                <ol>
+                    <li>Save C4 for add phases</li>
+                    <li>Direct damage on boss with RPG</li>
+                    <li>Pre-place at add spawn doors</li>
+                    <li>Chain explosions for quick clear</li>
+                    <li>Manage self-damage carefully</li>
+                </ol>
+            </div>
+            
+            <div class="build-card">
+                <h3>🛡️ Escort Missions</h3>
+                <ol>
+                    <li>C4 ahead of objective path</li>
+                    <li>Create safe zones with explosions</li>
+                    <li>Here Kitty draws zombies away</li>
+                    <li>Save charges for final push</li>
+                    <li>Clear climbers with single C4</li>
+                </ol>
+            </div>
+        </section>
+        
+        <!-- Quick Reference -->
+        <section class="card">
+            <h2>📋 Quick Reference</h2>
+            
+            <div class="build-card">
+                <h3>💣 C4 Placement Guide</h3>
+                <ol>
+                    <li><strong>Doorways:</strong> Maximum funnel damage</li>
+                    <li><strong>Climb spots:</strong> Clear pyramid instantly</li>
+                    <li><strong>Corners:</strong> Surprise detonation</li>
+                    <li><strong>Spawn points:</strong> Pre-emptive clear</li>
+                    <li><strong>Escape routes:</strong> Cover retreat</li>
+                </ol>
+            </div>
+            
+            <div class="build-card">
+                <h3>💥 Detonation Timing</h3>
+                <ul>
+                    <li><strong>Maximum density:</strong> Wait for groups</li>
+                    <li><strong>Special priority:</strong> Bulls and Gasbags first</li>
+                    <li><strong>Chain reaction:</strong> Use Bombers</li>
+                    <li><strong>Pyramid base:</strong> Single C4 clears all</li>
+                    <li><strong>Emergency only:</strong> Keep one reserved</li>
+                </ul>
+            </div>
+        </section>
+        
+        <!-- Common Mistakes -->
+        <section class="card">
+            <div class="warning-box">
+                <h3>⚠️ Common Hellraiser Mistakes to Avoid</h3>
+                <ul>
+                    <li><strong>Self-damage:</strong> Too close to own explosions</li>
+                    <li><strong>Team damage:</strong> C4 near teammates</li>
+                    <li><strong>Waste on small groups:</strong> Save for swarms</li>
+                    <li><strong>Poor timing:</strong> Detonating too early/late</li>
+                    <li><strong>Hoarding C4:</strong> Use them to get refills</li>
+                    <li><strong>Ignoring heavy weapons:</strong> They're powerful!</li>
+                    <li><strong>Bad placement:</strong> Missing choke points</li>
+                </ul>
+            </div>
+        </section>
+        
+        <!-- Tips for New Players -->
+        <section class="card">
+            <h2>🌟 Tips for New Hellraiser Players</h2>
+            <div class="tip-box">
+                <ol>
+                    <li><strong>Learn spawn points</strong> - Pre-place for maximum effect</li>
+                    <li><strong>Master detonation timing</strong> - Wait for density</li>
+                    <li><strong>Manage self-damage</strong> - Distance is key</li>
+                    <li><strong>Chain your kills</strong> - Refills come from streaks</li>
+                    <li><strong>Communicate C4 placement</strong> - Warn teammates</li>
+                    <li><strong>Use Here Kitty wisely</strong> - 5-second timer</li>
+                    <li><strong>Don't forget shotgun</strong> - Great for refills</li>
+                    <li><strong>Practice with Directed Blast</strong> - Aim matters!</li>
+                </ol>
+            </div>
+        </section>
     </main>
     
     <!-- Footer -->
     <footer class="site-footer">
         <div class="footer-content">
             <p>&copy; 2024 WWZ: Aftermath Guide. Unofficial fan resource.</p>
-            <p><small>Use alongside in-game tutorials | <a href="printables.html">Print Cheatsheets</a> | Press ? for shortcuts</small></p>
         </div>
     </footer>
     
     <!-- JavaScript -->
-    <script src="js/clipboard.js"></script>
     <script src="js/course-enhancements.js"></script>
 </body>
 </html>
