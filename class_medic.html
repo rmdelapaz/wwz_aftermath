@@ -12,7 +12,7 @@
     <style>
         /* Class-specific styling */
         .class-header {
-            background: linear-gradient(135deg, #4caf50 0%, #8bc34a 100%);
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
             color: white;
             padding: 2rem;
             border-radius: 12px;
@@ -20,7 +20,7 @@
             text-align: center;
         }
         
-        /* Skill Tree Styling */
+        /* Skill Tree Styling - Slasher Layout */
         .skill-tree-container {
             background: #f8f9fa;
             border-radius: 12px;
@@ -29,138 +29,124 @@
             overflow-x: auto;
         }
         
-        .skill-tree-grid {
-            display: grid;
-            grid-template-columns: repeat(13, 1fr);
-            gap: 0.5rem;
-            min-width: 1000px;
-            margin: 1rem 0;
+        .skill-segment {
+            background: white;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid #28a745;
         }
         
-        .skill-column {
+        .skill-segment h4 {
+            color: #495057;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        .perk-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+        }
+        
+        .perk-card {
             background: white;
             border: 2px solid #e9ecef;
             border-radius: 8px;
-            padding: 0.5rem;
-            min-height: 200px;
+            padding: 1rem;
+            transition: transform 0.2s;
         }
         
-        .skill-column.red-perk {
-            border-color: #dc3545;
-            background: #fff5f5;
-        }
-        
-        .column-header {
-            text-align: center;
-            font-weight: bold;
-            color: #495057;
-            margin-bottom: 0.5rem;
-            font-size: 0.9rem;
-        }
-        
-        .perk-slot {
-            background: white;
-            border: 1px solid #dee2e6;
-            border-radius: 4px;
-            padding: 0.5rem;
-            margin: 0.5rem 0;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-        
-        .perk-slot:hover {
+        .perk-card:hover {
             transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            border-color: #4caf50;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
         
-        .perk-slot.red-perk-slot {
-            background: linear-gradient(135deg, #fff5f5 0%, #ffebee 100%);
-            border-color: #dc3545;
+        .perk-level {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            background: #28a745;
+            color: white;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
         }
         
         .perk-name {
             font-weight: bold;
-            font-size: 0.85rem;
-            color: #2c3e50;
-            margin-bottom: 0.25rem;
-        }
-        
-        .perk-description {
-            font-size: 0.75rem;
-            color: #6c757d;
-            line-height: 1.3;
-        }
-        
-        .prestige-badge {
-            position: absolute;
-            top: 0.25rem;
-            right: 0.25rem;
-            background: #dc3545;
-            color: white;
-            font-size: 0.65rem;
-            padding: 0.1rem 0.3rem;
-            border-radius: 3px;
-            font-weight: bold;
-        }
-        
-        .perk-details {
-            margin: 2rem 0;
-        }
-        
-        .perk-details h3 {
-            color: #2c3e50;
-            border-bottom: 2px solid #4caf50;
-            padding-bottom: 0.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        .detailed-perk {
-            background: white;
-            border-left: 3px solid #4caf50;
-            padding: 1rem;
-            margin: 1rem 0;
-            border-radius: 4px;
-        }
-        
-        .detailed-perk.red {
-            border-left-color: #dc3545;
-            background: #fff5f5;
-        }
-        
-        .perk-title {
-            font-size: 1.1rem;
-            font-weight: bold;
-            color: #2c3e50;
-            margin-bottom: 0.5rem;
-        }
-        
-        .perk-full-description {
             color: #495057;
-            margin-bottom: 0.5rem;
+            margin: 0.5rem 0;
         }
         
-        .perk-note {
+        .perk-desc {
+            color: #6c757d;
             font-size: 0.9rem;
-            color: #6c757d;
-            font-style: italic;
+            line-height: 1.4;
         }
         
-        /* Original styles continued */
-        .perk-category {
+        .perk-cost {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 0.75rem;
+            padding-top: 0.75rem;
+            border-top: 1px solid #e9ecef;
+            font-size: 0.85rem;
+        }
+        
+        .core-perk {
+            background: #e8f5e9;
+            border: 2px solid #28a745;
+        }
+        
+        .red-perk {
+            background: #fff5f5;
+            border: 2px solid #dc3545;
+        }
+        
+        .red-perk .perk-level {
+            background: #dc3545;
+        }
+        
+        .prestige-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
             margin: 2rem 0;
-            padding: 1.5rem;
-            background: #f8f9fa;
+        }
+        
+        .prestige-section h3 {
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+        
+        .prestige-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+        }
+        
+        .prestige-perk {
+            background: rgba(255, 255, 255, 0.95);
+            color: #333;
+            padding: 1rem;
             border-radius: 8px;
+            border: 2px solid #9b59b6;
         }
         
-        .perk-category h4 {
-            color: #495057;
-            margin-bottom: 1rem;
-            font-size: 1.2rem;
+        .prestige-rank {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            background: #9b59b6;
+            color: white;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
         }
         
+        /* Rest of existing styles */
         .build-section {
             margin: 2rem 0;
         }
@@ -178,10 +164,27 @@
             margin-bottom: 1rem;
         }
         
+        .build-perks {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 6px;
+            margin: 1rem 0;
+        }
+        
+        .perk-choice {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: #e8f5e9;
+            border: 1px solid #28a745;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin: 0.25rem;
+        }
+        
         .role-badge {
             display: inline-block;
             padding: 0.25rem 0.75rem;
-            background: #4caf50;
+            background: #28a745;
             color: white;
             border-radius: 20px;
             font-size: 0.9rem;
@@ -202,15 +205,6 @@
             border-radius: 8px;
             padding: 1rem;
             margin: 1rem 0;
-        }
-        
-        .prestige-note {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 1rem;
-            border-radius: 8px;
-            margin: 1rem 0;
-            text-align: center;
         }
         
         .synergy-grid {
@@ -251,14 +245,6 @@
             color: #004085;
         }
         
-        .core-ability {
-            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 1rem 0;
-            border: 2px solid #4caf50;
-        }
-        
         .equipment-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -276,21 +262,6 @@
         .equipment-icon {
             font-size: 2rem;
             margin-bottom: 0.5rem;
-        }
-        
-        @media (max-width: 768px) {
-            .skill-tree-container {
-                padding: 1rem;
-            }
-            
-            .skill-tree-grid {
-                display: block;
-                min-width: auto;
-            }
-            
-            .skill-column {
-                margin-bottom: 1rem;
-            }
         }
     </style>
 </head>
@@ -334,11 +305,11 @@
         <header class="class-header">
             <h1>🏥 Medic Class Guide</h1>
             <div class="role-badges">
-                <span class="role-badge">Healer</span>
-                <span class="role-badge">Support</span>
-                <span class="role-badge">Team Sustain</span>
+                <span class="role-badge">Combat Medic</span>
+                <span class="role-badge">Team Support</span>
+                <span class="role-badge">Healing Specialist</span>
             </div>
-            <p><strong>Core Role:</strong> Keep your team alive with healing stims and provide combat support</p>
+            <p><strong>Core Role:</strong> Keep your team alive with healing stims and protective equipment</p>
         </header>
         
         <!-- Quick Stats -->
@@ -348,12 +319,12 @@
                 <div class="equipment-item">
                     <div class="equipment-icon">💉</div>
                     <strong>Stim Pistol</strong>
-                    <p>Instant healing + temp health</p>
+                    <p>3-4 charges, heals + temp health</p>
                 </div>
                 <div class="equipment-item">
                     <div class="equipment-icon">🏥</div>
                     <strong>Free Medkits</strong>
-                    <p>25% chance not consumed</p>
+                    <p>30% chance not consumed</p>
                 </div>
                 <div class="equipment-item">
                     <div class="equipment-icon">⚡</div>
@@ -363,478 +334,667 @@
                 <div class="equipment-item">
                     <div class="equipment-icon">🛡️</div>
                     <strong>Team Buffs</strong>
-                    <p>Damage resist after healing</p>
+                    <p>Damage boost after healing</p>
                 </div>
             </div>
         </section>
         
         <!-- Core Ability -->
         <section class="card">
-            <h2>💉 Core Ability</h2>
-            <div class="core-ability">
-                <h3>Stim Pistol</h3>
-                <p><strong>Effect:</strong> Heals teammates for 25% health plus temporary health. Can also self-heal.</p>
-                <p><strong>Charges:</strong> Starts with 4 charges (can be increased with perks)</p>
-                <p><strong>Range:</strong> Medium range, no damage falloff</p>
-                <p><strong>Cooldown:</strong> Regenerates 1 charge every 90 seconds</p>
-                <p><strong>Pro Tip:</strong> The stim pistol has surprisingly long range - you can heal from across most rooms!</p>
+            <h2>💉 Core Ability: Booster Shot</h2>
+            <div class="core-ability" style="background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%); padding: 1.5rem; border-radius: 8px; margin: 1rem 0; border: 2px solid #28a745;">
+                <h3>Combat Medic</h3>
+                <p><strong>Starting Equipment:</strong> Stim Pistol, Compact SMG and free Medkit</p>
+                <p><strong>Stim Pistol:</strong> Heals teammates and grants temporary health boost</p>
+                <p><strong>Base Stats:</strong> 3 charges (4 with Big Pharma), regenerates over time</p>
+                <p><strong>Team Healing:</strong> Using Medkit on teammate applies 25% to you</p>
+                <p><strong>Pro Tip:</strong> Stim Pistol has great range - heal from safety!</p>
             </div>
         </section>
         
-        <!-- Skill Tree Section -->
+        <!-- Complete Skill Tree -->
         <section class="card">
-            <h2>🎯 Medic Skill Tree</h2>
-            
-            <div class="warning-box">
-                <strong>How the Skill System Works:</strong>
-                <ul>
-                    <li>Progress through levels 1-30 to unlock new perk segments</li>
-                    <li>Choose ONE perk per segment to activate</li>
-                    <li>Red perks are special alternatives that cost more (red coins)</li>
-                    <li>You can buy multiple perks in each segment but only use one at a time</li>
-                    <li>Perks cost 150-500 yellow coins, red perks cost 150-500 red coins</li>
-                    <li>Level 10, 20, and 30 perks are automatic and always active</li>
-                </ul>
-            </div>
+            <h2>🏥 Complete Medic Skill Tree</h2>
             
             <div class="skill-tree-container">
-                <h3>Medic Perk Grid</h3>
-                <div class="skill-tree-grid">
-                    <!-- Column 1 - Starting Perk -->
-                    <div class="skill-column">
-                        <div class="column-header">Start</div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Booster Shot</div>
-                            <div class="perk-description">Start with Stim Pistol, SMG and free Medkit</div>
+                <!-- Core Perk -->
+                <div class="skill-segment">
+                    <h4>Core Ability</h4>
+                    <div class="perk-grid">
+                        <div class="perk-card red-perk">
+                            <div class="perk-level">CORE</div>
+                            <h5 class="perk-name">Booster Shot</h5>
+                            <p class="perk-desc">Start with a Stim Pistol, Compact SMG and free Medkit. Using Medkit on a teammate will also apply 25% of its effect to you</p>
+                            <div class="perk-cost">
+                                <span>💰 Free</span>
+                                <span>📊 0 XP</span>
+                            </div>
                         </div>
                     </div>
-                    
-                    <!-- Column 2 - Level 1-3 -->
-                    <div class="skill-column">
-                        <div class="column-header">Lvl 1-3</div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Doctor in the House</div>
-                            <div class="perk-description">Medkits heal 10% more</div>
+                </div>
+
+                <!-- Segment 1 (Levels 1-3) -->
+                <div class="skill-segment">
+                    <h4>Segment One - Medkit Enhancement</h4>
+                    <div class="perk-grid">
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 1</div>
+                            <h5 class="perk-name">Doctor in the House</h5>
+                            <p class="perk-desc">Medkits heal 10% more (base: 70%)</p>
+                            <div class="perk-cost">
+                                <span>💰 Free</span>
+                                <span>📊 0 XP</span>
+                            </div>
                         </div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Triage</div>
-                            <div class="perk-description">Apply Medkits 50% faster</div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 2</div>
+                            <h5 class="perk-name">Triage</h5>
+                            <p class="perk-desc">Apply Medkits 50% faster [base: 4 seconds]</p>
+                            <div class="perk-cost">
+                                <span>💰 150 Supplies</span>
+                                <span>📊 1,250 XP</span>
+                            </div>
                         </div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Sugar Coated</div>
-                            <div class="perk-description">Healing grants temp health boost</div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 3</div>
+                            <h5 class="perk-name">Sugar Coated</h5>
+                            <p class="perk-desc">Healing a teammate with a Medkit also grants them a temporary health boost</p>
+                            <div class="perk-cost">
+                                <span>💰 150 Supplies</span>
+                                <span>📊 1,250 XP</span>
+                            </div>
                         </div>
-                        <div class="perk-slot red-perk-slot">
-                            <span class="prestige-badge">RED</span>
-                            <div class="perk-name">Breathe Deeply</div>
-                            <div class="perk-description">Stim creates healing gas cloud</div>
-                        </div>
-                    </div>
-                    
-                    <!-- Column 3 - Level 4-6 -->
-                    <div class="skill-column">
-                        <div class="column-header">Lvl 4-6</div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Patch Up</div>
-                            <div class="perk-description">Restore 30% health after revive</div>
-                        </div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Paramedic</div>
-                            <div class="perk-description">Revive speed +50%</div>
-                        </div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Pick Me Up</div>
-                            <div class="perk-description">Revive grants temp health to both</div>
-                        </div>
-                        <div class="perk-slot red-perk-slot">
-                            <span class="prestige-badge">RED</span>
-                            <div class="perk-name">Candy</div>
-                            <div class="perk-description">Reviving restores equipment charge</div>
-                        </div>
-                    </div>
-                    
-                    <!-- Column 4 - Level 7-9 -->
-                    <div class="skill-column">
-                        <div class="column-header">Lvl 7-9</div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Big Pharma</div>
-                            <div class="perk-description">Stim Pistol charges +1 (4 total)</div>
-                        </div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Painkiller</div>
-                            <div class="perk-description">Stim gives 25% more temp health, lasts 50% longer</div>
-                        </div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Empathy</div>
-                            <div class="perk-description">Using Stim on teammate applies 50% to you</div>
-                        </div>
-                        <div class="perk-slot red-perk-slot">
-                            <span class="prestige-badge">RED</span>
-                            <div class="perk-name">Take a Break</div>
-                            <div class="perk-description">Stim fully restores stamina</div>
+                        <div class="perk-card">
+                            <div class="perk-level">DLC PERK</div>
+                            <h5 class="perk-name">Breathe Deeply</h5>
+                            <p class="perk-desc">The rounds of the Stim Pistol are replaced with healing gas syringes that burst upon contact with surfaces, releasing healing gas that grants a 75% temporary health boost to all players</p>
+                            <div class="perk-cost">
+                                <span>💰 150 Supplies</span>
+                                <span>📊 1,250 XP</span>
+                            </div>
                         </div>
                     </div>
-                    
-                    <!-- Column 5 - Level 10 -->
-                    <div class="skill-column">
-                        <div class="column-header">Lvl 10</div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Tenacity</div>
-                            <div class="perk-description">Incapacitated teammates live 30% longer</div>
+                </div>
+
+                <!-- Segment 2 (Levels 4-6) -->
+                <div class="skill-segment">
+                    <h4>Segment Two - Revival Skills</h4>
+                    <div class="perk-grid">
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 4</div>
+                            <h5 class="perk-name">Patch Up</h5>
+                            <p class="perk-desc">Restore 30% health to a teammate after reviving them (base: 20%)</p>
+                            <div class="perk-cost">
+                                <span>💰 150 Supplies</span>
+                                <span>📊 1,250 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 5</div>
+                            <h5 class="perk-name">Paramedic</h5>
+                            <p class="perk-desc">Revive speed increased by 50%</p>
+                            <div class="perk-cost">
+                                <span>💰 150 Supplies</span>
+                                <span>📊 1,250 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 6</div>
+                            <h5 class="perk-name">Pick Me Up</h5>
+                            <p class="perk-desc">When you revive a teammate, both of you gain temporary health boost</p>
+                            <div class="perk-cost">
+                                <span>💰 150 Supplies</span>
+                                <span>📊 250 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">DLC PERK</div>
+                            <h5 class="perk-name">Candy</h5>
+                            <p class="perk-desc">Reviving a teammate in battle restores one equipment charge for both of you</p>
+                            <div class="perk-cost">
+                                <span>💰 150 Supplies</span>
+                                <span>📊 1,250 XP</span>
+                            </div>
                         </div>
                     </div>
-                    
-                    <!-- Column 6 - Level 11-13 -->
-                    <div class="skill-column">
-                        <div class="column-header">Lvl 11-13</div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Second Wind</div>
-                            <div class="perk-description">25% chance to regain 25% health instead of being incapacitated</div>
+                </div>
+
+                <!-- Segment 3 (Levels 7-9) -->
+                <div class="skill-segment">
+                    <h4>Segment Three - Stim Pistol Enhancement</h4>
+                    <div class="perk-grid">
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 7</div>
+                            <h5 class="perk-name">Big Pharma</h5>
+                            <p class="perk-desc">Max number of Stim Pistol charges increased to 4 [base: 3 charges]</p>
+                            <div class="perk-cost">
+                                <span>💰 150 Supplies</span>
+                                <span>📊 1,250 XP</span>
+                            </div>
                         </div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Wheatgrass</div>
-                            <div class="perk-description">Health increased by 25%</div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 8</div>
+                            <h5 class="perk-name">Painkiller</h5>
+                            <p class="perk-desc">Stim Pistol gives 25% more temporary health and its effects last 50% longer</p>
+                            <div class="perk-cost">
+                                <span>💰 150 Supplies</span>
+                                <span>📊 1,250 XP</span>
+                            </div>
                         </div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Navy Seal</div>
-                            <div class="perk-description">Start with SMG TMP5</div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 9</div>
+                            <h5 class="perk-name">Empathy</h5>
+                            <p class="perk-desc">Using the Stim Pistol on a teammate will also apply 50% of its effect to you</p>
+                            <div class="perk-cost">
+                                <span>💰 150 Supplies</span>
+                                <span>📊 1,250 XP</span>
+                            </div>
                         </div>
-                        <div class="perk-slot red-perk-slot">
-                            <span class="prestige-badge">RED</span>
-                            <div class="perk-name">Trail of Breadcrumbs</div>
-                            <div class="perk-description">Medical items auto-marked within 10m</div>
-                        </div>
-                    </div>
-                    
-                    <!-- Column 7 - Level 14-16 -->
-                    <div class="skill-column">
-                        <div class="column-header">Lvl 14-16</div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Efficiency</div>
-                            <div class="perk-description">30% chance to use Medkit without depleting</div>
-                        </div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Good Karma</div>
-                            <div class="perk-description">Using Medkit on teammate applies 50% to you</div>
-                        </div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Combat Medic</div>
-                            <div class="perk-description">Kill 15 zombies for 50% chance to get Medkit</div>
-                        </div>
-                        <div class="perk-slot red-perk-slot">
-                            <span class="prestige-badge">RED</span>
-                            <div class="perk-name">They Don't Need It</div>
-                            <div class="perk-description">Special zombies may drop medical items</div>
-                        </div>
-                    </div>
-                    
-                    <!-- Column 8 - Level 17-19 -->
-                    <div class="skill-column">
-                        <div class="column-header">Lvl 17-19</div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Free Hugs</div>
-                            <div class="perk-description">25% chance to use Stim Pistol without depleting</div>
-                        </div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Pickpocket</div>
-                            <div class="perk-description">Kill 15 zombies to refill equipment charge</div>
-                        </div>
-                        <div class="perk-slot">
-                            <div class="perk-name">I'll Take That</div>
-                            <div class="perk-description">Kill special zombie to restore equipment charge</div>
-                        </div>
-                        <div class="perk-slot red-perk-slot">
-                            <span class="prestige-badge">RED</span>
-                            <div class="perk-name">It Was Intentional</div>
-                            <div class="perk-description">Stim creates healing cloud at your feet</div>
+                        <div class="perk-card">
+                            <div class="perk-level">DLC PERK</div>
+                            <h5 class="perk-name">Take a Break</h5>
+                            <p class="perk-desc">Using the Stim Pistol on a teammate also fully restores their stamina for melee strikes</p>
+                            <div class="perk-cost">
+                                <span>💰 150 Supplies</span>
+                                <span>📊 1,250 XP</span>
+                            </div>
                         </div>
                     </div>
-                    
-                    <!-- Column 9 - Level 20 -->
-                    <div class="skill-column">
-                        <div class="column-header">Lvl 20</div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Fighting Chance</div>
-                            <div class="perk-description">Using Stim on pinned teammate gets them up</div>
+                </div>
+
+                <!-- Level 10 -->
+                <div class="skill-segment">
+                    <h4>Level 10 - Team Survival</h4>
+                    <div class="perk-grid">
+                        <div class="perk-card red-perk">
+                            <div class="perk-level">LVL 10</div>
+                            <h5 class="perk-name">Tenacity</h5>
+                            <p class="perk-desc">All incapacitated team members will stay alive for 30% longer (base: 40 seconds)</p>
+                            <div class="perk-cost">
+                                <span>💰 Free</span>
+                                <span>📊 1,500 XP</span>
+                            </div>
                         </div>
                     </div>
-                    
-                    <!-- Column 10 - Level 21-23 -->
-                    <div class="skill-column">
-                        <div class="column-header">Lvl 21-23</div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Forgive and Forget</div>
-                            <div class="perk-description">Friendly fire reduced by 25% for all</div>
+                </div>
+
+                <!-- Segment 4 (Levels 11-13) -->
+                <div class="skill-segment">
+                    <h4>Segment Four - Personal Enhancement</h4>
+                    <div class="perk-grid">
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 11</div>
+                            <h5 class="perk-name">Second Wind</h5>
+                            <p class="perk-desc">25% chance to regain 25% health and keep going instead of becoming incapacitated (cooldown: 60 seconds)</p>
+                            <div class="perk-cost">
+                                <span>💰 250 Supplies</span>
+                                <span>📊 1,500 XP</span>
+                            </div>
                         </div>
-                        <div class="perk-slot">
-                            <div class="perk-name">In the Zone</div>
-                            <div class="perk-description">Using Stim/Medkit adds 50% firearm damage for 10s</div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 12</div>
+                            <h5 class="perk-name">Wheatgrass</h5>
+                            <p class="perk-desc">Health increased by 25%</p>
+                            <div class="perk-cost">
+                                <span>💰 250 Supplies</span>
+                                <span>📊 1,500 XP</span>
+                            </div>
                         </div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Fighting Fit</div>
-                            <div class="perk-description">Firearm damage +25% when team has 50%+ health</div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 13</div>
+                            <h5 class="perk-name">Navy Seal</h5>
+                            <p class="perk-desc">Start with SMG TMP5</p>
+                            <div class="perk-cost">
+                                <span>💰 250 Supplies</span>
+                                <span>📊 1,500 XP</span>
+                            </div>
                         </div>
-                        <div class="perk-slot red-perk-slot">
-                            <span class="prestige-badge">RED</span>
-                            <div class="perk-name">Just a Scratch</div>
-                            <div class="perk-description">10% less damage under Stim effect</div>
-                        </div>
-                    </div>
-                    
-                    <!-- Column 11 - Level 24-26 -->
-                    <div class="skill-column">
-                        <div class="column-header">Lvl 24-26</div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Battle Surgeon</div>
-                            <div class="perk-description">Stim heals 10% health plus temp boost</div>
-                        </div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Emergency Rescue</div>
-                            <div class="perk-description">Gain temp health when below 25%</div>
-                        </div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Secret Ingredient</div>
-                            <div class="perk-description">Stim grants 5s masking effect</div>
-                        </div>
-                        <div class="perk-slot red-perk-slot">
-                            <span class="prestige-badge">RED</span>
-                            <div class="perk-name">Too Slowly</div>
-                            <div class="perk-description">Reload +10% under Stim effect</div>
-                        </div>
-                    </div>
-                    
-                    <!-- Column 12 - Level 27-29 -->
-                    <div class="skill-column">
-                        <div class="column-header">Lvl 27-29</div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Lobotomy</div>
-                            <div class="perk-description">Restore 2 rounds per SMG headshot</div>
-                        </div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Swapping Mags!</div>
-                            <div class="perk-description">SMG reload speed +25%</div>
-                        </div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Adrenaline</div>
-                            <div class="perk-description">Reload +50% when health below 35%</div>
-                        </div>
-                        <div class="perk-slot red-perk-slot">
-                            <span class="prestige-badge">RED</span>
-                            <div class="perk-name">Emergency Measures</div>
-                            <div class="perk-description">SMG penetration +1 when health below 30%</div>
+                        <div class="perk-card">
+                            <div class="perk-level">DLC PERK</div>
+                            <h5 class="perk-name">Trail of Breadcrumbs</h5>
+                            <p class="perk-desc">All medical items within 10 meters will be automatically marked if you don't have any</p>
+                            <div class="perk-cost">
+                                <span>💰 250 Supplies</span>
+                                <span>📊 1,500 XP</span>
+                            </div>
                         </div>
                     </div>
-                    
-                    <!-- Column 13 - Level 30 -->
-                    <div class="skill-column">
-                        <div class="column-header">Lvl 30</div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Doctor's Bag</div>
-                            <div class="perk-description">Medkits used by team restore 10% more health</div>
+                </div>
+
+                <!-- Segment 5 (Levels 14-16) -->
+                <div class="skill-segment">
+                    <h4>Segment Five - Medkit Efficiency</h4>
+                    <div class="perk-grid">
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 14</div>
+                            <h5 class="perk-name">Efficiency</h5>
+                            <p class="perk-desc">30% chance of using a Medkit without depleting your supply</p>
+                            <div class="perk-cost">
+                                <span>💰 250 Supplies</span>
+                                <span>📊 1,500 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 15</div>
+                            <h5 class="perk-name">Good Karma</h5>
+                            <p class="perk-desc">Using Medkit on a teammate will also apply 50% of its effect to you</p>
+                            <div class="perk-cost">
+                                <span>💰 350 Supplies</span>
+                                <span>📊 1,750 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 16</div>
+                            <h5 class="perk-name">Combat Medic</h5>
+                            <p class="perk-desc">Kill 15 zombies in rapid succession gives 50% chance to receive a Medkit (cooldown 180 seconds)</p>
+                            <div class="perk-cost">
+                                <span>💰 350 Supplies</span>
+                                <span>📊 1,750 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">DLC PERK</div>
+                            <h5 class="perk-name">They Don't Need It</h5>
+                            <p class="perk-desc">There is a chance that killing a special zombie will cause it to drop a medical item (cooldown: 180 seconds)</p>
+                            <div class="perk-cost">
+                                <span>💰 350 Supplies</span>
+                                <span>📊 1,750 XP</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Segment 6 (Levels 17-19) -->
+                <div class="skill-segment">
+                    <h4>Segment Six - Equipment Regeneration</h4>
+                    <div class="perk-grid">
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 17</div>
+                            <h5 class="perk-name">Free Hugs</h5>
+                            <p class="perk-desc">25% chance of using the Stim Pistol without depleting its charge</p>
+                            <div class="perk-cost">
+                                <span>💰 350 Supplies</span>
+                                <span>📊 1,750 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 18</div>
+                            <h5 class="perk-name">Pickpocket</h5>
+                            <p class="perk-desc">Killing 15 zombies in rapid succession refills one equipment charge (cooldown 20 seconds)</p>
+                            <div class="perk-cost">
+                                <span>💰 350 Supplies</span>
+                                <span>📊 1,750 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 19</div>
+                            <h5 class="perk-name">I'll Take That</h5>
+                            <p class="perk-desc">Killing a special zombie restores one equipment charge (cooldown 30 seconds)</p>
+                            <div class="perk-cost">
+                                <span>💰 350 Supplies</span>
+                                <span>📊 1,750 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">DLC PERK</div>
+                            <h5 class="perk-name">It Was Intentional</h5>
+                            <p class="perk-desc">Using the Stim Pistol creates an additional healing gas cloud under your feet (cooldown: 30 seconds)</p>
+                            <div class="perk-cost">
+                                <span>💰 350 Supplies</span>
+                                <span>📊 1,750 XP</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Level 20 -->
+                <div class="skill-segment">
+                    <h4>Level 20 - Emergency Revival</h4>
+                    <div class="perk-grid">
+                        <div class="perk-card red-perk">
+                            <div class="perk-level">LVL 20</div>
+                            <h5 class="perk-name">Fighting Chance</h5>
+                            <p class="perk-desc">Using the Stim Pistol on a teammate who is pinned will get them to their feet</p>
+                            <div class="perk-cost">
+                                <span>💰 Free</span>
+                                <span>📊 2,000 XP</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Segment 7 (Levels 21-23) -->
+                <div class="skill-segment">
+                    <h4>Segment Seven - Combat Enhancement</h4>
+                    <div class="perk-grid">
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 21</div>
+                            <h5 class="perk-name">Forgive and Forget</h5>
+                            <p class="perk-desc">Friendly fire damage reduced by 25% for all team members</p>
+                            <div class="perk-cost">
+                                <span>💰 500 Supplies</span>
+                                <span>📊 2,000 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 22</div>
+                            <h5 class="perk-name">In the Zone</h5>
+                            <p class="perk-desc">Using a Stim Pistol or Medkit adds a 50% firearm damage boost for 10 seconds</p>
+                            <div class="perk-cost">
+                                <span>💰 500 Supplies</span>
+                                <span>📊 2,000 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 23</div>
+                            <h5 class="perk-name">Fighting Fit</h5>
+                            <p class="perk-desc">Firearm damage increased by 25% when your whole team have more than 50% health</p>
+                            <div class="perk-cost">
+                                <span>💰 500 Supplies</span>
+                                <span>📊 2,000 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">DLC PERK</div>
+                            <h5 class="perk-name">Just a Scratch</h5>
+                            <p class="perk-desc">While under the Stim Pistol's effect, the player receives 10% less damage from any source</p>
+                            <div class="perk-cost">
+                                <span>💰 500 Supplies</span>
+                                <span>📊 2,000 XP</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Segment 8 (Levels 24-26) -->
+                <div class="skill-segment">
+                    <h4>Segment Eight - Advanced Healing</h4>
+                    <div class="perk-grid">
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 24</div>
+                            <h5 class="perk-name">Battle Surgeon</h5>
+                            <p class="perk-desc">Stim Pistol heals 10% of health in addition to the boost effect</p>
+                            <div class="perk-cost">
+                                <span>💰 500 Supplies</span>
+                                <span>📊 2,000 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 25</div>
+                            <h5 class="perk-name">Emergency Rescue</h5>
+                            <p class="perk-desc">When your health drops below 25%, you gain temporary health (cooldown 180 seconds)</p>
+                            <div class="perk-cost">
+                                <span>💰 500 Supplies</span>
+                                <span>📊 2,500 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 26</div>
+                            <h5 class="perk-name">Secret Ingredient</h5>
+                            <p class="perk-desc">Stim Pistol grants additional masking effect lasting 5 seconds</p>
+                            <div class="perk-cost">
+                                <span>💰 500 Supplies</span>
+                                <span>📊 2,500 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">DLC PERK</div>
+                            <h5 class="perk-name">Too Slowly</h5>
+                            <p class="perk-desc">Reload speed is increased by 10% under the effect of the Stim Pistol</p>
+                            <div class="perk-cost">
+                                <span>💰 500 Supplies</span>
+                                <span>📊 2,500 XP</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Segment 9 (Levels 27-29) -->
+                <div class="skill-segment">
+                    <h4>Segment Nine - Weapon Support</h4>
+                    <div class="perk-grid">
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 27</div>
+                            <h5 class="perk-name">Lobotomy</h5>
+                            <p class="perk-desc">Restore 2 rounds in magazine for each headshot made with SMG</p>
+                            <div class="perk-cost">
+                                <span>💰 500 Supplies</span>
+                                <span>📊 2,500 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 28</div>
+                            <h5 class="perk-name">Swapping Mags!</h5>
+                            <p class="perk-desc">SMGs' reload speed increased by 25%</p>
+                            <div class="perk-cost">
+                                <span>💰 500 Supplies</span>
+                                <span>📊 2,500 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 29</div>
+                            <h5 class="perk-name">Adrenaline</h5>
+                            <p class="perk-desc">Reload speed increased by 50% when health is below 35%</p>
+                            <div class="perk-cost">
+                                <span>💰 500 Supplies</span>
+                                <span>📊 2,500 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">DLC PERK</div>
+                            <h5 class="perk-name">Emergency Measures</h5>
+                            <p class="perk-desc">Penetration of SMGs is increased by 1 while the player's health is below 30%</p>
+                            <div class="perk-cost">
+                                <span>💰 500 Supplies</span>
+                                <span>📊 2,500 XP</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Level 30 -->
+                <div class="skill-segment">
+                    <h4>Level 30 - Ultimate Medic</h4>
+                    <div class="perk-grid">
+                        <div class="perk-card red-perk">
+                            <div class="perk-level">LVL 30</div>
+                            <h5 class="perk-name">Doctor's Bag</h5>
+                            <p class="perk-desc">Medkits used by you and your teammates restore 10% more health</p>
+                            <div class="perk-cost">
+                                <span>💰 Free</span>
+                                <span>📊 3,500 XP</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </section>
+
+        <!-- Prestige Rank Perks -->
+        <section class="prestige-section">
+            <h3>⭐ Prestige Rank Perks</h3>
+            <p style="margin-bottom: 1.5rem;">These permanent passive bonuses unlock through prestiging. They remain active even after subsequent prestiges and stack with regular perks.</p>
             
-            <div class="prestige-note">
-                ⭐ Red perks are special alternative perks that provide unique effects. They cost red coins instead of yellow coins and are typically more powerful or offer different playstyles.
+            <div class="prestige-grid">
+                <div class="prestige-perk">
+                    <div class="prestige-rank">RANK 1</div>
+                    <h5 class="perk-name">Painkiller II</h5>
+                    <p class="perk-desc">Stim Pistol effects last 25% longer</p>
+                    <div class="perk-cost">
+                        <span>💰 7,500 Yellow Coins</span>
+                    </div>
+                </div>
+                <div class="prestige-perk">
+                    <div class="prestige-rank">RANK 2</div>
+                    <h5 class="perk-name">Triage II</h5>
+                    <p class="perk-desc">Apply Medkits 25% faster (base: 4 seconds)</p>
+                    <div class="perk-cost">
+                        <span>💰 7,500 Yellow Coins</span>
+                    </div>
+                </div>
+                <div class="prestige-perk">
+                    <div class="prestige-rank">RANK 3</div>
+                    <h5 class="perk-name">Remote Healthcare</h5>
+                    <p class="perk-desc">Stim Pistol range increased by 25%</p>
+                    <div class="perk-cost">
+                        <span>💰 7,500 Yellow Coins</span>
+                    </div>
+                </div>
+                <div class="prestige-perk">
+                    <div class="prestige-rank">RANK 4</div>
+                    <h5 class="perk-name">Navy Seal II</h5>
+                    <p class="perk-desc">SMG range increased by 25%</p>
+                    <div class="perk-cost">
+                        <span>💰 7,500 Yellow Coins</span>
+                    </div>
+                </div>
+                <div class="prestige-perk">
+                    <div class="prestige-rank">RANK 5</div>
+                    <h5 class="perk-name">Empathy II</h5>
+                    <p class="perk-desc">Using the Stim Pistol on a teammate will also apply 10% of its effect to you</p>
+                    <div class="perk-cost">
+                        <span>💰 7,500 Yellow Coins</span>
+                    </div>
+                </div>
+                <div class="prestige-perk">
+                    <div class="prestige-rank">RANK 6</div>
+                    <h5 class="perk-name">Remote Healthcare II</h5>
+                    <p class="perk-desc">Stim Pistol range increased by 10%</p>
+                    <div class="perk-cost">
+                        <span>💰 7,500 Yellow Coins</span>
+                    </div>
+                </div>
+                <div class="prestige-perk">
+                    <div class="prestige-rank">RANK 7</div>
+                    <h5 class="perk-name">Hypervitaminosis</h5>
+                    <p class="perk-desc">After using a Medkit, you will apply 10% of its effect to a random ally</p>
+                    <div class="perk-cost">
+                        <span>💰 7,500 Yellow Coins</span>
+                    </div>
+                </div>
+                <div class="prestige-perk">
+                    <div class="prestige-rank">RANK 8</div>
+                    <h5 class="perk-name">Paramedic II</h5>
+                    <p class="perk-desc">Revive speed increased by 10%</p>
+                    <div class="perk-cost">
+                        <span>💰 7,500 Yellow Coins</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tip-box" style="background: rgba(255,255,255,0.2); border: 2px solid rgba(255,255,255,0.5); color: white; margin-top: 1.5rem;">
+                <strong>💡 Note:</strong> Focus on Remote Healthcare for range and Paramedic II for faster revives!
             </div>
         </section>
         
-        <!-- Prestige Rank Perks Section -->
-        <section class="card">
-            <h2>⭐ Prestige Rank Perks</h2>
-            
-            <div class="warning-box">
-                <strong>About Prestige Perks:</strong>
-                <ul>
-                    <li>Unlocked by reaching Prestige Ranks 1-9</li>
-                    <li>These are PASSIVE bonuses that are always active once unlocked</li>
-                    <li>Stack with your regular perks for even more power</li>
-                    <li>Each costs 7500 yellow coins to unlock</li>
-                    <li>Persist through prestige resets</li>
-                </ul>
-            </div>
-            
-            <div class="perk-details">
-                <h3>Prestige Progression</h3>
-                
-                <div class="detailed-perk">
-                    <div class="perk-title">Rank 1: Painkiller II</div>
-                    <div class="perk-full-description">
-                        Stim Pistol effects last 25% longer.
-                    </div>
-                    <div class="perk-note">Extends the duration of all Stim Pistol benefits, giving more value per shot.</div>
-                </div>
-                
-                <div class="detailed-perk">
-                    <div class="perk-title">Rank 2: Triage II</div>
-                    <div class="perk-full-description">
-                        Apply Medkits 25% faster (base: 4 seconds).
-                    </div>
-                    <div class="perk-note">Stacks with the regular Triage perk for ultra-fast healing.</div>
-                </div>
-                
-                <div class="detailed-perk">
-                    <div class="perk-title">Rank 3: Remote Healthcare</div>
-                    <div class="perk-full-description">
-                        Stim Pistol range increased by 25%.
-                    </div>
-                    <div class="perk-note">Heal teammates from safer distances - crucial for higher difficulties.</div>
-                </div>
-                
-                <div class="detailed-perk">
-                    <div class="perk-title">Rank 4: Navy Seal II</div>
-                    <div class="perk-full-description">
-                        SMG range increased by 25%.
-                    </div>
-                    <div class="perk-note">Makes SMGs more versatile for medium-range combat.</div>
-                </div>
-                
-                <div class="detailed-perk">
-                    <div class="perk-title">Rank 6: Empathy II</div>
-                    <div class="perk-full-description">
-                        Using the Stim Pistol on a teammate will also apply 10% of its effect to you.
-                    </div>
-                    <div class="perk-note">Passive self-healing that stacks with the regular Empathy perk.</div>
-                </div>
-                
-                <div class="detailed-perk">
-                    <div class="perk-title">Rank 7: Remote Healthcare II</div>
-                    <div class="perk-full-description">
-                        Stim Pistol range increased by 10%.
-                    </div>
-                    <div class="perk-note">Stacks with Remote Healthcare for 35% total range increase.</div>
-                </div>
-                
-                <div class="detailed-perk">
-                    <div class="perk-title">Rank 8: Hypervitaminosis</div>
-                    <div class="perk-full-description">
-                        After using a Medkit, you will apply 10% of its effect to a random ally.
-                    </div>
-                    <div class="perk-note">Free healing spread - every Medkit helps multiple teammates.</div>
-                </div>
-                
-                <div class="detailed-perk">
-                    <div class="perk-title">Rank 9: Paramedic II</div>
-                    <div class="perk-full-description">
-                        Revive speed increased by 10%.
-                    </div>
-                    <div class="perk-note">The final prestige perk - stacks with regular Paramedic for 60% faster revives.</div>
-                </div>
-            </div>
-            
-            <div class="tip-box">
-                <strong>💡 Prestige Strategy:</strong> Focus on reaching at least Prestige Rank 3 for the essential healing improvements. Remote Healthcare is particularly valuable as it significantly improves your ability to heal from safe positions. The later ranks are nice bonuses but less critical.
-            </div>
-        </section>
-        
-        <!-- Detailed Perk Descriptions -->
-        <section class="card">
-            <h2>📋 Key Perk Details</h2>
-            
-            <div class="perk-details">
-                <h3>Must-Have Perks</h3>
-                
-                <div class="detailed-perk">
-                    <div class="perk-title">In the Zone (Level 21-23)</div>
-                    <div class="perk-full-description">
-                        Using a Stim Pistol or Medkit adds a 50% firearm damage boost for 10 seconds.
-                    </div>
-                    <div class="perk-note">One of the best offensive perks - turns every heal into a damage buff opportunity.</div>
-                </div>
-                
-                <div class="detailed-perk">
-                    <div class="perk-title">Fighting Fit (Level 21-23)</div>
-                    <div class="perk-full-description">
-                        Firearm damage increased by 25% when your whole team has more than 50% health.
-                    </div>
-                    <div class="perk-note">Rewards good medic play - keep everyone healthy for a team-wide damage boost.</div>
-                </div>
-                
-                <div class="detailed-perk">
-                    <div class="perk-title">Paramedic (Level 4-6)</div>
-                    <div class="perk-full-description">
-                        Revive speed increased by 50%.
-                    </div>
-                    <div class="perk-note">Essential for higher difficulties where quick revives save runs.</div>
-                </div>
-                
-                <div class="detailed-perk">
-                    <div class="perk-title">Combat Medic (Level 14-16)</div>
-                    <div class="perk-full-description">
-                        Kill 15 zombies in rapid succession gives 50% chance to receive a Medkit (cooldown 180 seconds).
-                    </div>
-                    <div class="perk-note">Rewards aggressive play with free medical supplies.</div>
-                </div>
-                
-                <div class="detailed-perk red">
-                    <div class="perk-title">Breathe Deeply (Level 1-3 - Red)</div>
-                    <div class="perk-full-description">
-                        The rounds of the Stim Pistol are replaced with healing gas syringes that burst upon contact with surfaces, releasing healing gas that grants a 75% temporary health boost to all players.
-                    </div>
-                    <div class="perk-note">Completely changes how the Stim Pistol works - creates area healing instead of targeted.</div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Build Recommendations with Specific Perks -->
+        <!-- Build Recommendations -->
         <section class="card">
             <h2>🎯 Recommended Builds</h2>
             
             <div class="build-card">
                 <h3>🌟 Beginner Build - "Stay Alive"</h3>
                 <p>Focus on survival and basic healing. Perfect for learning the class.</p>
-                <strong>Essential Perks:</strong>
+                <div class="build-perks">
+                    <strong>Essential Perks:</strong>
+                    <span class="perk-choice">Doctor in the House</span>
+                    <span class="perk-choice">Paramedic</span>
+                    <span class="perk-choice">Painkiller</span>
+                    <span class="perk-choice">Wheatgrass</span>
+                    <span class="perk-choice">Efficiency</span>
+                    <span class="perk-choice">Battle Surgeon</span>
+                </div>
+                <div class="build-perks">
+                    <strong>Prestige Focus:</strong>
+                    <span class="perk-choice">Triage II</span>
+                    <span class="perk-choice">Painkiller II</span>
+                    <span class="perk-choice">Paramedic II</span>
+                </div>
                 <ul>
-                    <li><strong>Level 1-3:</strong> Doctor in the House (Medkits heal 10% more)</li>
-                    <li><strong>Level 4-6:</strong> Paramedic (50% faster revive)</li>
-                    <li><strong>Level 7-9:</strong> Painkiller (25% more temp health, lasts 50% longer)</li>
-                    <li><strong>Level 11-13:</strong> Wheatgrass (Health increased by 25%)</li>
-                    <li><strong>Level 14-16:</strong> Efficiency (30% chance Medkit not consumed)</li>
+                    <li><strong>Health Boost:</strong> +25% from Wheatgrass</li>
+                    <li><strong>Fast Healing:</strong> 75% faster Medkit application with both Triage perks</li>
+                    <li><strong>Revive Speed:</strong> 60% faster with both Paramedic perks</li>
                 </ul>
                 <div class="tip-box">
-                    <strong>💡 Tip:</strong> This build maximizes your survival and gives you room to make mistakes while learning.
-                    <br><strong>Best Prestige Perks:</strong> Triage II (Rank 2) for faster healing, Painkiller II (Rank 1) for longer buffs.
+                    <strong>💡 Tip:</strong> This build maximizes survival and forgiveness while learning!</strong>
                 </div>
             </div>
             
             <div class="build-card">
                 <h3>⚔️ Combat Medic Build - "Battle Healer"</h3>
                 <p>Aggressive healing through combat. Heal by killing.</p>
-                <strong>Essential Perks:</strong>
-                <ul>
-                    <li><strong>Level 14-16:</strong> Combat Medic (Kill 15 zombies for Medkit chance)</li>
-                    <li><strong>Level 17-19:</strong> Pickpocket (Kill 15 zombies to refill equipment)</li>
-                    <li><strong>Level 21-23:</strong> In the Zone (50% damage boost after healing)</li>
-                    <li><strong>Level 24-26:</strong> Battle Surgeon (Stim heals 10% health)</li>
-                    <li><strong>Level 27-29:</strong> Lobotomy (2 rounds per SMG headshot)</li>
-                </ul>
-                <div class="tip-box">
-                    <strong>💡 Tip:</strong> Stay aggressive - your kills generate healing resources and boost team damage!
-                    <br><strong>Best Prestige Perks:</strong> Navy Seal II (Rank 4) for better SMG range, Empathy II (Rank 6) for self-healing.
+                <div class="build-perks">
+                    <strong>Essential Perks:</strong>
+                    <span class="perk-choice">Combat Medic</span>
+                    <span class="perk-choice">Pickpocket</span>
+                    <span class="perk-choice">I'll Take That</span>
+                    <span class="perk-choice">In the Zone</span>
+                    <span class="perk-choice">Fighting Fit</span>
+                    <span class="perk-choice">Lobotomy</span>
                 </div>
+                <div class="build-perks">
+                    <strong>Prestige Focus:</strong>
+                    <span class="perk-choice">Navy Seal II</span>
+                    <span class="perk-choice">Empathy II</span>
+                </div>
+                <ul>
+                    <li><strong>Damage Boost:</strong> +50% after healing, +25% when team healthy</li>
+                    <li><strong>Equipment Regen:</strong> Kill chains restore charges</li>
+                    <li><strong>SMG Efficiency:</strong> Headshots refill magazine</li>
+                </ul>
             </div>
             
             <div class="build-card">
                 <h3>🛡️ Support Build - "Guardian Angel"</h3>
                 <p>Maximum team support and protection. For coordinated teams.</p>
-                <strong>Essential Perks:</strong>
-                <ul>
-                    <li><strong>Level 1-3 Red:</strong> Breathe Deeply (Healing gas clouds)</li>
-                    <li><strong>Level 4-6:</strong> Pick Me Up (Revive gives temp health)</li>
-                    <li><strong>Level 14-16:</strong> Good Karma (Medkit heals you too)</li>
-                    <li><strong>Level 21-23:</strong> Forgive and Forget (25% less friendly fire)</li>
-                    <li><strong>Level 24-26:</strong> Secret Ingredient (Stim grants masking)</li>
-                </ul>
-                <div class="tip-box">
-                    <strong>💡 Tip:</strong> Stay back, focus on healing and reviving. Your buffs keep the team alive.
-                    <br><strong>Best Prestige Perks:</strong> Remote Healthcare I & II (Ranks 3 & 7) for maximum healing range, Paramedic II (Rank 9) for fastest revives.
+                <div class="build-perks">
+                    <strong>Essential Perks:</strong>
+                    <span class="perk-choice">Pick Me Up</span>
+                    <span class="perk-choice">Good Karma</span>
+                    <span class="perk-choice">Free Hugs</span>
+                    <span class="perk-choice">Forgive and Forget</span>
+                    <span class="perk-choice">Secret Ingredient</span>
                 </div>
+                <div class="build-perks">
+                    <strong>Alternative Perks:</strong>
+                    <span class="perk-choice">Breathe Deeply</span>
+                    <span class="perk-choice">Candy</span>
+                </div>
+                <div class="build-perks">
+                    <strong>Prestige Focus:</strong>
+                    <span class="perk-choice">Remote Healthcare I & II</span>
+                    <span class="perk-choice">Hypervitaminosis</span>
+                </div>
+                <ul>
+                    <li><strong>Healing Range:</strong> +35% with both Remote Healthcare perks</li>
+                    <li><strong>Team Protection:</strong> -25% friendly fire, masking effects</li>
+                    <li><strong>Area Healing:</strong> Gas clouds heal multiple teammates</li>
+                </ul>
+            </div>
+            
+            <div class="build-card">
+                <h3>💀 Low Health Build - "Crisis Response"</h3>
+                <p>Become more effective when things go wrong. High risk, high reward.</p>
+                <div class="build-perks">
+                    <strong>Essential Perks:</strong>
+                    <span class="perk-choice">Second Wind</span>
+                    <span class="perk-choice">Emergency Rescue</span>
+                    <span class="perk-choice">Adrenaline</span>
+                    <span class="perk-choice">Fighting Chance</span>
+                </div>
+                <div class="build-perks">
+                    <strong>Alternative Perks:</strong>
+                    <span class="perk-choice">Emergency Measures</span>
+                    <span class="perk-choice">Just a Scratch</span>
+                </div>
+                <ul>
+                    <li><strong>Below 35% Health:</strong> +50% reload speed</li>
+                    <li><strong>Below 30% Health:</strong> SMG penetration +1</li>
+                    <li><strong>Below 25% Health:</strong> Auto temp health boost</li>
+                    <li><strong>Second Chance:</strong> 25% chance to avoid incapacitation</li>
+                </ul>
             </div>
         </section>
         
-        <!-- Rest of the original content continues... -->
         <!-- Class Synergies -->
         <section class="card">
             <h2>🤝 Class Synergies</h2>
@@ -843,107 +1003,20 @@
                     <h3>🗡️ Medic + Slasher</h3>
                     <p>The unkillable duo. Slasher tanks, Medic keeps them up forever.</p>
                     <span class="synergy-rating synergy-excellent">EXCELLENT</span>
-                    <p><strong>Why it works:</strong> Slasher's melee focus benefits from constant healing and temp health.</p>
-                </div>
-                <div class="synergy-card">
-                    <h3>💥 Medic + Hellraiser</h3>
-                    <p>Explosive support combo. Medic prevents self-damage deaths.</p>
-                    <span class="synergy-rating synergy-good">GOOD</span>
-                    <p><strong>Why it works:</strong> Hellraisers often hurt themselves - Medic fixes that problem.</p>
+                    <p><strong>Key Combo:</strong> Stim boosts + melee stamina restoration</p>
                 </div>
                 <div class="synergy-card">
                     <h3>🛡️ Medic + Vanguard</h3>
                     <p>Ultimate defense. Shield + healing = impenetrable wall.</p>
                     <span class="synergy-rating synergy-excellent">EXCELLENT</span>
-                    <p><strong>Why it works:</strong> Vanguard blocks, Medic heals. Team shoots from safety.</p>
+                    <p><strong>Key Combo:</strong> Vanguard blocks, Medic heals behind shield</p>
                 </div>
-            </div>
-        </section>
-        
-        <!-- Special Zombie Strategies -->
-        <section class="card">
-            <h2>🧟 Special Zombie Counter-Strategies</h2>
-            
-            <div class="build-card">
-                <h3>🐂 Bull</h3>
-                <ul>
-                    <li>Pre-stim the Bull's target for damage reduction</li>
-                    <li>Use Fighting Fit buff before Bull arrives</li>
-                    <li>Stay behind cover to avoid being charge target</li>
-                    <li>Instant revive perk crucial if someone gets hit</li>
-                </ul>
-            </div>
-            
-            <div class="build-card">
-                <h3>🤢 Gasbag</h3>
-                <ul>
-                    <li>Keep maximum distance - you're squishy</li>
-                    <li>Pre-heal team if Gasbag gets close</li>
-                    <li>Painkiller perk prevents gas damage</li>
-                    <li>Focus on healing gas victims</li>
-                </ul>
-            </div>
-            
-            <div class="build-card">
-                <h3>👻 Lurker</h3>
-                <ul>
-                    <li>Listen for audio cues - All Ears perk helps</li>
-                    <li>Quick stim pinned teammates</li>
-                    <li>Stay near team to prevent isolation</li>
-                    <li>Breathing Room masking helps escape</li>
-                </ul>
-            </div>
-            
-            <div class="build-card">
-                <h3>😱 Screamer</h3>
-                <ul>
-                    <li>Priority target - Fighting Fit helps team kill faster</li>
-                    <li>Always carry silenced weapon</li>
-                    <li>Pre-stim team if scream happens</li>
-                    <li>Secret Ingredient removes infection from scream debuff</li>
-                </ul>
-            </div>
-        </section>
-        
-        <!-- Situational Tactics -->
-        <section class="card">
-            <h2>📍 Situational Tactics</h2>
-            
-            <div class="build-card">
-                <h3>🌊 Swarm Defense</h3>
-                <ol>
-                    <li>Pre-stim all teammates before swarm</li>
-                    <li>Apply Fighting Fit damage buff</li>
-                    <li>Position yourself safely in back</li>
-                    <li>Use Combat Medic for passive healing</li>
-                    <li>Save stims for emergency revives</li>
-                </ol>
-            </div>
-            
-            <div class="build-card">
-                <h3>🏃 Running Sections</h3>
-                <ol>
-                    <li>Stay in middle of group</li>
-                    <li>Heal runners as they move</li>
-                    <li>Drop medkits at chokepoints</li>
-                    <li>Use Painkiller for damage immunity</li>
-                    <li>Quick revive anyone who falls</li>
-                </ol>
-            </div>
-        </section>
-        
-        <!-- Common Mistakes -->
-        <section class="card">
-            <div class="warning-box">
-                <h3>⚠️ Common Medic Mistakes to Avoid</h3>
-                <ul>
-                    <li><strong>Hoarding stims:</strong> Use them proactively, they regenerate!</li>
-                    <li><strong>Tunnel vision:</strong> Don't forget to shoot while healing</li>
-                    <li><strong>Bad positioning:</strong> Stay back but not too far</li>
-                    <li><strong>Ignoring temp health:</strong> It's just as important as real health</li>
-                    <li><strong>Wrong perk choices:</strong> Combat Medic is essential</li>
-                    <li><strong>Forgetting Fighting Fit:</strong> The damage buff is huge</li>
-                </ul>
+                <div class="synergy-card">
+                    <h3>💥 Medic + Hellraiser</h3>
+                    <p>Explosive support combo. Medic prevents self-damage deaths.</p>
+                    <span class="synergy-rating synergy-good">GOOD</span>
+                    <p><strong>Key Combo:</strong> Heal explosive self-damage quickly</p>
+                </div>
             </div>
         </section>
         
@@ -952,14 +1025,16 @@
             <h2>🌟 Tips for New Medic Players</h2>
             <div class="tip-box">
                 <ol>
-                    <li><strong>Stim early and often</strong> - Don't wait for critical health</li>
-                    <li><strong>Learn stim range</strong> - It's longer than you think</li>
-                    <li><strong>Watch everyone's health</strong> - Not just lowest player</li>
-                    <li><strong>Communicate healing</strong> - Tell team when buffing</li>
-                    <li><strong>Position smartly</strong> - Middle of team, near cover</li>
-                    <li><strong>Use Combat Medic</strong> - Free healing from kills</li>
-                    <li><strong>Master Fighting Fit timing</strong> - Before big fights</li>
-                    <li><strong>Don't forget your gun</strong> - You need to kill too</li>
+                    <li><strong>Stim early and often:</strong> Don't wait for critical health</li>
+                    <li><strong>Learn stim range:</strong> It's longer than you think</li>
+                    <li><strong>Watch everyone's health:</strong> Not just lowest player</li>
+                    <li><strong>Position smartly:</strong> Middle of team, near cover</li>
+                    <li><strong>Use Combat Medic:</strong> Free healing from kills</li>
+                    <li><strong>Master Fighting Fit timing:</strong> Before big fights</li>
+                    <li><strong>Don't forget your gun:</strong> You need to kill too</li>
+                    <li><strong>Breathe Deeply changes everything:</strong> Area healing is powerful</li>
+                    <li><strong>In the Zone is essential:</strong> 50% damage boost after healing</li>
+                    <li><strong>Prestige priority:</strong> Remote Healthcare for range</li>
                 </ol>
             </div>
         </section>

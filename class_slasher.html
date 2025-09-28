@@ -37,128 +37,112 @@
             margin: 1rem 0;
         }
         
-        .skill-column {
+        .skill-segment {
+            background: white;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid #8b0000;
+        }
+        
+        .skill-segment h4 {
+            color: #495057;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        .perk-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+        }
+        
+        .perk-card {
             background: white;
             border: 2px solid #e9ecef;
             border-radius: 8px;
-            padding: 0.5rem;
-            min-height: 200px;
+            padding: 1rem;
+            transition: transform 0.2s;
         }
         
-        .skill-column.red-perk {
-            border-color: #dc3545;
-            background: #fff5f5;
-        }
-        
-        .column-header {
-            text-align: center;
-            font-weight: bold;
-            color: #495057;
-            margin-bottom: 0.5rem;
-            font-size: 0.9rem;
-        }
-        
-        .perk-slot {
-            background: white;
-            border: 1px solid #dee2e6;
-            border-radius: 4px;
-            padding: 0.5rem;
-            margin: 0.5rem 0;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-        
-        .perk-slot:hover {
+        .perk-card:hover {
             transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            border-color: #dc143c;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
         
-        .perk-slot.red-perk-slot {
-            background: linear-gradient(135deg, #fff5f5 0%, #ffebee 100%);
-            border-color: #dc3545;
+        .perk-level {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            background: #8b0000;
+            color: white;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
         }
         
         .perk-name {
             font-weight: bold;
-            font-size: 0.85rem;
-            color: #2c3e50;
-            margin-bottom: 0.25rem;
-        }
-        
-        .perk-description {
-            font-size: 0.75rem;
-            color: #6c757d;
-            line-height: 1.3;
-        }
-        
-        .prestige-badge {
-            position: absolute;
-            top: 0.25rem;
-            right: 0.25rem;
-            background: #dc3545;
-            color: white;
-            font-size: 0.65rem;
-            padding: 0.1rem 0.3rem;
-            border-radius: 3px;
-            font-weight: bold;
-        }
-        
-        .perk-details {
-            margin: 2rem 0;
-        }
-        
-        .perk-details h3 {
-            color: #2c3e50;
-            border-bottom: 2px solid #dc143c;
-            padding-bottom: 0.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        .detailed-perk {
-            background: white;
-            border-left: 3px solid #dc143c;
-            padding: 1rem;
-            margin: 1rem 0;
-            border-radius: 4px;
-        }
-        
-        .detailed-perk.red {
-            border-left-color: #dc3545;
-            background: #fff5f5;
-        }
-        
-        .perk-title {
-            font-size: 1.1rem;
-            font-weight: bold;
-            color: #2c3e50;
-            margin-bottom: 0.5rem;
-        }
-        
-        .perk-full-description {
             color: #495057;
-            margin-bottom: 0.5rem;
+            margin: 0.5rem 0;
         }
         
-        .perk-note {
+        .perk-desc {
+            color: #6c757d;
             font-size: 0.9rem;
-            color: #6c757d;
-            font-style: italic;
+            line-height: 1.4;
         }
         
-        /* Original styles continued */
-        .perk-category {
+        .perk-cost {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 0.75rem;
+            padding-top: 0.75rem;
+            border-top: 1px solid #e9ecef;
+            font-size: 0.85rem;
+        }
+        
+        .core-perk {
+            background: #ffe4e1;
+            border: 2px solid #8b0000;
+        }
+        
+        .prestige-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
             margin: 2rem 0;
-            padding: 1.5rem;
-            background: #f8f9fa;
-            border-radius: 8px;
         }
         
-        .perk-category h4 {
-            color: #495057;
-            margin-bottom: 1rem;
-            font-size: 1.2rem;
+        .prestige-section h3 {
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+        
+        .prestige-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+        }
+        
+        .prestige-perk {
+            background: rgba(255, 255, 255, 0.95);
+            color: #333;
+            padding: 1rem;
+            border-radius: 8px;
+            border: 2px solid #9b59b6;
+        }
+        
+        .prestige-rank {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            background: #9b59b6;
+            color: white;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
         }
         
         .build-section {
@@ -178,10 +162,27 @@
             margin-bottom: 1rem;
         }
         
+        .build-perks {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 6px;
+            margin: 1rem 0;
+        }
+        
+        .perk-choice {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: #ffe4e1;
+            border: 1px solid #dc143c;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin: 0.25rem;
+        }
+        
         .role-badge {
             display: inline-block;
             padding: 0.25rem 0.75rem;
-            background: #dc143c;
+            background: #8b0000;
             color: white;
             border-radius: 20px;
             font-size: 0.9rem;
@@ -202,15 +203,6 @@
             border-radius: 8px;
             padding: 1rem;
             margin: 1rem 0;
-        }
-        
-        .prestige-note {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 1rem;
-            border-radius: 8px;
-            margin: 1rem 0;
-            text-align: center;
         }
         
         .synergy-grid {
@@ -251,14 +243,6 @@
             color: #004085;
         }
         
-        .core-ability {
-            background: linear-gradient(135deg, #ffe0e0 0%, #ffb3b3 100%);
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 1rem 0;
-            border: 2px solid #dc143c;
-        }
-        
         .equipment-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -276,21 +260,6 @@
         .equipment-icon {
             font-size: 2rem;
             margin-bottom: 0.5rem;
-        }
-        
-        @media (max-width: 768px) {
-            .skill-tree-container {
-                padding: 1rem;
-            }
-            
-            .skill-tree-grid {
-                display: block;
-                min-width: auto;
-            }
-            
-            .skill-column {
-                margin-bottom: 1rem;
-            }
         }
     </style>
 </head>
@@ -332,13 +301,13 @@
     <main id="main-content">
         <!-- Class Header -->
         <header class="class-header">
-            <h1>🗡️ Slasher Class Guide</h1>
+            <h1>⚔️ Slasher Class Guide</h1>
             <div class="role-badges">
-                <span class="role-badge">Melee Tank</span>
-                <span class="role-badge">Crowd Control</span>
-                <span class="role-badge">Frontline Fighter</span>
+                <span class="role-badge">Melee Specialist</span>
+                <span class="role-badge">Close Combat</span>
+                <span class="role-badge">Tank</span>
             </div>
-            <p><strong>Core Role:</strong> Dominate close combat with melee weapons and stun abilities while tanking damage</p>
+            <p><strong>Core Role:</strong> Dominate close-quarters combat with enhanced melee strikes and electric crowd control</p>
         </header>
         
         <!-- Quick Stats -->
@@ -348,505 +317,683 @@
                 <div class="equipment-item">
                     <div class="equipment-icon">⚡</div>
                     <strong>Stun Gun</strong>
-                    <p>15-20 targets stunned</p>
+                    <p>Electric area stun weapon</p>
                 </div>
                 <div class="equipment-item">
                     <div class="equipment-icon">🗡️</div>
-                    <strong>Multi-Hit</strong>
-                    <p>Hit 2+ targets per swing</p>
+                    <strong>Melee Mastery</strong>
+                    <p>Hit 2 targets, 2x damage when fresh</p>
                 </div>
                 <div class="equipment-item">
                     <div class="equipment-icon">💪</div>
-                    <strong>No Fatigue Slowdown</strong>
-                    <p>Full speed when tired</p>
+                    <strong>Never Tired</strong>
+                    <p>Melee speed never slows</p>
                 </div>
                 <div class="equipment-item">
                     <div class="equipment-icon">🛡️</div>
-                    <strong>Pin Immunity</strong>
-                    <p>Never pinned by regular zombies</p>
+                    <strong>Damage Resist</strong>
+                    <p>50% reduction while slashing</p>
                 </div>
             </div>
         </section>
         
         <!-- Core Ability -->
         <section class="card">
-            <h2>⚡ Core Ability</h2>
-            <div class="core-ability">
-                <h3>Shock Troops</h3>
-                <p><strong>Effect:</strong> Start with Stun Gun and Compact SMG. Melee strikes damage two targets and do twice more damage when you're not tired. Melee attacks are not slower when tired</p>
-                <p><strong>Starting Gear:</strong> Stun Gun and Compact SMG</p>
-                <p><strong>Passive Bonus:</strong> Enhanced melee combat with no speed penalty when fatigued</p>
-                <p><strong>Pro Tip:</strong> You maintain full melee speed even when exhausted - keep swinging!</p>
+            <h2>⚔️ Core Ability: Shock Troops</h2>
+            <div class="core-ability" style="background: linear-gradient(135deg, #ffe4e1 0%, #ffcccc 100%); padding: 1.5rem; border-radius: 8px; margin: 1rem 0; border: 2px solid #8b0000;">
+                <h3>Melee Combat Master</h3>
+                <p><strong>Starting Equipment:</strong> Stun Gun and Compact SMG</p>
+                <p><strong>Melee Enhancement:</strong> Strikes damage 2 targets and do 2x more damage when not tired</p>
+                <p><strong>Unique Feature:</strong> Melee attacks are not slower when tired</p>
+                <p><strong>Team Buff:</strong> At level 10, all teammates can perform +2 melee strikes before fatigue</p>
+                <p><strong>Pro Tip:</strong> Your melee never slows down - you're a perpetual killing machine!</p>
             </div>
         </section>
         
-        <!-- Skill Tree Section -->
+        <!-- Complete Skill Tree -->
         <section class="card">
-            <h2>🗡️ Slasher Skill Tree</h2>
-            
-            <div class="warning-box">
-                <strong>How the Skill System Works:</strong>
-                <ul>
-                    <li>Progress through levels 1-30 to unlock new perk segments</li>
-                    <li>Choose ONE perk per segment to activate</li>
-                    <li>Red perks are special alternatives that cost more (red coins)</li>
-                    <li>You can buy multiple perks in each segment but only use one at a time</li>
-                    <li>Perks cost 150-500 yellow coins, red perks cost 150-500 red coins</li>
-                    <li>Level 10, 20, and 30 perks are automatic and always active</li>
-                </ul>
-            </div>
+            <h2>⚔️ Complete Slasher Skill Tree</h2>
             
             <div class="skill-tree-container">
-                <h3>Slasher Perk Grid</h3>
-                <div class="skill-tree-grid">
-                    <!-- Column 1 - Starting Perk -->
-                    <div class="skill-column">
-                        <div class="column-header">Start</div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Shock Troops</div>
-                            <div class="perk-description">Melee hits 2 targets, no fatigue slowdown</div>
+                <!-- Core Perk -->
+                <div class="skill-segment">
+                    <h4>Core Ability</h4>
+                    <div class="perk-grid">
+                        <div class="perk-card core-perk">
+                            <div class="perk-level">CORE</div>
+                            <h5 class="perk-name">Shock Troops</h5>
+                            <p class="perk-desc">Start with Stun Gun and Compact SMG. Melee strikes damage two targets and do twice more damage when you're not tired. Melee attacks are not slower when tired</p>
+                            <div class="perk-cost">
+                                <span>💰 Free</span>
+                                <span>📊 0 XP</span>
+                            </div>
                         </div>
                     </div>
-                    
-                    <!-- Column 2 - Level 1-3 -->
-                    <div class="skill-column">
-                        <div class="column-header">Lvl 1-3</div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Crowd Control</div>
-                            <div class="perk-description">Melee push radius +50%</div>
+                </div>
+
+                <!-- Segment 1 (Levels 1-3) -->
+                <div class="skill-segment">
+                    <h4>Segment One - Crowd Control</h4>
+                    <div class="perk-grid">
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 1</div>
+                            <h5 class="perk-name">Crowd Control</h5>
+                            <p class="perk-desc">Push radius from melee attacks increased by 50%</p>
+                            <div class="perk-cost">
+                                <span>💰 Free</span>
+                                <span>📊 0 XP</span>
+                            </div>
                         </div>
-                        <div class="perk-slot">
-                            <div class="perk-name">All Elbows</div>
-                            <div class="perk-description">No movement penalty when swarmed</div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 2</div>
+                            <h5 class="perk-name">All Elbows</h5>
+                            <p class="perk-desc">Movement speed penalty when zombies are very close reduced by 100%</p>
+                            <div class="perk-cost">
+                                <span>💰 150 Supplies</span>
+                                <span>📊 1,250 XP</span>
+                            </div>
                         </div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Rooted</div>
-                            <div class="perk-description">Never pinned by regular zombies</div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 3</div>
+                            <h5 class="perk-name">Rooted</h5>
+                            <p class="perk-desc">You can never be pinned down by usual zombies (does not affect special zombies)</p>
+                            <div class="perk-cost">
+                                <span>💰 150 Supplies</span>
+                                <span>📊 1,250 XP</span>
+                            </div>
                         </div>
-                        <div class="perk-slot red-perk-slot">
-                            <span class="prestige-badge">RED</span>
-                            <div class="perk-name">Crowd Control II</div>
-                            <div class="perk-description">Restore equipment when health drops below 35%</div>
-                        </div>
-                    </div>
-                    
-                    <!-- Column 3 - Level 4-6 -->
-                    <div class="skill-column">
-                        <div class="column-header">Lvl 4-6</div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Juiced Up</div>
-                            <div class="perk-description">Stun Gun duration +100%</div>
-                        </div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Zeus</div>
-                            <div class="perk-description">Stun range +50%, hits 20 targets</div>
-                        </div>
-                        <div class="perk-slot">
-                            <div class="perk-name">High Voltage</div>
-                            <div class="perk-description">Stun Gun damage +150%</div>
-                        </div>
-                        <div class="perk-slot red-perk-slot">
-                            <span class="prestige-badge">RED</span>
-                            <div class="perk-name">Clear!</div>
-                            <div class="perk-description">Stun Gun revives pinned teammates</div>
-                        </div>
-                    </div>
-                    
-                    <!-- Column 4 - Level 7-9 -->
-                    <div class="skill-column">
-                        <div class="column-header">Lvl 7-9</div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Bullet-dodger</div>
-                            <div class="perk-description">100% less friendly fire during melee</div>
-                        </div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Nimble</div>
-                            <div class="perk-description">Take 50% less damage during melee</div>
-                        </div>
-                        <div class="perk-slot">
-                            <div class="perk-name">With My Last Breath</div>
-                            <div class="perk-description">Melee hits +2 targets when health below 35%</div>
-                        </div>
-                        <div class="perk-slot red-perk-slot">
-                            <span class="prestige-badge">RED</span>
-                            <div class="perk-name">Blood is Boiling</div>
-                            <div class="perk-description">+50% melee damage vs specials at low health</div>
+                        <div class="perk-card">
+                            <div class="perk-level">RED PERK</div>
+                            <h5 class="perk-name">Crowd Control II</h5>
+                            <p class="perk-desc">Restore one equipment charge when your health drops below 35%</p>
+                            <div class="perk-cost">
+                                <span>💰 150 Supplies</span>
+                                <span>📊 Prestige Required</span>
+                            </div>
                         </div>
                     </div>
-                    
-                    <!-- Column 5 - Level 10 -->
-                    <div class="skill-column">
-                        <div class="column-header">Lvl 10</div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Slice and Dice</div>
-                            <div class="perk-description">Team: +2 melee strikes before fatigue</div>
+                </div>
+
+                <!-- Segment 2 (Levels 4-6) -->
+                <div class="skill-segment">
+                    <h4>Segment Two - Stun Gun Enhancement</h4>
+                    <div class="perk-grid">
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 4</div>
+                            <h5 class="perk-name">Juiced Up</h5>
+                            <p class="perk-desc">Stun Gun effect duration increased by 100%</p>
+                            <div class="perk-cost">
+                                <span>💰 150 Supplies</span>
+                                <span>📊 1,250 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 5</div>
+                            <h5 class="perk-name">Zeus</h5>
+                            <p class="perk-desc">Increase Stun Gun range by 50% and target count to 20 (base range: 12 m, base target count: 15)</p>
+                            <div class="perk-cost">
+                                <span>💰 150 Supplies</span>
+                                <span>📊 1,250 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 6</div>
+                            <h5 class="perk-name">High Voltage</h5>
+                            <p class="perk-desc">Stun Gun damage Increased by 150%</p>
+                            <div class="perk-cost">
+                                <span>💰 150 Supplies</span>
+                                <span>📊 1,250 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">RED PERK</div>
+                            <h5 class="perk-name">Clear!</h5>
+                            <p class="perk-desc">Using the Stun Gun on a pinned teammate will get them to their feet</p>
+                            <div class="perk-cost">
+                                <span>💰 150 Supplies</span>
+                                <span>📊 Prestige Required</span>
+                            </div>
                         </div>
                     </div>
-                    
-                    <!-- Column 6 - Level 11-13 -->
-                    <div class="skill-column">
-                        <div class="column-header">Lvl 11-13</div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Trophy Hunter</div>
-                            <div class="perk-description">Deal 25% more damage to specials</div>
+                </div>
+
+                <!-- Segment 3 (Levels 7-9) -->
+                <div class="skill-segment">
+                    <h4>Segment Three - Combat Defense</h4>
+                    <div class="perk-grid">
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 7</div>
+                            <h5 class="perk-name">Bullet-dodger</h5>
+                            <p class="perk-desc">Take 100% less friendly fire from bullets while performing melee attacks</p>
+                            <div class="perk-cost">
+                                <span>💰 150 Supplies</span>
+                                <span>📊 1,250 XP</span>
+                            </div>
                         </div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Wheatgrass</div>
-                            <div class="perk-description">Health increased by 25%</div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 8</div>
+                            <h5 class="perk-name">Nimble</h5>
+                            <p class="perk-desc">Take 50% less damage while performing melee attacks</p>
+                            <div class="perk-cost">
+                                <span>💰 150 Supplies</span>
+                                <span>📊 1,250 XP</span>
+                            </div>
                         </div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Silent Killer</div>
-                            <div class="perk-description">Start with silenced TMP5 SMG</div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 9</div>
+                            <h5 class="perk-name">With My Last Breath</h5>
+                            <p class="perk-desc">Melee strikes damage 2 more targets when health is below 35%</p>
+                            <div class="perk-cost">
+                                <span>💰 150 Supplies</span>
+                                <span>📊 1,250 XP</span>
+                            </div>
                         </div>
-                        <div class="perk-slot red-perk-slot">
-                            <span class="prestige-badge">RED</span>
-                            <div class="perk-name">Where Are You?</div>
-                            <div class="perk-description">Auto-mark Lurkers within 10m</div>
-                        </div>
-                    </div>
-                    
-                    <!-- Column 7 - Level 14-16 -->
-                    <div class="skill-column">
-                        <div class="column-header">Lvl 14-16</div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Vigour</div>
-                            <div class="perk-description">Kill 10 with melee for temp health</div>
-                        </div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Cloak and Dagger</div>
-                            <div class="perk-description">Kill 10 with melee for masking (30s cooldown)</div>
-                        </div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Third Hand</div>
-                            <div class="perk-description">5 melee kills instant reload primary</div>
-                        </div>
-                        <div class="perk-slot red-perk-slot">
-                            <span class="prestige-badge">RED</span>
-                            <div class="perk-name">Relentlessly</div>
-                            <div class="perk-description">10 melee kills restore 5% health</div>
-                        </div>
-                    </div>
-                    
-                    <!-- Column 8 - Level 17-19 -->
-                    <div class="skill-column">
-                        <div class="column-header">Lvl 17-19</div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Heavy Metal I</div>
-                            <div class="perk-description">Start with improved Chainsaw, +50% damage/fuel</div>
-                        </div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Heavy Metal II</div>
-                            <div class="perk-description">Start with improved Taiga-12, +25% damage/ammo</div>
-                        </div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Battle Cry</div>
-                            <div class="perk-description">Auto-stand from pin after 5s</div>
-                        </div>
-                        <div class="perk-slot red-perk-slot">
-                            <span class="prestige-badge">RED</span>
-                            <div class="perk-name">Thank You for the Chance</div>
-                            <div class="perk-description">30% chance Adrenaline not consumed</div>
+                        <div class="perk-card">
+                            <div class="perk-level">RED PERK</div>
+                            <h5 class="perk-name">Blood is boiling</h5>
+                            <p class="perk-desc">You deal 50% more damage to special zombies with a melee weapon if your health is below 35%</p>
+                            <div class="perk-cost">
+                                <span>💰 150 Supplies</span>
+                                <span>📊 Prestige Required</span>
+                            </div>
                         </div>
                     </div>
-                    
-                    <!-- Column 9 - Level 20 -->
-                    <div class="skill-column">
-                        <div class="column-header">Lvl 20</div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Executioner</div>
-                            <div class="perk-description">+1 melee before fatigue, +50% melee damage</div>
+                </div>
+
+                <!-- Level 10 -->
+                <div class="skill-segment">
+                    <h4>Level 10 - Team Melee Boost</h4>
+                    <div class="perk-grid">
+                        <div class="perk-card core-perk">
+                            <div class="perk-level">LVL 10</div>
+                            <h5 class="perk-name">Slice and Dice</h5>
+                            <p class="perk-desc">You and all teammates can perform more melee strikes (+2) before becoming tired</p>
+                            <div class="perk-cost">
+                                <span>💰 Free</span>
+                                <span>📊 1,500 XP</span>
+                            </div>
                         </div>
                     </div>
-                    
-                    <!-- Column 10 - Level 21-23 -->
-                    <div class="skill-column">
-                        <div class="column-header">Lvl 21-23</div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Shock Therapy</div>
-                            <div class="perk-description">No fatigue when hitting stunned zombies</div>
+                </div>
+
+                <!-- Segment 4 (Levels 11-13) -->
+                <div class="skill-segment">
+                    <h4>Segment Four - Combat Enhancement</h4>
+                    <div class="perk-grid">
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 11</div>
+                            <h5 class="perk-name">Trophy Hunter</h5>
+                            <p class="perk-desc">Deal 25% more damage to special zombies</p>
+                            <div class="perk-cost">
+                                <span>💰 250 Supplies</span>
+                                <span>📊 1,500 XP</span>
+                            </div>
                         </div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Samurai</div>
-                            <div class="perk-description">Kill 15 zombies: +1 melee target for 10s</div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 12</div>
+                            <h5 class="perk-name">Wheatgrass</h5>
+                            <p class="perk-desc">Health increased by 25%</p>
+                            <div class="perk-cost">
+                                <span>💰 250 Supplies</span>
+                                <span>📊 1,500 XP</span>
+                            </div>
                         </div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Bloodlust</div>
-                            <div class="perk-description">Melee special kill: +100% gun damage for 15s</div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 13</div>
+                            <h5 class="perk-name">Silent Killer</h5>
+                            <p class="perk-desc">Start with a TMP5 SMG with silencer upgrade</p>
+                            <div class="perk-cost">
+                                <span>💰 250 Supplies</span>
+                                <span>📊 1,500 XP</span>
+                            </div>
                         </div>
-                        <div class="perk-slot red-perk-slot">
-                            <span class="prestige-badge">RED</span>
-                            <div class="perk-name">This is Invigorating</div>
-                            <div class="perk-description">Signature Strikes hit +1 target</div>
-                        </div>
-                    </div>
-                    
-                    <!-- Column 11 - Level 24-26 -->
-                    <div class="skill-column">
-                        <div class="column-header">Lvl 24-26</div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Spare Batteries</div>
-                            <div class="perk-description">Stun Gun max charges increased to 4</div>
-                        </div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Pickpocket</div>
-                            <div class="perk-description">Kill 15 zombies to refill equipment (60s cooldown)</div>
-                        </div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Loan Shark</div>
-                            <div class="perk-description">50% chance special kills restore equipment</div>
-                        </div>
-                        <div class="perk-slot red-perk-slot">
-                            <span class="prestige-badge">RED</span>
-                            <div class="perk-name">On One's Own</div>
-                            <div class="perk-description">Equipment restores every 60s</div>
-                        </div>
-                    </div>
-                    
-                    <!-- Column 12 - Level 27-29 -->
-                    <div class="skill-column">
-                        <div class="column-header">Lvl 27-29</div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Flash Sale</div>
-                            <div class="perk-description">Stun Gun restores 1% ammo per target</div>
-                        </div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Swapping Mags!</div>
-                            <div class="perk-description">SMG reload speed +25%</div>
-                        </div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Adrenaline</div>
-                            <div class="perk-description">Reload +50% when health below 35%</div>
-                        </div>
-                        <div class="perk-slot red-perk-slot">
-                            <span class="prestige-badge">RED</span>
-                            <div class="perk-name">Dead... Reward</div>
-                            <div class="perk-description">10 melee kills restore 5% primary ammo</div>
+                        <div class="perk-card">
+                            <div class="perk-level">RED PERK</div>
+                            <h5 class="perk-name">Where are you?</h5>
+                            <p class="perk-desc">All Lurkers within 10 meters are automatically marked</p>
+                            <div class="perk-cost">
+                                <span>💰 250 Supplies</span>
+                                <span>📊 Prestige Required</span>
+                            </div>
                         </div>
                     </div>
-                    
-                    <!-- Column 13 - Level 30 -->
-                    <div class="skill-column">
-                        <div class="column-header">Lvl 30</div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Blade Master</div>
-                            <div class="perk-description">Melee strikes damage 1 more target</div>
+                </div>
+
+                <!-- Segment 5 (Levels 14-16) -->
+                <div class="skill-segment">
+                    <h4>Segment Five - Kill Chain Rewards</h4>
+                    <div class="perk-grid">
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 14</div>
+                            <h5 class="perk-name">Vigour</h5>
+                            <p class="perk-desc">Killing 10 zombies in rapid succession with a melee weapon grants temporary health boost (cooldown 30 seconds)</p>
+                            <div class="perk-cost">
+                                <span>💰 250 Supplies</span>
+                                <span>📊 1,500 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 15</div>
+                            <h5 class="perk-name">Cloak and Dagger</h5>
+                            <p class="perk-desc">Killing 10 zombies in rapid succession with a melee weapon grants a masking effect (cooldown 30 seconds)</p>
+                            <div class="perk-cost">
+                                <span>💰 350 Supplies</span>
+                                <span>📊 1,750 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 16</div>
+                            <h5 class="perk-name">Third Hand</h5>
+                            <p class="perk-desc">Killing 5 zombies with melee strikes in rapid succession instantly reloads your primary weapon</p>
+                            <div class="perk-cost">
+                                <span>💰 350 Supplies</span>
+                                <span>📊 1,750 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">RED PERK</div>
+                            <h5 class="perk-name">Relentlessly</h5>
+                            <p class="perk-desc">Killing 10 zombies in rapid succession with a melee weapon restores 5% of your health (cooldown: 30 seconds)</p>
+                            <div class="perk-cost">
+                                <span>💰 350 Supplies</span>
+                                <span>📊 Prestige Required</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Segment 6 (Levels 17-19) -->
+                <div class="skill-segment">
+                    <h4>Segment Six - Heavy Weapons</h4>
+                    <div class="perk-grid">
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 17</div>
+                            <h5 class="perk-name">Heavy Metal I</h5>
+                            <p class="perk-desc">Start with an improved Forest Warrior Chainsaw that deals 50% more damage and has 50% more fuel. All Forest Warrior Chainsaw pickups for you are also improved [base: 100 fuel]</p>
+                            <div class="perk-cost">
+                                <span>💰 350 Supplies</span>
+                                <span>📊 1,750 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 18</div>
+                            <h5 class="perk-name">Heavy Metal II</h5>
+                            <p class="perk-desc">Starts with improved Taiga-12 Heavy Assault Shotgun that deals 25% more damage and has 25% more ammo. All Taiga-12 Heavy Assault Shotgun pickups for you also improved [base: 50 ammo]</p>
+                            <div class="perk-cost">
+                                <span>💰 350 Supplies</span>
+                                <span>📊 1,750 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 19</div>
+                            <h5 class="perk-name">Battle Cry</h5>
+                            <p class="perk-desc">Automatically stand up from being pinned after 5 seconds</p>
+                            <div class="perk-cost">
+                                <span>💰 350 Supplies</span>
+                                <span>📊 1,750 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">RED PERK</div>
+                            <h5 class="perk-name">Thank you for the chance</h5>
+                            <p class="perk-desc">30% chance of using an Adrenaline kit without depleting your supply</p>
+                            <div class="perk-cost">
+                                <span>💰 350 Supplies</span>
+                                <span>📊 Prestige Required</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Level 20 -->
+                <div class="skill-segment">
+                    <h4>Level 20 - Melee Mastery</h4>
+                    <div class="perk-grid">
+                        <div class="perk-card core-perk">
+                            <div class="perk-level">LVL 20</div>
+                            <h5 class="perk-name">Executioner</h5>
+                            <p class="perk-desc">Perform 1 more melee strike before becoming tired. Melee damage increased by 50%</p>
+                            <div class="perk-cost">
+                                <span>💰 Free</span>
+                                <span>📊 2,000 XP</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Segment 7 (Levels 21-23) -->
+                <div class="skill-segment">
+                    <h4>Segment Seven - Advanced Combat</h4>
+                    <div class="perk-grid">
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 21</div>
+                            <h5 class="perk-name">Shock Therapy</h5>
+                            <p class="perk-desc">You will not become fatigued when melee attacking zombies electrified by the Stun Gun</p>
+                            <div class="perk-cost">
+                                <span>💰 500 Supplies</span>
+                                <span>📊 2,000 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 22</div>
+                            <h5 class="perk-name">Samurai</h5>
+                            <p class="perk-desc">Killing 15 zombies in rapid succession allows you to hit 1 more target per melee strike for 10 seconds</p>
+                            <div class="perk-cost">
+                                <span>💰 500 Supplies</span>
+                                <span>📊 2,000 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 23</div>
+                            <h5 class="perk-name">Bloodlust</h5>
+                            <p class="perk-desc">Killing special zombies with a melee weapon will increase firearm damage by 100% for 15 seconds</p>
+                            <div class="perk-cost">
+                                <span>💰 500 Supplies</span>
+                                <span>📊 2,000 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">RED PERK</div>
+                            <h5 class="perk-name">This is invigorating</h5>
+                            <p class="perk-desc">Signature Strikes damage 1 more target</p>
+                            <div class="perk-cost">
+                                <span>💰 500 Supplies</span>
+                                <span>📊 Prestige Required</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Segment 8 (Levels 24-26) -->
+                <div class="skill-segment">
+                    <h4>Segment Eight - Equipment Management</h4>
+                    <div class="perk-grid">
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 24</div>
+                            <h5 class="perk-name">Spare Batteries</h5>
+                            <p class="perk-desc">Max capacity for Stun Gun charges increased to 4 [base: 3 charges]</p>
+                            <div class="perk-cost">
+                                <span>💰 500 Supplies</span>
+                                <span>📊 2,000 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 25</div>
+                            <h5 class="perk-name">Pickpocket</h5>
+                            <p class="perk-desc">Killing 15 zombies in rapid succession refills one equipment charge (cooldown 60 seconds)</p>
+                            <div class="perk-cost">
+                                <span>💰 500 Supplies</span>
+                                <span>📊 2,500 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 26</div>
+                            <h5 class="perk-name">Loan Shark</h5>
+                            <p class="perk-desc">Killing a special zombie gives a 50% chance to restore one charge to your equipment</p>
+                            <div class="perk-cost">
+                                <span>💰 500 Supplies</span>
+                                <span>📊 2,500 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">RED PERK</div>
+                            <h5 class="perk-name">On one's own</h5>
+                            <p class="perk-desc">One equipment charge gets restored for you every 60 seconds</p>
+                            <div class="perk-cost">
+                                <span>💰 500 Supplies</span>
+                                <span>📊 Prestige Required</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Segment 9 (Levels 27-29) -->
+                <div class="skill-segment">
+                    <h4>Segment Nine - Weapon Support</h4>
+                    <div class="perk-grid">
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 27</div>
+                            <h5 class="perk-name">Flash Sale</h5>
+                            <p class="perk-desc">Using the Stun Gun restores 1% of your primary weapon's ammunition for every target you stun</p>
+                            <div class="perk-cost">
+                                <span>💰 500 Supplies</span>
+                                <span>📊 2,500 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 28</div>
+                            <h5 class="perk-name">Swapping Mags!</h5>
+                            <p class="perk-desc">SMGs' reload speed is increased by 25%</p>
+                            <div class="perk-cost">
+                                <span>💰 500 Supplies</span>
+                                <span>📊 2,500 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 29</div>
+                            <h5 class="perk-name">Adrenaline</h5>
+                            <p class="perk-desc">Reload speed increased by 50% when health is below 35%</p>
+                            <div class="perk-cost">
+                                <span>💰 500 Supplies</span>
+                                <span>📊 2,500 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">RED PERK</div>
+                            <h5 class="perk-name">Dead... reward</h5>
+                            <p class="perk-desc">Killing 10 zombies in rapid succession with a melee weapon restores 5% of your primary weapon's ammunition</p>
+                            <div class="perk-cost">
+                                <span>💰 500 Supplies</span>
+                                <span>📊 Prestige Required</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Level 30 -->
+                <div class="skill-segment">
+                    <h4>Level 30 - Ultimate Slasher</h4>
+                    <div class="perk-grid">
+                        <div class="perk-card core-perk">
+                            <div class="perk-level">LVL 30</div>
+                            <h5 class="perk-name">Blade Master</h5>
+                            <p class="perk-desc">Melee strikes damage 1 more target</p>
+                            <div class="perk-cost">
+                                <span>💰 Free</span>
+                                <span>📊 3,500 XP</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </section>
+
+        <!-- Prestige Rank Perks -->
+        <section class="prestige-section">
+            <h3>⭐ Prestige Rank Perks</h3>
+            <p style="margin-bottom: 1.5rem;">These permanent passive bonuses unlock through prestiging. They remain active even after subsequent prestiges and stack with regular perks.</p>
             
-            <div class="prestige-note">
-                ⭐ Red perks are special alternative perks that provide unique effects. They cost red coins instead of yellow coins and are typically more powerful or offer different playstyles.
+            <div class="prestige-grid">
+                <div class="prestige-perk">
+                    <div class="prestige-rank">RANK 1</div>
+                    <h5 class="perk-name">Juiced Up II</h5>
+                    <p class="perk-desc">Stun Gun effect duration increased by 15%</p>
+                    <div class="perk-cost">
+                        <span>💰 7,500 Yellow Coins</span>
+                    </div>
+                </div>
+                <div class="prestige-perk">
+                    <div class="prestige-rank">RANK 2</div>
+                    <h5 class="perk-name">Zeus II</h5>
+                    <p class="perk-desc">Increase Stun Gun range by 15% [base: 12 meters]</p>
+                    <div class="perk-cost">
+                        <span>💰 7,500 Yellow Coins</span>
+                    </div>
+                </div>
+                <div class="prestige-perk">
+                    <div class="prestige-rank">RANK 3</div>
+                    <h5 class="perk-name">Executioner III</h5>
+                    <p class="perk-desc">Perform 1 more melee strike before becoming tired</p>
+                    <div class="perk-cost">
+                        <span>💰 7,500 Yellow Coins</span>
+                    </div>
+                </div>
+                <div class="prestige-perk">
+                    <div class="prestige-rank">RANK 4</div>
+                    <h5 class="perk-name">Nimble II</h5>
+                    <p class="perk-desc">Take 10% less damage while performing melee attacks</p>
+                    <div class="perk-cost">
+                        <span>💰 7,500 Yellow Coins</span>
+                    </div>
+                </div>
+                <div class="prestige-perk">
+                    <div class="prestige-rank">RANK 5</div>
+                    <h5 class="perk-name">Flash Sale II</h5>
+                    <p class="perk-desc">Killing a stunned special zombie restores 5% of your primary weapon's ammunition</p>
+                    <div class="perk-cost">
+                        <span>💰 7,500 Yellow Coins</span>
+                    </div>
+                </div>
+                <div class="prestige-perk">
+                    <div class="prestige-rank">RANK 6</div>
+                    <h5 class="perk-name">Get lost!</h5>
+                    <p class="perk-desc">Electric Grids can kill 5% more zombies for the whole team</p>
+                    <div class="perk-cost">
+                        <span>💰 7,500 Yellow Coins</span>
+                    </div>
+                </div>
+                <div class="prestige-perk">
+                    <div class="prestige-rank">RANK 7</div>
+                    <h5 class="perk-name">Swapping Mags II</h5>
+                    <p class="perk-desc">SMG reload speed is increased by 5%</p>
+                    <div class="perk-cost">
+                        <span>💰 7,500 Yellow Coins</span>
+                    </div>
+                </div>
+                <div class="prestige-perk">
+                    <div class="prestige-rank">RANK 8</div>
+                    <h5 class="perk-name">Wheatgrass II</h5>
+                    <p class="perk-desc">Health increased by 5%</p>
+                    <div class="perk-cost">
+                        <span>💰 7,500 Yellow Coins</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tip-box" style="background: rgba(255,255,255,0.2); border: 2px solid rgba(255,255,255,0.5); color: white; margin-top: 1.5rem;">
+                <strong>💡 Note:</strong> Executioner III gives you another melee strike before fatigue!
             </div>
         </section>
         
-        <!-- Prestige Rank Perks Section -->
+        <!-- Build Recommendations -->
         <section class="card">
-            <h2>⭐ Prestige Rank Perks</h2>
-            
-            <div class="warning-box">
-                <strong>About Prestige Perks:</strong>
-                <ul>
-                    <li>Unlocked by reaching Prestige Ranks 1-9</li>
-                    <li>These are PASSIVE bonuses that are always active once unlocked</li>
-                    <li>Stack with your regular perks for even more power</li>
-                    <li>Each costs 7500 yellow coins to unlock</li>
-                    <li>Persist through prestige resets</li>
-                </ul>
-            </div>
-            
-            <div class="perk-details">
-                <h3>Prestige Progression</h3>
-                
-                <div class="detailed-perk">
-                    <div class="perk-title">Rank 1: Juiced Up II</div>
-                    <div class="perk-full-description">
-                        Stun Gun effect duration increased by 15%.
-                    </div>
-                    <div class="perk-note">Stacks with regular Juiced Up for massive stun duration.</div>
-                </div>
-                
-                <div class="detailed-perk">
-                    <div class="perk-title">Rank 2: Zeus II</div>
-                    <div class="perk-full-description">
-                        Increase Stun Gun range by 15% (base: 12 meters).
-                    </div>
-                    <div class="perk-note">Combined with Zeus, your stun gun becomes a room-clearer.</div>
-                </div>
-                
-                <div class="detailed-perk">
-                    <div class="perk-title">Rank 3: Executioner III</div>
-                    <div class="perk-full-description">
-                        Perform 1 more melee strike before becoming tired.
-                    </div>
-                    <div class="perk-note">More swings = more damage before needing to rest.</div>
-                </div>
-                
-                <div class="detailed-perk">
-                    <div class="perk-title">Rank 4: Nimble II</div>
-                    <div class="perk-full-description">
-                        Take 10% less damage while performing melee attacks.
-                    </div>
-                    <div class="perk-note">Stacks with Nimble for 60% damage reduction during melee!</div>
-                </div>
-                
-                <div class="detailed-perk">
-                    <div class="perk-title">Rank 6: Flash Sale II</div>
-                    <div class="perk-full-description">
-                        Killing a stunned special zombie restores 5% of your primary weapon's ammunition.
-                    </div>
-                    <div class="perk-note">Combines stun gun usage with ammo restoration.</div>
-                </div>
-                
-                <div class="detailed-perk">
-                    <div class="perk-title">Rank 7: Get Lost!</div>
-                    <div class="perk-full-description">
-                        Electric Grids can kill 5% more zombies for the whole team.
-                    </div>
-                    <div class="perk-note">Team-wide benefit for defense sections.</div>
-                </div>
-                
-                <div class="detailed-perk">
-                    <div class="perk-title">Rank 8: Swapping Mags II</div>
-                    <div class="perk-full-description">
-                        SMG reload speed is increased by 5%.
-                    </div>
-                    <div class="perk-note">Small but helpful boost to your ranged backup.</div>
-                </div>
-                
-                <div class="detailed-perk">
-                    <div class="perk-title">Rank 9: Wheatgrass II</div>
-                    <div class="perk-full-description">
-                        Health increased by 5%.
-                    </div>
-                    <div class="perk-note">Stacks with regular Wheatgrass for 30% more health total.</div>
-                </div>
-            </div>
-            
-            <div class="tip-box">
-                <strong>💡 Prestige Strategy:</strong> Focus on reaching at least Prestige Rank 4 for Nimble II - the damage reduction while meleeing is crucial for higher difficulties. Executioner III at Rank 3 is also excellent for sustained melee combat. The later ranks offer nice bonuses but are less essential.
-            </div>
-        </section>
-        
-        <!-- Detailed Perk Descriptions -->
-        <section class="card">
-            <h2>📋 Key Perk Details</h2>
-            
-            <div class="perk-details">
-                <h3>Must-Have Perks</h3>
-                
-                <div class="detailed-perk">
-                    <div class="perk-title">Rooted (Level 1-3)</div>
-                    <div class="perk-full-description">
-                        You can never be pinned down by usual zombies (does not affect special zombies).
-                    </div>
-                    <div class="perk-note">Essential for tanking - regular zombies literally cannot stop you.</div>
-                </div>
-                
-                <div class="detailed-perk">
-                    <div class="perk-title">Zeus (Level 4-6)</div>
-                    <div class="perk-full-description">
-                        Increase Stun Gun range by 50% and target count to 20 (base range: 12m, base count: 15).
-                    </div>
-                    <div class="perk-note">Turns your stun gun into a crowd-clearing superweapon.</div>
-                </div>
-                
-                <div class="detailed-perk">
-                    <div class="perk-title">Nimble (Level 7-9)</div>
-                    <div class="perk-full-description">
-                        Take 50% less damage while performing melee attacks.
-                    </div>
-                    <div class="perk-note">Makes you nearly invincible while swinging - essential for survival.</div>
-                </div>
-                
-                <div class="detailed-perk">
-                    <div class="perk-title">Shock Therapy (Level 21-23)</div>
-                    <div class="perk-full-description">
-                        You will not become fatigued when melee attacking zombies electrified by the Stun Gun.
-                    </div>
-                    <div class="perk-note">Stun + melee = infinite stamina combo!</div>
-                </div>
-                
-                <div class="detailed-perk red">
-                    <div class="perk-title">Clear! (Level 4-6 - Red)</div>
-                    <div class="perk-full-description">
-                        Using the Stun Gun on a pinned teammate will get them to their feet.
-                    </div>
-                    <div class="perk-note">Instant revive from range - can save entire runs.</div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Build Recommendations with Specific Perks -->
-        <section class="card">
-            <h2>🗡️ Recommended Builds</h2>
+            <h2>🎯 Recommended Builds</h2>
             
             <div class="build-card">
-                <h3>🌟 Beginner Build - "Tank Survivor"</h3>
-                <p>Focus on survivability and crowd control. Perfect for learning melee mechanics.</p>
-                <strong>Essential Perks:</strong>
+                <h3>🌟 Beginner Build - "Slice and Dice"</h3>
+                <p>Focus on basic melee effectiveness and survivability.</p>
+                <div class="build-perks">
+                    <strong>Essential Perks:</strong>
+                    <span class="perk-choice">Crowd Control</span>
+                    <span class="perk-choice">Rooted</span>
+                    <span class="perk-choice">Nimble</span>
+                    <span class="perk-choice">Wheatgrass</span>
+                    <span class="perk-choice">Vigour</span>
+                    <span class="perk-choice">Executioner</span>
+                    <span class="perk-choice">Blade Master</span>
+                </div>
+                <div class="build-perks">
+                    <strong>Prestige Focus:</strong>
+                    <span class="perk-choice">Executioner III</span>
+                    <span class="perk-choice">Nimble II</span>
+                    <span class="perk-choice">Wheatgrass II</span>
+                </div>
                 <ul>
-                    <li><strong>Level 1-3:</strong> Rooted (Never pinned by regular zombies)</li>
-                    <li><strong>Level 7-9:</strong> Nimble (50% damage reduction during melee)</li>
-                    <li><strong>Level 11-13:</strong> Wheatgrass (25% more health)</li>
-                    <li><strong>Level 14-16:</strong> Vigour (Temp health from kills)</li>
-                    <li><strong>Level 17-19:</strong> Battle Cry (Auto-escape from pins)</li>
+                    <li><strong>Damage Reduction:</strong> 60% less damage while slashing (Nimble + Nimble II)</li>
+                    <li><strong>Health:</strong> +30% with Wheatgrass perks</li>
+                    <li><strong>Melee Targets:</strong> Hit 3 base targets, 4 with Blade Master</li>
                 </ul>
                 <div class="tip-box">
-                    <strong>💡 Tip:</strong> You're nearly unkillable with Rooted + Nimble. Stand in doorways and hold the line!
-                    <br><strong>Best Prestige Perks:</strong> Nimble II (Rank 4), Wheatgrass II (Rank 9) for maximum tankiness.
+                    <strong>💡 Tip:</strong> Rooted means regular zombies can never pin you - slash freely!</strong>
                 </div>
             </div>
             
             <div class="build-card">
-                <h3>⚡ Zeus Build - "Electric Overlord"</h3>
-                <p>Maximum stun gun effectiveness for crowd control.</p>
-                <strong>Essential Perks:</strong>
-                <ul>
-                    <li><strong>Level 4-6:</strong> Zeus (Range +50%, 20 targets)</li>
-                    <li><strong>Level 4-6 Alt:</strong> High Voltage (Damage +150%)</li>
-                    <li><strong>Level 21-23:</strong> Shock Therapy (No fatigue on stunned)</li>
-                    <li><strong>Level 24-26:</strong> Spare Batteries (4 max charges)</li>
-                    <li><strong>Level 27-29:</strong> Flash Sale (Restore ammo with stun)</li>
-                </ul>
-                <div class="tip-box">
-                    <strong>💡 Tip:</strong> Stun → Melee combo with Shock Therapy = infinite stamina!
-                    <br><strong>Best Prestige Perks:</strong> Juiced Up II (Rank 1), Zeus II (Rank 2) for maximum stun range.
+                <h3>⚡ Stun Gun Master Build - "Zeus"</h3>
+                <p>Maximum Stun Gun effectiveness for crowd control.</p>
+                <div class="build-perks">
+                    <strong>Essential Perks:</strong>
+                    <span class="perk-choice">Juiced Up</span>
+                    <span class="perk-choice">Zeus</span>
+                    <span class="perk-choice">High Voltage</span>
+                    <span class="perk-choice">Shock Therapy</span>
+                    <span class="perk-choice">Spare Batteries</span>
+                    <span class="perk-choice">Flash Sale</span>
                 </div>
+                <div class="build-perks">
+                    <strong>Prestige Focus:</strong>
+                    <span class="perk-choice">Juiced Up II</span>
+                    <span class="perk-choice">Zeus II</span>
+                    <span class="perk-choice">Flash Sale II</span>
+                </div>
+                <div class="build-perks">
+                    <strong>Red Perks:</strong>
+                    <span class="perk-choice">Clear!</span>
+                    <span class="perk-choice">Get lost!</span>
+                </div>
+                <ul>
+                    <li><strong>Stun Duration:</strong> +115% with both Juiced Up perks</li>
+                    <li><strong>Range:</strong> 18m base + 65% increase = ~21 meters</li>
+                    <li><strong>Targets:</strong> 20 zombies stunned at once</li>
+                    <li><strong>No Fatigue:</strong> Shock Therapy = unlimited melee on stunned enemies</li>
+                </ul>
             </div>
             
             <div class="build-card">
-                <h3>🗡️ Blade Master Build - "Melee Monster"</h3>
-                <p>Pure melee damage and multi-target destruction.</p>
-                <strong>Essential Perks:</strong>
-                <ul>
-                    <li><strong>Level 1-3:</strong> Crowd Control (Push radius +50%)</li>
-                    <li><strong>Level 21-23:</strong> Samurai (Extra target after kills)</li>
-                    <li><strong>Level 17-19:</strong> Heavy Metal I (Chainsaw start)</li>
-                    <li><strong>Level 21-23 Alt:</strong> Bloodlust (Gun damage after special kills)</li>
-                    <li><strong>Level 30:</strong> Blade Master (+1 target always)</li>
-                </ul>
-                <div class="tip-box">
-                    <strong>💡 Tip:</strong> With all perks, you can hit 4+ targets per swing during Samurai buff!
-                    <br><strong>Best Prestige Perks:</strong> Executioner III (Rank 3) for more swings before fatigue.
+                <h3>💀 Low Health Berserker Build - "Blood Rage"</h3>
+                <p>Become deadlier as health drops. High risk, high reward.</p>
+                <div class="build-perks">
+                    <strong>Essential Perks:</strong>
+                    <span class="perk-choice">With My Last Breath</span>
+                    <span class="perk-choice">Battle Cry</span>
+                    <span class="perk-choice">Bloodlust</span>
+                    <span class="perk-choice">Adrenaline</span>
                 </div>
+                <div class="build-perks">
+                    <strong>Red Perks:</strong>
+                    <span class="perk-choice">Crowd Control II</span>
+                    <span class="perk-choice">Blood is boiling</span>
+                </div>
+                <ul>
+                    <li><strong>Below 35% Health:</strong> Hit 4 targets (2 base + 2 from With My Last Breath)</li>
+                    <li><strong>Special Damage:</strong> +50% melee damage to specials when low</li>
+                    <li><strong>Equipment Restore:</strong> Get charge back when dropping below 35%</li>
+                    <li><strong>Reload Speed:</strong> +50% when health is low</li>
+                </ul>
             </div>
             
             <div class="build-card">
-                <h3>♻️ Sustain Build - "Never Die"</h3>
-                <p>Health regeneration and equipment restoration focus.</p>
-                <strong>Essential Perks:</strong>
-                <ul>
-                    <li><strong>Level 14-16:</strong> Cloak and Dagger (Masking from kills)</li>
-                    <li><strong>Level 14-16 Red:</strong> Relentlessly (5% health from 10 kills)</li>
-                    <li><strong>Level 24-26:</strong> Loan Shark (Equipment from special kills)</li>
-                    <li><strong>Level 24-26 Red:</strong> On One's Own (Equipment every 60s)</li>
-                    <li><strong>Level 27-29 Red:</strong> Dead... Reward (Ammo from melee kills)</li>
-                </ul>
-                <div class="tip-box">
-                    <strong>💡 Tip:</strong> Constant healing and resources - perfect for solo queue!
-                    <br><strong>Best Prestige Perks:</strong> Flash Sale II (Rank 6) for ammo from stunned specials.
+                <h3>🔄 Infinite Sustain Build - "Perpetual Motion"</h3>
+                <p>Chain kills for constant healing, masking, and equipment.</p>
+                <div class="build-perks">
+                    <strong>Essential Perks:</strong>
+                    <span class="perk-choice">Vigour</span>
+                    <span class="perk-choice">Cloak and Dagger</span>
+                    <span class="perk-choice">Third Hand</span>
+                    <span class="perk-choice">Pickpocket</span>
+                    <span class="perk-choice">Loan Shark</span>
                 </div>
+                <div class="build-perks">
+                    <strong>Red Perks:</strong>
+                    <span class="perk-choice">Relentlessly</span>
+                    <span class="perk-choice">Dead... reward</span>
+                    <span class="perk-choice">On one's own</span>
+                </div>
+                <ul>
+                    <li><strong>10-Kill Chains:</strong> Temp health, masking, 5% health, 5% ammo</li>
+                    <li><strong>Equipment:</strong> Auto-restore every 60 seconds + kill chains</li>
+                    <li><strong>Weapon Reload:</strong> 5-kill chains instant reload</li>
+                </ul>
             </div>
         </section>
         
@@ -855,110 +1002,23 @@
             <h2>🤝 Class Synergies</h2>
             <div class="synergy-grid">
                 <div class="synergy-card">
-                    <h3>🏥 Slasher + Medic</h3>
-                    <p>The immortal frontline. Constant healing meets tank.</p>
-                    <span class="synergy-rating synergy-excellent">EXCELLENT</span>
-                    <p><strong>Why it works:</strong> Medic's heals + Slasher's damage reduction = unkillable tank.</p>
-                </div>
-                <div class="synergy-card">
-                    <h3>🔫 Slasher + Gunslinger</h3>
-                    <p>Melee and range perfect balance.</p>
-                    <span class="synergy-rating synergy-good">GOOD</span>
-                    <p><strong>Why it works:</strong> Slasher holds the line, Gunslinger clears from behind.</p>
-                </div>
-                <div class="synergy-card">
                     <h3>🛡️ Slasher + Vanguard</h3>
-                    <p>Double tank wall. Nothing gets through.</p>
+                    <p>The ultimate frontline. Two tanks create an impenetrable wall.</p>
                     <span class="synergy-rating synergy-excellent">EXCELLENT</span>
-                    <p><strong>Why it works:</strong> Shield blocks projectiles, Slasher handles melee range.</p>
+                    <p><strong>Key Combo:</strong> Vanguard shields while Slasher slashes behind</p>
                 </div>
-            </div>
-        </section>
-        
-        <!-- Special Zombie Strategies -->
-        <section class="card">
-            <h2>🧟 Special Zombie Counter-Strategies</h2>
-            
-            <div class="build-card">
-                <h3>🐂 Bull</h3>
-                <ul>
-                    <li>Stun Gun instantly stops charge</li>
-                    <li>High Voltage can kill Bulls quickly</li>
-                    <li>Nimble reduces charge damage if hit</li>
-                    <li>Trophy Hunter gives 25% more damage</li>
-                </ul>
-            </div>
-            
-            <div class="build-card">
-                <h3>🤢 Gasbag</h3>
-                <ul>
-                    <li>NEVER melee - instant explosion!</li>
-                    <li>Use Stun Gun from maximum range</li>
-                    <li>Silent Killer SMG for safe kills</li>
-                    <li>Let ranged teammates handle when possible</li>
-                </ul>
-            </div>
-            
-            <div class="build-card">
-                <h3>👻 Lurker</h3>
-                <ul>
-                    <li>Where Are You? red perk auto-marks them</li>
-                    <li>Rooted prevents easy pins</li>
-                    <li>Battle Cry auto-escapes after 5 seconds</li>
-                    <li>Quick melee breaks grapple instantly</li>
-                </ul>
-            </div>
-            
-            <div class="build-card">
-                <h3>😱 Screamer</h3>
-                <ul>
-                    <li>Sprint + melee for instant kill</li>
-                    <li>Stun Gun for silent elimination</li>
-                    <li>Silent Killer SMG as backup</li>
-                    <li>Cloak and Dagger for stealth approach</li>
-                </ul>
-            </div>
-        </section>
-        
-        <!-- Situational Tactics -->
-        <section class="card">
-            <h2>📍 Situational Tactics</h2>
-            
-            <div class="build-card">
-                <h3>🌊 Swarm Defense</h3>
-                <ol>
-                    <li>Hold choke points with Rooted perk</li>
-                    <li>Use doorways to limit attack angles</li>
-                    <li>Save Stun Gun for pyramid climbers</li>
-                    <li>Shock Therapy for infinite melee during swarm</li>
-                    <li>Slice and Dice helps entire team melee longer</li>
-                </ol>
-            </div>
-            
-            <div class="build-card">
-                <h3>🏃 Running Sections</h3>
-                <ol>
-                    <li>All Elbows prevents slowdown</li>
-                    <li>Lead with melee to clear path</li>
-                    <li>Stun Gun backward for chasers</li>
-                    <li>Clear! can save pinned teammates instantly</li>
-                    <li>Never stop moving forward</li>
-                </ol>
-            </div>
-        </section>
-        
-        <!-- Common Mistakes -->
-        <section class="card">
-            <div class="warning-box">
-                <h3>⚠️ Common Slasher Mistakes to Avoid</h3>
-                <ul>
-                    <li><strong>Melee spam:</strong> Time your swings, don't button mash</li>
-                    <li><strong>Fighting Gasbags in melee:</strong> Instant death for you and team!</li>
-                    <li><strong>Wasting Stun Gun:</strong> Save for emergencies and specials</li>
-                    <li><strong>Ignoring fatigue:</strong> Pace yourself, use Shock Therapy combo</li>
-                    <li><strong>Poor positioning:</strong> Use walls and doorways to limit angles</li>
-                    <li><strong>Not using ranged backup:</strong> SMG for distant threats</li>
-                </ul>
+                <div class="synergy-card">
+                    <h3>🏥 Slasher + Medic</h3>
+                    <p>Aggressive tank with healing backup. Unstoppable combo.</p>
+                    <span class="synergy-rating synergy-excellent">EXCELLENT</span>
+                    <p><strong>Key Combo:</strong> Combat Medic stims during melee chains</p>
+                </div>
+                <div class="synergy-card">
+                    <h3>🔧 Slasher + Fixer</h3>
+                    <p>Masking gas helps Slasher get into position safely.</p>
+                    <span class="synergy-rating synergy-good">GOOD</span>
+                    <p><strong>Key Combo:</strong> Masking for approach, explosive ammo for backup</p>
+                </div>
             </div>
         </section>
         
@@ -967,14 +1027,16 @@
             <h2>🌟 Tips for New Slasher Players</h2>
             <div class="tip-box">
                 <ol>
-                    <li><strong>Master positioning</strong> - Doorways make you invincible</li>
-                    <li><strong>Learn melee timing</strong> - Wait for groups, don't spam</li>
-                    <li><strong>Manage stamina</strong> - Shock Therapy combo is key</li>
-                    <li><strong>Save Stun Gun</strong> - It's your panic button</li>
-                    <li><strong>Use Rooted wisely</strong> - Stand your ground when needed</li>
-                    <li><strong>Communicate pins</strong> - Team needs to know you're stuck</li>
-                    <li><strong>Practice heavy attacks</strong> - They stagger specials</li>
-                    <li><strong>Stay with team</strong> - You're the wall, not a solo hero</li>
+                    <li><strong>Melee never slows:</strong> Your unique advantage - keep swinging!</li>
+                    <li><strong>Double damage when fresh:</strong> First strikes hit hardest</li>
+                    <li><strong>Stun Gun timing:</strong> Stun groups BEFORE engaging</li>
+                    <li><strong>Rooted is essential:</strong> Regular zombies can't pin you</li>
+                    <li><strong>Chain kills matter:</strong> 10-kill chains trigger multiple bonuses</li>
+                    <li><strong>Low health power:</strong> You get stronger when hurt</li>
+                    <li><strong>Team melee boost:</strong> Level 10 helps everyone</li>
+                    <li><strong>Shock Therapy combo:</strong> Stun + melee = no fatigue</li>
+                    <li><strong>Silent Killer:</strong> Start with silenced SMG for stealth</li>
+                    <li><strong>Prestige priority:</strong> Executioner III for extra strikes</li>
                 </ol>
             </div>
         </section>

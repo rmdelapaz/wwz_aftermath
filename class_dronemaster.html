@@ -37,72 +37,112 @@
             margin: 1rem 0;
         }
         
-        .skill-column {
+        .skill-segment {
+            background: white;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid #4a90e2;
+        }
+        
+        .skill-segment h4 {
+            color: #495057;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        .perk-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+        }
+        
+        .perk-card {
             background: white;
             border: 2px solid #e9ecef;
             border-radius: 8px;
-            padding: 0.5rem;
-            min-height: 200px;
+            padding: 1rem;
+            transition: transform 0.2s;
         }
         
-        .skill-column.red-perk {
-            border-color: #dc3545;
-            background: #fff5f5;
-        }
-        
-        .column-header {
-            text-align: center;
-            font-weight: bold;
-            color: #495057;
-            margin-bottom: 0.5rem;
-            font-size: 0.9rem;
-        }
-        
-        .perk-slot {
-            background: white;
-            border: 1px solid #dee2e6;
-            border-radius: 4px;
-            padding: 0.5rem;
-            margin: 0.5rem 0;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-        
-        .perk-slot:hover {
+        .perk-card:hover {
             transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            border-color: #4a90e2;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
         
-        .perk-slot.red-perk-slot {
-            background: linear-gradient(135deg, #fff5f5 0%, #ffebee 100%);
-            border-color: #dc3545;
+        .perk-level {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            background: #4a90e2;
+            color: white;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
         }
         
         .perk-name {
             font-weight: bold;
-            font-size: 0.85rem;
-            color: #2c3e50;
-            margin-bottom: 0.25rem;
+            color: #495057;
+            margin: 0.5rem 0;
         }
         
-        .perk-description {
-            font-size: 0.75rem;
+        .perk-desc {
             color: #6c757d;
-            line-height: 1.3;
+            font-size: 0.9rem;
+            line-height: 1.4;
         }
         
-        .prestige-badge {
-            position: absolute;
-            top: 0.25rem;
-            right: 0.25rem;
-            background: #dc3545;
+        .perk-cost {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 0.75rem;
+            padding-top: 0.75rem;
+            border-top: 1px solid #e9ecef;
+            font-size: 0.85rem;
+        }
+        
+        .core-perk {
+            background: #e3f2fd;
+            border: 2px solid #4a90e2;
+        }
+        
+        .prestige-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            font-size: 0.65rem;
-            padding: 0.1rem 0.3rem;
-            border-radius: 3px;
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+        }
+        
+        .prestige-section h3 {
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+        
+        .prestige-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+        }
+        
+        .prestige-perk {
+            background: rgba(255, 255, 255, 0.95);
+            color: #333;
+            padding: 1rem;
+            border-radius: 8px;
+            border: 2px solid #9b59b6;
+        }
+        
+        .prestige-rank {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            background: #9b59b6;
+            color: white;
+            border-radius: 4px;
+            font-size: 0.8rem;
             font-weight: bold;
+            margin-bottom: 0.5rem;
         }
         
         .perk-details {
@@ -380,351 +420,538 @@
             </div>
         </section>
         
-        <!-- Skill Tree Section -->
+        <!-- Complete Skill Tree -->
         <section class="card">
-            <h2>🤖 Dronemaster Skill Tree</h2>
-            
-            <div class="warning-box">
-                <strong>How the Skill System Works:</strong>
-                <ul>
-                    <li>Progress through levels 1-30 to unlock new perk segments</li>
-                    <li>Choose ONE perk per segment to activate</li>
-                    <li>Red perks are special alternatives that cost more (red coins)</li>
-                    <li>You can buy multiple perks in each segment but only use one at a time</li>
-                    <li>Perks cost 150-500 yellow coins, red perks cost 150-500 red coins</li>
-                    <li>Level 10, 20, and 30 perks are automatic and always active</li>
-                </ul>
-            </div>
+            <h2>🤖 Complete Dronemaster Skill Tree</h2>
             
             <div class="skill-tree-container">
-                <h3>Dronemaster Perk Grid</h3>
-                <div class="skill-tree-grid">
-                    <!-- Column 1 - Starting Perk -->
-                    <div class="skill-column">
-                        <div class="column-header">Start</div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Flying Start</div>
-                            <div class="perk-description">Start with Scout Rifle & Quadrocopter</div>
-                        </div>
-                    </div>
-                    
-                    <!-- Column 2 - Level 1-3 -->
-                    <div class="skill-column">
-                        <div class="column-header">Lvl 1-3</div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Go The Distance</div>
-                            <div class="perk-description">Quadrocopter charge +15%</div>
-                        </div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Take a Load Off</div>
-                            <div class="perk-description">Charge +30%, but -20% ammo capacity</div>
-                        </div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Longshot</div>
-                            <div class="perk-description">Attack range +100% (4m stun, 30m pistol)</div>
-                        </div>
-                        <div class="perk-slot red-perk-slot">
-                            <span class="prestige-badge">RED</span>
-                            <div class="perk-name">Good Boy</div>
-                            <div class="perk-description">Stim Pistol drone, auto-heals you (3 charges)</div>
-                        </div>
-                    </div>
-                    
-                    <!-- Column 3 - Level 4-6 -->
-                    <div class="skill-column">
-                        <div class="column-header">Lvl 4-6</div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Silent Stinger</div>
-                            <div class="perk-description">Silenced pistol drone, 15m range, 15 kills</div>
-                        </div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Firecracker</div>
-                            <div class="perk-description">Loud pistol, +100% damage, 15 kills</div>
-                        </div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Lightning Storm</div>
-                            <div class="perk-description">Stun gun fire rate +50%</div>
-                        </div>
-                        <div class="perk-slot red-perk-slot">
-                            <span class="prestige-badge">RED</span>
-                            <div class="perk-name">On a Bender</div>
-                            <div class="perk-description">Drone drops Frag Grenades on groups</div>
-                        </div>
-                    </div>
-                    
-                    <!-- Column 4 - Level 7-9 -->
-                    <div class="skill-column">
-                        <div class="column-header">Lvl 7-9</div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Overdrive</div>
-                            <div class="perk-description">Tap to boost fire rate +100% for 6s</div>
-                        </div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Well Trained</div>
-                            <div class="perk-description">Toggle follow/stationary, +50% damage stationary</div>
-                        </div>
-                        <div class="perk-slot">
-                            <div class="perk-name">The Big Five 0</div>
-                            <div class="perk-description">Start with improved BF25, +50% damage/ammo</div>
-                        </div>
-                        <div class="perk-slot red-perk-slot">
-                            <span class="prestige-badge">RED</span>
-                            <div class="perk-name">It's Alive</div>
-                            <div class="perk-description">Activate all Stim charges + 1 extra</div>
-                        </div>
-                    </div>
-                    
-                    <!-- Column 5 - Level 10 -->
-                    <div class="skill-column">
-                        <div class="column-header">Lvl 10</div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Rechargeable</div>
-                            <div class="perk-description">Drone restores 1% charge/s after 5s idle</div>
-                        </div>
-                    </div>
-                    
-                    <!-- Column 6 - Level 11-13 -->
-                    <div class="skill-column">
-                        <div class="column-header">Lvl 11-13</div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Burst Pro</div>
-                            <div class="perk-description">Burst fire reload speed +25%</div>
-                        </div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Wheatgrass</div>
-                            <div class="perk-description">Health increased by 25%</div>
-                        </div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Weapon of Choice</div>
-                            <div class="perk-description">Start with Le Clairon Bullpup Rifle</div>
-                        </div>
-                        <div class="perk-slot red-perk-slot">
-                            <span class="prestige-badge">RED</span>
-                            <div class="perk-name">Scrap Metal... Again II</div>
-                            <div class="perk-description">Auto-mark equipment bags within 20m</div>
-                        </div>
-                    </div>
-                    
-                    <!-- Column 7 - Level 14-16 -->
-                    <div class="skill-column">
-                        <div class="column-header">Lvl 14-16</div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Backup Plan</div>
-                            <div class="perk-description">Auto-launch drone when grabbed (180s cooldown)</div>
-                        </div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Parting Gift</div>
-                            <div class="perk-description">Temp health when drone depletes</div>
-                        </div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Saving Grace</div>
-                            <div class="perk-description">Drone grants masking before incapacitation</div>
-                        </div>
-                        <div class="perk-slot red-perk-slot">
-                            <span class="prestige-badge">RED</span>
-                            <div class="perk-name">Clear!</div>
-                            <div class="perk-description">Drone auto-revives incapacitated player</div>
-                        </div>
-                    </div>
-                    
-                    <!-- Column 8 - Level 17-19 -->
-                    <div class="skill-column">
-                        <div class="column-header">Lvl 17-19</div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Pied Piper</div>
-                            <div class="perk-description">Hold to make drone attract zombies for 5s</div>
-                        </div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Sharing is Caring</div>
-                            <div class="perk-description">Hold to give drone to teammate</div>
-                        </div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Coming in Hot</div>
-                            <div class="perk-description">Hold to make drone explode at target</div>
-                        </div>
-                        <div class="perk-slot red-perk-slot">
-                            <span class="prestige-badge">RED</span>
-                            <div class="perk-name">Seems He Fell Here</div>
-                            <div class="perk-description">Special kills may drop equipment bag</div>
-                        </div>
-                    </div>
-                    
-                    <!-- Column 9 - Level 20 -->
-                    <div class="skill-column">
-                        <div class="column-header">Lvl 20</div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Payload Power-Up</div>
-                            <div class="perk-description">Stun hits 2 targets, pistol +50% damage</div>
-                        </div>
-                    </div>
-                    
-                    <!-- Column 10 - Level 21-23 -->
-                    <div class="skill-column">
-                        <div class="column-header">Lvl 21-23</div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Housekeeping</div>
-                            <div class="perk-description">Defuses mines, captures turrets in 10m</div>
-                        </div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Keep It Down</div>
-                            <div class="perk-description">Auto-targets Screamer after 20s</div>
-                        </div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Eye In The Sky</div>
-                            <div class="perk-description">Auto-marks specials within 14m of drone</div>
-                        </div>
-                        <div class="perk-slot red-perk-slot">
-                            <span class="prestige-badge">RED</span>
-                            <div class="perk-name">Splasher</div>
-                            <div class="perk-description">Drone auto-disinfects Infector spit</div>
-                        </div>
-                    </div>
-                    
-                    <!-- Column 11 - Level 24-26 -->
-                    <div class="skill-column">
-                        <div class="column-header">Lvl 24-26</div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Pocket Factory</div>
-                            <div class="perk-description">Equipment regenerates (150s for max)</div>
-                        </div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Flight of Fury</div>
-                            <div class="perk-description">Kill 15 zombies to restore drone (180s cooldown)</div>
-                        </div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Special Prize</div>
-                            <div class="perk-description">Special kills restore drone (180s cooldown)</div>
-                        </div>
-                        <div class="perk-slot red-perk-slot">
-                            <span class="prestige-badge">RED</span>
-                            <div class="perk-name">New Battery</div>
-                            <div class="perk-description">25% chance abilities don't consume charge</div>
-                        </div>
-                    </div>
-                    
-                    <!-- Column 12 - Level 27-29 -->
-                    <div class="skill-column">
-                        <div class="column-header">Lvl 27-29</div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Multitasking</div>
-                            <div class="perk-description">Auto-reload primary on drone launch</div>
-                        </div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Not On My Watch</div>
-                            <div class="perk-description">No friendly fire for drone's target</div>
-                        </div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Next Best Thing</div>
-                            <div class="perk-description">Start with Geist 17MP secondary</div>
-                        </div>
-                        <div class="perk-slot red-perk-slot">
-                            <span class="prestige-badge">RED</span>
-                            <div class="perk-name">Gathered My Thoughts</div>
-                            <div class="perk-description">Drone's target gets 50% more sprint stamina</div>
-                        </div>
-                    </div>
-                    
-                    <!-- Column 13 - Level 30 -->
-                    <div class="skill-column">
-                        <div class="column-header">Lvl 30</div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Out With A Bang</div>
-                            <div class="perk-description">Drone stuns 10 zombies in 5m when depleted</div>
+                <!-- Core Perk -->
+                <div class="skill-segment">
+                    <h4>Core Ability</h4>
+                    <div class="perk-grid">
+                        <div class="perk-card core-perk">
+                            <div class="perk-level">CORE</div>
+                            <h5 class="perk-name">Flying Start</h5>
+                            <p class="perk-desc">Start with a Scout Rifle and Quadrocopter that will stun single zombies at short range. 12 shots per full charge but stunning a special zombie costs 5 shots</p>
+                            <div class="perk-cost">
+                                <span>💰 Free</span>
+                                <span>📊 0 XP</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            
-            <div class="prestige-note">
-                ⭐ Red perks are special alternative perks that provide unique effects. They cost red coins instead of yellow coins and are typically more powerful or offer different playstyles.
+
+                <!-- Segment 1 (Levels 1-3) -->
+                <div class="skill-segment">
+                    <h4>Segment One - Drone Range & Efficiency</h4>
+                    <div class="perk-grid">
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 1</div>
+                            <h5 class="perk-name">Go The Distance</h5>
+                            <p class="perk-desc">Quadrocopter charge (the number of stun shots or kills the Quadrocopter can perform) is increased by 15%</p>
+                            <div class="perk-cost">
+                                <span>💰 Free</span>
+                                <span>📊 0 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 2</div>
+                            <h5 class="perk-name">Take a Load Off</h5>
+                            <p class="perk-desc">Quadrocopter's charge increased by 30%, but you carry 20% less ammo for primary and secondary weapons</p>
+                            <div class="perk-cost">
+                                <span>💰 150 Supplies</span>
+                                <span>📊 1,250 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 3</div>
+                            <h5 class="perk-name">Longshot</h5>
+                            <p class="perk-desc">Quadrocopter's attack range increased by 100% (base: 2 meters for stun gun, 15 meters for pistol)</p>
+                            <div class="perk-cost">
+                                <span>💰 150 Supplies</span>
+                                <span>📊 1,250 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">RED PERK</div>
+                            <h5 class="perk-name">Good Boy</h5>
+                            <p class="perk-desc">The Stun Gun of the Quadrocopter is replaced with a Stim Pistol. If the player doesn't have temporary health, the Quadrocopter shoots them with the Stim Pistol. Has 3 charges</p>
+                            <div class="perk-cost">
+                                <span>💰 150 Supplies</span>
+                                <span>📊 Prestige Required</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Segment 2 (Levels 4-6) -->
+                <div class="skill-segment">
+                    <h4>Segment Two - Drone Weapon Modes</h4>
+                    <div class="perk-grid">
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 4</div>
+                            <h5 class="perk-name">Silent Stinger</h5>
+                            <p class="perk-desc">Your Quadrocopter will be equipped with a silenced pistol and will attack zombies in a 15 meter radius. 15 kills per full charge</p>
+                            <div class="perk-cost">
+                                <span>💰 150 Supplies</span>
+                                <span>📊 1,250 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 5</div>
+                            <h5 class="perk-name">Firecracker</h5>
+                            <p class="perk-desc">Your Quadrocopter will be equipped with an unsilenced pistol and will attack zombies in a 15 meter radius. Shot damage increased by 100%. 15 kills per full charge</p>
+                            <div class="perk-cost">
+                                <span>💰 150 Supplies</span>
+                                <span>📊 1,250 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 6</div>
+                            <h5 class="perk-name">Lightning Storm</h5>
+                            <p class="perk-desc">Your Quadrocopter's stun gun's fire rate is increased by 50%</p>
+                            <div class="perk-cost">
+                                <span>💰 150 Supplies</span>
+                                <span>📊 1,250 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">RED PERK</div>
+                            <h5 class="perk-name">On a Bender</h5>
+                            <p class="perk-desc">Your Quadrocopter will be equipped with Frag Grenades and will drop them on large groups of enemies</p>
+                            <div class="perk-cost">
+                                <span>💰 150 Supplies</span>
+                                <span>📊 Prestige Required</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Segment 3 (Levels 7-9) -->
+                <div class="skill-segment">
+                    <h4>Segment Three - Drone Control & Weapons</h4>
+                    <div class="perk-grid">
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 7</div>
+                            <h5 class="perk-name">Overdrive</h5>
+                            <p class="perk-desc">Tapping "Use Equipment" button increases Quadrocopter's rate of fire by 100% for 6 seconds. It cannot be depleted during this time but will be depleted as soon as the effect is over</p>
+                            <div class="perk-cost">
+                                <span>💰 150 Supplies</span>
+                                <span>📊 1,250 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 8</div>
+                            <h5 class="perk-name">Well Trained</h5>
+                            <p class="perk-desc">Tapping "Use Equipment" button toggles active Quadrocopter between "follow" and "stationary" modes. Quadrocopter damage in stationary mode increased by 50% (applies to both stun gun and handgun versions)</p>
+                            <div class="perk-cost">
+                                <span>💰 150 Supplies</span>
+                                <span>📊 1,250 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 9</div>
+                            <h5 class="perk-name">The Big Five 0</h5>
+                            <p class="perk-desc">Start with improved BF25 Payload Rifle that deals 50% more damage and has 50% more ammo. All BF25 Payload Rifle pickups for you also improved [base: 6 ammo]</p>
+                            <div class="perk-cost">
+                                <span>💰 150 Supplies</span>
+                                <span>📊 1,250 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">RED PERK</div>
+                            <h5 class="perk-name">It's Alive</h5>
+                            <p class="perk-desc">Tapping the "Use Equipment" button activates all remaining charges of the Quadrocopter's Stim Pistol plus an additional one. After that, it will be depleted. Only works if the Quadrocopter is equipped with a Stim Pistol</p>
+                            <div class="perk-cost">
+                                <span>💰 150 Supplies</span>
+                                <span>📊 Prestige Required</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Level 10 -->
+                <div class="skill-segment">
+                    <h4>Level 10 - Drone Regeneration</h4>
+                    <div class="perk-grid">
+                        <div class="perk-card core-perk">
+                            <div class="perk-level">LVL 10</div>
+                            <h5 class="perk-name">Rechargeable</h5>
+                            <p class="perk-desc">Active Quadrocopter will passively restore its charge by 1% per seconds after 5 seconds from its last shot</p>
+                            <div class="perk-cost">
+                                <span>💰 Free</span>
+                                <span>📊 1,500 XP</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Segment 4 (Levels 11-13) -->
+                <div class="skill-segment">
+                    <h4>Segment Four - Personal Enhancement</h4>
+                    <div class="perk-grid">
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 11</div>
+                            <h5 class="perk-name">Burst Pro</h5>
+                            <p class="perk-desc">Reload speed of firearms with burst fire mode increased by 25%</p>
+                            <div class="perk-cost">
+                                <span>💰 250 Supplies</span>
+                                <span>📊 1,500 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 12</div>
+                            <h5 class="perk-name">Wheatgrass</h5>
+                            <p class="perk-desc">Health increased by 25%</p>
+                            <div class="perk-cost">
+                                <span>💰 250 Supplies</span>
+                                <span>📊 1,500 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 13</div>
+                            <h5 class="perk-name">Weapon of Choice</h5>
+                            <p class="perk-desc">Start with Le Clairon Bullpup Rifle</p>
+                            <div class="perk-cost">
+                                <span>💰 250 Supplies</span>
+                                <span>📊 1,500 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">RED PERK</div>
+                            <h5 class="perk-name">Scrap Metal... Again II</h5>
+                            <p class="perk-desc">All equipment bags within 20 meters will be automatically marked if you have no equipment charges</p>
+                            <div class="perk-cost">
+                                <span>💰 250 Supplies</span>
+                                <span>📊 Prestige Required</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Segment 5 (Levels 14-16) -->
+                <div class="skill-segment">
+                    <h4>Segment Five - Drone Emergency Response</h4>
+                    <div class="perk-grid">
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 14</div>
+                            <h5 class="perk-name">Backup Plan</h5>
+                            <p class="perk-desc">When you are grabbed, if you have no Quadrocopter following you but have one in your inventory, a Quadrocopter will automatically be launched (cooldown 180 seconds)</p>
+                            <div class="perk-cost">
+                                <span>💰 250 Supplies</span>
+                                <span>📊 1,500 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 15</div>
+                            <h5 class="perk-name">Parting Gift</h5>
+                            <p class="perk-desc">Receive small amount of temporary health when the Quadrocopter is depleted (applies to the person it's following)</p>
+                            <div class="perk-cost">
+                                <span>💰 350 Supplies</span>
+                                <span>📊 1,750 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 16</div>
+                            <h5 class="perk-name">Saving Grace</h5>
+                            <p class="perk-desc">If a player followed by a Quadrocopter is hit and about to be incapacitated, the Quadrocopter will grant a masking effect for 6 seconds (cooldown 180 seconds)</p>
+                            <div class="perk-cost">
+                                <span>💰 350 Supplies</span>
+                                <span>📊 1,750 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">RED PERK</div>
+                            <h5 class="perk-name">Clear!</h5>
+                            <p class="perk-desc">If a player followed by a Quadrocopter is incapacitated, the Quadrocopter will revive them with a temporary health boost and get depleted (cooldown: 180 seconds)</p>
+                            <div class="perk-cost">
+                                <span>💰 350 Supplies</span>
+                                <span>📊 Prestige Required</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Segment 6 (Levels 17-19) -->
+                <div class="skill-segment">
+                    <h4>Segment Six - Advanced Drone Commands</h4>
+                    <div class="perk-grid">
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 17</div>
+                            <h5 class="perk-name">Pied Piper</h5>
+                            <p class="perk-desc">Holding "Use Equipment" button commands Quadrocopter to fly to the point you're aiming at. After it reaches that point it will attract zombies for 5 seconds and will then be depleted</p>
+                            <div class="perk-cost">
+                                <span>💰 350 Supplies</span>
+                                <span>📊 1,750 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 18</div>
+                            <h5 class="perk-name">Sharing is Caring</h5>
+                            <p class="perk-desc">Holding "Use Equipment" button commands Quadrocopter to follow a teammate you're aiming at. You must have a spare Quadrocopter and you can't have more than two Quadrocopters active at the same time</p>
+                            <div class="perk-cost">
+                                <span>💰 350 Supplies</span>
+                                <span>📊 1,750 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 19</div>
+                            <h5 class="perk-name">Coming in Hot</h5>
+                            <p class="perk-desc">Holding "Use Equipment" button commands Quadrocopter to fly to the point you're aiming at and explode there</p>
+                            <div class="perk-cost">
+                                <span>💰 350 Supplies</span>
+                                <span>📊 1,750 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">RED PERK</div>
+                            <h5 class="perk-name">Seems He Fell Here</h5>
+                            <p class="perk-desc">There is a chance that killing a special zombie will cause it to drop an equipment bag (cooldown: 180 seconds)</p>
+                            <div class="perk-cost">
+                                <span>💰 350 Supplies</span>
+                                <span>📊 Prestige Required</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Level 20 -->
+                <div class="skill-segment">
+                    <h4>Level 20 - Drone Payload Upgrade</h4>
+                    <div class="perk-grid">
+                        <div class="perk-card core-perk">
+                            <div class="perk-level">LVL 20</div>
+                            <h5 class="perk-name">Payload Power-Up</h5>
+                            <p class="perk-desc">Quadrocopter equipped with stun gun can hit 2 targets per shot (base: 1) Each target hit carries a charge cost. Quadrocopter equipped with pistol deals 50% more damage</p>
+                            <div class="perk-cost">
+                                <span>💰 Free</span>
+                                <span>📊 2,000 XP</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Segment 7 (Levels 21-23) -->
+                <div class="skill-segment">
+                    <h4>Segment Seven - Drone Utility Functions</h4>
+                    <div class="perk-grid">
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 21</div>
+                            <h5 class="perk-name">Housekeeping</h5>
+                            <p class="perk-desc">Quadrocopter automatically defuses enemy landmines and captures hostile automatic turrets in 10 meters radius</p>
+                            <div class="perk-cost">
+                                <span>💰 500 Supplies</span>
+                                <span>📊 2,000 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 22</div>
+                            <h5 class="perk-name">Keep It Down</h5>
+                            <p class="perk-desc">Active Quadrocopter will automatically target the Screamer if he's not killed within 20 seconds after his first scream. Quadrocopter will be depleted after the Screamer is dead</p>
+                            <div class="perk-cost">
+                                <span>💰 500 Supplies</span>
+                                <span>📊 2,000 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 23</div>
+                            <h5 class="perk-name">Eye In The Sky</h5>
+                            <p class="perk-desc">All active special zombies within a radius 14 meters around your Quadrocopter will be automatically marked</p>
+                            <div class="perk-cost">
+                                <span>💰 500 Supplies</span>
+                                <span>📊 2,000 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">RED PERK</div>
+                            <h5 class="perk-name">Splasher</h5>
+                            <p class="perk-desc">Your Quadrocopter automatically disinfects you if you get hit by the Infector's spit</p>
+                            <div class="perk-cost">
+                                <span>💰 500 Supplies</span>
+                                <span>📊 Prestige Required</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Segment 8 (Levels 24-26) -->
+                <div class="skill-segment">
+                    <h4>Segment Eight - Equipment Management</h4>
+                    <div class="perk-grid">
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 24</div>
+                            <h5 class="perk-name">Pocket Factory</h5>
+                            <p class="perk-desc">You won't be able to pick equipment bags on the mission but your equipment will be constantly regenerating (150 seconds to replenish to maximum)</p>
+                            <div class="perk-cost">
+                                <span>💰 500 Supplies</span>
+                                <span>📊 2,000 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 25</div>
+                            <h5 class="perk-name">Flight of Fury</h5>
+                            <p class="perk-desc">Killing 15 zombies in rapid succession restores one Quadrocopter to your inventory (cooldown 180 seconds)</p>
+                            <div class="perk-cost">
+                                <span>💰 500 Supplies</span>
+                                <span>📊 2,500 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 26</div>
+                            <h5 class="perk-name">Special Prize</h5>
+                            <p class="perk-desc">Killing a special zombie restores one Quadrocopter to your inventory (cooldown 180 seconds)</p>
+                            <div class="perk-cost">
+                                <span>💰 500 Supplies</span>
+                                <span>📊 2,500 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">RED PERK</div>
+                            <h5 class="perk-name">New Battery</h5>
+                            <p class="perk-desc">There is a 25% chance that the Quadrocopter's ability will not consume its charge</p>
+                            <div class="perk-cost">
+                                <span>💰 500 Supplies</span>
+                                <span>📊 Prestige Required</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Segment 9 (Levels 27-29) -->
+                <div class="skill-segment">
+                    <h4>Segment Nine - Team Support</h4>
+                    <div class="perk-grid">
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 27</div>
+                            <h5 class="perk-name">Multitasking</h5>
+                            <p class="perk-desc">Automatically reload primary weapon on Quadrocopter launch</p>
+                            <div class="perk-cost">
+                                <span>💰 500 Supplies</span>
+                                <span>📊 2,500 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 28</div>
+                            <h5 class="perk-name">Not On My Watch</h5>
+                            <p class="perk-desc">Friendly fire taken is decreased by 100% for person followed by your Quadrocopter</p>
+                            <div class="perk-cost">
+                                <span>💰 500 Supplies</span>
+                                <span>📊 2,500 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 29</div>
+                            <h5 class="perk-name">Next Best Thing</h5>
+                            <p class="perk-desc">Start with Geist 17MP machine pistol as secondary weapon</p>
+                            <div class="perk-cost">
+                                <span>💰 500 Supplies</span>
+                                <span>📊 2,500 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">RED PERK</div>
+                            <h5 class="perk-name">Gathered My Thoughts</h5>
+                            <p class="perk-desc">The player followed by your Quadrocopter receives 50% more sprint stamina</p>
+                            <div class="perk-cost">
+                                <span>💰 500 Supplies</span>
+                                <span>📊 Prestige Required</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Level 30 -->
+                <div class="skill-segment">
+                    <h4>Level 30 - Ultimate Drone Explosion</h4>
+                    <div class="perk-grid">
+                        <div class="perk-card core-perk">
+                            <div class="perk-level">LVL 30</div>
+                            <h5 class="perk-name">Out With A Bang</h5>
+                            <p class="perk-desc">Quadrocopter stuns up to 10 zombies in 5 meters radius when it is depleted (also applies for handgun version)</p>
+                            <div class="perk-cost">
+                                <span>💰 Free</span>
+                                <span>📊 3,500 XP</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
         
-        <!-- Prestige Rank Perks Section -->
-        <section class="card">
-            <h2>⭐ Prestige Rank Perks</h2>
+        <!-- Prestige Rank Perks -->
+        <section class="prestige-section">
+            <h3>⭐ Prestige Rank Perks</h3>
+            <p style="margin-bottom: 1.5rem;">These permanent passive bonuses unlock through prestiging. They remain active even after subsequent prestiges and stack with regular perks.</p>
             
-            <div class="warning-box">
-                <strong>About Prestige Perks:</strong>
-                <ul>
-                    <li>Unlocked by reaching Prestige Ranks 1-9</li>
-                    <li>These are PASSIVE bonuses that are always active once unlocked</li>
-                    <li>Stack with your regular perks for even more power</li>
-                    <li>Each costs 7500 yellow coins to unlock</li>
-                    <li>Persist through prestige resets</li>
-                </ul>
-            </div>
-            
-            <div class="perk-details">
-                <h3>Prestige Progression</h3>
-                
-                <div class="detailed-perk">
-                    <div class="perk-title">Rank 1: Ammo Drop</div>
-                    <div class="perk-full-description">
-                        Person being followed regains 10% of primary ammo when Quadrocopter is depleted.
+            <div class="prestige-grid">
+                <div class="prestige-perk">
+                    <div class="prestige-rank">RANK 1</div>
+                    <h5 class="perk-name">Ammo Drop</h5>
+                    <p class="perk-desc">Person being followed regains 10% of primary ammo when Quadrocopter is depleted</p>
+                    <div class="perk-cost">
+                        <span>💰 7,500 Yellow Coins</span>
                     </div>
-                    <div class="perk-note">Free ammo restoration when drone expires - great for sustained fights.</div>
                 </div>
-                
-                <div class="detailed-perk">
-                    <div class="perk-title">Rank 2: Unfettered</div>
-                    <div class="perk-full-description">
-                        Movement speed penalty when zombies are very close reduced by 50% for person followed by your Quadrocopter.
+                <div class="prestige-perk">
+                    <div class="prestige-rank">RANK 2</div>
+                    <h5 class="perk-name">Unfettered</h5>
+                    <p class="perk-desc">Movement speed penalty when zombies are very close reduced by 50% for person followed by your Quadrocopter</p>
+                    <div class="perk-cost">
+                        <span>💰 7,500 Yellow Coins</span>
                     </div>
-                    <div class="perk-note">Helps teammates escape when swarmed.</div>
                 </div>
-                
-                <div class="detailed-perk">
-                    <div class="perk-title">Rank 3: Spotter</div>
-                    <div class="perk-full-description">
-                        Firearm damage increased by 15% for person followed by your Quadrocopter.
+                <div class="prestige-perk">
+                    <div class="prestige-rank">RANK 3</div>
+                    <h5 class="perk-name">Spotter</h5>
+                    <p class="perk-desc">Firearm damage increased by 15% for person followed by your Quadrocopter</p>
+                    <div class="perk-cost">
+                        <span>💰 7,500 Yellow Coins</span>
                     </div>
-                    <div class="perk-note">Significant damage boost for whoever the drone follows.</div>
                 </div>
-                
-                <div class="detailed-perk">
-                    <div class="perk-title">Rank 4: Guardian Angel</div>
-                    <div class="perk-full-description">
-                        Person followed by your Quadrocopter will take 10% less damage.
+                <div class="prestige-perk">
+                    <div class="prestige-rank">RANK 4</div>
+                    <h5 class="perk-name">Guardian Angel</h5>
+                    <p class="perk-desc">Person followed by your Quadrocopter will take 10% less damage</p>
+                    <div class="perk-cost">
+                        <span>💰 7,500 Yellow Coins</span>
                     </div>
-                    <div class="perk-note">Passive damage reduction - stacks with other defensive perks.</div>
                 </div>
-                
-                <div class="detailed-perk">
-                    <div class="perk-title">Rank 6: Go The Distance II</div>
-                    <div class="perk-full-description">
-                        Quadrocopter charge (the number of stun shots or kills the Quadrocopter can perform) is increased by 5%.
+                <div class="prestige-perk">
+                    <div class="prestige-rank">RANK 6</div>
+                    <h5 class="perk-name">Go The Distance II</h5>
+                    <p class="perk-desc">Quadrocopter charge (the number of stun shots or kills the Quadrocopter can perform) is increased by 5%</p>
+                    <div class="perk-cost">
+                        <span>💰 7,500 Yellow Coins</span>
                     </div>
-                    <div class="perk-note">Stacks with regular Go The Distance for 20% more charge.</div>
                 </div>
-                
-                <div class="detailed-perk">
-                    <div class="perk-title">Rank 7: Handyman</div>
-                    <div class="perk-full-description">
-                        Your Quadrocopter will automatically reload autoturrets within 10 meters (cooldown: 30 seconds).
+                <div class="prestige-perk">
+                    <div class="prestige-rank">RANK 7</div>
+                    <h5 class="perk-name">Handyman</h5>
+                    <p class="perk-desc">Your Quadrocopter will automatically reload autoturrets within 10 meters (cooldown: 30 seconds)</p>
+                    <div class="perk-cost">
+                        <span>💰 7,500 Yellow Coins</span>
                     </div>
-                    <div class="perk-note">Keeps defense turrets operational during swarms.</div>
                 </div>
-                
-                <div class="detailed-perk">
-                    <div class="perk-title">Rank 8: As a Team!</div>
-                    <div class="perk-full-description">
-                        Players followed by your Drones set up defense kits 50% faster.
+                <div class="prestige-perk">
+                    <div class="prestige-rank">RANK 8</div>
+                    <h5 class="perk-name">As a Team!</h5>
+                    <p class="perk-desc">Players followed by your Drones set up defense kits 50% faster</p>
+                    <div class="perk-cost">
+                        <span>💰 7,500 Yellow Coins</span>
                     </div>
-                    <div class="perk-note">Speeds up critical defense preparations.</div>
                 </div>
-                
-                <div class="detailed-perk">
-                    <div class="perk-title">Rank 9: He Can Do It All!</div>
-                    <div class="perk-full-description">
-                        Receive 2 seconds of invulnerability when the Quadrocopter is depleted (applies to the person it's following).
+                <div class="prestige-perk">
+                    <div class="prestige-rank">RANK 9</div>
+                    <h5 class="perk-name">He Can Do It All!</h5>
+                    <p class="perk-desc">Receive 2 seconds of invulnerability when the Quadrocopter is depleted (applies to the person it's following)</p>
+                    <div class="perk-cost">
+                        <span>💰 7,500 Yellow Coins</span>
                     </div>
-                    <div class="perk-note">Brief invincibility window when drone expires - perfect for escapes.</div>
                 </div>
             </div>
             
-            <div class="tip-box">
-                <strong>💡 Prestige Strategy:</strong> Focus on reaching at least Prestige Rank 3 for Spotter's 15% damage boost - it's a massive team buff. Guardian Angel at Rank 4 adds survivability. The later ranks offer excellent utility but are less essential.
+            <div class="tip-box" style="background: rgba(255,255,255,0.2); border: 2px solid rgba(255,255,255,0.5); color: white; margin-top: 1.5rem;">
+                <strong>💡 Note:</strong> Rank 5 prestige perk is missing from the data. Spotter's 15% damage boost is the key perk to get!
             </div>
         </section>
         

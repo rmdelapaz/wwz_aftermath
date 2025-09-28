@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Gunslinger Class Guide - Master DPS and precision shooting in World War Z: Aftermath">
-    <meta name="keywords" content="World War Z, Aftermath, Gunslinger, class guide, DPS, damage, builds, perks, skill tree">
+    <meta name="description" content="Gunslinger Class Guide - Master precision shooting and weapon handling in World War Z: Aftermath">
+    <meta name="keywords" content="World War Z, Aftermath, Gunslinger, class guide, DPS, headshots, weapons, perks, skill tree">
     <meta name="author" content="WWZ Guide Team">
     <title>Gunslinger Class Guide - World War Z: Aftermath</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
@@ -12,7 +12,7 @@
     <style>
         /* Class-specific styling */
         .class-header {
-            background: linear-gradient(135deg, #ff6b6b 0%, #c44569 100%);
+            background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
             color: white;
             padding: 2rem;
             border-radius: 12px;
@@ -20,7 +20,7 @@
             text-align: center;
         }
         
-        /* Skill Tree Styling */
+        /* Skill Tree Styling - Slasher Layout */
         .skill-tree-container {
             background: #f8f9fa;
             border-radius: 12px;
@@ -29,138 +29,124 @@
             overflow-x: auto;
         }
         
-        .skill-tree-grid {
-            display: grid;
-            grid-template-columns: repeat(13, 1fr);
-            gap: 0.5rem;
-            min-width: 1000px;
-            margin: 1rem 0;
+        .skill-segment {
+            background: white;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid #dc3545;
         }
         
-        .skill-column {
+        .skill-segment h4 {
+            color: #495057;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        .perk-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+        }
+        
+        .perk-card {
             background: white;
             border: 2px solid #e9ecef;
             border-radius: 8px;
-            padding: 0.5rem;
-            min-height: 200px;
+            padding: 1rem;
+            transition: transform 0.2s;
         }
         
-        .skill-column.red-perk {
-            border-color: #dc3545;
-            background: #fff5f5;
-        }
-        
-        .column-header {
-            text-align: center;
-            font-weight: bold;
-            color: #495057;
-            margin-bottom: 0.5rem;
-            font-size: 0.9rem;
-        }
-        
-        .perk-slot {
-            background: white;
-            border: 1px solid #dee2e6;
-            border-radius: 4px;
-            padding: 0.5rem;
-            margin: 0.5rem 0;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-        
-        .perk-slot:hover {
+        .perk-card:hover {
             transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            border-color: #ff6b6b;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
         
-        .perk-slot.red-perk-slot {
-            background: linear-gradient(135deg, #fff5f5 0%, #ffebee 100%);
-            border-color: #dc3545;
+        .perk-level {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            background: #dc3545;
+            color: white;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
         }
         
         .perk-name {
             font-weight: bold;
-            font-size: 0.85rem;
-            color: #2c3e50;
-            margin-bottom: 0.25rem;
-        }
-        
-        .perk-description {
-            font-size: 0.75rem;
-            color: #6c757d;
-            line-height: 1.3;
-        }
-        
-        .prestige-badge {
-            position: absolute;
-            top: 0.25rem;
-            right: 0.25rem;
-            background: #dc3545;
-            color: white;
-            font-size: 0.65rem;
-            padding: 0.1rem 0.3rem;
-            border-radius: 3px;
-            font-weight: bold;
-        }
-        
-        .perk-details {
-            margin: 2rem 0;
-        }
-        
-        .perk-details h3 {
-            color: #2c3e50;
-            border-bottom: 2px solid #ff6b6b;
-            padding-bottom: 0.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        .detailed-perk {
-            background: white;
-            border-left: 3px solid #ff6b6b;
-            padding: 1rem;
-            margin: 1rem 0;
-            border-radius: 4px;
-        }
-        
-        .detailed-perk.red {
-            border-left-color: #dc3545;
-            background: #fff5f5;
-        }
-        
-        .perk-title {
-            font-size: 1.1rem;
-            font-weight: bold;
-            color: #2c3e50;
-            margin-bottom: 0.5rem;
-        }
-        
-        .perk-full-description {
             color: #495057;
-            margin-bottom: 0.5rem;
+            margin: 0.5rem 0;
         }
         
-        .perk-note {
+        .perk-desc {
+            color: #6c757d;
             font-size: 0.9rem;
-            color: #6c757d;
-            font-style: italic;
+            line-height: 1.4;
         }
         
-        /* Original styles continued */
-        .perk-category {
+        .perk-cost {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 0.75rem;
+            padding-top: 0.75rem;
+            border-top: 1px solid #e9ecef;
+            font-size: 0.85rem;
+        }
+        
+        .core-perk {
+            background: #ffe4e6;
+            border: 2px solid #dc3545;
+        }
+        
+        .red-perk {
+            background: #fff5f5;
+            border: 2px solid #dc3545;
+        }
+        
+        .red-perk .perk-level {
+            background: #dc3545;
+        }
+        
+        .prestige-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
             margin: 2rem 0;
-            padding: 1.5rem;
-            background: #f8f9fa;
+        }
+        
+        .prestige-section h3 {
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+        
+        .prestige-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+        }
+        
+        .prestige-perk {
+            background: rgba(255, 255, 255, 0.95);
+            color: #333;
+            padding: 1rem;
             border-radius: 8px;
+            border: 2px solid #9b59b6;
         }
         
-        .perk-category h4 {
-            color: #495057;
-            margin-bottom: 1rem;
-            font-size: 1.2rem;
+        .prestige-rank {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            background: #9b59b6;
+            color: white;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
         }
         
+        /* Rest of existing styles */
         .build-section {
             margin: 2rem 0;
         }
@@ -178,10 +164,27 @@
             margin-bottom: 1rem;
         }
         
+        .build-perks {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 6px;
+            margin: 1rem 0;
+        }
+        
+        .perk-choice {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: #ffe4e6;
+            border: 1px solid #dc3545;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin: 0.25rem;
+        }
+        
         .role-badge {
             display: inline-block;
             padding: 0.25rem 0.75rem;
-            background: #ff6b6b;
+            background: #dc3545;
             color: white;
             border-radius: 20px;
             font-size: 0.9rem;
@@ -202,15 +205,6 @@
             border-radius: 8px;
             padding: 1rem;
             margin: 1rem 0;
-        }
-        
-        .prestige-note {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 1rem;
-            border-radius: 8px;
-            margin: 1rem 0;
-            text-align: center;
         }
         
         .synergy-grid {
@@ -251,14 +245,6 @@
             color: #004085;
         }
         
-        .core-ability {
-            background: linear-gradient(135deg, #ffe0e0 0%, #ffcccb 100%);
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 1rem 0;
-            border: 2px solid #ff6b6b;
-        }
-        
         .equipment-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -276,21 +262,6 @@
         .equipment-icon {
             font-size: 2rem;
             margin-bottom: 0.5rem;
-        }
-        
-        @media (max-width: 768px) {
-            .skill-tree-container {
-                padding: 1rem;
-            }
-            
-            .skill-tree-grid {
-                display: block;
-                min-width: auto;
-            }
-            
-            .skill-column {
-                margin-bottom: 1rem;
-            }
         }
     </style>
 </head>
@@ -334,11 +305,11 @@
         <header class="class-header">
             <h1>🔫 Gunslinger Class Guide</h1>
             <div class="role-badges">
-                <span class="role-badge">DPS</span>
-                <span class="role-badge">Crowd Control</span>
-                <span class="role-badge">Precision Damage</span>
+                <span class="role-badge">DPS Specialist</span>
+                <span class="role-badge">Precision Shooter</span>
+                <span class="role-badge">Ammo Efficient</span>
             </div>
-            <p><strong>Core Role:</strong> Deliver sustained high damage through superior gunplay and never-ending ammunition</p>
+            <p><strong>Core Role:</strong> Maximize damage output with enhanced weapon handling and headshot bonuses</p>
         </header>
         
         <!-- Quick Stats -->
@@ -346,507 +317,677 @@
             <h2>📊 Quick Stats</h2>
             <div class="equipment-grid">
                 <div class="equipment-item">
+                    <div class="equipment-icon">💣</div>
+                    <strong>Frag Grenades</strong>
+                    <p>Start with frags, up to 3</p>
+                </div>
+                <div class="equipment-item">
                     <div class="equipment-icon">🎯</div>
-                    <strong>No Movement Penalty</strong>
-                    <p>Perfect accuracy while moving</p>
+                    <strong>No Recoil</strong>
+                    <p>Movement doesn't affect accuracy</p>
                 </div>
                 <div class="equipment-item">
                     <div class="equipment-icon">♻️</div>
                     <strong>Auto-Reload</strong>
-                    <p>Unequipped weapons reload after 7s</p>
+                    <p>Headshots restore ammo</p>
                 </div>
                 <div class="equipment-item">
-                    <div class="equipment-icon">💥</div>
-                    <strong>Grenade Expert</strong>
-                    <p>Enhanced frag grenades</p>
-                </div>
-                <div class="equipment-item">
-                    <div class="equipment-icon">🔄</div>
-                    <strong>Headshot Refund</strong>
-                    <p>Restore ammo with headshots</p>
+                    <div class="equipment-icon">⚡</div>
+                    <strong>Fast Switch</strong>
+                    <p>150% faster weapon swapping</p>
                 </div>
             </div>
         </section>
         
         <!-- Core Ability -->
         <section class="card">
-            <h2>🎯 Core Ability</h2>
-            <div class="core-ability">
-                <h3>Gimme a Reason</h3>
-                <p><strong>Effect:</strong> Movement has no effect on weapon accuracy, recoil effect also reduced</p>
-                <p><strong>Starting Gear:</strong> Compact SMG and Frag Grenade</p>
-                <p><strong>Passive Bonus:</strong> Enhanced weapon handling and stability</p>
-                <p><strong>Pro Tip:</strong> You can accurately shoot while sprinting, jumping, or sliding - use this mobility advantage!</p>
+            <h2>🔫 Core Ability: Gimme a Reason</h2>
+            <div class="core-ability" style="background: linear-gradient(135deg, #ffe4e6 0%, #ffcccc 100%); padding: 1.5rem; border-radius: 8px; margin: 1rem 0; border: 2px solid #dc3545;">
+                <h3>Precision Master</h3>
+                <p><strong>Starting Equipment:</strong> Frag Grenade and Compact SMG</p>
+                <p><strong>Special Ability:</strong> Movement has no effect on weapon accuracy, recoil effect also reduced</p>
+                <p><strong>Unique Feature:</strong> Perfect accuracy while moving - can run and gun effectively</p>
+                <p><strong>Team Buff:</strong> Auto-marks special zombies within 20m at level 10</p>
+                <p><strong>Pro Tip:</strong> You can maintain perfect accuracy while sprinting - use it!</p>
             </div>
         </section>
         
-        <!-- Skill Tree Section -->
+        <!-- Complete Skill Tree -->
         <section class="card">
-            <h2>🎯 Gunslinger Skill Tree</h2>
-            
-            <div class="warning-box">
-                <strong>How the Skill System Works:</strong>
-                <ul>
-                    <li>Progress through levels 1-30 to unlock new perk segments</li>
-                    <li>Choose ONE perk per segment to activate</li>
-                    <li>Red perks are special alternatives that cost more (red coins)</li>
-                    <li>You can buy multiple perks in each segment but only use one at a time</li>
-                    <li>Perks cost 150-500 yellow coins, red perks cost 150-500 red coins</li>
-                    <li>Level 10, 20, and 30 perks are automatic and always active</li>
-                </ul>
-            </div>
+            <h2>🔫 Complete Gunslinger Skill Tree</h2>
             
             <div class="skill-tree-container">
-                <h3>Gunslinger Perk Grid</h3>
-                <div class="skill-tree-grid">
-                    <!-- Column 1 - Starting Perk -->
-                    <div class="skill-column">
-                        <div class="column-header">Start</div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Gimme a Reason</div>
-                            <div class="perk-description">No accuracy penalty while moving</div>
+                <!-- Core Perk -->
+                <div class="skill-segment">
+                    <h4>Core Ability</h4>
+                    <div class="perk-grid">
+                        <div class="perk-card red-perk">
+                            <div class="perk-level">CORE</div>
+                            <h5 class="perk-name">Gimme a Reason</h5>
+                            <p class="perk-desc">Start with Frag Grenade and Compact SMG. Movement has no effect on weapon accuracy, recoil effect also reduced</p>
+                            <div class="perk-cost">
+                                <span>💰 Free</span>
+                                <span>📊 0 XP</span>
+                            </div>
                         </div>
                     </div>
-                    
-                    <!-- Column 2 - Level 1-3 -->
-                    <div class="skill-column">
-                        <div class="column-header">Lvl 1-3</div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Fire in the Hole</div>
-                            <div class="perk-description">Frag Grenades kill 25% more targets</div>
+                </div>
+
+                <!-- Segment 1 (Levels 1-3) -->
+                <div class="skill-segment">
+                    <h4>Segment One - Grenade Enhancement</h4>
+                    <div class="perk-grid">
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 1</div>
+                            <h5 class="perk-name">Fire in the Hole</h5>
+                            <p class="perk-desc">Frag Grenade can kill 25% more targets (base: 14)</p>
+                            <div class="perk-cost">
+                                <span>💰 Free</span>
+                                <span>📊 0 XP</span>
+                            </div>
                         </div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Impact Grenades</div>
-                            <div class="perk-description">Grenades explode on impact, +100% damage, -50% radius</div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 2</div>
+                            <h5 class="perk-name">Impact Grenades</h5>
+                            <p class="perk-desc">Frag Grenades explode on impact. They deal 100% more damage but have 50% smaller explosion radius</p>
+                            <div class="perk-cost">
+                                <span>💰 150 Supplies</span>
+                                <span>📊 1,250 XP</span>
+                            </div>
                         </div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Power Nap</div>
-                            <div class="perk-description">Unequipped weapons auto-reload after 7s</div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 3</div>
+                            <h5 class="perk-name">Power Nap</h5>
+                            <p class="perk-desc">Unequipped weapon automatically reloads after 7 seconds</p>
+                            <div class="perk-cost">
+                                <span>💰 150 Supplies</span>
+                                <span>📊 1,250 XP</span>
+                            </div>
                         </div>
-                        <div class="perk-slot red-perk-slot">
-                            <span class="prestige-badge">RED</span>
-                            <div class="perk-name">Special Mag</div>
-                            <div class="perk-description">Grenade kills increase penetration +1 for 5s</div>
-                        </div>
-                    </div>
-                    
-                    <!-- Column 3 - Level 4-6 -->
-                    <div class="skill-column">
-                        <div class="column-header">Lvl 4-6</div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Swapping Mags!</div>
-                            <div class="perk-description">Reload speed +25% on all weapons</div>
-                        </div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Front Line Supply</div>
-                            <div class="perk-description">Headshots restore 5% rounds to magazine</div>
-                        </div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Adrenaline</div>
-                            <div class="perk-description">50% reload speed when mag below 25%</div>
-                        </div>
-                        <div class="perk-slot red-perk-slot">
-                            <span class="prestige-badge">RED</span>
-                            <div class="perk-name">Refilling</div>
-                            <div class="perk-description">Reloading empty weapon increases mag by 15%</div>
-                        </div>
-                    </div>
-                    
-                    <!-- Column 4 - Level 7-9 -->
-                    <div class="skill-column">
-                        <div class="column-header">Lvl 7-9</div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Heavy Metal</div>
-                            <div class="perk-description">Start with improved MAG5, +50% damage/ammo</div>
-                        </div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Gunner</div>
-                            <div class="perk-description">Start with Sporting Carbine PAC-15</div>
-                        </div>
-                        <div class="perk-slot">
-                            <div class="perk-name">This is My Rifle</div>
-                            <div class="perk-description">Start with ARK-103 Assault Rifle</div>
-                        </div>
-                        <div class="perk-slot red-perk-slot">
-                            <span class="prestige-badge">RED</span>
-                            <div class="perk-name">S890</div>
-                            <div class="perk-description">Start with S890 Combat Shotgun</div>
+                        <div class="perk-card">
+                            <div class="perk-level">DLC PERK</div>
+                            <h5 class="perk-name">Special Mag</h5>
+                            <p class="perk-desc">Killing an enemy with a grenade increases penetration of all weapons by 1 for 5 seconds</p>
+                            <div class="perk-cost">
+                                <span>💰 150 Supplies</span>
+                                <span>📊 1,250 XP</span>
+                            </div>
                         </div>
                     </div>
-                    
-                    <!-- Column 5 - Level 10 -->
-                    <div class="skill-column">
-                        <div class="column-header">Lvl 10</div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Seek and Destroy</div>
-                            <div class="perk-description">Auto-mark specials within 20m</div>
+                </div>
+
+                <!-- Segment 2 (Levels 4-6) -->
+                <div class="skill-segment">
+                    <h4>Segment Two - Reload Enhancement</h4>
+                    <div class="perk-grid">
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 4</div>
+                            <h5 class="perk-name">Swapping Mags!</h5>
+                            <p class="perk-desc">Reload speed increased by 25% on all weapons</p>
+                            <div class="perk-cost">
+                                <span>💰 150 Supplies</span>
+                                <span>📊 1,250 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 5</div>
+                            <h5 class="perk-name">Front Line Supply</h5>
+                            <p class="perk-desc">Headshots made with primary or secondary weapons automatically restore 5% rounds to the magazine</p>
+                            <div class="perk-cost">
+                                <span>💰 150 Supplies</span>
+                                <span>📊 1,250 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 6</div>
+                            <h5 class="perk-name">Adrenaline</h5>
+                            <p class="perk-desc">Reloading a weapon with less than 25% ammo in the magazine provides a 50% reload speed boost for 5 seconds</p>
+                            <div class="perk-cost">
+                                <span>💰 150 Supplies</span>
+                                <span>📊 1,250 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">DLC PERK</div>
+                            <h5 class="perk-name">Refilling</h5>
+                            <p class="perk-desc">Reloading a fully unloaded primary weapon increases its next magazine's capacity by 15%</p>
+                            <div class="perk-cost">
+                                <span>💰 150 Supplies</span>
+                                <span>📊 1,250 XP</span>
+                            </div>
                         </div>
                     </div>
-                    
-                    <!-- Column 6 - Level 11-13 -->
-                    <div class="skill-column">
-                        <div class="column-header">Lvl 11-13</div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Bounty Hunter</div>
-                            <div class="perk-description">Deal 25% more damage to special zombies</div>
+                </div>
+
+                <!-- Segment 3 (Levels 7-9) -->
+                <div class="skill-segment">
+                    <h4>Segment Three - Starting Weapons</h4>
+                    <div class="perk-grid">
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 7</div>
+                            <h5 class="perk-name">Heavy Metal</h5>
+                            <p class="perk-desc">Start with improved MAG5 Machinegun that deals 50% more damage, and has 50% more ammo. All MAG5 machinegun pickups also improved</p>
+                            <div class="perk-cost">
+                                <span>💰 150 Supplies</span>
+                                <span>📊 1,250 XP</span>
+                            </div>
                         </div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Wheatgrass</div>
-                            <div class="perk-description">Health increased by 25%</div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 8</div>
+                            <h5 class="perk-name">Gunner</h5>
+                            <p class="perk-desc">Start with Sporting Carbine PAC-15</p>
+                            <div class="perk-cost">
+                                <span>💰 150 Supplies</span>
+                                <span>📊 1,250 XP</span>
+                            </div>
                         </div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Sleight of Hand</div>
-                            <div class="perk-description">Switch weapons 150% faster</div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 9</div>
+                            <h5 class="perk-name">This is My Rifle</h5>
+                            <p class="perk-desc">Start with ARK-103 Assault Rifle</p>
+                            <div class="perk-cost">
+                                <span>💰 150 Supplies</span>
+                                <span>📊 1,250 XP</span>
+                            </div>
                         </div>
-                        <div class="perk-slot red-perk-slot">
-                            <span class="prestige-badge">RED</span>
-                            <div class="perk-name">Sort It All Out</div>
-                            <div class="perk-description">Empty primary mag loads secondary with explosive rounds</div>
-                        </div>
-                    </div>
-                    
-                    <!-- Column 7 - Level 14-16 -->
-                    <div class="skill-column">
-                        <div class="column-header">Lvl 14-16</div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Gun Fanatic</div>
-                            <div class="perk-description">Draining both mags auto-reloads primary</div>
-                        </div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Concentration</div>
-                            <div class="perk-description">5 headshot kills grant temp health</div>
-                        </div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Judo</div>
-                            <div class="perk-description">Auto-escape when pinned (180s cooldown)</div>
-                        </div>
-                        <div class="perk-slot red-perk-slot">
-                            <span class="prestige-badge">RED</span>
-                            <div class="perk-name">Encore</div>
-                            <div class="perk-description">75% temp health instead of incapacitation</div>
-                        </div>
-                    </div>
-                    
-                    <!-- Column 8 - Level 17-19 -->
-                    <div class="skill-column">
-                        <div class="column-header">Lvl 17-19</div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Welcoming Committee</div>
-                            <div class="perk-description">Stationary MG ammo +25% for team</div>
-                        </div>
-                        <div class="perk-slot">
-                            <div class="perk-name">S890 Shorty</div>
-                            <div class="perk-description">Start with S890 Shorty secondary</div>
-                        </div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Senjata</div>
-                            <div class="perk-description">Start with Senjata PDW secondary</div>
-                        </div>
-                        <div class="perk-slot red-perk-slot">
-                            <span class="prestige-badge">RED</span>
-                            <div class="perk-name">Bad Odor</div>
-                            <div class="perk-description">Special zombies may drop primary weapon</div>
+                        <div class="perk-card">
+                            <div class="perk-level">DLC PERK</div>
+                            <h5 class="perk-name">S890</h5>
+                            <p class="perk-desc">Start with an S890 Combat Shotgun</p>
+                            <div class="perk-cost">
+                                <span>💰 150 Supplies</span>
+                                <span>📊 1,250 XP</span>
+                            </div>
                         </div>
                     </div>
-                    
-                    <!-- Column 9 - Level 20 -->
-                    <div class="skill-column">
-                        <div class="column-header">Lvl 20</div>
-                        <div class="perk-slot">
-                            <div class="perk-name">My Bad</div>
-                            <div class="perk-description">Deal 50% less friendly fire damage</div>
+                </div>
+
+                <!-- Level 10 -->
+                <div class="skill-segment">
+                    <h4>Level 10 - Auto-Marking</h4>
+                    <div class="perk-grid">
+                        <div class="perk-card red-perk">
+                            <div class="perk-level">LVL 10</div>
+                            <h5 class="perk-name">Seek and Destroy</h5>
+                            <p class="perk-desc">All active special zombies within a radius of 20 meters will be automatically marked</p>
+                            <div class="perk-cost">
+                                <span>💰 Free</span>
+                                <span>📊 1,500 XP</span>
+                            </div>
                         </div>
                     </div>
-                    
-                    <!-- Column 10 - Level 21-23 -->
-                    <div class="skill-column">
-                        <div class="column-header">Lvl 21-23</div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Deep Pockets</div>
-                            <div class="perk-description">Ammo capacity +25% for primary/secondary</div>
+                </div>
+
+                <!-- Segment 4 (Levels 11-13) -->
+                <div class="skill-segment">
+                    <h4>Segment Four - Personal Enhancement</h4>
+                    <div class="perk-grid">
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 11</div>
+                            <h5 class="perk-name">Bounty Hunter</h5>
+                            <p class="perk-desc">Deal 25% more damage to special zombies</p>
+                            <div class="perk-cost">
+                                <span>💰 250 Supplies</span>
+                                <span>📊 1,500 XP</span>
+                            </div>
                         </div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Action Hero</div>
-                            <div class="perk-description">Last standing: infinite ammo for 7s</div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 12</div>
+                            <h5 class="perk-name">Wheatgrass</h5>
+                            <p class="perk-desc">Health increased by 25%</p>
+                            <div class="perk-cost">
+                                <span>💰 250 Supplies</span>
+                                <span>📊 1,500 XP</span>
+                            </div>
                         </div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Free Refill</div>
-                            <div class="perk-description">Equipment kills restore 3% primary ammo</div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 13</div>
+                            <h5 class="perk-name">Sleight of Hand</h5>
+                            <p class="perk-desc">Switch weapons 150% faster</p>
+                            <div class="perk-cost">
+                                <span>💰 250 Supplies</span>
+                                <span>📊 1,500 XP</span>
+                            </div>
                         </div>
-                        <div class="perk-slot red-perk-slot">
-                            <span class="prestige-badge">RED</span>
-                            <div class="perk-name">The More the Merrier</div>
-                            <div class="perk-description">Team ammo capacity +5%</div>
-                        </div>
-                    </div>
-                    
-                    <!-- Column 11 - Level 24-26 -->
-                    <div class="skill-column">
-                        <div class="column-header">Lvl 24-26</div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Work Belt</div>
-                            <div class="perk-description">Max Frag Grenades increased to 3</div>
-                        </div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Pocket Factory</div>
-                            <div class="perk-description">Equipment regenerates (150s for max)</div>
-                        </div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Headhunter Reward</div>
-                            <div class="perk-description">5 headshot kills refill equipment</div>
-                        </div>
-                        <div class="perk-slot red-perk-slot">
-                            <span class="prestige-badge">RED</span>
-                            <div class="perk-name">It's Not Over</div>
-                            <div class="perk-description">Last standing: infinite equipment for 10s</div>
-                        </div>
-                    </div>
-                    
-                    <!-- Column 12 - Level 27-29 -->
-                    <div class="skill-column">
-                        <div class="column-header">Lvl 27-29</div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Annihilator</div>
-                            <div class="perk-description">All weapons deal 15% more damage</div>
-                        </div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Switcheroo</div>
-                            <div class="perk-description">Weapon swap grants 50% damage for 5s</div>
-                        </div>
-                        <div class="perk-slot">
-                            <div class="perk-name">Thrifty</div>
-                            <div class="perk-description">Low ammo reload grants 50% damage for 3s</div>
-                        </div>
-                        <div class="perk-slot red-perk-slot">
-                            <span class="prestige-badge">RED</span>
-                            <div class="perk-name">I'm Not Alone</div>
-                            <div class="perk-description">Team firearm damage +10%</div>
+                        <div class="perk-card">
+                            <div class="perk-level">DLC PERK</div>
+                            <h5 class="perk-name">Sort It All Out</h5>
+                            <p class="perk-desc">Emptying the magazine of the primary weapon loads the secondary weapon with explosive rounds</p>
+                            <div class="perk-cost">
+                                <span>💰 250 Supplies</span>
+                                <span>📊 1,500 XP</span>
+                            </div>
                         </div>
                     </div>
-                    
-                    <!-- Column 13 - Level 30 -->
-                    <div class="skill-column">
-                        <div class="column-header">Lvl 30</div>
-                        <div class="perk-slot">
-                            <div class="perk-name">War Face</div>
-                            <div class="perk-description">Kill 25 zombies: team damage +50% for 20s</div>
+                </div>
+
+                <!-- Segment 5 (Levels 14-16) -->
+                <div class="skill-segment">
+                    <h4>Segment Five - Survival Skills</h4>
+                    <div class="perk-grid">
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 14</div>
+                            <h5 class="perk-name">Gun Fanatic</h5>
+                            <p class="perk-desc">Draining primary and secondary weapons' magazines automatically reloads primary weapon</p>
+                            <div class="perk-cost">
+                                <span>💰 250 Supplies</span>
+                                <span>📊 1,500 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 15</div>
+                            <h5 class="perk-name">Concentration</h5>
+                            <p class="perk-desc">Killing 5 zombies consecutively with only headshots grants temporary health boost (cooldown 30 seconds)</p>
+                            <div class="perk-cost">
+                                <span>💰 350 Supplies</span>
+                                <span>📊 1,750 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 16</div>
+                            <h5 class="perk-name">Judo</h5>
+                            <p class="perk-desc">When pinned down by usual or special zombies you will automatically rise up and push your attackers back (cooldown 180 seconds)</p>
+                            <div class="perk-cost">
+                                <span>💰 350 Supplies</span>
+                                <span>📊 1,750 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">DLC PERK</div>
+                            <h5 class="perk-name">Encore</h5>
+                            <p class="perk-desc">Instead of becoming incapacitated, you gain a 75% temporary health boost and keep going (cooldown: 180 seconds)</p>
+                            <div class="perk-cost">
+                                <span>💰 350 Supplies</span>
+                                <span>📊 1,750 XP</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Segment 6 (Levels 17-19) -->
+                <div class="skill-segment">
+                    <h4>Segment Six - Secondary Weapons</h4>
+                    <div class="perk-grid">
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 17</div>
+                            <h5 class="perk-name">Welcoming Committee</h5>
+                            <p class="perk-desc">Stationary machinegun ammo increased by 25% for all teammates</p>
+                            <div class="perk-cost">
+                                <span>💰 350 Supplies</span>
+                                <span>📊 1,750 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 18</div>
+                            <h5 class="perk-name">S890 Shorty</h5>
+                            <p class="perk-desc">Start with a S890 Shorty in your secondary weapon slot</p>
+                            <div class="perk-cost">
+                                <span>💰 350 Supplies</span>
+                                <span>📊 1,750 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 19</div>
+                            <h5 class="perk-name">Senjata</h5>
+                            <p class="perk-desc">Start with a Senjata PDW in your secondary weapon slot</p>
+                            <div class="perk-cost">
+                                <span>💰 350 Supplies</span>
+                                <span>📊 1,750 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">DLC PERK</div>
+                            <h5 class="perk-name">Bad Odor</h5>
+                            <p class="perk-desc">There is a chance that killing a special zombie will cause it to drop a primary weapon (cooldown: 180 seconds)</p>
+                            <div class="perk-cost">
+                                <span>💰 350 Supplies</span>
+                                <span>📊 1,750 XP</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Level 20 -->
+                <div class="skill-segment">
+                    <h4>Level 20 - Friendly Fire Protection</h4>
+                    <div class="perk-grid">
+                        <div class="perk-card red-perk">
+                            <div class="perk-level">LVL 20</div>
+                            <h5 class="perk-name">My Bad</h5>
+                            <p class="perk-desc">Deal 50% less friendly fire damage to your teammates</p>
+                            <div class="perk-cost">
+                                <span>💰 Free</span>
+                                <span>📊 2,000 XP</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Segment 7 (Levels 21-23) -->
+                <div class="skill-segment">
+                    <h4>Segment Seven - Ammo Management</h4>
+                    <div class="perk-grid">
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 21</div>
+                            <h5 class="perk-name">Deep Pockets</h5>
+                            <p class="perk-desc">Carried ammo capacity for primary and secondary weapons increased by 25%</p>
+                            <div class="perk-cost">
+                                <span>💰 500 Supplies</span>
+                                <span>📊 2,000 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 22</div>
+                            <h5 class="perk-name">Action Hero</h5>
+                            <p class="perk-desc">When you become the last of your team still standing you gain ability to shoot with your primary and secondary weapons without spending rounds in its magazines for 7 seconds</p>
+                            <div class="perk-cost">
+                                <span>💰 500 Supplies</span>
+                                <span>📊 2,000 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 23</div>
+                            <h5 class="perk-name">Free Refill</h5>
+                            <p class="perk-desc">Restore 3% of primary weapon ammo for each kill made with equipment</p>
+                            <div class="perk-cost">
+                                <span>💰 500 Supplies</span>
+                                <span>📊 2,000 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">DLC PERK</div>
+                            <h5 class="perk-name">The More the Merrier</h5>
+                            <p class="perk-desc">Carried ammo capacity for primary and secondary weapons is increased by 5% for the entire team</p>
+                            <div class="perk-cost">
+                                <span>💰 500 Supplies</span>
+                                <span>📊 2,000 XP</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Segment 8 (Levels 24-26) -->
+                <div class="skill-segment">
+                    <h4>Segment Eight - Equipment Enhancement</h4>
+                    <div class="perk-grid">
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 24</div>
+                            <h5 class="perk-name">Work Belt</h5>
+                            <p class="perk-desc">Max number of Frag Grenades increased to 3</p>
+                            <div class="perk-cost">
+                                <span>💰 500 Supplies</span>
+                                <span>📊 2,000 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 25</div>
+                            <h5 class="perk-name">Pocket Factory</h5>
+                            <p class="perk-desc">You won't be able to pick equipment bags on the mission, but your equipment will be constantly regenerating (150 seconds to replenish to maximum)</p>
+                            <div class="perk-cost">
+                                <span>💰 500 Supplies</span>
+                                <span>📊 2,500 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 26</div>
+                            <h5 class="perk-name">Headhunter Reward</h5>
+                            <p class="perk-desc">Killing 5 zombies consecutively with only headshots refills one equipment charge (cooldown 15 seconds)</p>
+                            <div class="perk-cost">
+                                <span>💰 500 Supplies</span>
+                                <span>📊 2,500 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">DLC PERK</div>
+                            <h5 class="perk-name">It's Not Over</h5>
+                            <p class="perk-desc">Infinite equipment slot usage for 10 seconds when you become the last member of your team still standing. Your equipment charges get fully restored (cooldown: 180 seconds)</p>
+                            <div class="perk-cost">
+                                <span>💰 500 Supplies</span>
+                                <span>📊 2,500 XP</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Segment 9 (Levels 27-29) -->
+                <div class="skill-segment">
+                    <h4>Segment Nine - Damage Boost</h4>
+                    <div class="perk-grid">
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 27</div>
+                            <h5 class="perk-name">Annihilator</h5>
+                            <p class="perk-desc">Primary, secondary and heavy weapons deal 15% more damage</p>
+                            <div class="perk-cost">
+                                <span>💰 500 Supplies</span>
+                                <span>📊 2,500 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 28</div>
+                            <h5 class="perk-name">Switcheroo</h5>
+                            <p class="perk-desc">Switching to primary or secondary weapons increases firearm damage by 50% for 5 seconds</p>
+                            <div class="perk-cost">
+                                <span>💰 500 Supplies</span>
+                                <span>📊 2,500 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">LVL 29</div>
+                            <h5 class="perk-name">Thrifty</h5>
+                            <p class="perk-desc">Reloading a weapon with less than 25% ammo in the magazine provides a 50% firearm damage boost for 3 seconds</p>
+                            <div class="perk-cost">
+                                <span>💰 500 Supplies</span>
+                                <span>📊 2,500 XP</span>
+                            </div>
+                        </div>
+                        <div class="perk-card">
+                            <div class="perk-level">DLC PERK</div>
+                            <h5 class="perk-name">I'm Not Alone</h5>
+                            <p class="perk-desc">Firearm damage increased by 10% for the whole team</p>
+                            <div class="perk-cost">
+                                <span>💰 500 Supplies</span>
+                                <span>📊 2,500 XP</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Level 30 -->
+                <div class="skill-segment">
+                    <h4>Level 30 - Ultimate Gunslinger</h4>
+                    <div class="perk-grid">
+                        <div class="perk-card red-perk">
+                            <div class="perk-level">LVL 30</div>
+                            <h5 class="perk-name">War Face</h5>
+                            <p class="perk-desc">Killing 25 zombies in rapid succession grants 50% firearm damage boost to entire team for 20 seconds</p>
+                            <div class="perk-cost">
+                                <span>💰 Free</span>
+                                <span>📊 3,500 XP</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </section>
+
+        <!-- Prestige Rank Perks -->
+        <section class="prestige-section">
+            <h3>⭐ Prestige Rank Perks</h3>
+            <p style="margin-bottom: 1.5rem;">These permanent passive bonuses unlock through prestiging. They remain active even after subsequent prestiges and stack with regular perks.</p>
             
-            <div class="prestige-note">
-                ⭐ Red perks are special alternative perks that provide unique effects. They cost red coins instead of yellow coins and are typically more powerful or offer different playstyles.
+            <div class="prestige-grid">
+                <div class="prestige-perk">
+                    <div class="prestige-rank">RANK 1</div>
+                    <h5 class="perk-name">Swapping Mags II</h5>
+                    <p class="perk-desc">Reload speed increased by 10% on primary weapons</p>
+                    <div class="perk-cost">
+                        <span>💰 7,500 Yellow Coins</span>
+                    </div>
+                </div>
+                <div class="prestige-perk">
+                    <div class="prestige-rank">RANK 2</div>
+                    <h5 class="perk-name">Swapping Mags III</h5>
+                    <p class="perk-desc">Reload speed increased by 15% on secondary weapons</p>
+                    <div class="perk-cost">
+                        <span>💰 7,500 Yellow Coins</span>
+                    </div>
+                </div>
+                <div class="prestige-perk">
+                    <div class="prestige-rank">RANK 3</div>
+                    <h5 class="perk-name">Deep Pockets II</h5>
+                    <p class="perk-desc">Carried ammo capacity for primary and secondary weapons increased by 10%</p>
+                    <div class="perk-cost">
+                        <span>💰 7,500 Yellow Coins</span>
+                    </div>
+                </div>
+                <div class="prestige-perk">
+                    <div class="prestige-rank">RANK 4</div>
+                    <h5 class="perk-name">Fire in The Hole II</h5>
+                    <p class="perk-desc">Frag Grenade can kill 20% more targets (base: 14)</p>
+                    <div class="perk-cost">
+                        <span>💰 7,500 Yellow Coins</span>
+                    </div>
+                </div>
+                <div class="prestige-perk">
+                    <div class="prestige-rank">RANK 5</div>
+                    <h5 class="perk-name">My Bad II</h5>
+                    <p class="perk-desc">Take 10% less friendly fire damage</p>
+                    <div class="perk-cost">
+                        <span>💰 7,500 Yellow Coins</span>
+                    </div>
+                </div>
+                <div class="prestige-perk">
+                    <div class="prestige-rank">RANK 6</div>
+                    <h5 class="perk-name">I Won't Budge From This Spot!</h5>
+                    <p class="perk-desc">Fully depleting the ammo of a Stationary Machine Gun results in a 10% chance (5% for the Horde mode) to receive a new one</p>
+                    <div class="perk-cost">
+                        <span>💰 7,500 Yellow Coins</span>
+                    </div>
+                </div>
+                <div class="prestige-perk">
+                    <div class="prestige-rank">RANK 7</div>
+                    <h5 class="perk-name">Hold the Line!</h5>
+                    <p class="perk-desc">The recoil of primary and secondary weapons is reduced by 10%</p>
+                    <div class="perk-cost">
+                        <span>💰 7,500 Yellow Coins</span>
+                    </div>
+                </div>
+                <div class="prestige-perk">
+                    <div class="prestige-rank">RANK 8</div>
+                    <h5 class="perk-name">Sleight of Hand</h5>
+                    <p class="perk-desc">Switch weapons 25% faster (the bonus is stackable but can't be higher than 150%)</p>
+                    <div class="perk-cost">
+                        <span>💰 7,500 Yellow Coins</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tip-box" style="background: rgba(255,255,255,0.2); border: 2px solid rgba(255,255,255,0.5); color: white; margin-top: 1.5rem;">
+                <strong>💡 Note:</strong> Focus on Deep Pockets II for more ammo and Swapping Mags perks for faster reloads!
             </div>
         </section>
         
-        <!-- Prestige Rank Perks Section -->
-        <section class="card">
-            <h2>⭐ Prestige Rank Perks</h2>
-            
-            <div class="warning-box">
-                <strong>About Prestige Perks:</strong>
-                <ul>
-                    <li>Unlocked by reaching Prestige Ranks 1-9</li>
-                    <li>These are PASSIVE bonuses that are always active once unlocked</li>
-                    <li>Stack with your regular perks for even more power</li>
-                    <li>Each costs 7500 yellow coins to unlock</li>
-                    <li>Persist through prestige resets</li>
-                </ul>
-            </div>
-            
-            <div class="perk-details">
-                <h3>Prestige Progression</h3>
-                
-                <div class="detailed-perk">
-                    <div class="perk-title">Rank 1: Swapping Mags II</div>
-                    <div class="perk-full-description">
-                        Reload speed increased by 10% on primary weapons.
-                    </div>
-                    <div class="perk-note">Stacks with regular Swapping Mags for 35% total reload speed.</div>
-                </div>
-                
-                <div class="detailed-perk">
-                    <div class="perk-title">Rank 2: Swapping Mags III</div>
-                    <div class="perk-full-description">
-                        Reload speed increased by 15% on secondary weapons.
-                    </div>
-                    <div class="perk-note">Makes weapon swapping even more viable for sustained DPS.</div>
-                </div>
-                
-                <div class="detailed-perk">
-                    <div class="perk-title">Rank 3: Deep Pockets II</div>
-                    <div class="perk-full-description">
-                        Carried ammo capacity for primary and secondary weapons increased by 10%.
-                    </div>
-                    <div class="perk-note">Stacks with Deep Pockets for 35% more ammo capacity.</div>
-                </div>
-                
-                <div class="detailed-perk">
-                    <div class="perk-title">Rank 4: Fire in The Hole II</div>
-                    <div class="perk-full-description">
-                        Frag Grenade can kill 20% more targets (base: 14).
-                    </div>
-                    <div class="perk-note">Combined with Fire in the Hole, grenades become crowd-clearing monsters.</div>
-                </div>
-                
-                <div class="detailed-perk">
-                    <div class="perk-title">Rank 6: My Bad II</div>
-                    <div class="perk-full-description">
-                        Take 10% less friendly fire damage.
-                    </div>
-                    <div class="perk-note">Reduces incoming friendly fire - great for chaotic teams.</div>
-                </div>
-                
-                <div class="detailed-perk">
-                    <div class="perk-title">Rank 7: I Won't Budge From This Spot!</div>
-                    <div class="perk-full-description">
-                        Fully depleting a Stationary Machine Gun has 10% chance to receive a new one (5% in Horde mode).
-                    </div>
-                    <div class="perk-note">Potentially infinite stationary gun usage for defense sections.</div>
-                </div>
-                
-                <div class="detailed-perk">
-                    <div class="perk-title">Rank 8: Hold the Line!</div>
-                    <div class="perk-full-description">
-                        The recoil of primary and secondary weapons is reduced by 10%.
-                    </div>
-                    <div class="perk-note">Better accuracy for sustained fire, especially with automatic weapons.</div>
-                </div>
-                
-                <div class="detailed-perk">
-                    <div class="perk-title">Rank 9: Sleight of Hand</div>
-                    <div class="perk-full-description">
-                        Switch weapons 25% faster (stacks with regular Sleight of Hand but capped at 150%).
-                    </div>
-                    <div class="perk-note">The ultimate weapon-swapping speed for Power Nap builds.</div>
-                </div>
-            </div>
-            
-            <div class="tip-box">
-                <strong>💡 Prestige Strategy:</strong> Focus on reaching at least Prestige Rank 4 for the core reload and ammo improvements. Fire in The Hole II at Rank 4 is particularly valuable for crowd control. The later ranks offer nice quality-of-life improvements but are less essential.
-            </div>
-        </section>
-        
-        <!-- Detailed Perk Descriptions -->
-        <section class="card">
-            <h2>📋 Key Perk Details</h2>
-            
-            <div class="perk-details">
-                <h3>Must-Have Perks</h3>
-                
-                <div class="detailed-perk">
-                    <div class="perk-title">Power Nap (Level 1-3)</div>
-                    <div class="perk-full-description">
-                        Unequipped weapon automatically reloads after 7 seconds.
-                    </div>
-                    <div class="perk-note">One of the best Gunslinger perks - essentially infinite shooting by weapon swapping.</div>
-                </div>
-                
-                <div class="detailed-perk">
-                    <div class="perk-title">Front Line Supply (Level 4-6)</div>
-                    <div class="perk-full-description">
-                        Headshots made with primary or secondary weapons automatically restore 5% rounds to the magazine.
-                    </div>
-                    <div class="perk-note">With good aim, you literally never need to reload.</div>
-                </div>
-                
-                <div class="detailed-perk">
-                    <div class="perk-title">Switcheroo (Level 27-29)</div>
-                    <div class="perk-full-description">
-                        Switching to primary or secondary weapons increases firearm damage by 50% for 5 seconds.
-                    </div>
-                    <div class="perk-note">Combines perfectly with Power Nap for massive damage while never reloading.</div>
-                </div>
-                
-                <div class="detailed-perk">
-                    <div class="perk-title">Bounty Hunter (Level 11-13)</div>
-                    <div class="perk-full-description">
-                        Deal 25% more damage to special zombies.
-                    </div>
-                    <div class="perk-note">Essential for higher difficulties where specials are the main threat.</div>
-                </div>
-                
-                <div class="detailed-perk red">
-                    <div class="perk-title">Sort It All Out (Level 11-13 - Red)</div>
-                    <div class="perk-full-description">
-                        Emptying the magazine of the primary weapon loads the secondary weapon with explosive rounds.
-                    </div>
-                    <div class="perk-note">Creates a powerful combo - empty primary, switch to explosive secondary.</div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Build Recommendations with Specific Perks -->
+        <!-- Build Recommendations -->
         <section class="card">
             <h2>🎯 Recommended Builds</h2>
             
             <div class="build-card">
-                <h3>🌟 Beginner Build - "Never Stop Shooting"</h3>
-                <p>Focus on ammo efficiency and continuous fire. Perfect for learning the class.</p>
-                <strong>Essential Perks:</strong>
+                <h3>🌟 Beginner Build - "Spray and Pray"</h3>
+                <p>Focus on ammo capacity and survivability. Perfect for learning the class.</p>
+                <div class="build-perks">
+                    <strong>Essential Perks:</strong>
+                    <span class="perk-choice">Fire in the Hole</span>
+                    <span class="perk-choice">Swapping Mags!</span>
+                    <span class="perk-choice">Wheatgrass</span>
+                    <span class="perk-choice">Gun Fanatic</span>
+                    <span class="perk-choice">Deep Pockets</span>
+                    <span class="perk-choice">Annihilator</span>
+                </div>
+                <div class="build-perks">
+                    <strong>Prestige Focus:</strong>
+                    <span class="perk-choice">Deep Pockets II</span>
+                    <span class="perk-choice">Swapping Mags II</span>
+                    <span class="perk-choice">Hold the Line!</span>
+                </div>
                 <ul>
-                    <li><strong>Level 1-3:</strong> Power Nap (Auto-reload unequipped weapons)</li>
-                    <li><strong>Level 4-6:</strong> Swapping Mags! (25% faster reload)</li>
-                    <li><strong>Level 11-13:</strong> Sleight of Hand (150% faster weapon swap)</li>
-                    <li><strong>Level 21-23:</strong> Deep Pockets (25% more ammo)</li>
-                    <li><strong>Level 27-29:</strong> Annihilator (15% more damage)</li>
+                    <li><strong>Health Boost:</strong> +25% from Wheatgrass</li>
+                    <li><strong>Ammo Capacity:</strong> +35% with both Deep Pockets perks</li>
+                    <li><strong>Damage Boost:</strong> +15% all weapons from Annihilator</li>
                 </ul>
                 <div class="tip-box">
-                    <strong>💡 Tip:</strong> Constantly swap between weapons - one shoots while the other reloads automatically!
-                    <br><strong>Best Prestige Perks:</strong> Swapping Mags II & III (Ranks 1-2), Deep Pockets II (Rank 3).
+                    <strong>💡 Tip:</strong> Perfect accuracy while moving is your superpower - use it!</strong>
                 </div>
             </div>
             
             <div class="build-card">
-                <h3>🎯 Headshot Build - "Precision Marksman"</h3>
-                <p>Maximum efficiency through headshots. For players with good aim.</p>
-                <strong>Essential Perks:</strong>
-                <ul>
-                    <li><strong>Level 4-6:</strong> Front Line Supply (Headshots restore ammo)</li>
-                    <li><strong>Level 11-13:</strong> Bounty Hunter (25% more damage to specials)</li>
-                    <li><strong>Level 14-16:</strong> Concentration (5 headshots grant temp health)</li>
-                    <li><strong>Level 24-26:</strong> Headhunter Reward (5 headshots refill equipment)</li>
-                    <li><strong>Level 27-29:</strong> Switcheroo (50% damage on weapon swap)</li>
-                </ul>
-                <div class="tip-box">
-                    <strong>💡 Tip:</strong> Chain headshots for infinite ammo, health, and equipment!
-                    <br><strong>Best Prestige Perks:</strong> Hold the Line! (Rank 8) for recoil reduction, helps with headshots.
+                <h3>🎯 Headshot Build - "Precision Master"</h3>
+                <p>Maximum efficiency through headshot chains and ammo regeneration.</p>
+                <div class="build-perks">
+                    <strong>Essential Perks:</strong>
+                    <span class="perk-choice">Front Line Supply</span>
+                    <span class="perk-choice">Concentration</span>
+                    <span class="perk-choice">Headhunter Reward</span>
+                    <span class="perk-choice">Switcheroo</span>
                 </div>
+                <div class="build-perks">
+                    <strong>DLC Perks:</strong>
+                    <span class="perk-choice">Refilling</span>
+                    <span class="perk-choice">Sort It All Out</span>
+                </div>
+                <ul>
+                    <li><strong>Headshot Benefits:</strong> 5% ammo restore per headshot</li>
+                    <li><strong>5 Headshot Chain:</strong> Temp health + equipment charge</li>
+                    <li><strong>Damage Combo:</strong> +50% damage after weapon switch</li>
+                </ul>
             </div>
             
             <div class="build-card">
-                <h3>💥 Explosive Build - "Grenade Specialist"</h3>
+                <h3>💥 Grenade Build - "Demolition Expert"</h3>
                 <p>Maximum grenade effectiveness and regeneration.</p>
-                <strong>Essential Perks:</strong>
-                <ul>
-                    <li><strong>Level 1-3:</strong> Fire in the Hole (25% more grenade kills)</li>
-                    <li><strong>Level 11-13 Red:</strong> Sort It All Out (Explosive rounds on secondary)</li>
-                    <li><strong>Level 24-26:</strong> Work Belt (3 grenades max)</li>
-                    <li><strong>Level 24-26 Alt:</strong> Pocket Factory (Equipment regenerates)</li>
-                    <li><strong>Level 21-23:</strong> Free Refill (Equipment kills restore ammo)</li>
-                </ul>
-                <div class="tip-box">
-                    <strong>💡 Tip:</strong> Save grenades for pyramids and dense crowds. Use regeneration to always have equipment ready.
-                    <br><strong>Best Prestige Perks:</strong> Fire in The Hole II (Rank 4) for even more grenade kills.
+                <div class="build-perks">
+                    <strong>Essential Perks:</strong>
+                    <span class="perk-choice">Impact Grenades</span>
+                    <span class="perk-choice">Work Belt</span>
+                    <span class="perk-choice">Pocket Factory</span>
+                    <span class="perk-choice">Free Refill</span>
                 </div>
+                <div class="build-perks">
+                    <strong>DLC Perks:</strong>
+                    <span class="perk-choice">Special Mag</span>
+                    <span class="perk-choice">It's Not Over</span>
+                </div>
+                <div class="build-perks">
+                    <strong>Prestige Focus:</strong>
+                    <span class="perk-choice">Fire in The Hole II</span>
+                </div>
+                <ul>
+                    <li><strong>Grenade Capacity:</strong> 3 grenades with Work Belt</li>
+                    <li><strong>Auto-Regen:</strong> 150 seconds for full equipment</li>
+                    <li><strong>Kill Potential:</strong> 45% more targets with both Fire in the Hole perks</li>
+                </ul>
             </div>
             
             <div class="build-card">
-                <h3>⚡ Last Stand Build - "Action Hero"</h3>
+                <h3>🏃 Last Stand Build - "Action Hero"</h3>
                 <p>Become unstoppable when you're the last one standing.</p>
-                <strong>Essential Perks:</strong>
-                <ul>
-                    <li><strong>Level 14-16 Red:</strong> Encore (75% temp health instead of incapacitation)</li>
-                    <li><strong>Level 21-23:</strong> Action Hero (Infinite ammo when last standing)</li>
-                    <li><strong>Level 24-26 Red:</strong> It's Not Over (Infinite equipment when last standing)</li>
-                    <li><strong>Level 11-13:</strong> Wheatgrass (25% more health)</li>
-                    <li><strong>Level 27-29:</strong> Annihilator (15% more damage)</li>
-                </ul>
-                <div class="tip-box">
-                    <strong>💡 Tip:</strong> When teammates fall, you become a one-person army with infinite resources!
-                    <br><strong>Best Prestige Perks:</strong> My Bad II (Rank 6) to survive friendly fire when reviving.
+                <div class="build-perks">
+                    <strong>Essential Perks:</strong>
+                    <span class="perk-choice">Judo</span>
+                    <span class="perk-choice">Action Hero</span>
+                    <span class="perk-choice">War Face</span>
                 </div>
+                <div class="build-perks">
+                    <strong>DLC Perks:</strong>
+                    <span class="perk-choice">Encore</span>
+                    <span class="perk-choice">It's Not Over</span>
+                    <span class="perk-choice">I'm Not Alone</span>
+                </div>
+                <ul>
+                    <li><strong>Last Stand:</strong> Infinite ammo for 7 seconds</li>
+                    <li><strong>Equipment:</strong> Infinite grenades for 10 seconds</li>
+                    <li><strong>Team Buff:</strong> +50% damage for all after 25 kills</li>
+                    <li><strong>Survival:</strong> Auto-escape pins, avoid incapacitation</li>
+                </ul>
             </div>
         </section>
         
@@ -856,109 +997,22 @@
             <div class="synergy-grid">
                 <div class="synergy-card">
                     <h3>🔧 Gunslinger + Fixer</h3>
-                    <p>The perfect DPS combo. Explosive ammo meets perfect accuracy.</p>
+                    <p>Ammo efficiency masters. Never run out of bullets.</p>
                     <span class="synergy-rating synergy-excellent">EXCELLENT</span>
-                    <p><strong>Why it works:</strong> Fixer's explosive ammo + Gunslinger's fire rate = maximum damage output.</p>
+                    <p><strong>Key Combo:</strong> Supply bags + headshot chains = infinite ammo</p>
+                </div>
+                <div class="synergy-card">
+                    <h3>💥 Gunslinger + Exterminator</h3>
+                    <p>Maximum DPS combo. Bullets and explosions everywhere.</p>
+                    <span class="synergy-rating synergy-excellent">EXCELLENT</span>
+                    <p><strong>Key Combo:</strong> War Face + Exterminator's molotovs = destruction</p>
                 </div>
                 <div class="synergy-card">
                     <h3>🏥 Gunslinger + Medic</h3>
-                    <p>Sustained DPS with healing support.</p>
+                    <p>DPS and healing combo. Gunslinger kills, Medic heals.</p>
                     <span class="synergy-rating synergy-good">GOOD</span>
-                    <p><strong>Why it works:</strong> Medic's damage buffs amplify Gunslinger's already high damage.</p>
+                    <p><strong>Key Combo:</strong> Fighting Fit (Medic) + War Face = massive damage</p>
                 </div>
-                <div class="synergy-card">
-                    <h3>🛡️ Gunslinger + Vanguard</h3>
-                    <p>Shield and shoot. Vanguard protects, Gunslinger destroys.</p>
-                    <span class="synergy-rating synergy-excellent">EXCELLENT</span>
-                    <p><strong>Why it works:</strong> Gunslinger can shoot over Vanguard's shield for safe DPS.</p>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Special Zombie Strategies -->
-        <section class="card">
-            <h2>🧟 Special Zombie Counter-Strategies</h2>
-            
-            <div class="build-card">
-                <h3>🐂 Bull</h3>
-                <ul>
-                    <li>Use Bounty Hunter perk for 25% more damage</li>
-                    <li>Constant headshots during charge wind-up</li>
-                    <li>Save grenades for emergency Bull stops</li>
-                    <li>Switcheroo damage bonus melts them quickly</li>
-                </ul>
-            </div>
-            
-            <div class="build-card">
-                <h3>🤢 Gasbag</h3>
-                <ul>
-                    <li>Maximum range engagement always</li>
-                    <li>Front Line Supply headshots prevent ammo issues</li>
-                    <li>Never use grenades - causes instant explosion</li>
-                    <li>Seek and Destroy auto-marks them at 20m</li>
-                </ul>
-            </div>
-            
-            <div class="build-card">
-                <h3>👻 Lurker</h3>
-                <ul>
-                    <li>Seek and Destroy marks them automatically</li>
-                    <li>Judo perk provides auto-escape if grabbed</li>
-                    <li>No movement penalty lets you spin-check while shooting</li>
-                    <li>Impact grenades for instant corner clears</li>
-                </ul>
-            </div>
-            
-            <div class="build-card">
-                <h3>😱 Screamer</h3>
-                <ul>
-                    <li>PRIORITY TARGET - instant headshot required</li>
-                    <li>Bounty Hunter makes them easier to kill</li>
-                    <li>Always have silenced weapon ready</li>
-                    <li>If scream starts, use grenades on the spawn</li>
-                </ul>
-            </div>
-        </section>
-        
-        <!-- Situational Tactics -->
-        <section class="card">
-            <h2>📍 Situational Tactics</h2>
-            
-            <div class="build-card">
-                <h3>🌊 Swarm Defense</h3>
-                <ol>
-                    <li>Find elevated position with good sightlines</li>
-                    <li>Use Power Nap - swap weapons instead of reloading</li>
-                    <li>Save grenades for pyramid bases</li>
-                    <li>Switcheroo damage bonus at swarm start</li>
-                    <li>Focus specials first with Bounty Hunter</li>
-                </ol>
-            </div>
-            
-            <div class="build-card">
-                <h3>🏃 Running Sections</h3>
-                <ol>
-                    <li>Sprint-shoot constantly (no accuracy penalty)</li>
-                    <li>Front Line Supply for infinite ammo while moving</li>
-                    <li>Impact grenades thrown backward at chasers</li>
-                    <li>Swap weapons instead of reloading</li>
-                    <li>Seek and Destroy marks threats automatically</li>
-                </ol>
-            </div>
-        </section>
-        
-        <!-- Common Mistakes -->
-        <section class="card">
-            <div class="warning-box">
-                <h3>⚠️ Common Gunslinger Mistakes to Avoid</h3>
-                <ul>
-                    <li><strong>Standing still:</strong> You have no accuracy penalty while moving!</li>
-                    <li><strong>Reloading constantly:</strong> Use Power Nap and weapon swapping</li>
-                    <li><strong>Ignoring headshots:</strong> Front Line Supply gives infinite ammo</li>
-                    <li><strong>Wasting grenades:</strong> Save for pyramids and dense crowds</li>
-                    <li><strong>Not using Switcheroo:</strong> 50% damage boost is huge</li>
-                    <li><strong>Poor positioning:</strong> Stay mobile with escape routes</li>
-                </ul>
             </div>
         </section>
         
@@ -967,14 +1021,16 @@
             <h2>🌟 Tips for New Gunslinger Players</h2>
             <div class="tip-box">
                 <ol>
-                    <li><strong>Always be moving</strong> - You shoot perfectly while sprinting</li>
-                    <li><strong>Master weapon swapping</strong> - Power Nap means never reloading</li>
-                    <li><strong>Aim for the head</strong> - Front Line Supply = infinite ammo</li>
-                    <li><strong>Learn grenade physics</strong> - Impact vs regular grenades</li>
-                    <li><strong>Use Seek and Destroy</strong> - Auto-marking is invaluable</li>
-                    <li><strong>Save equipment for crowds</strong> - Don't waste on singles</li>
-                    <li><strong>Position for sightlines</strong> - You're the team's ranged DPS</li>
-                    <li><strong>Call out specials</strong> - You see them first with marking</li>
+                    <li><strong>Perfect accuracy while moving:</strong> Your core ability - abuse it!</li>
+                    <li><strong>Headshots are everything:</strong> 5% ammo back per headshot</li>
+                    <li><strong>Weapon switching:</strong> Switcheroo gives 50% damage boost</li>
+                    <li><strong>Low ammo reload:</strong> Thrifty gives damage when reloading at &lt;25%</li>
+                    <li><strong>25-kill chains:</strong> War Face buffs entire team</li>
+                    <li><strong>Auto-marking:</strong> Level 10 marks all specials within 20m</li>
+                    <li><strong>Grenades regenerate:</strong> Pocket Factory = infinite equipment</li>
+                    <li><strong>Last stand power:</strong> Multiple perks activate when alone</li>
+                    <li><strong>DLC perks synergy:</strong> Sort It All Out + explosive rounds</li>
+                    <li><strong>Prestige priority:</strong> Deep Pockets II for ammo capacity</li>
                 </ol>
             </div>
         </section>
