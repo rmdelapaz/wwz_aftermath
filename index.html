@@ -10,6 +10,157 @@
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="styles/main.css">
     <style>
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn-hero {
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            background: white;
+            color: #764ba2;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .btn-hero:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        
+        .btn-hero.secondary {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+        
+        /* Quick Access Grid */
+        .quick-access-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .quick-card {
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+            position: relative;
+        }
+        
+        .quick-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            border-color: #667eea;
+        }
+        
+        .quick-card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .quick-card h3 {
+            color: #495057;
+            margin-bottom: 0.5rem;
+        }
+        
+        .quick-card p {
+            color: #6c757d;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        .quick-card a {
+            color: #667eea;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        
+        .quick-card a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Platform Selector */
+        .platform-selector {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .platform-btn {
+            padding: 0.5rem 1.5rem;
+            background: #f8f9fa;
+            border: 2px solid #dee2e6;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .platform-btn:hover,
+        .platform-btn.active {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+        }
+        
+        /* Class Grid */
+        .class-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .class-link {
+            display: block;
+            padding: 1rem;
+            text-align: center;
+            background: #f8f9fa;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #495057;
+            transition: all 0.2s;
+            font-weight: 600;
+        }
+        
+        .class-link:hover {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            transform: translateY(-2px);
+        }
+        
         .badge-new {
             background: #28a745;
             color: white;
@@ -19,6 +170,38 @@
             font-weight: bold;
             margin-left: 0.5rem;
             vertical-align: middle;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.8; }
+            100% { opacity: 1; }
+        }
+        
+        .stats-row {
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        
+        .stat-item {
+            flex: 1;
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #667eea;
+        }
+        
+        .stat-label {
+            color: #6c757d;
+            font-size: 0.9rem;
         }
     </style>
     <script type="module">
@@ -76,28 +259,99 @@
     
     <!-- Main Content -->
     <main id="main-content">
-        <header>
-<h1>World War Z: Aftermath — Start Here</h1>
-<p>Brand-new player quickstart, spoiler-light. Xbox, PlayStation, and PC covered.</p>
-</header><section class="card">
-<h2>Site map</h2>
-<ul>
-<li><a href="index.html">Home / Start Here</a></li>
-<li><a href="controls_xbox_pc.html">Controls: Xbox, PlayStation &amp; PC</a></li>
-<li><a href="beginner_guide.html">Beginner Guide</a></li>
-<li><a href="special_zombies.html">🧟 Special Zombies Guide</a> <span class="badge-new">NEW</span></li>
-<li><a href="classes_overview.html">Classes &amp; Builds Hub</a></li>
-<li>Classes: <a href="class_medic.html">Medic</a>, <a href="class_fixer.html">Fixer</a>, <a href="class_gunslinger.html">Gunslinger</a>, <a href="class_exterminator.html">Exterminator</a>, <a href="class_slasher.html">Slasher</a>, <a href="class_hellraiser.html">Hellraiser</a>, <a href="class_dronemaster.html">Dronemaster</a>, <a href="class_vanguard.html">Vanguard</a></li>
-<li><a href="weapons_upgrades.html">Weapons &amp; Upgrades</a></li>
-<li><a href="currencies_progression.html">Currencies &amp; Progression</a></li>
-<li><a href="horde_endgame.html">Horde &amp; Endgame</a></li>
-<li><a href="missions_maps.html">Missions &amp; Maps</a></li>
-<li><a href="team_tactics.html">Co-op Etiquette &amp; Team Tactics</a></li>
-<li><a href="faq.html">❓ Frequently Asked Questions</a> <span class="badge-new">NEW</span></li>
-<li><a href="glossary.html">📖 Glossary &amp; Terminology</a> <span class="badge-new">NEW</span></li>
-<li><a href="quick_reference.html">📋 Quick Reference Sheets</a> <span class="badge-new">NEW</span></li>
-<li><a href="printables.html">Printable Cheat Sheets</a></li>
-</ul>
+        <!-- Hero Section -->
+        <div class="hero">
+            <h1>🧟 World War Z: Aftermath Guide</h1>
+            <p>Master the zombie apocalypse with comprehensive guides, builds, and strategies</p>
+            <div class="hero-buttons">
+                <a href="beginner_guide.html" class="btn-hero">🎮 Start Playing</a>
+                <a href="classes_overview.html" class="btn-hero secondary">⚔️ Choose Your Class</a>
+            </div>
+        </div>
+        
+        <!-- Platform Selector -->
+        <div class="platform-selector">
+            <button class="platform-btn" data-platform="xbox">🎮 Xbox</button>
+            <button class="platform-btn" data-platform="playstation">🎮 PlayStation</button>
+            <button class="platform-btn" data-platform="pc">💻 PC</button>
+        </div>
+        
+        <!-- Stats Row -->
+        <div class="stats-row">
+            <div class="stat-item">
+                <div class="stat-number">8</div>
+                <div class="stat-label">Classes</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">30+</div>
+                <div class="stat-label">Weapons</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">60+</div>
+                <div class="stat-label">Maps</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">1000+</div>
+                <div class="stat-label">Perks</div>
+            </div>
+        </div><!-- Quick Access Section -->
+<section class="card">
+    <h2>🚀 Quick Access</h2>
+    <div class="quick-access-grid">
+        <div class="quick-card">
+            <div class="quick-card-icon">🎮</div>
+            <h3>New Player?</h3>
+            <p>Start with our comprehensive beginner guide</p>
+            <a href="beginner_guide.html">Start Here →</a>
+        </div>
+        <div class="quick-card">
+            <div class="quick-card-icon">⚔️</div>
+            <h3>Classes & Builds</h3>
+            <p>Find your perfect playstyle and build</p>
+            <a href="classes_overview.html">Browse Classes →</a>
+        </div>
+        <div class="quick-card">
+            <div class="quick-card-icon">🧟</div>
+            <h3>Special Zombies</h3>
+            <p>Learn to counter every special infected</p>
+            <a href="special_zombies.html">Zombie Guide →</a>
+            <span class="badge-new">NEW</span>
+        </div>
+        <div class="quick-card">
+            <div class="quick-card-icon">🔫</div>
+            <h3>Weapons Guide</h3>
+            <p>Master every weapon and upgrade path</p>
+            <a href="weapons_upgrades.html">View Weapons →</a>
+        </div>
+        <div class="quick-card">
+            <div class="quick-card-icon">🏆</div>
+            <h3>Endgame Content</h3>
+            <p>Horde mode strategies and challenges</p>
+            <a href="horde_endgame.html">Go Pro →</a>
+        </div>
+        <div class="quick-card">
+            <div class="quick-card-icon">❓</div>
+            <h3>FAQ</h3>
+            <p>Quick answers to common questions</p>
+            <a href="faq.html">Get Answers →</a>
+            <span class="badge-new">NEW</span>
+        </div>
+    </div>
+</section>
+
+<!-- Classes Section -->
+<section class="card">
+    <h2>🎯 Choose Your Class</h2>
+    <div class="class-grid">
+        <a href="class_medic.html" class="class-link">🏥<br>Medic</a>
+        <a href="class_fixer.html" class="class-link">🔧<br>Fixer</a>
+        <a href="class_gunslinger.html" class="class-link">🔫<br>Gunslinger</a>
+        <a href="class_exterminator.html" class="class-link">🔥<br>Exterminator</a>
+        <a href="class_slasher.html" class="class-link">⚔️<br>Slasher</a>
+        <a href="class_hellraiser.html" class="class-link">💥<br>Hellraiser</a>
+        <a href="class_dronemaster.html" class="class-link">🤖<br>Dronemaster</a>
+        <a href="class_vanguard.html" class="class-link">🛡️<br>Vanguard</a>
+    </div>
 </section><section class="card">
 <h2>PlayStation vs Xbox control notes</h2>
 <div class="grid">
@@ -156,18 +410,37 @@
 </div>
 </div>
 </section><section class="card">
-<h2>Class roles at a glance</h2>
-<p class="small">Spoiler-light: focuses on playstyle, not late-tree perks.</p>
-<div class="mermaid">
-      graph LR
-        A[Medic] ---|Heals| B[Team]
-        C[Fixer] ---|Ammo &amp; Utility| B
-        D[Gunslinger] ---|DPS| B
-        E[Exterminator] ---|Crowd Control| B
-        F[Slasher] ---|Melee Control| B
-        G[Hellraiser] ---|Explosives| B
-        H[Dronemaster] ---|Drone Utility| B
-        I[Vanguard] ---|Shield Frontline| B
+    <h2>📊 Class Roles Overview</h2>
+    <p class="small">Each class brings unique strengths to your team composition</p>
+    <div style="text-align: center; margin: 2rem 0;">
+        <p><strong>Support Classes:</strong> 🏥 Medic (Healing) | 🔧 Fixer (Supplies) | 🤖 Dronemaster (Utility)</p>
+        <p><strong>Damage Classes:</strong> 🔫 Gunslinger (Precision) | 🔥 Exterminator (AOE) | 💥 Hellraiser (Explosives)</p>
+        <p><strong>Tank Classes:</strong> ⚔️ Slasher (Melee) | 🛡️ Vanguard (Shield)</p>
+    </div>
+</section>
+
+<!-- Additional Resources -->
+<section class="card">
+    <h2>📚 Additional Resources</h2>
+    <div class="grid">
+        <div>
+            <h3>📖 Reference Materials</h3>
+            <ul>
+                <li><a href="quick_reference.html">Quick Reference Sheets</a> <span class="badge-new">NEW</span></li>
+                <li><a href="glossary.html">Glossary &amp; Terms</a></li>
+                <li><a href="printables.html">Printable Guides</a></li>
+                <li><a href="controls_xbox_pc.html">Control Schemes</a></li>
+            </ul>
+        </div>
+        <div>
+            <h3>🎯 Strategy Guides</h3>
+            <ul>
+                <li><a href="team_tactics.html">Team Tactics</a></li>
+                <li><a href="missions_maps.html">Mission Walkthroughs</a></li>
+                <li><a href="currencies_progression.html">Progression Guide</a></li>
+                <li><a href="troubleshooting_performance.html">Performance Tips</a></li>
+            </ul>
+        </div>
     </div>
 </section><footer class="small">
 <p>Unofficial fan resource. Use alongside in-game settings and tutorials.</p>
@@ -185,5 +458,29 @@
     <!-- JavaScript -->
     <script src="js/clipboard.js"></script>
     <script src="js/course-enhancements.js"></script>
+    <script>
+        // Platform selector functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const platformBtns = document.querySelectorAll('.platform-btn');
+            
+            // Get saved platform or default to none
+            const savedPlatform = localStorage.getItem('selectedPlatform');
+            if (savedPlatform) {
+                const btn = document.querySelector(`[data-platform="${savedPlatform}"]`);
+                if (btn) btn.classList.add('active');
+            }
+            
+            platformBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Remove active from all
+                    platformBtns.forEach(b => b.classList.remove('active'));
+                    // Add active to clicked
+                    this.classList.add('active');
+                    // Save preference
+                    localStorage.setItem('selectedPlatform', this.dataset.platform);
+                });
+            });
+        });
+    </script>
 </body>
 </html>
