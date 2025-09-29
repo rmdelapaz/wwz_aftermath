@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Documents & Collectibles Guide - Find all hidden lore items in World War Z: Aftermath">
+    <meta name="keywords" content="World War Z, Aftermath, documents, collectibles, lore, hidden items, achievements">
+    <meta name="author" content="WWZ Guide Team">
+    <title>Documents & Collectibles - World War Z: Aftermath</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="styles/main.css">
+    <style>
+        /* Document-specific styling */
+        .documents-header {
+            background: linear-gradient(135deg, #6c5ce7 0%, #a29bfe 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .episode-section {
+            margin: 2rem 0;
+        }
+        
+        .episode-header {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-left: 4px solid #6c5ce7;
+            margin-bottom: 1rem;
+            border-radius: 4px;
+        }
+        
+        .mission-card {
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .mission-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .mission-title {
+            color: #495057;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        
+        .document-count {
+            display: inline-block;
+            background: #6c5ce7;
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            margin-left: 0.5rem;
+        }
+        
+        .document-list {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0;
+        }
+        
+        .document-item {
+            padding: 1rem;
+            background: #f8f9fa;
+            border-left: 3px solid #6c5ce7;
+            margin-bottom: 0.75rem;
+            border-radius: 4px;
+            transition: background 0.2s;
+        }
+        
+        .document-item:hover {
+            background: #e9ecef;
+        }
+        
+        .document-name {
+            font-weight: bold;
+            color: #495057;
+            margin-bottom: 0.25rem;
+        }
+        
+        .document-location {
+            color: #6c757d;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        
+        .progress-tracker {
+            background: white;
+            border: 2px solid #6c5ce7;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 30px;
+            background: #e9ecef;
+            border-radius: 50px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #6c5ce7, #a29bfe);
+            transition: width 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .tips-section {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .tips-section h3 {
+            color: #856404;
+            margin-bottom: 1rem;
+        }
+        
+        .achievement-box {
+            background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .achievement-icon {
+            font-size: 2rem;
+        }
+        
+        .achievement-info h4 {
+            margin: 0;
+            color: #856404;
+        }
+        
+        .achievement-info p {
+            margin: 0.25rem 0 0 0;
+            color: #6c5e00;
+        }
+        
+        .location-hint {
+            background: #e7f5ff;
+            border-left: 4px solid #0288d1;
+            padding: 0.5rem 1rem;
+            margin: 0.5rem 0;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+        
+        .completion-checkbox {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #6c5ce7;
+            border-radius: 4px;
+            margin-right: 0.5rem;
+            cursor: pointer;
+            vertical-align: middle;
+        }
+        
+        .completion-checkbox:checked {
+            background: #6c5ce7;
+            position: relative;
+        }
+        
+        .filter-buttons {
+            display: flex;
+            gap: 0.5rem;
+            margin: 1rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            padding: 0.5rem 1rem;
+            background: white;
+            border: 2px solid #6c5ce7;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .filter-btn:hover {
+            background: #6c5ce7;
+            color: white;
+        }
+        
+        .filter-btn.active {
+            background: #6c5ce7;
+            color: white;
+        }
+        
+        .spoiler-warning {
+            background: #ffebee;
+            border: 2px solid #f44336;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+            color: #c62828;
+        }
+    </style>
+</head>
+<body>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">⚔️ WWZ: Aftermath Guide</a>
+            <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-expanded="false">☰</button>
+            <div class="nav-links" id="nav-links">
+                <a href="index.html">Home</a>
+                <a href="beginner_guide.html">Beginner Guide</a>
+                <div class="dropdown">
+                    <a href="classes_overview.html" class="dropdown-toggle">Classes ▼</a>
+                    <div class="dropdown-content">
+                        <a href="classes_overview.html">Overview</a>
+                        <a href="class_medic.html">Medic</a>
+                        <a href="class_fixer.html">Fixer</a>
+                        <a href="class_gunslinger.html">Gunslinger</a>
+                        <a href="class_exterminator.html">Exterminator</a>
+                        <a href="class_slasher.html">Slasher</a>
+                        <a href="class_hellraiser.html">Hellraiser</a>
+                        <a href="class_dronemaster.html">Dronemaster</a>
+                        <a href="class_vanguard.html">Vanguard</a>
+                    </div>
+                </div>
+                <a href="weapons_upgrades.html">Weapons</a>
+                <a href="documents_collectibles.html" class="current">Documents</a>
+                <a href="currencies_progression.html">Progression</a>
+                <a href="horde_endgame.html">Endgame</a>
+                <button id="theme-toggle" aria-label="Toggle theme">🌙</button>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Header -->
+        <header class="documents-header">
+            <h1>📜 Documents & Collectibles Guide</h1>
+            <p>Discover the hidden lore and stories of the zombie apocalypse</p>
+            <p><small>Complete collection guide for all campaign missions</small></p>
+        </header>
+        
+        <!-- Overview Section -->
+        <section class="card">
+            <h2>📊 Collection Overview</h2>
+            <div class="progress-tracker">
+                <h3>Overall Progress</h3>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 0%;">
+                        0 / 100 Documents Collected
+                    </div>
+                </div>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" onclick="filterEpisodes('all')">All Episodes</button>
+                    <button class="filter-btn" onclick="filterEpisodes('newyork')">New York</button>
+                    <button class="filter-btn" onclick="filterEpisodes('jerusalem')">Jerusalem</button>
+                    <button class="filter-btn" onclick="filterEpisodes('moscow')">Moscow</button>
+                    <button class="filter-btn" onclick="filterEpisodes('tokyo')">Tokyo</button>
+                    <button class="filter-btn" onclick="filterEpisodes('marseille')">Marseille</button>
+                    <button class="filter-btn" onclick="filterEpisodes('rome')">Rome</button>
+                    <button class="filter-btn" onclick="filterEpisodes('kamchatka')">Kamchatka</button>
+                    <button class="filter-btn" onclick="filterEpisodes('phoenix')">Phoenix</button>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Achievement Section -->
+        <section class="card">
+            <h2>🏆 Document Achievements</h2>
+            <div class="achievement-box">
+                <div class="achievement-icon">📚</div>
+                <div class="achievement-info">
+                    <h4>Bookworm</h4>
+                    <p>Collect all documents in a single episode</p>
+                </div>
+            </div>
+            <div class="achievement-box">
+                <div class="achievement-icon">🎓</div>
+                <div class="achievement-info">
+                    <h4>Scholar</h4>
+                    <p>Collect 50% of all documents across all campaigns</p>
+                </div>
+            </div>
+            <div class="achievement-box">
+                <div class="achievement-icon">🏛️</div>
+                <div class="achievement-info">
+                    <h4>Historian</h4>
+                    <p>Collect 100% of all documents in the game</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Tips Section -->
+        <section class="tips-section">
+            <h3>💡 Document Hunting Tips</h3>
+            <ul>
+                <li><strong>Explore Thoroughly:</strong> Documents are often hidden in side rooms, offices, and areas off the main path</li>
+                <li><strong>Check Common Spots:</strong> Look on desks, shelves, filing cabinets, and near computers</li>
+                <li><strong>Before Defense Sections:</strong> Many documents are placed before major defense encounters - explore before triggering them</li>
+                <li><strong>Listen for Audio Cues:</strong> Documents sometimes emit a subtle paper rustling sound when nearby</li>
+                <li><strong>Play on Lower Difficulties:</strong> Use Easy or Normal difficulty for document hunting to avoid zombie pressure</li>
+                <li><strong>Use Slasher Class:</strong> The increased movement speed helps with exploration</li>
+                <li><strong>Co-op Strategy:</strong> Have teammates hold positions while one player explores</li>
+                <li><strong>Multiple Playthroughs:</strong> Don't worry about getting everything in one run - documents save across playthroughs</li>
+            </ul>
+        </section>
+        
+        <!-- Spoiler Warning -->
+        <section class="spoiler-warning">
+            <h3>⚠️ Spoiler Warning</h3>
+            <p>The document descriptions below contain story spoilers and lore details. Expand each section only if you want to see specific location guides.</p>
+        </section>
+        
+        <!-- Episode 1: New York -->
+        <section class="episode-section" data-episode="newyork">
+            <div class="episode-header">
+                <h2>🗽 Episode 1: New York - "Descent"</h2>
+                <span class="document-count">20 Documents Total</span>
+            </div>
+            
+            <div class="mission-card">
+                <h3 class="mission-title">Chapter 1: Descent <span class="document-count">5 Documents</span></h3>
+                <ul class="document-list">
+                    <li class="document-item">
+                        <input type="checkbox" class="completion-checkbox" id="ny1-1">
+                        <label for="ny1-1">
+                            <div class="document-name">Document #1: Evacuation Notice</div>
+                            <div class="document-location">Location: In the starting subway station, on a bench near the turnstiles</div>
+                        </label>
+                    </li>
+                    <li class="document-item">
+                        <input type="checkbox" class="completion-checkbox" id="ny1-2">
+                        <label for="ny1-2">
+                            <div class="document-name">Document #2: Subway Worker's Log</div>
+                            <div class="document-location">Location: Control room after the first swarm, on the desk with monitors</div>
+                        </label>
+                    </li>
+                    <li class="document-item">
+                        <input type="checkbox" class="completion-checkbox" id="ny1-3">
+                        <label for="ny1-3">
+                            <div class="document-name">Document #3: Emergency Protocol</div>
+                            <div class="document-location">Location: Side office before entering the train tunnel, check filing cabinet</div>
+                        </label>
+                    </li>
+                    <li class="document-item">
+                        <input type="checkbox" class="completion-checkbox" id="ny1-4">
+                        <label for="ny1-4">
+                            <div class="document-name">Document #4: Personal Diary</div>
+                            <div class="document-location">Location: Train car in the tunnel section, on a seat in the middle car</div>
+                        </label>
+                    </li>
+                    <li class="document-item">
+                        <input type="checkbox" class="completion-checkbox" id="ny1-5">
+                        <label for="ny1-5">
+                            <div class="document-name">Document #5: Police Report</div>
+                            <div class="document-location">Location: Final area before extraction, in the security booth</div>
+                        </label>
+                    </li>
+                </ul>
+                <div class="location-hint">
+                    💡 Tip: Take your time in the subway control rooms - multiple documents are often clustered in these areas
+                </div>
+            </div>
+            
+            <div class="mission-card">
+                <h3 class="mission-title">Chapter 2: Tunnel Vision <span class="document-count">5 Documents</span></h3>
+                <ul class="document-list">
+                    <li class="document-item">
+                        <input type="checkbox" class="completion-checkbox" id="ny2-1">
+                        <label for="ny2-1">
+                            <div class="document-name">Document #1: Military Orders</div>
+                            <div class="document-location">Location: Starting safe room, on the table with radio equipment</div>
+                        </label>
+                    </li>
+                    <li class="document-item">
+                        <input type="checkbox" class="completion-checkbox" id="ny2-2">
+                        <label for="ny2-2">
+                            <div class="document-name">Document #2: Survivor's Note</div>
+                            <div class="document-location">Location: First train platform, check the ticket booth</div>
+                        </label>
+                    </li>
+                    <li class="document-item">
+                        <input type="checkbox" class="completion-checkbox" id="ny2-3">
+                        <label for="ny2-3">
+                            <div class="document-name">Document #3: Maintenance Report</div>
+                            <div class="document-location">Location: Generator room, on the workbench near tools</div>
+                        </label>
+                    </li>
+                    <li class="document-item">
+                        <input type="checkbox" class="completion-checkbox" id="ny2-4">
+                        <label for="ny2-4">
+                            <div class="document-name">Document #4: CDC Warning</div>
+                            <div class="document-location">Location: Medical tent area, on a crate of supplies</div>
+                        </label>
+                    </li>
+                    <li class="document-item">
+                        <input type="checkbox" class="completion-checkbox" id="ny2-5">
+                        <label for="ny2-5">
+                            <div class="document-name">Document #5: Last Stand Letter</div>
+                            <div class="document-location">Location: Before the final train defense, in a side maintenance room</div>
+                        </label>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="mission-card">
+                <h3 class="mission-title">Chapter 3: Hell and High Water <span class="document-count">5 Documents</span></h3>
+                <ul class="document-list">
+                    <li class="document-item">
+                        <input type="checkbox" class="completion-checkbox" id="ny3-1">
+                        <label for="ny3-1">
+                            <div class="document-name">Document #1: Harbor Master Log</div>
+                            <div class="document-location">Location: Starting dock area, in the harbor control office</div>
+                        </label>
+                    </li>
+                    <li class="document-item">
+                        <input type="checkbox" class="completion-checkbox" id="ny3-2">
+                        <label for="ny3-2">
+                            <div class="document-name">Document #2: Shipping Manifest</div>
+                            <div class="document-location">Location: Warehouse section, on a desk near the loading dock</div>
+                        </label>
+                    </li>
+                    <li class="document-item">
+                        <input type="checkbox" class="completion-checkbox" id="ny3-3">
+                        <label for="ny3-3">
+                            <div class="document-name">Document #3: Worker's Complaint</div>
+                            <div class="document-location">Location: Break room before the museum, check the lockers</div>
+                        </label>
+                    </li>
+                    <li class="document-item">
+                        <input type="checkbox" class="completion-checkbox" id="ny3-4">
+                        <label for="ny3-4">
+                            <div class="document-name">Document #4: Museum Brochure</div>
+                            <div class="document-location">Location: Museum entrance hall, on the information desk</div>
+                        </label>
+                    </li>
+                    <li class="document-item">
+                        <input type="checkbox" class="completion-checkbox" id="ny3-5">
+                        <label for="ny3-5">
+                            <div class="document-name">Document #5: Naval Report</div>
+                            <div class="document-location">Location: Final ferry terminal, in the control tower</div>
+                        </label>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="mission-card">
+                <h3 class="mission-title">Chapter 4: Dead in the Water <span class="document-count">5 Documents</span></h3>
+                <ul class="document-list">
+                    <li class="document-item">
+                        <input type="checkbox" class="completion-checkbox" id="ny4-1">
+                        <label for="ny4-1">
+                            <div class="document-name">Document #1: Ferry Schedule</div>
+                            <div class="document-location">Location: Starting ferry deck, near the life boats</div>
+                        </label>
+                    </li>
+                    <li class="document-item">
+                        <input type="checkbox" class="completion-checkbox" id="ny4-2">
+                        <label for="ny4-2">
+                            <div class="document-name">Document #2: Captain's Log</div>
+                            <div class="document-location">Location: Bridge/control room, on the navigation table</div>
+                        </label>
+                    </li>
+                    <li class="document-item">
+                        <input type="checkbox" class="completion-checkbox" id="ny4-3">
+                        <label for="ny4-3">
+                            <div class="document-name">Document #3: Passenger List</div>
+                            <div class="document-location">Location: Passenger cabin area, check the purser's office</div>
+                        </label>
+                    </li>
+                    <li class="document-item">
+                        <input type="checkbox" class="completion-checkbox" id="ny4-4">
+                        <label for="ny4-4">
+                            <div class="document-name">Document #4: Engine Room Report</div>
+                            <div class="document-location">Location: Engine room, on the engineer's workstation</div>
+                        </label>
+                    </li>
+                    <li class="document-item">
+                        <input type="checkbox" class="completion-checkbox" id="ny4-5">
+                        <label for="ny4-5">
+                            <div class="document-name">Document #5: Coast Guard Message</div>
+                            <div class="document-location">Location: Radio room before final defense, on the communication desk</div>
+                        </label>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        
+        <!-- Episode 2: Jerusalem -->
+        <section class="episode-section" data-episode="jerusalem">
+            <div class="episode-header">
+                <h2>🏛️ Episode 2: Jerusalem - "Brain Surgery"</h2>
+                <span class="document-count">15 Documents Total</span>
+            </div>
+            
+            <div class="mission-card">
+                <h3 class="mission-title">Chapter 1: Brain Surgery <span class="document-count">5 Documents</span></h3>
+                <ul class="document-list">
+                    <li class="document-item">
+                        <input type="checkbox" class="completion-checkbox" id="je1-1">
+                        <label for="je1-1">
+                            <div class="document-name">Document #1: IDF Orders</div>
+                            <div class="document-location">Location: Starting checkpoint, in the guard booth</div>
+                        </label>
+                    </li>
+                    <li class="document-item">
+                        <input type="checkbox" class="completion-checkbox" id="je1-2">
+                        <label for="je1-2">
+                            <div class="document-name">Document #2: Medical Research</div>
+                            <div class="document-location">Location: Hospital entrance, on the reception desk</div>
+                        </label>
+                    </li>
+                    <li class="document-item">
+                        <input type="checkbox" class="completion-checkbox" id="je1-3">
+                        <label for="je1-3">
+                            <div class="document-name">Document #3: Patient Records</div>
+                            <div class="document-location">Location: Third floor office, check the filing cabinets</div>
+                        </label>
+                    </li>
+                    <li class="document-item">
+                        <input type="checkbox" class="completion-checkbox" id="je1-4">
+                        <label for="je1-4">
+                            <div class="document-name">Document #4: Scientist's Notes</div>
+                            <div class="document-location">Location: Laboratory area, on the research bench</div>
+                        </label>
+                    </li>
+                    <li class="document-item">
+                        <input type="checkbox" class="completion-checkbox" id="je1-5">
+                        <label for="je1-5">
+                            <div class="document-name">Document #5: Evacuation Plan</div>
+                            <div class="document-location">Location: Helipad control room, near the exit</div>
+                        </label>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="mission-card">
+                <h3 class="mission-title">Chapter 2: Dead Sea Stroll <span class="document-count">5 Documents</span></h3>
+                <ul class="document-list">
+                    <li class="document-item">
+                        <input type="checkbox" class="completion-checkbox" id="je2-1">
+                        <label for="je2-1">
+                            <div class="document-name">Document #1: Archaeological Survey</div>
+                            <div class="document-location">Location: Starting ruins, in the excavation tent</div>
+                        </label>
+                    </li>
+                    <li class="document-item">
+                        <input type="checkbox" class="completion-checkbox" id="je2-2">
+                        <label for="je2-2">
+                            <div class="document-name">Document #2: Tourist Guide</div>
+                            <div class="document-location">Location: Visitor center, on the information counter</div>
+                        </label>
+                    </li>
+                    <li class="document-item">
+                        <input type="checkbox" class="completion-checkbox" id="je2-3">
+                        <label for="je2-3">
+                            <div class="document-name">Document #3: Military Checkpoint Log</div>
+                            <div class="document-location">Location: Roadblock area, in the command vehicle</div>
+                        </label>
+                    </li>
+                    <li class="document-item">
+                        <input type="checkbox" class="completion-checkbox" id="je2-4">
+                        <label for="je2-4">
+                            <div class="document-name">Document #4: Refugee Camp Notice</div>
+                            <div class="document-location">Location: Temporary shelter area, on a supply crate</div>
+                        </label>
+                    </li>
+                    <li class="document-item">
+                        <input type="checkbox" class="completion-checkbox" id="je2-5">
+                        <label for="je2-5">
+                            <div class="document-name">Document #5: Border Patrol Report</div>
+                            <div class="document-location">Location: Final checkpoint before extraction</div>
+                        </label>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="mission-card">
+                <h3 class="mission-title">Chapter 3: Tech Support <span class="document-count">5 Documents</span></h3>
+                <ul class="document-list">
+                    <li class="document-item">
+                        <input type="checkbox" class="completion-checkbox" id="je3-1">
+                        <label for="je3-1">
+                            <div class="document-name">Document #1: Satellite Uplink Manual</div>
+                            <div class="document-location">Location: Communications building entrance, on the security desk</div>
+                        </label>
+                    </li>
+                    <li class="document-item">
+                        <input type="checkbox" class="completion-checkbox" id="je3-2">
+                        <label for="je3-2">
+                            <div class="document-name">Document #2: Technician's Log</div>
+                            <div class="document-location">Location: Server room, on the maintenance terminal</div>
+                        </label>
+                    </li>
+                    <li class="document-item">
+                        <input type="checkbox" class="completion-checkbox" id="je3-3">
+                        <label for="je3-3">
+                            <div class="document-name">Document #3: Network Diagnostics</div>
+                            <div class="document-location">Location: Control room, near the main console</div>
+                        </label>
+                    </li>
+                    <li class="document-item">
+                        <input type="checkbox" class="completion-checkbox" id="je3-4">
+                        <label for="je3-4">
+                            <div class="document-name">Document #4: Emergency Broadcast</div>
+                            <div class="document-location">Location: Radio station area, on the broadcast desk</div>
+                        </label>
+                    </li>
+                    <li class="document-item">
+                        <input type="checkbox" class="completion-checkbox" id="je3-5">
+                        <label for="je3-5">
+                            <div class="document-name">Document #5: Extraction Coordinates</div>
+                            <div class="document-location">Location: Rooftop before final defense, in the equipment shed</div>
+                        </label>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        
+        <!-- Additional Episodes placeholder -->
+        <section class="episode-section" data-episode="moscow">
+            <div class="episode-header">
+                <h2>❄️ Episode 3: Moscow - "Sign of Distress"</h2>
+                <span class="document-count">15 Documents Total</span>
+            </div>
+            <div class="mission-card">
+                <p style="color: #6c757d; padding: 1rem;">
+                    Document locations for Moscow missions are being compiled. Check back for updates or contribute your findings!
+                </p>
+            </div>
+        </section>
+        
+        <section class="episode-section" data-episode="tokyo">
+            <div class="episode-header">
+                <h2>🗼 Episode 4: Tokyo - "Rising Sun"</h2>
+                <span class="document-count">15 Documents Total</span>
+            </div>
+            <div class="mission-card">
+                <p style="color: #6c757d; padding: 1rem;">
+                    Document locations for Tokyo missions are being compiled. Check back for updates or contribute your findings!
+                </p>
+            </div>
+        </section>
+        
+        <!-- General Collection Stats -->
+        <section class="card">
+            <h2>📈 Collection Statistics</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+                <div style="text-align: center; padding: 1rem; background: #f8f9fa; border-radius: 8px;">
+                    <div style="font-size: 2rem; color: #6c5ce7;">0</div>
+                    <div style="color: #6c757d;">Documents Found</div>
+                </div>
+                <div style="text-align: center; padding: 1rem; background: #f8f9fa; border-radius: 8px;">
+                    <div style="font-size: 2rem; color: #6c5ce7;">100</div>
+                    <div style="color: #6c757d;">Total Documents</div>
+                </div>
+                <div style="text-align: center; padding: 1rem; background: #f8f9fa; border-radius: 8px;">
+                    <div style="font-size: 2rem; color: #6c5ce7;">0%</div>
+                    <div style="color: #6c757d;">Completion Rate</div>
+                </div>
+                <div style="text-align: center; padding: 1rem; background: #f8f9fa; border-radius: 8px;">
+                    <div style="font-size: 2rem; color: #6c5ce7;">8</div>
+                    <div style="color: #6c757d;">Episodes</div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Document Types Explanation -->
+        <section class="card">
+            <h2>📖 Document Types & Lore</h2>
+            <p>Documents in World War Z: Aftermath come in various forms, each providing unique insights into the apocalypse:</p>
+            <ul>
+                <li><strong>Military Reports:</strong> Official communications detailing military operations and evacuation protocols</li>
+                <li><strong>Personal Diaries:</strong> Intimate accounts from survivors describing their experiences</li>
+                <li><strong>Scientific Research:</strong> Medical and scientific findings about the virus and potential cures</li>
+                <li><strong>News Articles:</strong> Media coverage documenting the outbreak's progression</li>
+                <li><strong>Government Communications:</strong> Official statements and emergency broadcasts</li>
+                <li><strong>Survivor Notes:</strong> Messages left behind by those trying to survive</li>
+                <li><strong>Corporate Documents:</strong> Business records showing how corporations responded to the crisis</li>
+                <li><strong>Historical Records:</strong> Documents placing the outbreak in historical context</li>
+            </ul>
+        </section>
+        
+        <!-- Community Contribution -->
+        <section class="card">
+            <h2>🤝 Community Contributions</h2>
+            <p>Help complete this guide! If you've found document locations not listed here, please contribute:</p>
+            <ul>
+                <li>Share screenshots of document locations</li>
+                <li>Provide detailed descriptions of hard-to-find documents</li>
+                <li>Report any errors or missing information</li>
+                <li>Join our community Discord to collaborate with other collectors</li>
+            </ul>
+            <div style="text-align: center; margin-top: 1rem;">
+                <button class="btn btn-primary" onclick="alert('Community submission form coming soon!')">Submit Document Location</button>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <p>&copy; 2024 WWZ: Aftermath Guide. Unofficial fan resource.</p>
+        </div>
+    </footer>
+    
+    <!-- JavaScript -->
+    <script src="js/course-enhancements.js"></script>
+    <script>
+        // Filter episodes
+        function filterEpisodes(episode) {
+            const sections = document.querySelectorAll('.episode-section');
+            const buttons = document.querySelectorAll('.filter-btn');
+            
+            // Update active button
+            buttons.forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.textContent.toLowerCase().includes(episode) || (episode === 'all' && btn.textContent === 'All Episodes')) {
+                    btn.classList.add('active');
+                }
+            });
+            
+            // Show/hide sections
+            sections.forEach(section => {
+                if (episode === 'all') {
+                    section.style.display = 'block';
+                } else {
+                    section.style.display = section.dataset.episode === episode ? 'block' : 'none';
+                }
+            });
+        }
+        
+        // Track completion
+        document.addEventListener('DOMContentLoaded', function() {
+            const checkboxes = document.querySelectorAll('.completion-checkbox');
+            
+            // Load saved progress
+            checkboxes.forEach(checkbox => {
+                const saved = localStorage.getItem(`doc-${checkbox.id}`);
+                if (saved === 'true') {
+                    checkbox.checked = true;
+                }
+            });
+            
+            // Save progress
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', function() {
+                    localStorage.setItem(`doc-${this.id}`, this.checked);
+                    updateProgress();
+                });
+            });
+            
+            // Update progress bar
+            function updateProgress() {
+                const total = checkboxes.length;
+                const checked = document.querySelectorAll('.completion-checkbox:checked').length;
+                const percentage = (checked / total) * 100;
+                
+                const progressFill = document.querySelector('.progress-fill');
+                progressFill.style.width = percentage + '%';
+                progressFill.textContent = `${checked} / ${total} Documents Collected`;
+                
+                // Update stats
+                document.querySelectorAll('.card div')[0].querySelector('div').textContent = checked;
+                document.querySelectorAll('.card div')[2].querySelector('div').textContent = Math.round(percentage) + '%';
+            }
+            
+            updateProgress();
+        });
+    </script>
+</body>
+</html>

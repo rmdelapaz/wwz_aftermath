@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mutators Guide - Game modifiers and challenge settings for World War Z: Aftermath">
+    <meta name="keywords" content="World War Z, Aftermath, mutators, modifiers, challenges, private lobby, horde mode">
+    <meta name="author" content="WWZ Guide Team">
+    <title>Mutators Guide - World War Z: Aftermath</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="styles/main.css">
+    <style>
+        /* Mutator-specific styling */
+        .mutator-header {
+            background: linear-gradient(135deg, #f59e0b 0%, #dc2626 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .mutator-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .mutator-card {
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            padding: 1rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .mutator-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .mutator-card.penalty {
+            border-color: #dc3545;
+            background: #fff5f5;
+        }
+        
+        .mutator-name {
+            font-weight: bold;
+            color: #495057;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .penalty-star {
+            color: #dc3545;
+            font-weight: bold;
+        }
+        
+        .mutator-effect {
+            color: #6c757d;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            margin-bottom: 0.75rem;
+        }
+        
+        .mutator-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .tag {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            background: #f1f3f5;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .tag-private {
+            background: #e3f2fd;
+            color: #1976d2;
+        }
+        
+        .tag-challenge {
+            background: #fff3e0;
+            color: #f57c00;
+        }
+        
+        .tag-horde {
+            background: #f3e5f5;
+            color: #7b1fa2;
+        }
+        
+        .tag-penalty {
+            background: #ffebee;
+            color: #c62828;
+        }
+        
+        .search-controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            align-items: center;
+            margin: 1.5rem 0;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        
+        .search-input {
+            flex: 1;
+            min-width: 250px;
+            padding: 0.5rem 1rem;
+            border: 2px solid #dee2e6;
+            border-radius: 50px;
+            font-size: 1rem;
+        }
+        
+        .filter-checkbox {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .filter-checkbox input {
+            width: 18px;
+            height: 18px;
+        }
+        
+        .category-section {
+            margin: 2rem 0;
+        }
+        
+        .category-title {
+            color: #495057;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 0.5rem;
+        }
+        
+        .recent-badge {
+            background: #28a745;
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-left: 0.5rem;
+        }
+        
+        .penalty-warning {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .penalty-warning h3 {
+            color: #856404;
+            margin-bottom: 0.5rem;
+        }
+        
+        .update-note {
+            background: #e7f5ff;
+            border-left: 4px solid #0288d1;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+        
+        .unique-section {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+        
+        .unique-note {
+            color: #dc3545;
+            font-style: italic;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">⚔️ WWZ: Aftermath Guide</a>
+            <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-expanded="false">☰</button>
+            <div class="nav-links" id="nav-links">
+                <a href="index.html">Home</a>
+                <a href="beginner_guide.html">Beginner Guide</a>
+                <div class="dropdown">
+                    <a href="classes_overview.html" class="dropdown-toggle">Classes ▼</a>
+                    <div class="dropdown-content">
+                        <a href="classes_overview.html">Overview</a>
+                        <a href="class_medic.html">Medic</a>
+                        <a href="class_fixer.html">Fixer</a>
+                        <a href="class_gunslinger.html">Gunslinger</a>
+                        <a href="class_exterminator.html">Exterminator</a>
+                        <a href="class_slasher.html">Slasher</a>
+                        <a href="class_hellraiser.html">Hellraiser</a>
+                        <a href="class_dronemaster.html">Dronemaster</a>
+                        <a href="class_vanguard.html">Vanguard</a>
+                    </div>
+                </div>
+                <a href="weapons_upgrades.html">Weapons</a>
+                <a href="currencies_progression.html">Progression</a>
+                <a href="mutators_current.html" class="current">Mutators</a>
+                <a href="horde_endgame.html">Endgame</a>
+                <button id="theme-toggle" aria-label="Toggle theme">🌙</button>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Header -->
+        <header class="mutator-header">
+            <h1>🎮 Mutators Guide</h1>
+            <p>Game modifiers for custom challenges and unique gameplay experiences</p>
+            <p><small>Updated for September 2025</small></p>
+        </header>
+        
+        <!-- Reward Impact Warning -->
+        <section class="card">
+            <div class="penalty-warning">
+                <h3>⚠️ Reward Impact in Private Lobbies</h3>
+                <p>Mutators marked with <span class="penalty-star">*</span> reduce end-of-mission rewards (Supplies, class XP, etc.) by <strong>50%</strong> in private lobbies. This penalty does not stack if you enable multiple <span class="penalty-star">*</span> mutators.</p>
+                <p><strong>Note:</strong> Weapon XP is still earned as usual.</p>
+            </div>
+        </section>
+        
+        <!-- Search and Filter -->
+        <section class="card">
+            <h2>🔍 Search & Filter Mutators</h2>
+            <div class="search-controls">
+                <input type="search" class="search-input" id="mutator-search" placeholder="Search mutators by name or effect...">
+                <label class="filter-checkbox">
+                    <input type="checkbox" id="filter-penalty"> Only Penalty (*)
+                </label>
+                <label class="filter-checkbox">
+                    <input type="checkbox" id="filter-beneficial"> Beneficial
+                </label>
+                <label class="filter-checkbox">
+                    <input type="checkbox" id="filter-challenge"> Challenge
+                </label>
+                <label class="filter-checkbox">
+                    <input type="checkbox" id="filter-horde"> Horde Only
+                </label>
+            </div>
+        </section>
+
+        <!-- Unique Mutators Section 1: Proximity & Health -->
+        <section class="card">
+            <div class="unique-section">
+                <h2 class="category-title">🎯 Unique: Proximity & Health Mechanics</h2>
+                <div class="unique-note">⚠️ Only ONE mutator from this group can be active at a time</div>
+                <div class="mutator-grid">
+                    <div class="mutator-card" data-modes="unique" data-name="Comfort Zone" data-category="challenge">
+                        <div class="mutator-name">Comfort Zone</div>
+                        <div class="mutator-effect">You will slowly lose your health (2% per second) when there are no teammates within 5 meters (16 feet) of you for more than 5 seconds</div>
+                        <div class="mutator-tags">
+                            <span class="tag tag-challenge">Challenge</span>
+                        </div>
+                    </div>
+                    <div class="mutator-card" data-modes="unique" data-name="Personal Space" data-category="challenge">
+                        <div class="mutator-name">Personal Space</div>
+                        <div class="mutator-effect">You will slowly lose your health (2% per second) when there is at least one teammate within 5 meters (16 feet) of you for more than 5 seconds</div>
+                        <div class="mutator-tags">
+                            <span class="tag tag-challenge">Challenge</span>
+                        </div>
+                    </div>
+                    <div class="mutator-card" data-modes="unique" data-name="Hunger" data-category="challenge">
+                        <div class="mutator-name">Hunger</div>
+                        <div class="mutator-effect">You will begin to slowly lose your health 10 seconds after your last zombie kill (0.5% per second)</div>
+                        <div class="mutator-tags">
+                            <span class="tag tag-challenge">Challenge</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Unique Mutators Section 2: Death Mechanics -->
+        <section class="card">
+            <div class="unique-section">
+                <h2 class="category-title">💀 Unique: Death & Incapacitation</h2>
+                <div class="unique-note">⚠️ Only ONE mutator from this group can be active at a time</div>
+                <div class="mutator-grid">
+                    <div class="mutator-card" data-modes="unique" data-name="Perfect Condition" data-category="challenge">
+                        <div class="mutator-name">Perfect Condition</div>
+                        <div class="mutator-effect">You can't die by being incapacitated, but every incapacitation will decrease your max health by 25% (but no less than 10% of its original value)</div>
+                        <div class="mutator-tags">
+                            <span class="tag tag-challenge">Challenge</span>
+                        </div>
+                    </div>
+                    <div class="mutator-card" data-modes="unique" data-name="Instadeath" data-category="challenge">
+                        <div class="mutator-name">Instadeath</div>
+                        <div class="mutator-effect">When your health reaches zero, you will die instantly instead of being incapacitated first</div>
+                        <div class="mutator-tags">
+                            <span class="tag tag-challenge">Challenge</span>
+                        </div>
+                    </div>
+                    <div class="mutator-card" data-modes="unique" data-name="1 UP" data-category="challenge">
+                        <div class="mutator-name">1 UP</div>
+                        <div class="mutator-effect">You won't be able to respawn and get back into the fight after you die</div>
+                        <div class="mutator-tags">
+                            <span class="tag tag-challenge">Challenge</span>
+                        </div>
+                    </div>
+                    <div class="mutator-card" data-modes="unique" data-name="Iron Man" data-category="challenge">
+                        <div class="mutator-name">Iron Man</div>
+                        <div class="mutator-effect">You have only one chance to live. When your health reaches zero, you will die with no respawn for the remainder of the mission</div>
+                        <div class="mutator-tags">
+                            <span class="tag tag-challenge">Challenge</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Unique Mutators Section 3: Zombie Types -->
+        <section class="card">
+            <div class="unique-section">
+                <h2 class="category-title">🧟 Unique: Zombie Spawning</h2>
+                <div class="unique-note">⚠️ Only ONE mutator from this group can be active at a time</div>
+                <div class="mutator-grid">
+                    <div class="mutator-card penalty" data-modes="unique" data-name="Special Forces" data-category="challenge">
+                        <div class="mutator-name">Special Forces <span class="penalty-star">*</span></div>
+                        <div class="mutator-effect">Special zombies will arrive twice as often as usual but zombie waves will be smaller</div>
+                        <div class="mutator-tags">
+                            <span class="tag tag-challenge">Challenge</span>
+                            <span class="tag tag-penalty">-50% Rewards</span>
+                        </div>
+                    </div>
+                    <div class="mutator-card penalty" data-modes="unique" data-name="Cannon Fodder" data-category="beneficial">
+                        <div class="mutator-name">Cannon Fodder <span class="penalty-star">*</span></div>
+                        <div class="mutator-effect">There will be no special zombies but zombie waves will be more numerous</div>
+                        <div class="mutator-tags">
+                            <span class="tag tag-challenge">Challenge/Beneficial</span>
+                            <span class="tag tag-penalty">-50% Rewards</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Unique Mutators Section 4: Weapon Restrictions -->
+        <section class="card">
+            <div class="unique-section">
+                <h2 class="category-title">🔫 Unique: Weapon Restrictions</h2>
+                <div class="unique-note">⚠️ Only ONE mutator from this group can be active at a time</div>
+                <div class="mutator-grid">
+                    <div class="mutator-card" data-modes="unique" data-name="Crossbow Fiesta" data-category="weapon">
+                        <div class="mutator-name">Crossbow Fiesta</div>
+                        <div class="mutator-effect">Everyone gets a free crossbow and can't have any other primary weapon</div>
+                        <div class="mutator-tags">
+                            <span class="tag tag-private">Weapon Mode</span>
+                        </div>
+                    </div>
+                    <div class="mutator-card" data-modes="unique" data-name="Shotgun Fiesta" data-category="weapon">
+                        <div class="mutator-name">Shotgun Fiesta</div>
+                        <div class="mutator-effect">Every player gets a shotgun and can only find shotguns as primary and secondary weapons on the mission</div>
+                        <div class="mutator-tags">
+                            <span class="tag tag-private">Weapon Mode</span>
+                        </div>
+                    </div>
+                    <div class="mutator-card" data-modes="unique" data-name="Wild West" data-category="weapon">
+                        <div class="mutator-name">Wild West</div>
+                        <div class="mutator-effect">Everyone gets a repeating rifle and a revolver but can't have any other weapons</div>
+                        <div class="mutator-tags">
+                            <span class="tag tag-private">Weapon Mode</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Unique Mutators Section 5: Wave Frequency -->
+        <section class="card">
+            <div class="unique-section">
+                <h2 class="category-title">⏱️ Unique: Wave Timing</h2>
+                <div class="unique-note">⚠️ Only ONE mutator from this group can be active at a time</div>
+                <div class="mutator-grid">
+                    <div class="mutator-card" data-modes="unique" data-name="Restless Hordes" data-category="challenge">
+                        <div class="mutator-name">Restless Hordes</div>
+                        <div class="mutator-effect">Zombie waves will arrive twice as often</div>
+                        <div class="mutator-tags">
+                            <span class="tag tag-challenge">Challenge</span>
+                        </div>
+                    </div>
+                    <div class="mutator-card penalty" data-modes="unique" data-name="Light Waves" data-category="beneficial">
+                        <div class="mutator-name">Light Waves <span class="penalty-star">*</span></div>
+                        <div class="mutator-effect">Zombie waves will be twice shorter</div>
+                        <div class="mutator-tags">
+                            <span class="tag tag-private">Beneficial</span>
+                            <span class="tag tag-penalty">-50% Rewards</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Unique Mutators Section 6: Loot & Resources -->
+        <section class="card">
+            <div class="unique-section">
+                <h2 class="category-title">📦 Unique: Loot & Resources</h2>
+                <div class="unique-note">⚠️ Only ONE mutator from this group can be active at a time</div>
+                <div class="mutator-grid">
+                    <div class="mutator-card" data-modes="unique" data-name="All Flash, No Bang" data-category="weapon">
+                        <div class="mutator-name">All Flash, No Bang</div>
+                        <div class="mutator-effect">There will be more primary and secondary weapons scattered throughout the level, but you won't find ammo crates</div>
+                        <div class="mutator-tags">
+                            <span class="tag tag-private">Resource Mod</span>
+                        </div>
+                    </div>
+                    <div class="mutator-card penalty" data-modes="unique" data-name="Heavy Hitters" data-category="beneficial">
+                        <div class="mutator-name">Heavy Hitters <span class="penalty-star">*</span></div>
+                        <div class="mutator-effect">You'll find many more heavy weapons than usual on the mission</div>
+                        <div class="mutator-tags">
+                            <span class="tag tag-private">Beneficial</span>
+                            <span class="tag tag-penalty">-50% Rewards</span>
+                        </div>
+                    </div>
+                    <div class="mutator-card" data-modes="unique" data-name="Gun Shortage" data-category="weapon">
+                        <div class="mutator-name">Gun Shortage</div>
+                        <div class="mutator-effect">The only new weapons you'll find on the mission are heavy weapons. Heavy weapons have twice more ammo</div>
+                        <div class="mutator-tags">
+                            <span class="tag tag-private">Resource Mod</span>
+                        </div>
+                    </div>
+                    <div class="mutator-card" data-modes="unique" data-name="Looting Is a Crime" data-category="challenge">
+                        <div class="mutator-name">Looting Is a Crime</div>
+                        <div class="mutator-effect">You will find far fewer pickups in the mission</div>
+                        <div class="mutator-tags">
+                            <span class="tag tag-challenge">Challenge</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Unique Mutators Section 7: Special Enemies -->
+        <section class="card">
+            <div class="unique-section">
+                <h2 class="category-title">👹 Unique: Special Enemies</h2>
+                <div class="unique-note">⚠️ Only ONE mutator from this group can be active at a time</div>
+                <div class="mutator-grid">
+                    <div class="mutator-card" data-modes="unique" data-name="Nemesis" data-category="challenge">
+                        <div class="mutator-name">Nemesis</div>
+                        <div class="mutator-effect">You will be chased throughout the entire mission by a Bull that can't be killed</div>
+                        <div class="mutator-tags">
+                            <span class="tag tag-challenge">Challenge</span>
+                        </div>
+                    </div>
+                    <div class="mutator-card" data-modes="unique" data-name="Hot-tempered Bull" data-category="challenge">
+                        <div class="mutator-name">Hot-tempered Bull</div>
+                        <div class="mutator-effect">An unusual Bull appears. An explosion occurs each time a grabbed survivor is smashed against the ground</div>
+                        <div class="mutator-tags">
+                            <span class="tag tag-challenge">Challenge</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Common Mutators -->
+        <section class="card">
+            <h2 class="category-title">🔧 Common Mutators (Multiple Can Be Active)</h2>
+            <div class="mutator-grid">
+                <!-- Ammo & Weapon Mutators -->
+                <div class="mutator-card" data-modes="common" data-name="Empty Pockets" data-category="challenge">
+                    <div class="mutator-name">Empty Pockets</div>
+                    <div class="mutator-effect">Carried ammo for primary and secondary weapons reduced by 50%</div>
+                    <div class="mutator-tags">
+                        <span class="tag tag-challenge">Ammo Challenge</span>
+                    </div>
+                </div>
+                <div class="mutator-card" data-modes="common" data-name="Ammo Dump" data-category="challenge">
+                    <div class="mutator-name">Ammo Dump</div>
+                    <div class="mutator-effect">When reloading a weapon, all ammo left in the magazine will be lost</div>
+                    <div class="mutator-tags">
+                        <span class="tag tag-challenge">Ammo Challenge</span>
+                    </div>
+                </div>
+                <div class="mutator-card" data-modes="common" data-name="Low Capacity" data-category="challenge">
+                    <div class="mutator-name">Low Capacity</div>
+                    <div class="mutator-effect">Primary and secondary weapon magazines are reduced by 50%</div>
+                    <div class="mutator-tags">
+                        <span class="tag tag-challenge">Ammo Challenge</span>
+                    </div>
+                </div>
+                <div class="mutator-card" data-modes="common" data-name="Primary Weakness" data-category="challenge">
+                    <div class="mutator-name">Primary Weakness</div>
+                    <div class="mutator-effect">Primary weapon damage is reduced by 75%</div>
+                    <div class="mutator-tags">
+                        <span class="tag tag-challenge">Weapon Challenge</span>
+                    </div>
+                </div>
+                <div class="mutator-card" data-modes="common" data-name="Shaky Hands" data-category="challenge">
+                    <div class="mutator-name">Shaky Hands</div>
+                    <div class="mutator-effect">Shooting on the move and without aiming is extremely inaccurate</div>
+                    <div class="mutator-tags">
+                        <span class="tag tag-challenge">Weapon Challenge</span>
+                    </div>
+                </div>
+                <div class="mutator-card" data-modes="common" data-name="Limited Reach" data-category="challenge">
+                    <div class="mutator-name">Limited Reach</div>
+                    <div class="mutator-effect">All firearms will deal insignificant damage at distances longer than 50 meters (165 feet)</div>
+                    <div class="mutator-tags">
+                        <span class="tag tag-challenge">Weapon Challenge</span>
+                    </div>
+                </div>
+                <div class="mutator-card" data-modes="common" data-name="What was that boom?" data-category="beneficial">
+                    <div class="mutator-name">What was that boom?</div>
+                    <div class="mutator-effect">All primary weapons have explosive ammo</div>
+                    <div class="mutator-tags">
+                        <span class="tag tag-private">Beneficial</span>
+                    </div>
+                </div>
+                <div class="mutator-card" data-modes="common" data-name="Double benefit" data-category="beneficial">
+                    <div class="mutator-name">Double benefit</div>
+                    <div class="mutator-effect">All secondary weapons deal double damage</div>
+                    <div class="mutator-tags">
+                        <span class="tag tag-private">Beneficial</span>
+                    </div>
+                </div>
+                <div class="mutator-card" data-modes="common" data-name="Chainsaw Massacre" data-category="weapon">
+                    <div class="mutator-name">Chainsaw Massacre</div>
+                    <div class="mutator-effect">Only chainsaws are available as heavy weapons for the entire mission</div>
+                    <div class="mutator-tags">
+                        <span class="tag tag-private">Weapon Mode</span>
+                    </div>
+                </div>
+                
+                <!-- Movement & Health Mutators -->
+                <div class="mutator-card" data-modes="common" data-name="Rookie" data-category="challenge">
+                    <div class="mutator-name">Rookie</div>
+                    <div class="mutator-effect">All your class perks except for the first one won't work</div>
+                    <div class="mutator-tags">
+                        <span class="tag tag-challenge">Class Challenge</span>
+                    </div>
+                </div>
+                <div class="mutator-card" data-modes="common" data-name="Slow" data-category="challenge">
+                    <div class="mutator-name">Slow</div>
+                    <div class="mutator-effect">You can't sprint</div>
+                    <div class="mutator-tags">
+                        <span class="tag tag-challenge">Movement</span>
+                    </div>
+                </div>
+                <div class="mutator-card" data-modes="common" data-name="Asthma" data-category="challenge">
+                    <div class="mutator-name">Asthma</div>
+                    <div class="mutator-effect">You will slowly lose your health (3% per second) when sprinting</div>
+                    <div class="mutator-tags">
+                        <span class="tag tag-challenge">Movement</span>
+                    </div>
+                </div>
+                <div class="mutator-card" data-modes="common" data-name="Leg Day" data-category="challenge">
+                    <div class="mutator-name">Leg Day</div>
+                    <div class="mutator-effect">When climbing, the player loses some health and all stamina</div>
+                    <div class="mutator-tags">
+                        <span class="tag tag-challenge">Movement</span>
+                    </div>
+                </div>
+                
+                <!-- Medical Mutators -->
+                <div class="mutator-card" data-modes="common" data-name="Small Pharma" data-category="challenge">
+                    <div class="mutator-name">Small Pharma</div>
+                    <div class="mutator-effect">You won't find any medical items on the mission</div>
+                    <div class="mutator-tags">
+                        <span class="tag tag-challenge">Medical</span>
+                    </div>
+                </div>
+                <div class="mutator-card" data-modes="common" data-name="The Impaler" data-category="challenge">
+                    <div class="mutator-name">The Impaler</div>
+                    <div class="mutator-effect">Health is restored on a melee kill, but medkits are no longer found on the mission</div>
+                    <div class="mutator-tags">
+                        <span class="tag tag-challenge">Medical/Melee</span>
+                    </div>
+                </div>
+                <div class="mutator-card" data-modes="common" data-name="Homeopathy" data-category="challenge">
+                    <div class="mutator-name">Homeopathy</div>
+                    <div class="mutator-effect">After receiving healing from medical items, you lose the ability to sprint for 20 seconds</div>
+                    <div class="mutator-tags">
+                        <span class="tag tag-challenge">Medical</span>
+                    </div>
+                </div>
+                <div class="mutator-card" data-modes="common" data-name="Expired Medicine" data-category="challenge">
+                    <div class="mutator-name">Expired Medicine</div>
+                    <div class="mutator-effect">You will find twice as many medkits than usual on the mission, but medkits heal 50% less</div>
+                    <div class="mutator-tags">
+                        <span class="tag tag-challenge">Medical</span>
+                    </div>
+                </div>
+                <div class="mutator-card" data-modes="common" data-name="Healing Explosions" data-category="beneficial">
+                    <div class="mutator-name">Healing Explosions</div>
+                    <div class="mutator-effect">Explosions from devices and heavy weapons restore health</div>
+                    <div class="mutator-tags">
+                        <span class="tag tag-private">Beneficial</span>
+                    </div>
+                </div>
+                
+                <!-- Defense Mutators -->
+                <div class="mutator-card" data-modes="common" data-name="Defenseless" data-category="challenge">
+                    <div class="mutator-name">Defenseless</div>
+                    <div class="mutator-effect">You won't find any defense kits or defenses on the mission. Heavy weapons have more ammo</div>
+                    <div class="mutator-tags">
+                        <span class="tag tag-challenge">Defense</span>
+                    </div>
+                </div>
+                
+                <!-- Resource Mutators -->
+                <div class="mutator-card" data-modes="common" data-name="Thief" data-category="challenge">
+                    <div class="mutator-name">Thief</div>
+                    <div class="mutator-effect">No ammo crates, but each melee kill restores 3% of your primary and secondary weapon's ammo. +50% melee damage to zombies</div>
+                    <div class="mutator-tags">
+                        <span class="tag tag-challenge">Resource/Melee</span>
+                    </div>
+                </div>
+                <div class="mutator-card" data-modes="common" data-name="Looter" data-category="challenge">
+                    <div class="mutator-name">Looter</div>
+                    <div class="mutator-effect">You won't find equipment bags on the mission, but your equipment will be constantly regenerating (100 seconds to replenish to maximum)</div>
+                    <div class="mutator-tags">
+                        <span class="tag tag-challenge">Resource</span>
+                    </div>
+                </div>
+                
+                <!-- Team Mutators -->
+                <div class="mutator-card" data-modes="common" data-name="Revenge" data-category="challenge">
+                    <div class="mutator-name">Revenge</div>
+                    <div class="mutator-effect">Team members will produce a huge explosion when they die</div>
+                    <div class="mutator-tags">
+                        <span class="tag tag-challenge">Team Effect</span>
+                    </div>
+                </div>
+                <div class="mutator-card" data-modes="common" data-name="I Feel Your Pain" data-category="challenge">
+                    <div class="mutator-name">I Feel Your Pain</div>
+                    <div class="mutator-effect">A randomly chosen player will have 100% more health, but all damage taken by the team redirects to him. If he dies, it's game over</div>
+                    <div class="mutator-tags">
+                        <span class="tag tag-challenge">Team Effect</span>
+                    </div>
+                </div>
+                <div class="mutator-card" data-modes="common" data-name="Treason" data-category="challenge">
+                    <div class="mutator-name">Treason</div>
+                    <div class="mutator-effect">Friendly fire is tripled for the whole team</div>
+                    <div class="mutator-tags">
+                        <span class="tag tag-challenge">Team Effect</span>
+                    </div>
+                </div>
+                <div class="mutator-card" data-modes="common" data-name="Lifebuoy" data-category="beneficial">
+                    <div class="mutator-name">Lifebuoy</div>
+                    <div class="mutator-effect">When you revive an ally, you both gain a masking effect for 6 seconds</div>
+                    <div class="mutator-tags">
+                        <span class="tag tag-private">Team Beneficial</span>
+                    </div>
+                </div>
+                
+                <!-- Melee Mutators -->
+                <div class="mutator-card" data-modes="common" data-name="Weakness" data-category="challenge">
+                    <div class="mutator-name">Weakness</div>
+                    <div class="mutator-effect">Melee attacks do 75% less damage than they normally would</div>
+                    <div class="mutator-tags">
+                        <span class="tag tag-challenge">Melee</span>
+                    </div>
+                </div>
+                
+                <!-- Zombie Behavior Mutators -->
+                <div class="mutator-card" data-modes="common" data-name="Night Time" data-category="challenge">
+                    <div class="mutator-name">Night Time</div>
+                    <div class="mutator-effect">Many more idle zombies will be scattered throughout the levels</div>
+                    <div class="mutator-tags">
+                        <span class="tag tag-challenge">Zombie Behavior</span>
+                    </div>
+                </div>
+                <div class="mutator-card" data-modes="common" data-name="Pinned Down" data-category="challenge">
+                    <div class="mutator-name">Pinned Down</div>
+                    <div class="mutator-effect">You can be pinned to the ground by far fewer zombies than usual</div>
+                    <div class="mutator-tags">
+                        <span class="tag tag-challenge">Zombie Behavior</span>
+                    </div>
+                </div>
+                <div class="mutator-card penalty" data-modes="common" data-name="Elite Squad" data-category="challenge">
+                    <div class="mutator-name">Elite Squad <span class="penalty-star">*</span></div>
+                    <div class="mutator-effect">You can encounter unusual zombies who are very hard to kill. They're very slow but they can instantly pin you down</div>
+                    <div class="mutator-tags">
+                        <span class="tag tag-challenge">Zombie Type</span>
+                        <span class="tag tag-penalty">-50% Rewards</span>
+                    </div>
+                </div>
+                
+                <!-- Explosive Mutators -->
+                <div class="mutator-card" data-modes="common" data-name="A Dud" data-category="challenge">
+                    <div class="mutator-name">A Dud</div>
+                    <div class="mutator-effect">All explosives do 75% less damage to zombies</div>
+                    <div class="mutator-tags">
+                        <span class="tag tag-challenge">Explosive</span>
+                    </div>
+                </div>
+                <div class="mutator-card" data-modes="common" data-name="Mined corpses" data-category="challenge">
+                    <div class="mutator-name">Mined corpses</div>
+                    <div class="mutator-effect">Zombies killed by headshots explode, but only players take damage from the explosion</div>
+                    <div class="mutator-tags">
+                        <span class="tag tag-challenge">Explosive</span>
+                    </div>
+                </div>
+                
+                <!-- Zombie Defense Mutators -->
+                <div class="mutator-card" data-modes="common" data-name="Iron Hide" data-category="challenge">
+                    <div class="mutator-name">Iron Hide</div>
+                    <div class="mutator-effect">Zombies are harder to stagger with bullet hits</div>
+                    <div class="mutator-tags">
+                        <span class="tag tag-challenge">Zombie Defense</span>
+                    </div>
+                </div>
+                <div class="mutator-card" data-modes="common" data-name="Undying" data-category="challenge">
+                    <div class="mutator-name">Undying</div>
+                    <div class="mutator-effect">Special zombies will have twice as much health as usual</div>
+                    <div class="mutator-tags">
+                        <span class="tag tag-challenge">Zombie Defense</span>
+                    </div>
+                </div>
+                <div class="mutator-card" data-modes="common" data-name="Just a Scratch" data-category="challenge">
+                    <div class="mutator-name">Just a Scratch</div>
+                    <div class="mutator-effect">Zombies won't take any damage from headshots</div>
+                    <div class="mutator-tags">
+                        <span class="tag tag-challenge">Zombie Defense</span>
+                    </div>
+                </div>
+                
+                <!-- Environmental Mutators -->
+                <div class="mutator-card" data-modes="common" data-name="Airstrike" data-category="challenge">
+                    <div class="mutator-name">Airstrike</div>
+                    <div class="mutator-effect">Mortar attacks periodically occur during the wave</div>
+                    <div class="mutator-tags">
+                        <span class="tag tag-challenge">Environmental</span>
+                    </div>
+                </div>
+                
+                <!-- Beneficial Mutator -->
+                <div class="mutator-card penalty" data-modes="common" data-name="Die Hard" data-category="beneficial">
+                    <div class="mutator-name">Die Hard <span class="penalty-star">*</span></div>
+                    <div class="mutator-effect">All team members have 50% more health</div>
+                    <div class="mutator-tags">
+                        <span class="tag tag-private">Beneficial</span>
+                        <span class="tag tag-penalty">-50% Rewards</span>
+                    </div>
+                </div>
+                
+                <!-- Class Weakness Mutators -->
+                <div class="mutator-card" data-modes="common" data-name="Class Weakness: Gunslinger" data-category="class">
+                    <div class="mutator-name">Class Weakness: Gunslinger</div>
+                    <div class="mutator-effect">Gunslinger will have 50% less health and will inflict 50% less damage to enemies</div>
+                    <div class="mutator-tags">
+                        <span class="tag tag-challenge">Class Specific</span>
+                    </div>
+                </div>
+                <div class="mutator-card" data-modes="common" data-name="Class Weakness: Hellraiser" data-category="class">
+                    <div class="mutator-name">Class Weakness: Hellraiser</div>
+                    <div class="mutator-effect">Hellraiser will have 50% less health and will inflict 50% less damage to enemies</div>
+                    <div class="mutator-tags">
+                        <span class="tag tag-challenge">Class Specific</span>
+                    </div>
+                </div>
+                <div class="mutator-card" data-modes="common" data-name="Class Weakness: Medic" data-category="class">
+                    <div class="mutator-name">Class Weakness: Medic</div>
+                    <div class="mutator-effect">Medic will have 50% less health and will inflict 50% less damage to enemies</div>
+                    <div class="mutator-tags">
+                        <span class="tag tag-challenge">Class Specific</span>
+                    </div>
+                </div>
+                <div class="mutator-card" data-modes="common" data-name="Class Weakness: Fixer" data-category="class">
+                    <div class="mutator-name">Class Weakness: Fixer</div>
+                    <div class="mutator-effect">Fixer will have 50% less health and will inflict 50% less damage to enemies</div>
+                    <div class="mutator-tags">
+                        <span class="tag tag-challenge">Class Specific</span>
+                    </div>
+                </div>
+                <div class="mutator-card" data-modes="common" data-name="Class Weakness: Slasher" data-category="class">
+                    <div class="mutator-name">Class Weakness: Slasher</div>
+                    <div class="mutator-effect">Slasher will have 50% less health and will inflict 50% less damage to enemies</div>
+                    <div class="mutator-tags">
+                        <span class="tag tag-challenge">Class Specific</span>
+                    </div>
+                </div>
+                <div class="mutator-card" data-modes="common" data-name="Class Weakness: Exterminator" data-category="class">
+                    <div class="mutator-name">Class Weakness: Exterminator</div>
+                    <div class="mutator-effect">Exterminator will have 50% less health and will inflict 50% less damage to enemies</div>
+                    <div class="mutator-tags">
+                        <span class="tag tag-challenge">Class Specific</span>
+                    </div>
+                </div>
+                <div class="mutator-card" data-modes="common" data-name="Class Weakness: Dronemaster" data-category="class">
+                    <div class="mutator-name">Class Weakness: Dronemaster</div>
+                    <div class="mutator-effect">Dronemaster will have 50% less health and will inflict 50% less damage to enemies</div>
+                    <div class="mutator-tags">
+                        <span class="tag tag-challenge">Class Specific</span>
+                    </div>
+                </div>
+                <div class="mutator-card" data-modes="common" data-name="Class Weakness: Vanguard" data-category="class">
+                    <div class="mutator-name">Class Weakness: Vanguard</div>
+                    <div class="mutator-effect">Vanguard will have 50% less health and will inflict 50% less damage to enemies</div>
+                    <div class="mutator-tags">
+                        <span class="tag tag-challenge">Class Specific</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Challenge Mode Only Mutators -->
+        <section class="card">
+            <h2 class="category-title">🎰 Challenge Mode Exclusive</h2>
+            <p style="color: #6c757d; margin-bottom: 1rem;"><em>These mutators cannot be selected by players in Private Online matches, but they can be picked randomly by the game for Challenge Modes</em></p>
+            <div class="mutator-grid">
+                <div class="mutator-card" data-modes="challenge-only" data-name="Especially Dangerous" data-category="challenge">
+                    <div class="mutator-name">Especially Dangerous</div>
+                    <div class="mutator-effect">Special zombies leave poisonous clouds upon death which last for 1 minute</div>
+                    <div class="mutator-tags">
+                        <span class="tag tag-challenge">Challenge Only</span>
+                    </div>
+                </div>
+                <div class="mutator-card" data-modes="challenge-only" data-name="Sinusitis" data-category="challenge">
+                    <div class="mutator-name">Sinusitis</div>
+                    <div class="mutator-effect">The Infector's spitting distance is doubled</div>
+                    <div class="mutator-tags">
+                        <span class="tag tag-challenge">Challenge Only</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Horde Mode Exclusive -->
+        <section class="card">
+            <h2 class="category-title">🏰 Horde Mode Exclusive</h2>
+            <p style="color: #6c757d; margin-bottom: 1rem;"><em>The following mutators are only available in Horde Mode Challenges</em></p>
+            <div class="mutator-grid">
+                <div class="mutator-card" data-modes="horde" data-name="Airstrike (Horde)" data-category="horde">
+                    <div class="mutator-name">Airstrike</div>
+                    <div class="mutator-effect">The mortar shell can land in three random locations</div>
+                    <div class="mutator-tags">
+                        <span class="tag tag-horde">Horde Only</span>
+                    </div>
+                </div>
+                <div class="mutator-card" data-modes="horde" data-name="Drone Army" data-category="horde">
+                    <div class="mutator-name">Drone Army</div>
+                    <div class="mutator-effect">Each player gets a temporary drone</div>
+                    <div class="mutator-tags">
+                        <span class="tag tag-horde">Horde Only</span>
+                    </div>
+                </div>
+                <div class="mutator-card" data-modes="horde" data-name="Free Meds" data-category="horde">
+                    <div class="mutator-name">Free Meds</div>
+                    <div class="mutator-effect">Free medicine becomes available in the main shop</div>
+                    <div class="mutator-tags">
+                        <span class="tag tag-horde">Horde Only</span>
+                    </div>
+                </div>
+                <div class="mutator-card" data-modes="horde" data-name="The Pursuers" data-category="horde">
+                    <div class="mutator-name">The Pursuers</div>
+                    <div class="mutator-effect">Players can encounter slow, more resilient zombies during the wave that can revive and pursue players until the end of the wave</div>
+                    <div class="mutator-tags">
+                        <span class="tag tag-horde">Horde Only</span>
+                    </div>
+                </div>
+                <div class="mutator-card" data-modes="horde" data-name="Free Supply" data-category="horde">
+                    <div class="mutator-name">Free Supply</div>
+                    <div class="mutator-effect">Free gear bags become available in the main shop</div>
+                    <div class="mutator-tags">
+                        <span class="tag tag-horde">Horde Only</span>
+                    </div>
+                </div>
+                <div class="mutator-card" data-modes="horde" data-name="Sell-Out" data-category="horde">
+                    <div class="mutator-name">Sell-Out</div>
+                    <div class="mutator-effect">Defense kits start having a discount</div>
+                    <div class="mutator-tags">
+                        <span class="tag tag-horde">Horde Only</span>
+                    </div>
+                </div>
+                <div class="mutator-card" data-modes="horde" data-name="Taxes" data-category="horde">
+                    <div class="mutator-name">Taxes</div>
+                    <div class="mutator-effect">Defense kits start costing more</div>
+                    <div class="mutator-tags">
+                        <span class="tag tag-horde">Horde Only</span>
+                    </div>
+                </div>
+                <div class="mutator-card" data-modes="horde" data-name="My chainsaw and me" data-category="horde">
+                    <div class="mutator-name">My chainsaw and me</div>
+                    <div class="mutator-effect">A random player receives a chainsaw with infinite ammo. This player cannot use other weapons</div>
+                    <div class="mutator-tags">
+                        <span class="tag tag-horde">Horde Only</span>
+                    </div>
+                </div>
+                <div class="mutator-card" data-modes="horde" data-name="Resistant skin" data-category="horde">
+                    <div class="mutator-name">Resistant skin</div>
+                    <div class="mutator-effect">Zombies do not take electrical damage but can still be stunned</div>
+                    <div class="mutator-tags">
+                        <span class="tag tag-horde">Horde Only</span>
+                    </div>
+                </div>
+                <div class="mutator-card" data-modes="horde" data-name="Especially Dangerous (Horde)" data-category="horde">
+                    <div class="mutator-name">Especially Dangerous</div>
+                    <div class="mutator-effect">Special zombies leave poisonous clouds upon death, which disappear at the end of the wave</div>
+                    <div class="mutator-tags">
+                        <span class="tag tag-horde">Horde Only</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Tips -->
+        <section class="card">
+            <h2>💡 Tips for Using Mutators</h2>
+            <ul>
+                <li><strong>Reward Penalties:</strong> Be aware that starred (*) mutators reduce rewards by 50% in private lobbies</li>
+                <li><strong>Stacking:</strong> Multiple penalty mutators don't stack the penalty - it's always 50% max</li>
+                <li><strong>Weapon XP:</strong> You still earn weapon XP normally even with penalty mutators</li>
+                <li><strong>Unique Groups:</strong> Pay attention to which mutators are in the same "unique" group - only one from each group can be active</li>
+                <li><strong>Challenge Mode:</strong> Some mutators are only available when the game randomly selects them for Challenge modes</li>
+                <li><strong>Horde Exclusive:</strong> Certain mutators only work in Horde mode and affect shop mechanics</li>
+                <li><strong>Common Mutators:</strong> You can stack multiple "common" mutators for extreme difficulty or unique combinations</li>
+                <li><strong>Experimentation:</strong> Mix and match mutators for unique gameplay experiences - some combinations create interesting synergies</li>
+            </ul>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <p>&copy; 2024 WWZ: Aftermath Guide. Unofficial fan resource.</p>
+        </div>
+    </footer>
+    
+    <!-- JavaScript -->
+    <script src="js/course-enhancements.js"></script>
+    <script>
+        // Simple search and filter functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('mutator-search');
+            const filters = {
+                penalty: document.getElementById('filter-penalty'),
+                beneficial: document.getElementById('filter-beneficial'),
+                challenge: document.getElementById('filter-challenge'),
+                horde: document.getElementById('filter-horde')
+            };
+            
+            function filterMutators() {
+                const searchTerm = searchInput.value.toLowerCase();
+                const cards = document.querySelectorAll('.mutator-card');
+                
+                cards.forEach(card => {
+                    const name = card.dataset.name ? card.dataset.name.toLowerCase() : '';
+                    const effect = card.querySelector('.mutator-effect').textContent.toLowerCase();
+                    const category = card.dataset.category || '';
+                    const modes = card.dataset.modes || '';
+                    const hasPenalty = card.classList.contains('penalty');
+                    
+                    let visible = true;
+                    
+                    // Search filter (name or effect)
+                    if (searchTerm && !name.includes(searchTerm) && !effect.includes(searchTerm)) {
+                        visible = false;
+                    }
+                    
+                    // Category filters
+                    if (filters.penalty.checked && !hasPenalty) visible = false;
+                    if (filters.beneficial.checked && category !== 'beneficial') visible = false;
+                    if (filters.challenge.checked && category !== 'challenge') visible = false;
+                    if (filters.horde.checked && !modes.includes('horde')) visible = false;
+                    
+                    card.style.display = visible ? 'block' : 'none';
+                });
+            }
+            
+            // Add event listeners
+            searchInput.addEventListener('input', filterMutators);
+            Object.values(filters).forEach(filter => {
+                if (filter) {
+                    filter.addEventListener('change', filterMutators);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

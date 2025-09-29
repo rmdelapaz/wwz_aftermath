@@ -1,0 +1,172 @@
+
+Mutator	Description
+Unique (one at a time)
+
+Comfort Zone	You will slowly lose your health (2% of health per second) when there are no teammates within 5 meters (16 feet) of you for more than 5 seconds.
+
+Personal Space	You will slowly lose your health (2% of health per second) when there is at least one teammate within 5 meters (16 feet) of you for more than 5 seconds.
+
+Hunger	You will begin to slowly lose your health 10 seconds after your last zombie kill (0.5% of health per second).
+Unique (one at a time)
+
+Perfect Condition	You can't die by being incapacitated, but every incapacitation will decrease your max health by 25% (but no less than 10% of it's [sic] original value).
+
+Instadeath	When your health reaches zero, you will die instantly instead of being incapacitated first.
+
+1 UP	You won't be able to respawn and get back into the fight after you die.
+
+Iron Man	You have only one chance to live. When your health reaches zero, you will die with no respawn [sic] for the remainder of the mission.
+Unique (one at a time)
+
+Special Forces*	Special zombies will arrive twice as often as usual but zombie waves will be smaller.
+
+Cannon Fodder*	There will be no special zombies but zombie waves will be more numerous.
+Unique (one at a time)
+
+Crossbow Fiesta	Everyone gets a free crossbow and can't have any other primary weapon.
+
+Shotgun Fiesta	Every player gets a shotgun and can only find shotguns as primary and secondary weapons on the mission.
+
+Wild West	Everyone gets a repeating rifle and a revolver but can't have any other weapons.
+Unique (one at a time)
+
+Restless Hordes	Zombie waves will arrive twice as often.
+
+Light Waves*	Zombie waves will be twice shorter.
+Unique (one at a time)
+
+All Flash, No Bang	There will be more primary and secondary weapons scattered throughout the level, but you won't find ammo crates.
+
+Heavy Hitters*	You'll find many more heavy weapons than usual on the mission.
+
+Gun Shortage	The only new weapons you'll find on the mission are heavy weapons. Heavy weapons have twice more ammo.
+
+Looting Is a Crime	You will find far fewer pickups in the mission.
+Unique (one at a time)
+
+Nemesis	You will be chased throughout the entire mission by a Bull that can't be killed.
+
+Hot-tempered Bull	An unusual Bull appears. An explosion occurs each time a grabbed survivor is smashed against the ground.
+Common (several can be used at once)
+
+Empty Pockets	Carried ammo for primary and secondary weapons reduced by 50%.
+
+Ammo Dump	When reloading a weapon, all ammo left in the magazine will be lost.
+
+Low Capacity	Primary and secondary weapon magazines are reduced by 50%.
+
+Rookie	All your class perks except for the first one won't work.
+
+Slow	You can't sprint.
+
+Asthma	You will slowly lose your health (3% per second) when sprinting.
+
+Small Pharma	You won't find any medical items on the mission.
+
+Defenseless	You won't find any defense kits or defenses on the mission. Heavy weapons have more ammo.
+
+Shaky Hands	Shooting on the move and without aiming is extremely inaccurate.
+
+Limited Reach	All firearms will deal insignificant damage on [sic] distance longer than 50 meters (165 feet)
+
+Thief	No ammo crates, but each melee kill restores 3% of your primary and secondary weapon's ammo. +50% melee damage to zombies.
+
+Looter	You won't find equipment bags on the mission, but your equipment will be constantly regenerating (100 seconds to replenish to maximum).
+
+Revenge	Team members will produce a huge explosion when they die.
+
+I Feel Your Pain	A randomly chosen player will have 100% more health, but all damage taken by the team redirects to him. If he dies, it's game over.
+
+Treason	Friendly fire is tripled for the whole team.
+
+Weakness	Melee attacks do 75% less damage than they normally would.
+
+Night Time	Many more idle zombies will be scattered throughout the levels.
+
+Pinned Down	You can be pinned to the ground by far fewer zombies than usual.
+
+Elite Squad*	You can encounter unusual zombies who are very hard to kill. They're very slow but they can instantly pin you down.
+
+A Dud	All explosives do 75% less damage to zombies.
+
+Iron Hide	Zombies are harder to stagger with bullet hits.
+
+Undying	Special zombies will have twice as much health as usual.
+
+Just a Scratch	Zombies won't take any damage from headshots.
+
+Chainsaw Massacre	Only chainsaws are available as heavy weapons for the entire mission.
+
+Die Hard*	All team members have 50% more health.
+
+Class Weakness: Gunslinger	Gunslinger will have 50% less health and will inflict 50% less damage to enemies.
+
+Class Weakness: Hellraiser	Hellraiser will have 50% less health and will inflict 50% less damage to enemies.
+
+Class Weakness: Medic	Medic will have 50% less health and will inflict 50% less damage to enemies.
+
+Class Weakness: Fixer	Fixer will have 50% less health and will inflict 50% less damage to enemies.
+
+Class Weakness: Slasher	Slasher will have 50% less health and will inflict 50% less damage to enemies.
+
+Class Weakness: Exterminator	Exterminator will have 50% less health and will inflict 50% less damage to enemies.
+
+Class Weakness: Dronemaster	Dronemaster will have 50% less health and will inflict 50% less damage to enemies.
+
+Class Weakness: Vanguard	Vanguard will have 50% less health and will inflict 50% less damage to enemies.
+
+Airstrike	Mortar attacks periodically occur during the wave.
+
+The Impaler	Health is restored on a melee kill, but medkits are no longer found on the mission.
+
+What was that boom?	All primary weapons have explosive ammo.
+
+Double benefit	All secondary weapons deal double damage.
+
+Lifebuoy	When you revive an ally, you both gain a masking effect for 6 seconds.
+
+Leg Day	When climbing, the player loses some health and all stamina.
+
+Primary Weakness	Primary weapon damage is reduced by 75%.
+
+Healing Explosions	Explosions from devices and heavy weapons restore health.
+
+Mined corpses	Zombies killed by headshots explode, but only players take damage from the explosion.
+
+Homeopathy	After receiving healing from medical items, you lose the ability to sprint for 20 seconds.
+
+Expired Medicine	You will find twice as many medkits than usual on the mission, but medkits heal 50% less.
+
+Advertisement
+Cannot be chosen by players
+These mutators cannot be selected by players in Private Online matches, but they can be picked randomly by the game for Challenge Modes.
+
+Mutator	Description
+
+Especially Dangerous	Special zombies leave poisonous clouds upon death which last for 1 minute
+
+Sinusitis	The Infector's spitting distance is doubled
+Exclusive to the Horde Mode
+The following mutators are only available in Horde Mode Challenges.
+
+Mutator	Description
+
+Airstrike	The mortar shell can land in three random locations.
+
+Drone Army	Each player gets a temporary drone.
+
+Free Meds	Free medicine becomes available in the main shop.
+
+The Pursuers	Players can encounter slow, more resilient zombies during the wave that can revive and pursue players until the end of the wave.
+
+Free Supply	Free gear bags become available in the main shop.
+
+Sell-Out	Defense kits start having a discount.
+
+Taxes	Defense kits start costing more.
+
+My chainsaw and me	A random player receives a chainsaw with infinite ammo. This player cannot use other weapons.
+
+Resistant skin	Zombies do not take electrical damage but can still be stunned.
+
+Especially Dangerous	Special zombies leave poisonous clouds upon death, which disappear at the end of the wave
