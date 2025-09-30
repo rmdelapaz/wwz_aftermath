@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Virus Sample Locations Guide - Find all hidden virus samples in World War Z: Aftermath">
+    <meta name="keywords" content="World War Z, Aftermath, virus samples, collectibles, hidden items, achievements">
+    <meta name="author" content="WWZ Guide Team">
+    <title>Virus Sample Locations - World War Z: Aftermath</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="styles/main.css">
+    <style>
+        /* Virus Sample specific styling */
+        .virus-header {
+            background: linear-gradient(135deg, #00b894 0%, #00cec9 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .sample-icon {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background: linear-gradient(135deg, #00b894, #00cec9);
+            border-radius: 50%;
+            color: white;
+            text-align: center;
+            line-height: 30px;
+            margin-right: 0.5rem;
+            font-weight: bold;
+        }
+        
+        .episode-section {
+            margin: 2rem 0;
+        }
+        
+        .episode-header {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-left: 4px solid #00b894;
+            margin-bottom: 1rem;
+            border-radius: 4px;
+        }
+        
+        .mission-card {
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .mission-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .sample-count {
+            display: inline-block;
+            background: #00b894;
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            margin-left: 0.5rem;
+        }
+        
+        .sample-list {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0;
+        }
+        
+        .sample-item {
+            padding: 1rem;
+            background: #e7f9f9;
+            border-left: 3px solid #00b894;
+            margin-bottom: 0.75rem;
+            border-radius: 4px;
+            transition: background 0.2s;
+        }
+        
+        .sample-item:hover {
+            background: #c8f0ef;
+        }
+        
+        .sample-name {
+            font-weight: bold;
+            color: #495057;
+            margin-bottom: 0.5rem;
+        }
+        
+        .sample-location {
+            color: #6c757d;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 0.5rem;
+        }
+        
+        .sample-tip {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 0.5rem 1rem;
+            margin-top: 0.5rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            color: #856404;
+        }
+        
+        .difficulty-note {
+            display: inline-block;
+            background: #dc3545;
+            color: white;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-left: 0.5rem;
+        }
+        
+        .progress-tracker {
+            background: white;
+            border: 2px solid #00b894;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 30px;
+            background: #e9ecef;
+            border-radius: 50px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #00b894, #00cec9);
+            transition: width 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .completion-checkbox {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #00b894;
+            border-radius: 4px;
+            margin-right: 0.5rem;
+            cursor: pointer;
+            vertical-align: middle;
+        }
+        
+        .reward-box {
+            background: linear-gradient(135deg, #fdcb6e 0%, #f39c12 100%);
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+            color: #6c5e00;
+        }
+        
+        .challenge-info {
+            background: #ffebee;
+            border: 2px solid #f44336;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .challenge-info h3 {
+            color: #c62828;
+            margin-bottom: 0.5rem;
+        }
+        
+        .filter-buttons {
+            display: flex;
+            gap: 0.5rem;
+            margin: 1rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            padding: 0.5rem 1rem;
+            background: white;
+            border: 2px solid #00b894;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .filter-btn:hover {
+            background: #00b894;
+            color: white;
+        }
+        
+        .filter-btn.active {
+            background: #00b894;
+            color: white;
+        }
+        
+        .map-reference {
+            background: #e7f5ff;
+            border: 2px solid #0288d1;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+            text-align: center;
+        }
+        
+        .difficulty-filter {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            margin: 1rem 0;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">⚔️ WWZ: Aftermath Guide</a>
+            <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-expanded="false">☰</button>
+            <div class="nav-links" id="nav-links">
+                <a href="index.html">Home</a>
+                <a href="beginner_guide.html">Beginner Guide</a>
+                <div class="dropdown">
+                    <a href="classes_overview.html" class="dropdown-toggle">Classes ▼</a>
+                    <div class="dropdown-content">
+                        <a href="classes_overview.html">Overview</a>
+                        <a href="class_medic.html">Medic</a>
+                        <a href="class_fixer.html">Fixer</a>
+                        <a href="class_gunslinger.html">Gunslinger</a>
+                        <a href="class_exterminator.html">Exterminator</a>
+                        <a href="class_slasher.html">Slasher</a>
+                        <a href="class_hellraiser.html">Hellraiser</a>
+                        <a href="class_dronemaster.html">Dronemaster</a>
+                        <a href="class_vanguard.html">Vanguard</a>
+                    </div>
+                </div>
+                <a href="weapons_upgrades.html">Weapons</a>
+                <a href="virus_samples.html" class="current">Virus Samples</a>
+                <a href="currencies_progression.html">Progression</a>
+                <a href="horde_endgame.html">Endgame</a>
+                <button id="theme-toggle" aria-label="Toggle theme">🌙</button>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Header -->
+        <header class="virus-header">
+            <h1>🧪 Virus Sample Locations Guide</h1>
+            <p>Collect virus samples to unlock powerful permanent upgrades</p>
+            <p><small>Complete guide for all virus sample locations across all campaigns</small></p>
+        </header>
+        
+        <!-- Overview Section -->
+        <section class="card">
+            <h2>📊 Virus Sample System Overview</h2>
+            <div class="progress-tracker">
+                <h3>Collection Progress</h3>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 0%;">
+                        0 / 30 Virus Samples Collected
+                    </div>
+                </div>
+                <p style="margin-top: 1rem; color: #6c757d;">Virus samples are account-wide collectibles that permanently unlock powerful upgrades in the Virus Sample Lab.</p>
+            </div>
+            
+            <div class="challenge-info">
+                <h3>⚠️ Important: Difficulty Requirement</h3>
+                <p><strong>Virus samples ONLY spawn on Hard difficulty or higher!</strong></p>
+                <ul>
+                    <li>Not available on Easy or Normal difficulty</li>
+                    <li>Available on Hard, Insane, and Extreme</li>
+                    <li>Same locations regardless of difficulty (Hard+)</li>
+                    <li>Once collected, permanently unlocked for your account</li>
+                    <li>Can be collected in any order</li>
+                </ul>
+            </div>
+        </section>
+        
+        <!-- Rewards Section -->
+        <section class="card">
+            <h2>🏆 Virus Sample Rewards</h2>
+            <p>Each virus sample you collect can be spent in the Virus Sample Lab to unlock permanent upgrades:</p>
+            
+            <div class="reward-box">
+                <h3>Available Upgrades (1 sample each):</h3>
+                <ul>
+                    <li><strong>Health Boost I-V:</strong> +5% health per level (max +25%)</li>
+                    <li><strong>Equipment Cooldown I-V:</strong> -3% cooldown per level (max -15%)</li>
+                    <li><strong>Melee Damage I-V:</strong> +5% damage per level (max +25%)</li>
+                    <li><strong>Reload Speed I-V:</strong> +3% speed per level (max +15%)</li>
+                    <li><strong>Weapon Damage I-V:</strong> +2% damage per level (max +10%)</li>
+                    <li><strong>Special Infected Resistance I-V:</strong> +10% resistance per level (max +50%)</li>
+                </ul>
+            </div>
+            
+            <p style="margin-top: 1rem;"><strong>Note:</strong> These upgrades apply to ALL classes and persist across all game modes!</p>
+        </section>
+        
+        <!-- Tips Section -->
+        <section class="card">
+            <h2>💡 Virus Sample Hunting Tips</h2>
+            <ul>
+                <li><strong>Difficulty:</strong> Must play on Hard or higher - samples don't spawn on Easy/Normal</li>
+                <li><strong>Visual Cues:</strong> Look for glowing green vials, often in hard-to-reach places</li>
+                <li><strong>Audio Cues:</strong> Samples emit a faint bubbling sound when nearby</li>
+                <li><strong>Team Collection:</strong> Only one player needs to collect it for the whole team</li>
+                <li><strong>Exploration:</strong> Most samples are off the main path - explore thoroughly</li>
+                <li><strong>Before Defense:</strong> Many are placed before triggering defense sequences</li>
+                <li><strong>Class Choice:</strong> Use Slasher for speed or Medic for survivability</li>
+                <li><strong>Private Lobbies:</strong> Use private games to explore without pressure</li>
+                <li><strong>Checkpoint System:</strong> Samples save at checkpoints - you don't need to finish the mission</li>
+            </ul>
+        </section>
+        
+        <!-- Filter Section -->
+        <section class="card">
+            <h2>🔍 Filter by Episode</h2>
+            <div class="filter-buttons">
+                <button class="filter-btn active" onclick="filterEpisodes('all')">All Episodes</button>
+                <button class="filter-btn" onclick="filterEpisodes('newyork')">New York (4)</button>
+                <button class="filter-btn" onclick="filterEpisodes('jerusalem')">Jerusalem (3)</button>
+                <button class="filter-btn" onclick="filterEpisodes('moscow')">Moscow (4)</button>
+                <button class="filter-btn" onclick="filterEpisodes('tokyo')">Tokyo (4)</button>
+                <button class="filter-btn" onclick="filterEpisodes('marseille')">Marseille (3)</button>
+                <button class="filter-btn" onclick="filterEpisodes('rome')">Rome (3)</button>
+                <button class="filter-btn" onclick="filterEpisodes('kamchatka')">Kamchatka (3)</button>
+                <button class="filter-btn" onclick="filterEpisodes('phoenix')">Phoenix (3)</button>
+                <button class="filter-btn" onclick="filterEpisodes('daily')">Daily/Weekly (3)</button>
+            </div>
+        </section>
+        
+        <!-- Episode 1: New York -->
+        <section class="episode-section" data-episode="newyork">
+            <div class="episode-header">
+                <h2>🗽 New York <span class="sample-count">4 Virus Samples</span></h2>
+            </div>
+            
+            <div class="mission-card">
+                <h3>Chapter 1: Descent <span class="sample-icon">🧪</span></h3>
+                <ul class="sample-list">
+                    <li class="sample-item">
+                        <input type="checkbox" class="completion-checkbox" id="ny1-virus">
+                        <label for="ny1-virus">
+                            <div class="sample-name">Virus Sample #1 <span class="difficulty-note">HARD+</span></div>
+                            <div class="sample-location">
+                                <strong>Location:</strong> After leaving the subway tunnels and entering the mall area, before going up the escalators, turn right into the side store (sporting goods shop). The sample is on a shelf in the back corner.
+                            </div>
+                            <div class="sample-tip">
+                                💡 Tip: Easy to miss - make sure to explore the mall thoroughly before ascending the escalators!
+                            </div>
+                        </label>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="mission-card">
+                <h3>Chapter 2: Tunnel Vision <span class="sample-icon">🧪</span></h3>
+                <ul class="sample-list">
+                    <li class="sample-item">
+                        <input type="checkbox" class="completion-checkbox" id="ny2-virus">
+                        <label for="ny2-virus">
+                            <div class="sample-name">Virus Sample #2 <span class="difficulty-note">HARD+</span></div>
+                            <div class="sample-location">
+                                <strong>Location:</strong> After the first train defense, when you enter the maintenance tunnels, look for a side room on the left with red emergency lighting. The sample is on a workbench inside.
+                            </div>
+                            <div class="sample-tip">
+                                💡 Tip: This room is dark - use your flashlight or look for the green glow!
+                            </div>
+                        </label>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="mission-card">
+                <h3>Chapter 3: Hell and High Water <span class="sample-icon">🧪</span></h3>
+                <ul class="sample-list">
+                    <li class="sample-item">
+                        <input type="checkbox" class="completion-checkbox" id="ny3-virus">
+                        <label for="ny3-virus">
+                            <div class="sample-name">Virus Sample #3 <span class="difficulty-note">HARD+</span></div>
+                            <div class="sample-location">
+                                <strong>Location:</strong> In the museum section, after entering the main hall with the T-Rex skeleton, go to the second floor balcony. The sample is in a display case on the left side.
+                            </div>
+                            <div class="sample-tip">
+                                💡 Tip: Take the stairs on either side of the T-Rex to reach the second floor!
+                            </div>
+                        </label>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="mission-card">
+                <h3>Chapter 4: Dead in the Water <span class="sample-icon">🧪</span></h3>
+                <ul class="sample-list">
+                    <li class="sample-item">
+                        <input type="checkbox" class="completion-checkbox" id="ny4-virus">
+                        <label for="ny4-virus">
+                            <div class="sample-name">Virus Sample #4 <span class="difficulty-note">HARD+</span></div>
+                            <div class="sample-location">
+                                <strong>Location:</strong> On the ferry, after clearing the car deck but before going to the upper decks, check the medical bay on the port side (left when facing forward). The sample is in a medical cabinet.
+                            </div>
+                            <div class="sample-tip">
+                                💡 Tip: Look for the red cross signs indicating the medical area!
+                            </div>
+                        </label>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        
+        <!-- Episode 2: Jerusalem -->
+        <section class="episode-section" data-episode="jerusalem">
+            <div class="episode-header">
+                <h2>🏛️ Jerusalem <span class="sample-count">3 Virus Samples</span></h2>
+            </div>
+            
+            <div class="mission-card">
+                <h3>Chapter 1: Brain Surgery <span class="sample-icon">🧪</span></h3>
+                <ul class="sample-list">
+                    <li class="sample-item">
+                        <input type="checkbox" class="completion-checkbox" id="je1-virus">
+                        <label for="je1-virus">
+                            <div class="sample-name">Virus Sample #5 <span class="difficulty-note">HARD+</span></div>
+                            <div class="sample-location">
+                                <strong>Location:</strong> In the hospital, after taking the elevator to the research floor, enter the laboratory on the right. The sample is on a research table near the microscopes.
+                            </div>
+                            <div class="sample-tip">
+                                💡 Tip: This is before the Greengold rescue - explore the lab thoroughly!
+                            </div>
+                        </label>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="mission-card">
+                <h3>Chapter 2: Dead Sea Stroll <span class="sample-icon">🧪</span></h3>
+                <ul class="sample-list">
+                    <li class="sample-item">
+                        <input type="checkbox" class="completion-checkbox" id="je2-virus">
+                        <label for="je2-virus">
+                            <div class="sample-name">Virus Sample #6 <span class="difficulty-note">HARD+</span></div>
+                            <div class="sample-location">
+                                <strong>Location:</strong> At the archaeological site, after passing through the ruins but before the gas station, look for a research tent on the left side. The sample is on a folding table inside.
+                            </div>
+                            <div class="sample-tip">
+                                💡 Tip: The tent has archaeological equipment and maps inside!
+                            </div>
+                        </label>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="mission-card">
+                <h3>Chapter 3: Tech Support <span class="sample-icon">🧪</span></h3>
+                <ul class="sample-list">
+                    <li class="sample-item">
+                        <input type="checkbox" class="completion-checkbox" id="je3-virus">
+                        <label for="je3-virus">
+                            <div class="sample-name">Virus Sample #7 <span class="difficulty-note">HARD+</span></div>
+                            <div class="sample-location">
+                                <strong>Location:</strong> In the satellite facility, after restoring power but before the rooftop defense, check the server room on the second floor. The sample is behind a row of server racks.
+                            </div>
+                            <div class="sample-tip">
+                                💡 Tip: You'll need to go around the servers to reach this one!
+                            </div>
+                        </label>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        
+        <!-- Episode 3: Moscow -->
+        <section class="episode-section" data-episode="moscow">
+            <div class="episode-header">
+                <h2>❄️ Moscow <span class="sample-count">4 Virus Samples</span></h2>
+            </div>
+            
+            <div class="mission-card">
+                <h3>Chapter 1: A Sign From Above <span class="sample-icon">🧪</span></h3>
+                <ul class="sample-list">
+                    <li class="sample-item">
+                        <input type="checkbox" class="completion-checkbox" id="mo1-virus">
+                        <label for="mo1-virus">
+                            <div class="sample-name">Virus Sample #8 <span class="difficulty-note">HARD+</span></div>
+                            <div class="sample-location">
+                                <strong>Location:</strong> In the museum, after entering through the main hall, go up the stairs to the second floor. The sample is in the restricted area behind a "Staff Only" door on the right.
+                            </div>
+                            <div class="sample-tip">
+                                💡 Tip: Look for the rope barriers - the door is usually nearby!
+                            </div>
+                        </label>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="mission-card">
+                <h3>Chapter 2: Key to the City <span class="sample-icon">🧪</span></h3>
+                <ul class="sample-list">
+                    <li class="sample-item">
+                        <input type="checkbox" class="completion-checkbox" id="mo2-virus">
+                        <label for="mo2-virus">
+                            <div class="sample-name">Virus Sample #9 <span class="difficulty-note">HARD+</span></div>
+                            <div class="sample-location">
+                                <strong>Location:</strong> After entering the mansion grounds but before the courtyard defense, check the greenhouse on the left side. The sample is among the plants on a potting bench.
+                            </div>
+                            <div class="sample-tip">
+                                💡 Tip: The greenhouse has broken glass panels - look for the intact section!
+                            </div>
+                        </label>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="mission-card">
+                <h3>Chapter 3: Battle of Nerves <span class="sample-icon">🧪</span></h3>
+                <ul class="sample-list">
+                    <li class="sample-item">
+                        <input type="checkbox" class="completion-checkbox" id="mo3-virus">
+                        <label for="mo3-virus">
+                            <div class="sample-name">Virus Sample #10 <span class="difficulty-note">HARD+</span></div>
+                            <div class="sample-location">
+                                <strong>Location:</strong> In the bunker complex, after passing through the command center, look for a medical station on the right before the final elevator. The sample is in a medical supply crate.
+                            </div>
+                            <div class="sample-tip">
+                                💡 Tip: This is easy to miss if rushing to extraction - check every room!
+                            </div>
+                        </label>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="mission-card">
+                <h3>Chapter 4: Resurrection <span class="sample-icon">🧪</span></h3>
+                <ul class="sample-list">
+                    <li class="sample-item">
+                        <input type="checkbox" class="completion-checkbox" id="mo4-virus">
+                        <label for="mo4-virus">
+                            <div class="sample-name">Virus Sample #11 <span class="difficulty-note">HARD+</span></div>
+                            <div class="sample-location">
+                                <strong>Location:</strong> In the church area, after clearing the graveyard but before entering the catacombs, check the small chapel on the right. The sample is on the altar.
+                            </div>
+                            <div class="sample-tip">
+                                💡 Tip: The chapel door may be partially hidden by debris!
+                            </div>
+                        </label>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        
+        <!-- Episode 4: Tokyo -->
+        <section class="episode-section" data-episode="tokyo">
+            <div class="episode-header">
+                <h2>🗼 Tokyo <span class="sample-count">4 Virus Samples</span></h2>
+            </div>
+            
+            <div class="mission-card">
+                <h3>Chapter 1: Setting Sun <span class="sample-icon">🧪</span></h3>
+                <ul class="sample-list">
+                    <li class="sample-item">
+                        <input type="checkbox" class="completion-checkbox" id="to1-virus">
+                        <label for="to1-virus">
+                            <div class="sample-name">Virus Sample #12 <span class="difficulty-note">HARD+</span></div>
+                            <div class="sample-location">
+                                <strong>Location:</strong> After the bus crash sequence, before entering the main street, check the convenience store on the right. The sample is behind the counter near the cash register.
+                            </div>
+                            <div class="sample-tip">
+                                💡 Tip: Look for the bright store signs - it's a Family Mart!
+                            </div>
+                        </label>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="mission-card">
+                <h3>Chapter 2: Final Call <span class="sample-icon">🧪</span></h3>
+                <ul class="sample-list">
+                    <li class="sample-item">
+                        <input type="checkbox" class="completion-checkbox" id="to2-virus">
+                        <label for="to2-virus">
+                            <div class="sample-name">Virus Sample #13 <span class="difficulty-note">HARD+</span></div>
+                            <div class="sample-location">
+                                <strong>Location:</strong> On the cruise ship, after clearing the pool deck but before entering the engine room, check the spa area on the upper deck. The sample is in the massage room.
+                            </div>
+                            <div class="sample-tip">
+                                💡 Tip: The spa has a "Wellness Center" sign above the entrance!
+                            </div>
+                        </label>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="mission-card">
+                <h3>Chapter 3: Cruise Control <span class="sample-icon">🧪</span></h3>
+                <ul class="sample-list">
+                    <li class="sample-item">
+                        <input type="checkbox" class="completion-checkbox" id="to3-virus">
+                        <label for="to3-virus">
+                            <div class="sample-name">Virus Sample #14 <span class="difficulty-note">HARD+</span></div>
+                            <div class="sample-location">
+                                <strong>Location:</strong> In the cargo hold, after lowering the first container but before the second crane sequence, check the shipping office on the left. The sample is on a desk with shipping manifests.
+                            </div>
+                            <div class="sample-tip">
+                                💡 Tip: The office has windows overlooking the cargo area!
+                            </div>
+                        </label>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="mission-card">
+                <h3>Chapter 4: Dead Ahead (Aftermath DLC) <span class="sample-icon">🧪</span></h3>
+                <ul class="sample-list">
+                    <li class="sample-item">
+                        <input type="checkbox" class="completion-checkbox" id="to4-virus">
+                        <label for="to4-virus">
+                            <div class="sample-name">Virus Sample #15 <span class="difficulty-note">HARD+</span></div>
+                            <div class="sample-location">
+                                <strong>Location:</strong> In the harbor district, after leaving the warehouse but before the final stand, check the harbor master's office on the pier. The sample is in a locked cabinet (shoot the lock).
+                            </div>
+                            <div class="sample-tip">
+                                💡 Tip: Listen for the sound of glass breaking when you shoot the cabinet!
+                            </div>
+                        </label>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        
+        <!-- Additional Episodes -->
+        <section class="episode-section" data-episode="marseille">
+            <div class="episode-header">
+                <h2>🇫🇷 Marseille <span class="sample-count">3 Virus Samples</span></h2>
+            </div>
+            
+            <div class="mission-card">
+                <h3>Chapter 1: French Resistance <span class="sample-icon">🧪</span></h3>
+                <ul class="sample-list">
+                    <li class="sample-item">
+                        <input type="checkbox" class="completion-checkbox" id="ma1-virus">
+                        <label for="ma1-virus">
+                            <div class="sample-name">Virus Sample #16 <span class="difficulty-note">HARD+</span></div>
+                            <div class="sample-location">
+                                <strong>Location:</strong> In the Fort area, after passing through the armory but before the courtyard defense, check the officer's quarters on the second floor. The sample is in a desk drawer.
+                            </div>
+                            <div class="sample-tip">
+                                💡 Tip: The office has military maps on the walls!
+                            </div>
+                        </label>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="mission-card">
+                <h3>Chapter 2: Missile Command <span class="sample-icon">🧪</span></h3>
+                <ul class="sample-list">
+                    <li class="sample-item">
+                        <input type="checkbox" class="completion-checkbox" id="ma2-virus">
+                        <label for="ma2-virus">
+                            <div class="sample-name">Virus Sample #17 <span class="difficulty-note">HARD+</span></div>
+                            <div class="sample-location">
+                                <strong>Location:</strong> In the missile silo, after activating the first console but before the second, check the maintenance tunnel on the lower level. The sample is on a tool cart.
+                            </div>
+                            <div class="sample-tip">
+                                💡 Tip: Use the ladder near the first console to access the lower level!
+                            </div>
+                        </label>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="mission-card">
+                <h3>Chapter 3: Last Bastion <span class="sample-icon">🧪</span></h3>
+                <ul class="sample-list">
+                    <li class="sample-item">
+                        <input type="checkbox" class="completion-checkbox" id="ma3-virus">
+                        <label for="ma3-virus">
+                            <div class="sample-name">Virus Sample #18 <span class="difficulty-note">HARD+</span></div>
+                            <div class="sample-location">
+                                <strong>Location:</strong> At the dam facility, after restoring power but before the final defense, check the control room observation deck. The sample is on a console overlooking the dam.
+                            </div>
+                            <div class="sample-tip">
+                                💡 Tip: The observation deck has large windows with a view of the water!
+                            </div>
+                        </label>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        
+        <!-- Rome Episode -->
+        <section class="episode-section" data-episode="rome">
+            <div class="episode-header">
+                <h2>🏛️ Rome (Aftermath DLC) <span class="sample-count">3 Virus Samples</span></h2>
+            </div>
+            
+            <div class="mission-card">
+                <h3>Chapter 1: Vatican Visit <span class="sample-icon">🧪</span></h3>
+                <ul class="sample-list">
+                    <li class="sample-item">
+                        <input type="checkbox" class="completion-checkbox" id="ro1-virus">
+                        <label for="ro1-virus">
+                            <div class="sample-name">Virus Sample #19 <span class="difficulty-note">HARD+</span></div>
+                            <div class="sample-location">
+                                <strong>Location:</strong> In the Vatican archives, after entering the library but before triggering the defense, check the restricted section behind the red rope. The sample is on an ancient manuscript table.
+                            </div>
+                            <div class="sample-tip">
+                                💡 Tip: Look for the ornate golden door - it's usually locked but can be opened!
+                            </div>
+                        </label>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="mission-card">
+                <h3>Chapter 2: Colosseum Crisis <span class="sample-icon">🧪</span></h3>
+                <ul class="sample-list">
+                    <li class="sample-item">
+                        <input type="checkbox" class="completion-checkbox" id="ro2-virus">
+                        <label for="ro2-virus">
+                            <div class="sample-name">Virus Sample #20 <span class="difficulty-note">HARD+</span></div>
+                            <div class="sample-location">
+                                <strong>Location:</strong> Inside the Colosseum, after entering the arena floor but before going underground, check the emperor's box (elevated seating area). The sample is on a marble pedestal.
+                            </div>
+                            <div class="sample-tip">
+                                💡 Tip: Use the side stairs to reach the elevated seating areas!
+                            </div>
+                        </label>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="mission-card">
+                <h3>Chapter 3: Eternal City <span class="sample-icon">🧪</span></h3>
+                <ul class="sample-list">
+                    <li class="sample-item">
+                        <input type="checkbox" class="completion-checkbox" id="ro3-virus">
+                        <label for="ro3-virus">
+                            <div class="sample-name">Virus Sample #21 <span class="difficulty-note">HARD+</span></div>
+                            <div class="sample-location">
+                                <strong>Location:</strong> At the Spanish Steps, after clearing the plaza but before the final push, check the luxury boutique on the right. The sample is in the storage room behind the counter.
+                            </div>
+                            <div class="sample-tip">
+                                💡 Tip: The boutique has designer handbags in the window display!
+                            </div>
+                        </label>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        
+        <!-- Kamchatka Episode -->
+        <section class="episode-section" data-episode="kamchatka">
+            <div class="episode-header">
+                <h2>🏔️ Kamchatka (Aftermath DLC) <span class="sample-count">3 Virus Samples</span></h2>
+            </div>
+            
+            <div class="mission-card">
+                <h3>Chapter 1: Frozen Wasteland <span class="sample-icon">🧪</span></h3>
+                <ul class="sample-list">
+                    <li class="sample-item">
+                        <input type="checkbox" class="completion-checkbox" id="ka1-virus">
+                        <label for="ka1-virus">
+                            <div class="sample-name">Virus Sample #22 <span class="difficulty-note">HARD+</span></div>
+                            <div class="sample-location">
+                                <strong>Location:</strong> At the research station, after entering the main building but before the generator room, check the biology lab on the second floor. The sample is in a specimen freezer.
+                            </div>
+                            <div class="sample-tip">
+                                💡 Tip: The freezer requires power - make sure the emergency generator is on!
+                            </div>
+                        </label>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="mission-card">
+                <h3>Chapter 2: Ice Breaker <span class="sample-icon">🧪</span></h3>
+                <ul class="sample-list">
+                    <li class="sample-item">
+                        <input type="checkbox" class="completion-checkbox" id="ka2-virus">
+                        <label for="ka2-virus">
+                            <div class="sample-name">Virus Sample #23 <span class="difficulty-note">HARD+</span></div>
+                            <div class="sample-location">
+                                <strong>Location:</strong> On the icebreaker ship, after clearing the deck but before entering the bridge, check the medical bay below deck. The sample is in a refrigerated medical unit.
+                            </div>
+                            <div class="sample-tip">
+                                💡 Tip: Follow the signs for "Медпункт" (Medical Station in Russian)!
+                            </div>
+                        </label>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="mission-card">
+                <h3>Chapter 3: Volcanic Escape <span class="sample-icon">🧪</span></h3>
+                <ul class="sample-list">
+                    <li class="sample-item">
+                        <input type="checkbox" class="completion-checkbox" id="ka3-virus">
+                        <label for="ka3-virus">
+                            <div class="sample-name">Virus Sample #24 <span class="difficulty-note">HARD+</span></div>
+                            <div class="sample-location">
+                                <strong>Location:</strong> Near the geothermal plant, after passing the lava flows but before the extraction point, check the monitoring station. The sample is on equipment near seismic monitors.
+                            </div>
+                            <div class="sample-tip">
+                                💡 Tip: The station has warning signs about volcanic activity!
+                            </div>
+                        </label>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        
+        <!-- Phoenix Episode -->
+        <section class="episode-section" data-episode="phoenix">
+            <div class="episode-header">
+                <h2>🌵 Phoenix (Aftermath DLC) <span class="sample-count">3 Virus Samples</span></h2>
+            </div>
+            
+            <div class="mission-card">
+                <h3>Chapter 1: Desert Storm <span class="sample-icon">🧪</span></h3>
+                <ul class="sample-list">
+                    <li class="sample-item">
+                        <input type="checkbox" class="completion-checkbox" id="ph1-virus">
+                        <label for="ph1-virus">
+                            <div class="sample-name">Virus Sample #25 <span class="difficulty-note">HARD+</span></div>
+                            <div class="sample-location">
+                                <strong>Location:</strong> At the abandoned gas station, after clearing the convenience store but before moving to the motel, check the mechanic's garage. The sample is on a workbench near car parts.
+                            </div>
+                            <div class="sample-tip">
+                                💡 Tip: The garage has a car on the lift - check underneath too!
+                            </div>
+                        </label>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="mission-card">
+                <h3>Chapter 2: Stadium Siege <span class="sample-icon">🧪</span></h3>
+                <ul class="sample-list">
+                    <li class="sample-item">
+                        <input type="checkbox" class="completion-checkbox" id="ph2-virus">
+                        <label for="ph2-virus">
+                            <div class="sample-name">Virus Sample #26 <span class="difficulty-note">HARD+</span></div>
+                            <div class="sample-location">
+                                <strong>Location:</strong> In the baseball stadium, after reaching the field but before the defense, check the team locker room. The sample is in a player's locker (#42).
+                            </div>
+                            <div class="sample-tip">
+                                💡 Tip: Look for the home team's locker room - it has trophies displayed!
+                            </div>
+                        </label>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="mission-card">
+                <h3>Chapter 3: Canyon Run <span class="sample-icon">🧪</span></h3>
+                <ul class="sample-list">
+                    <li class="sample-item">
+                        <input type="checkbox" class="completion-checkbox" id="ph3-virus">
+                        <label for="ph3-virus">
+                            <div class="sample-name">Virus Sample #27 <span class="difficulty-note">HARD+</span></div>
+                            <div class="sample-location">
+                                <strong>Location:</strong> At the ranger station near the canyon, after clearing the visitor center but before the bridge sequence, check the gift shop. The sample is hidden behind souvenir displays.
+                            </div>
+                            <div class="sample-tip">
+                                💡 Tip: Move the rotating postcard rack to find this hidden sample!
+                            </div>
+                        </label>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        
+        <!-- Daily/Weekly Challenge Maps -->
+        <section class="episode-section" data-episode="daily">
+            <div class="episode-header">
+                <h2>🎯 Challenge Mode Maps <span class="sample-count">3 Virus Samples</span></h2>
+            </div>
+            
+            <div class="mission-card">
+                <h3>Hospital Havoc (Weekly Challenge) <span class="sample-icon">🧪</span></h3>
+                <ul class="sample-list">
+                    <li class="sample-item">
+                        <input type="checkbox" class="completion-checkbox" id="ch1-virus">
+                        <label for="ch1-virus">
+                            <div class="sample-name">Virus Sample #28 <span class="difficulty-note">HARD+</span></div>
+                            <div class="sample-location">
+                                <strong>Location:</strong> In the hospital pharmacy, behind the prescription counter. Only available during specific weekly rotations.
+                            </div>
+                            <div class="sample-tip">
+                                💡 Tip: Check the weekly challenge rotation - this map appears monthly!
+                            </div>
+                        </label>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="mission-card">
+                <h3>Airport Assault (Weekly Challenge) <span class="sample-icon">🧪</span></h3>
+                <ul class="sample-list">
+                    <li class="sample-item">
+                        <input type="checkbox" class="completion-checkbox" id="ch2-virus">
+                        <label for="ch2-virus">
+                            <div class="sample-name">Virus Sample #29 <span class="difficulty-note">HARD+</span></div>
+                            <div class="sample-location">
+                                <strong>Location:</strong> In the duty-free shop area, check the luxury goods store. The sample is in the storage room.
+                            </div>
+                            <div class="sample-tip">
+                                💡 Tip: Available only during Airport Assault weekly challenges!
+                            </div>
+                        </label>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="mission-card">
+                <h3>Mall Mayhem (Weekly Challenge) <span class="sample-icon">🧪</span></h3>
+                <ul class="sample-list">
+                    <li class="sample-item">
+                        <input type="checkbox" class="completion-checkbox" id="ch3-virus">
+                        <label for="ch3-virus">
+                            <div class="sample-name">Virus Sample #30 <span class="difficulty-note">HARD+</span></div>
+                            <div class="sample-location">
+                                <strong>Location:</strong> In the food court, check the kitchen of the pizza restaurant. The sample is in the walk-in freezer.
+                            </div>
+                            <div class="sample-tip">
+                                💡 Tip: The freezer door can be tricky - shoot the handle if it won't open!
+                            </div>
+                        </label>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        
+        <!-- Summary Statistics -->
+        <section class="card">
+            <h2>📈 Collection Summary</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; text-align: center;">
+                <div style="padding: 1rem; background: #e7f9f9; border-radius: 8px;">
+                    <div style="font-size: 2rem; color: #00b894;">30</div>
+                    <div style="color: #6c757d;">Total Samples</div>
+                </div>
+                <div style="padding: 1rem; background: #e7f9f9; border-radius: 8px;">
+                    <div style="font-size: 2rem; color: #00b894;">0</div>
+                    <div style="color: #6c757d;">Collected</div>
+                </div>
+                <div style="padding: 1rem; background: #e7f9f9; border-radius: 8px;">
+                    <div style="font-size: 2rem; color: #00b894;">0%</div>
+                    <div style="color: #6c757d;">Progress</div>
+                </div>
+                <div style="padding: 1rem; background: #e7f9f9; border-radius: 8px;">
+                    <div style="font-size: 2rem; color: #00b894;">6</div>
+                    <div style="color: #6c757d;">Upgrades Available</div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Important Notes -->
+        <section class="card">
+            <h2>📝 Important Notes</h2>
+            <ul>
+                <li><strong>Difficulty Requirement:</strong> Virus samples ONLY appear on Hard difficulty or higher</li>
+                <li><strong>Account-Wide:</strong> Once collected, samples are permanent across all characters</li>
+                <li><strong>Team Collection:</strong> Only one player needs to grab the sample for everyone to get credit</li>
+                <li><strong>Checkpoint Saves:</strong> Samples save at checkpoints - you don't need to complete the mission</li>
+                <li><strong>Visual/Audio Cues:</strong> Look for green glowing vials and listen for bubbling sounds</li>
+                <li><strong>No Respawn Penalty:</strong> You keep collected samples even if you fail the mission</li>
+                <li><strong>Challenge Rotation:</strong> Some samples are only available during specific weekly challenges</li>
+            </ul>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <p>&copy; 2024 WWZ: Aftermath Guide. Unofficial fan resource.</p>
+        </div>
+    </footer>
+    
+    <!-- JavaScript -->
+    <script src="js/course-enhancements.js"></script>
+    <script>
+        // Filter episodes
+        function filterEpisodes(episode) {
+            const sections = document.querySelectorAll('.episode-section');
+            const buttons = document.querySelectorAll('.filter-btn');
+            
+            // Update active button
+            buttons.forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            event.target.classList.add('active');
+            
+            // Show/hide sections
+            sections.forEach(section => {
+                if (episode === 'all') {
+                    section.style.display = 'block';
+                } else {
+                    section.style.display = section.dataset.episode === episode ? 'block' : 'none';
+                }
+            });
+        }
+        
+        // Track completion
+        document.addEventListener('DOMContentLoaded', function() {
+            const checkboxes = document.querySelectorAll('.completion-checkbox');
+            const totalSamples = 30;
+            
+            // Load saved progress
+            checkboxes.forEach(checkbox => {
+                const saved = localStorage.getItem(`virus-${checkbox.id}`);
+                if (saved === 'true') {
+                    checkbox.checked = true;
+                }
+            });
+            
+            // Save progress
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', function() {
+                    localStorage.setItem(`virus-${this.id}`, this.checked);
+                    updateProgress();
+                });
+            });
+            
+            // Update progress bar
+            function updateProgress() {
+                const checked = document.querySelectorAll('.completion-checkbox:checked').length;
+                const percentage = (checked / totalSamples) * 100;
+                
+                const progressFill = document.querySelector('.progress-fill');
+                progressFill.style.width = percentage + '%';
+                progressFill.textContent = `${checked} / ${totalSamples} Virus Samples Collected`;
+            }
+            
+            updateProgress();
+        });
+    </script>
+</body>
+</html>
