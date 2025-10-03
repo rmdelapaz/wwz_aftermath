@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Breach Charge Locations Guide - Find all hidden breach charges in World War Z: Aftermath">
-    <meta name="keywords" content="World War Z, Aftermath, breach charges, equipment, hidden items, collectibles">
+    <meta name="description" content="Breach Charge Locations Guide - Find breach charges for special doors in World War Z: Aftermath">
+    <meta name="keywords" content="World War Z, Aftermath, breach charges, breach doors, equipment, locations">
     <meta name="author" content="WWZ Guide Team">
     <title>Breach Charge Locations - World War Z: Aftermath</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
@@ -111,7 +111,7 @@
             color: #1565c0;
         }
         
-        .usage-note {
+        .door-note {
             display: inline-block;
             background: #4caf50;
             color: white;
@@ -145,7 +145,7 @@
             vertical-align: middle;
         }
         
-        .strategy-box {
+        .door-box {
             background: #fff3cd;
             border: 2px solid #ffc107;
             border-radius: 8px;
@@ -153,7 +153,7 @@
             margin: 1rem 0;
         }
         
-        .strategy-box h3 {
+        .door-box h3 {
             color: #856404;
             margin-bottom: 0.5rem;
         }
@@ -184,7 +184,7 @@
             color: white;
         }
         
-        .breach-type {
+        .door-type {
             display: inline-block;
             padding: 0.2rem 0.5rem;
             border-radius: 4px;
@@ -193,31 +193,19 @@
             font-weight: bold;
         }
         
-        .type-guaranteed {
-            background: #d4edda;
-            color: #155724;
+        .type-required {
+            background: #ffcccb;
+            color: #d32f2f;
         }
         
-        .type-random {
-            background: #fff3cd;
-            color: #856404;
+        .type-optional {
+            background: #c8e6c9;
+            color: #388e3c;
         }
         
-        .type-conditional {
-            background: #cce5ff;
-            color: #004085;
-        }
-        
-        .map-diagram {
-            background: white;
-            border: 2px solid #dee2e6;
-            border-radius: 8px;
-            padding: 1rem;
-            margin: 1rem 0;
-            text-align: center;
-            font-family: monospace;
-            white-space: pre;
-            overflow-x: auto;
+        .type-shortcut {
+            background: #bbdefb;
+            color: #1976d2;
         }
     </style>
 </head>
@@ -260,9 +248,9 @@
     <main id="main-content">
         <!-- Header -->
         <header class="breach-header">
-            <h1>💥 Breach Charge Locations Guide</h1>
-            <p>Master the placement of breach charges for optimal defense strategies</p>
-            <p><small>Complete guide for all breach charge spawn locations</small></p>
+            <h1>🚪 Breach Charge & Door Guide</h1>
+            <p>Understanding breach charges and special door mechanics in World War Z: Aftermath</p>
+            <p><small>Complete guide for breach charge usage and door locations</small></p>
         </header>
         
         <!-- Overview Section -->
@@ -270,193 +258,138 @@
             <h2>📊 Understanding Breach Charges</h2>
             <div class="info-box">
                 <h3>What are Breach Charges?</h3>
-                <p>Breach charges are powerful explosive equipment items that can:</p>
+                <p><strong>Breach charges are special equipment items used exclusively to open breach doors.</strong></p>
                 <ul>
-                    <li><strong>Instant Kill:</strong> Eliminate large groups of zombies in one blast</li>
-                    <li><strong>Clear Paths:</strong> Open blocked routes and create escape paths</li>
-                    <li><strong>Defense Tool:</strong> Perfect for holding choke points during swarms</li>
-                    <li><strong>Special Zombie Counter:</strong> Instantly kill Bulls, Infectors, and other specials</li>
-                    <li><strong>Pyramid Buster:</strong> Destroy zombie pyramids climbing walls</li>
+                    <li><strong>Primary Purpose:</strong> Opening special reinforced doors marked with yellow paint/indicators</li>
+                    <li><strong>Cannot be used as weapons</strong> - they only work on designated breach doors</li>
+                    <li><strong>Single Use:</strong> Each charge opens one breach door</li>
+                    <li><strong>Team Shared:</strong> Any player can pick up and use breach charges</li>
+                    <li><strong>Auto-Pickup:</strong> Walk over them to automatically collect (if not carrying one)</li>
+                    <li><strong>One at a Time:</strong> Can only carry one breach charge per player</li>
                 </ul>
                 
                 <div style="margin-top: 1rem;">
-                    <strong>Spawn Types:</strong>
-                    <span class="breach-type type-guaranteed">Guaranteed</span> - Always spawns in this location
-                    <span class="breach-type type-random">Random</span> - May or may not appear
-                    <span class="breach-type type-conditional">Conditional</span> - Depends on difficulty or player count
+                    <strong>Door Types:</strong>
+                    <span class="door-type type-required">Required</span> - Must be opened to progress
+                    <span class="door-type type-optional">Optional</span> - Contains loot/shortcuts
+                    <span class="door-type type-shortcut">Shortcut</span> - Alternative path
                 </div>
             </div>
         </section>
         
-        <!-- Strategy Tips -->
+        <!-- How to Use Section -->
         <section class="card">
-            <h2>🎯 Breach Charge Strategy Guide</h2>
-            <div class="strategy-box">
-                <h3>Optimal Usage Tips</h3>
-                <ul>
-                    <li><strong>Save for Pyramids:</strong> Priority #1 - destroying climbing pyramids prevents breaches</li>
-                    <li><strong>Choke Points:</strong> Place at narrow passages during defense sections</li>
-                    <li><strong>Emergency Escape:</strong> Keep one for clearing escape routes when overwhelmed</li>
-                    <li><strong>Bull Counter:</strong> Instant kill on charging Bulls - saves the team</li>
-                    <li><strong>Remote Detonation:</strong> Can be triggered from distance for tactical advantage</li>
-                    <li><strong>Stack with Defenses:</strong> Combine with electric grids for maximum effect</li>
-                </ul>
+            <h2>🎯 How to Use Breach Charges</h2>
+            <div class="door-box">
+                <h3>Step-by-Step Instructions</h3>
+                <ol>
+                    <li><strong>Find a Breach Charge:</strong> Look for red explosive charges on the ground or equipment racks</li>
+                    <li><strong>Pick it Up:</strong> Walk over it to automatically collect (shows in equipment slot)</li>
+                    <li><strong>Locate Breach Door:</strong> Look for reinforced doors with yellow markings</li>
+                    <li><strong>Approach Door:</strong> Get close to the breach door</li>
+                    <li><strong>Plant Charge:</strong> Hold the interact button (X/Square) when prompted</li>
+                    <li><strong>Stand Back:</strong> Move away from the door after planting</li>
+                    <li><strong>Door Opens:</strong> After a short delay, the door explodes open</li>
+                </ol>
             </div>
             
-            <div class="strategy-box">
-                <h3>Class Synergies</h3>
+            <div class="door-box">
+                <h3>Visual Indicators</h3>
                 <ul>
-                    <li><strong>Fixer:</strong> Can carry extra charges with Equipment Bags perk</li>
-                    <li><strong>Hellraiser:</strong> Explosive damage perks increase breach charge effectiveness</li>
-                    <li><strong>Exterminator:</strong> Combine with Molotovs for area denial</li>
-                    <li><strong>Vanguard:</strong> Use charges to protect shield charge paths</li>
+                    <li><strong>Yellow Paint:</strong> Breach doors have distinctive yellow markings around them</li>
+                    <li><strong>Reinforced Look:</strong> Heavy metal doors that can't be opened normally</li>
+                    <li><strong>Prompt Appears:</strong> "Hold [X] to place breach charge" when you're close enough</li>
+                    <li><strong>Red Light:</strong> Some breach doors have red indicator lights</li>
+                    <li><strong>Equipment Icon:</strong> Breach charge appears in your equipment slot when carried</li>
+                </ul>
+            </div>
+        </section>
+        
+        <!-- Common Locations Section -->
+        <section class="card">
+            <h2>💡 Breach Charge Mechanics</h2>
+            <div class="info-box">
+                <h3>Important Notes:</h3>
+                <ul>
+                    <li><strong>Not All Doors Need Charges:</strong> Most doors open normally or automatically</li>
+                    <li><strong>Story Progression:</strong> Some breach doors are mandatory for mission completion</li>
+                    <li><strong>Loot Rooms:</strong> Optional breach doors often contain valuable supplies</li>
+                    <li><strong>Team Coordination:</strong> Communicate who's carrying charges to avoid confusion</li>
+                    <li><strong>Respawn Logic:</strong> Breach charges don't respawn - once used, they're gone</li>
+                    <li><strong>No Damage:</strong> Despite the explosion animation, breach charges don't damage enemies</li>
+                    <li><strong>Can't Store:</strong> You can't save breach charges between missions</li>
                 </ul>
             </div>
         </section>
         
         <!-- Filter Section -->
         <section class="card">
-            <h2>🔍 Filter by Episode</h2>
+            <h2>🔍 Breach Door Locations by Episode</h2>
             <div class="filter-buttons">
                 <button class="filter-btn active" onclick="filterEpisodes('all')">All Episodes</button>
                 <button class="filter-btn" onclick="filterEpisodes('newyork')">New York</button>
                 <button class="filter-btn" onclick="filterEpisodes('jerusalem')">Jerusalem</button>
                 <button class="filter-btn" onclick="filterEpisodes('moscow')">Moscow</button>
                 <button class="filter-btn" onclick="filterEpisodes('tokyo')">Tokyo</button>
-                <button class="filter-btn" onclick="filterEpisodes('marseille')">Marseille</button>
-                <button class="filter-btn" onclick="filterEpisodes('rome')">Rome</button>
-                <button class="filter-btn" onclick="filterEpisodes('kamchatka')">Kamchatka</button>
             </div>
         </section>
         
         <!-- Episode 1: New York -->
         <section class="episode-section" data-episode="newyork">
             <div class="episode-header">
-                <h2>🗽 New York <span class="breach-count">12+ Breach Charges</span></h2>
+                <h2>🗽 New York - Breach Door Locations</h2>
             </div>
             
             <div class="mission-card">
-                <h3>Chapter 1: Descent <span class="breach-icon">💥</span></h3>
+                <h3>Chapter 1: Descent <span class="breach-icon">🚪</span></h3>
                 <ul class="breach-list">
                     <li class="breach-item">
-                        <input type="checkbox" class="completion-checkbox" id="ny1-breach1">
-                        <label for="ny1-breach1">
-                            <div class="breach-name">Subway Entrance <span class="breach-type type-guaranteed">Guaranteed</span></div>
-                            <div class="breach-location">
-                                <strong>Location:</strong> Right after starting, on the equipment rack before descending into the subway
-                            </div>
-                            <div class="breach-tip">
-                                💡 Best Use: Save for the atrium defense or first pyramid climb
-                            </div>
-                        </label>
-                    </li>
-                    <li class="breach-item">
-                        <input type="checkbox" class="completion-checkbox" id="ny1-breach2">
-                        <label for="ny1-breach2">
-                            <div class="breach-name">Atrium Defense Area <span class="breach-type type-random">Random</span></div>
-                            <div class="breach-location">
-                                <strong>Location:</strong> Near the ammo crate in the mall atrium, sometimes spawns on the second floor balcony
-                            </div>
-                            <div class="breach-tip">
-                                💡 Best Use: Place at escalator choke point during swarm
-                            </div>
-                        </label>
-                    </li>
-                    <li class="breach-item">
-                        <input type="checkbox" class="completion-checkbox" id="ny1-breach3">
-                        <label for="ny1-breach3">
-                            <div class="breach-name">Sporting Goods Store <span class="breach-type type-conditional">Conditional</span></div>
-                            <div class="breach-location">
-                                <strong>Location:</strong> Side room in the mall, more likely to spawn on higher difficulties
-                            </div>
-                            <div class="breach-tip">
-                                💡 Best Use: Keep for emergency or final train platform defense
-                            </div>
-                        </label>
+                        <div class="breach-name">Subway Maintenance Room <span class="door-type type-optional">Optional</span></div>
+                        <div class="breach-location">
+                            <strong>Door Location:</strong> In the subway tunnels, side passage on the left
+                        </div>
+                        <div class="breach-location">
+                            <strong>Charge Location:</strong> Found near the entrance to the subway area
+                        </div>
+                        <div class="breach-tip">
+                            💡 Contains: Medkits, ammo, and sometimes heavy weapons
+                        </div>
                     </li>
                 </ul>
             </div>
             
             <div class="mission-card">
-                <h3>Chapter 2: Tunnel Vision <span class="breach-icon">💥</span></h3>
+                <h3>Chapter 2: Tunnel Vision <span class="breach-icon">🚪</span></h3>
                 <ul class="breach-list">
                     <li class="breach-item">
-                        <input type="checkbox" class="completion-checkbox" id="ny2-breach1">
-                        <label for="ny2-breach1">
-                            <div class="breach-name">Train Platform Start <span class="breach-type type-guaranteed">Guaranteed</span></div>
-                            <div class="breach-location">
-                                <strong>Location:</strong> On the first train platform, near the equipment bags
-                            </div>
-                            <div class="breach-tip">
-                                💡 Best Use: Save for train defense sequence
-                            </div>
-                        </label>
-                    </li>
-                    <li class="breach-item">
-                        <input type="checkbox" class="completion-checkbox" id="ny2-breach2">
-                        <label for="ny2-breach2">
-                            <div class="breach-name">Maintenance Tunnel <span class="breach-type type-random">Random</span></div>
-                            <div class="breach-location">
-                                <strong>Location:</strong> Side room in the maintenance tunnels, check all alcoves
-                            </div>
-                            <div class="breach-tip">
-                                💡 Best Use: Excellent for clearing tunnel bottlenecks
-                            </div>
-                        </label>
-                    </li>
-                    <li class="breach-item">
-                        <input type="checkbox" class="completion-checkbox" id="ny2-breach3">
-                        <label for="ny2-breach3">
-                            <div class="breach-name">Final Train Defense <span class="breach-type type-guaranteed">Guaranteed</span></div>
-                            <div class="breach-location">
-                                <strong>Location:</strong> Near the defense kit spawn point at the final train
-                            </div>
-                            <div class="breach-tip">
-                                💡 Best Use: Place at train door to prevent breaches
-                            </div>
-                        </label>
+                        <div class="breach-name">Emergency Exit <span class="door-type type-shortcut">Shortcut</span></div>
+                        <div class="breach-location">
+                            <strong>Door Location:</strong> Maintenance tunnel section, marked with yellow stripes
+                        </div>
+                        <div class="breach-location">
+                            <strong>Charge Location:</strong> On a crate before entering the tunnel system
+                        </div>
+                        <div class="breach-tip">
+                            💡 Benefit: Bypasses a swarm encounter, saves time and resources
+                        </div>
                     </li>
                 </ul>
             </div>
             
             <div class="mission-card">
-                <h3>Chapter 3: Hell and High Water <span class="breach-icon">💥</span></h3>
+                <h3>Chapter 3: Hell and High Water <span class="breach-icon">🚪</span></h3>
                 <ul class="breach-list">
                     <li class="breach-item">
-                        <input type="checkbox" class="completion-checkbox" id="ny3-breach1">
-                        <label for="ny3-breach1">
-                            <div class="breach-name">Museum Entrance <span class="breach-type type-guaranteed">Guaranteed</span></div>
-                            <div class="breach-location">
-                                <strong>Location:</strong> Just inside the museum entrance, on the security desk
-                            </div>
-                            <div class="breach-tip">
-                                💡 Best Use: Save for T-Rex hall pyramid spawns
-                            </div>
-                        </label>
-                    </li>
-                    <li class="breach-item">
-                        <input type="checkbox" class="completion-checkbox" id="ny3-breach2">
-                        <label for="ny3-breach2">
-                            <div class="breach-name">T-Rex Hall Balcony <span class="breach-type type-random">Random</span></div>
-                            <div class="breach-location">
-                                <strong>Location:</strong> Second floor of the dinosaur exhibit, near the railing
-                            </div>
-                            <div class="breach-tip">
-                                💡 Best Use: Drop on pyramids climbing to balcony
-                            </div>
-                        </label>
-                    </li>
-                    <li class="breach-item">
-                        <input type="checkbox" class="completion-checkbox" id="ny3-breach3">
-                        <label for="ny3-breach3">
-                            <div class="breach-name">Ferry Terminal <span class="breach-type type-guaranteed">Guaranteed</span></div>
-                            <div class="breach-location">
-                                <strong>Location:</strong> Before boarding the ferry, near the ticket booths
-                            </div>
-                            <div class="breach-tip">
-                                💡 Best Use: Essential for ferry boarding defense
-                            </div>
-                        </label>
+                        <div class="breach-name">Museum Storage <span class="door-type type-optional">Optional</span></div>
+                        <div class="breach-location">
+                            <strong>Door Location:</strong> Museum basement, left side corridor
+                        </div>
+                        <div class="breach-location">
+                            <strong>Charge Location:</strong> Security office near museum entrance
+                        </div>
+                        <div class="breach-tip">
+                            💡 Contains: Defense kits and equipment bags
+                        </div>
                     </li>
                 </ul>
             </div>
@@ -465,89 +398,35 @@
         <!-- Episode 2: Jerusalem -->
         <section class="episode-section" data-episode="jerusalem">
             <div class="episode-header">
-                <h2>🏛️ Jerusalem <span class="breach-count">9+ Breach Charges</span></h2>
+                <h2>🏛️ Jerusalem - Breach Door Locations</h2>
             </div>
             
             <div class="mission-card">
-                <h3>Chapter 1: Brain Surgery <span class="breach-icon">💥</span></h3>
+                <h3>Chapter 1: Brain Surgery <span class="breach-icon">🚪</span></h3>
                 <ul class="breach-list">
                     <li class="breach-item">
-                        <input type="checkbox" class="completion-checkbox" id="je1-breach1">
-                        <label for="je1-breach1">
-                            <div class="breach-name">Hospital Entrance <span class="breach-type type-guaranteed">Guaranteed</span></div>
-                            <div class="breach-location">
-                                <strong>Location:</strong> Security checkpoint at hospital entrance, on the metal detector table
-                            </div>
-                            <div class="breach-tip">
-                                💡 Best Use: Save for Greengold escort sequence
-                            </div>
-                        </label>
+                        <div class="breach-name">Hospital Pharmacy <span class="door-type type-optional">Optional</span></div>
+                        <div class="breach-location">
+                            <strong>Door Location:</strong> Second floor of hospital, near the lab
+                        </div>
+                        <div class="breach-location">
+                            <strong>Charge Location:</strong> Found in security checkpoint at hospital entrance
+                        </div>
+                        <div class="breach-tip">
+                            💡 Contains: Multiple medkits and stim pistol ammo
+                        </div>
                     </li>
                     <li class="breach-item">
-                        <input type="checkbox" class="completion-checkbox" id="je1-breach2">
-                        <label for="je1-breach2">
-                            <div class="breach-name">Laboratory Floor <span class="breach-type type-conditional">Conditional</span></div>
-                            <div class="breach-location">
-                                <strong>Location:</strong> Research floor, in the chemical storage room (higher difficulties)
-                            </div>
-                            <div class="breach-tip">
-                                💡 Best Use: Clear path during Greengold escort
-                            </div>
-                        </label>
-                    </li>
-                    <li class="breach-item">
-                        <input type="checkbox" class="completion-checkbox" id="je1-breach3">
-                        <label for="je1-breach3">
-                            <div class="breach-name">Helipad Access <span class="breach-type type-guaranteed">Guaranteed</span></div>
-                            <div class="breach-location">
-                                <strong>Location:</strong> Before the helipad door, in the final corridor
-                            </div>
-                            <div class="breach-tip">
-                                💡 Best Use: Critical for helipad defense - use on pyramid
-                            </div>
-                        </label>
-                    </li>
-                </ul>
-            </div>
-            
-            <div class="mission-card">
-                <h3>Chapter 2: Dead Sea Stroll <span class="breach-icon">💥</span></h3>
-                <ul class="breach-list">
-                    <li class="breach-item">
-                        <input type="checkbox" class="completion-checkbox" id="je2-breach1">
-                        <label for="je2-breach1">
-                            <div class="breach-name">Archaeological Site <span class="breach-type type-random">Random</span></div>
-                            <div class="breach-location">
-                                <strong>Location:</strong> Near the dig site equipment, sometimes in the research tent
-                            </div>
-                            <div class="breach-tip">
-                                💡 Best Use: Save for gas station defense
-                            </div>
-                        </label>
-                    </li>
-                    <li class="breach-item">
-                        <input type="checkbox" class="completion-checkbox" id="je2-breach2">
-                        <label for="je2-breach2">
-                            <div class="breach-name">Gas Station <span class="breach-type type-guaranteed">Guaranteed</span></div>
-                            <div class="breach-location">
-                                <strong>Location:</strong> Inside the gas station shop, behind the counter
-                            </div>
-                            <div class="breach-tip">
-                                💡 Best Use: Place at pumps during refuel defense
-                            </div>
-                        </label>
-                    </li>
-                    <li class="breach-item">
-                        <input type="checkbox" class="completion-checkbox" id="je2-breach3">
-                        <label for="je2-breach3">
-                            <div class="breach-name">Final Checkpoint <span class="breach-type type-guaranteed">Guaranteed</span></div>
-                            <div class="breach-location">
-                                <strong>Location:</strong> Military checkpoint before extraction, in the guard post
-                            </div>
-                            <div class="breach-tip">
-                                💡 Best Use: Essential for final stand defense
-                            </div>
-                        </label>
+                        <div class="breach-name">Research Lab Shortcut <span class="door-type type-shortcut">Shortcut</span></div>
+                        <div class="breach-location">
+                            <strong>Door Location:</strong> Connects two sections of the research floor
+                        </div>
+                        <div class="breach-location">
+                            <strong>Charge Location:</strong> On a cart in the main hallway
+                        </div>
+                        <div class="breach-tip">
+                            💡 Benefit: Avoids a lurker-heavy corridor
+                        </div>
                     </li>
                 </ul>
             </div>
@@ -556,65 +435,41 @@
         <!-- Episode 3: Moscow -->
         <section class="episode-section" data-episode="moscow">
             <div class="episode-header">
-                <h2>❄️ Moscow <span class="breach-count">10+ Breach Charges</span></h2>
+                <h2>❄️ Moscow - Breach Door Locations</h2>
             </div>
             
             <div class="mission-card">
-                <h3>Chapter 1: A Sign From Above <span class="breach-icon">💥</span></h3>
+                <h3>Chapter 1: A Sign From Above <span class="breach-icon">🚪</span></h3>
                 <ul class="breach-list">
                     <li class="breach-item">
-                        <input type="checkbox" class="completion-checkbox" id="mo1-breach1">
-                        <label for="mo1-breach1">
-                            <div class="breach-name">Museum Main Hall <span class="breach-type type-guaranteed">Guaranteed</span></div>
-                            <div class="breach-location">
-                                <strong>Location:</strong> Information desk in the museum entrance hall
-                            </div>
-                            <div class="breach-tip">
-                                💡 Best Use: Save for museum defense sequence
-                            </div>
-                        </label>
-                    </li>
-                    <li class="breach-item">
-                        <input type="checkbox" class="completion-checkbox" id="mo1-breach2">
-                        <label for="mo1-breach2">
-                            <div class="breach-name">Art Gallery <span class="breach-type type-random">Random</span></div>
-                            <div class="breach-location">
-                                <strong>Location:</strong> Second floor art gallery, near the sculpture display
-                            </div>
-                            <div class="breach-tip">
-                                💡 Best Use: Excellent for stairway choke points
-                            </div>
-                        </label>
+                        <div class="breach-name">Museum Vault <span class="door-type type-optional">Optional</span></div>
+                        <div class="breach-location">
+                            <strong>Door Location:</strong> Museum basement, behind the main exhibit hall
+                        </div>
+                        <div class="breach-location">
+                            <strong>Charge Location:</strong> Information desk in the main lobby
+                        </div>
+                        <div class="breach-tip">
+                            💡 Contains: Heavy weapons and equipment
+                        </div>
                     </li>
                 </ul>
             </div>
             
             <div class="mission-card">
-                <h3>Chapter 2: Key to the City <span class="breach-icon">💥</span></h3>
+                <h3>Chapter 2: Key to the City <span class="breach-icon">🚪</span></h3>
                 <ul class="breach-list">
                     <li class="breach-item">
-                        <input type="checkbox" class="completion-checkbox" id="mo2-breach1">
-                        <label for="mo2-breach1">
-                            <div class="breach-name">Mansion Gates <span class="breach-type type-guaranteed">Guaranteed</span></div>
-                            <div class="breach-location">
-                                <strong>Location:</strong> Guard house at the mansion entrance
-                            </div>
-                            <div class="breach-tip">
-                                💡 Best Use: Critical for courtyard defense
-                            </div>
-                        </label>
-                    </li>
-                    <li class="breach-item">
-                        <input type="checkbox" class="completion-checkbox" id="mo2-breach2">
-                        <label for="mo2-breach2">
-                            <div class="breach-name">Greenhouse <span class="breach-type type-conditional">Conditional</span></div>
-                            <div class="breach-location">
-                                <strong>Location:</strong> Inside the mansion greenhouse (4-player games)
-                            </div>
-                            <div class="breach-tip">
-                                💡 Best Use: Save for mansion interior defense
-                            </div>
-                        </label>
+                        <div class="breach-name">Bunker Access <span class="door-type type-required">Required</span></div>
+                        <div class="breach-location">
+                            <strong>Door Location:</strong> Underground passage to the bunker
+                        </div>
+                        <div class="breach-location">
+                            <strong>Charge Location:</strong> Automatically provided in the previous room
+                        </div>
+                        <div class="breach-tip">
+                            💡 Note: Story-critical door, cannot be bypassed
+                        </div>
                     </li>
                 </ul>
             </div>
@@ -623,218 +478,65 @@
         <!-- Episode 4: Tokyo -->
         <section class="episode-section" data-episode="tokyo">
             <div class="episode-header">
-                <h2>🗼 Tokyo <span class="breach-count">11+ Breach Charges</span></h2>
+                <h2>🗼 Tokyo - Breach Door Locations</h2>
             </div>
             
             <div class="mission-card">
-                <h3>Chapter 1: Setting Sun <span class="breach-icon">💥</span></h3>
+                <h3>Chapter 2: Final Call <span class="breach-icon">🚪</span></h3>
                 <ul class="breach-list">
                     <li class="breach-item">
-                        <input type="checkbox" class="completion-checkbox" id="to1-breach1">
-                        <label for="to1-breach1">
-                            <div class="breach-name">Bus Crash Site <span class="breach-type type-guaranteed">Guaranteed</span></div>
-                            <div class="breach-location">
-                                <strong>Location:</strong> Near the overturned bus, in the emergency kit
-                            </div>
-                            <div class="breach-tip">
-                                💡 Best Use: Save for street swarm defense
-                            </div>
-                        </label>
-                    </li>
-                    <li class="breach-item">
-                        <input type="checkbox" class="completion-checkbox" id="to1-breach2">
-                        <label for="to1-breach2">
-                            <div class="breach-name">Convenience Store <span class="breach-type type-random">Random</span></div>
-                            <div class="breach-location">
-                                <strong>Location:</strong> Behind the counter in the Family Mart
-                            </div>
-                            <div class="breach-tip">
-                                💡 Best Use: Good for clearing street bottlenecks
-                            </div>
-                        </label>
-                    </li>
-                    <li class="breach-item">
-                        <input type="checkbox" class="completion-checkbox" id="to1-breach3">
-                        <label for="to1-breach3">
-                            <div class="breach-name">Subway Entrance <span class="breach-type type-guaranteed">Guaranteed</span></div>
-                            <div class="breach-location">
-                                <strong>Location:</strong> Top of the subway stairs before descending
-                            </div>
-                            <div class="breach-tip">
-                                💡 Best Use: Essential for subway platform defense
-                            </div>
-                        </label>
-                    </li>
-                </ul>
-            </div>
-            
-            <div class="mission-card">
-                <h3>Chapter 2: Final Call <span class="breach-icon">💥</span></h3>
-                <ul class="breach-list">
-                    <li class="breach-item">
-                        <input type="checkbox" class="completion-checkbox" id="to2-breach1">
-                        <label for="to2-breach1">
-                            <div class="breach-name">Cruise Ship Deck <span class="breach-type type-guaranteed">Guaranteed</span></div>
-                            <div class="breach-location">
-                                <strong>Location:</strong> Pool deck area, near the lifeboats
-                            </div>
-                            <div class="breach-tip">
-                                💡 Best Use: Perfect for pool deck swarm
-                            </div>
-                        </label>
-                    </li>
-                    <li class="breach-item">
-                        <input type="checkbox" class="completion-checkbox" id="to2-breach2">
-                        <label for="to2-breach2">
-                            <div class="breach-name">Engine Room <span class="breach-type type-guaranteed">Guaranteed</span></div>
-                            <div class="breach-location">
-                                <strong>Location:</strong> Near the engine controls, on a tool rack
-                            </div>
-                            <div class="breach-tip">
-                                💡 Best Use: Critical for engine room defense
-                            </div>
-                        </label>
+                        <div class="breach-name">Ship Armory <span class="door-type type-optional">Optional</span></div>
+                        <div class="breach-location">
+                            <strong>Door Location:</strong> Lower deck of the cruise ship
+                        </div>
+                        <div class="breach-location">
+                            <strong>Charge Location:</strong> Security office on the main deck
+                        </div>
+                        <div class="breach-tip">
+                            💡 Contains: Multiple weapon upgrades and heavy weapons
+                        </div>
                     </li>
                 </ul>
             </div>
         </section>
         
-        <!-- Additional Episodes -->
-        <section class="episode-section" data-episode="marseille">
-            <div class="episode-header">
-                <h2>🇫🇷 Marseille <span class="breach-count">8+ Breach Charges</span></h2>
-            </div>
-            
-            <div class="mission-card">
-                <h3>Chapter 1: French Resistance <span class="breach-icon">💥</span></h3>
-                <ul class="breach-list">
-                    <li class="breach-item">
-                        <input type="checkbox" class="completion-checkbox" id="ma1-breach1">
-                        <label for="ma1-breach1">
-                            <div class="breach-name">Fort Entrance <span class="breach-type type-guaranteed">Guaranteed</span></div>
-                            <div class="breach-location">
-                                <strong>Location:</strong> Armory room after entering the fort
-                            </div>
-                            <div class="breach-tip">
-                                💡 Best Use: Save for courtyard pyramid defense
-                            </div>
-                        </label>
-                    </li>
-                </ul>
-            </div>
-        </section>
-        
-        <section class="episode-section" data-episode="rome">
-            <div class="episode-header">
-                <h2>🏛️ Rome (Aftermath DLC) <span class="breach-count">9+ Breach Charges</span></h2>
-            </div>
-            
-            <div class="mission-card">
-                <h3>Chapter 2: Colosseum Crisis <span class="breach-icon">💥</span></h3>
-                <ul class="breach-list">
-                    <li class="breach-item">
-                        <input type="checkbox" class="completion-checkbox" id="ro2-breach1">
-                        <label for="ro2-breach1">
-                            <div class="breach-name">Arena Floor <span class="breach-type type-guaranteed">Guaranteed</span></div>
-                            <div class="breach-location">
-                                <strong>Location:</strong> Center of the Colosseum arena, near gladiator equipment
-                            </div>
-                            <div class="breach-tip">
-                                💡 Best Use: Perfect for arena swarm defense
-                            </div>
-                        </label>
-                    </li>
-                </ul>
-            </div>
-        </section>
-        
-        <section class="episode-section" data-episode="kamchatka">
-            <div class="episode-header">
-                <h2>🏔️ Kamchatka (Aftermath DLC) <span class="breach-count">7+ Breach Charges</span></h2>
-            </div>
-            
-            <div class="mission-card">
-                <h3>Chapter 1: Frozen Wasteland <span class="breach-icon">💥</span></h3>
-                <ul class="breach-list">
-                    <li class="breach-item">
-                        <input type="checkbox" class="completion-checkbox" id="ka1-breach1">
-                        <label for="ka1-breach1">
-                            <div class="breach-name">Research Station <span class="breach-type type-guaranteed">Guaranteed</span></div>
-                            <div class="breach-location">
-                                <strong>Location:</strong> Equipment locker in the main research building
-                            </div>
-                            <div class="breach-tip">
-                                💡 Best Use: Essential for generator defense
-                            </div>
-                        </label>
-                    </li>
-                </ul>
-            </div>
-        </section>
-        
-        <!-- General Tips Section -->
+        <!-- Tips Section -->
         <section class="card">
-            <h2>💡 Pro Tips for Breach Charge Hunting</h2>
+            <h2>💡 Tips for Breach Charges</h2>
             <ul>
-                <li><strong>Difficulty Scaling:</strong> More breach charges spawn on higher difficulties (Insane/Extreme)</li>
-                <li><strong>Player Count:</strong> 4-player games often have additional spawn points</li>
-                <li><strong>Random Spawns:</strong> Some locations have 30-50% spawn chance - check every run</li>
-                <li><strong>Look Up:</strong> Some charges spawn on upper floors or elevated platforms</li>
-                <li><strong>Side Rooms:</strong> Always check optional rooms and dead-end corridors</li>
-                <li><strong>Equipment Synergy:</strong> Breach charges often spawn near other equipment</li>
-                <li><strong>Communication:</strong> Call out breach charge locations to teammates</li>
-                <li><strong>Priority Targets:</strong> Pyramids > Bulls > Dense Swarms > Regular zombies</li>
+                <li><strong>Communication:</strong> Call out when you find breach charges and coordinate who carries them</li>
+                <li><strong>Priority:</strong> Save charges for optional loot rooms unless required for progression</li>
+                <li><strong>Team Benefit:</strong> Optional breach doors often contain supplies for the whole team</li>
+                <li><strong>Visual Cues:</strong> Look for yellow paint or markings to identify breach doors</li>
+                <li><strong>Don't Waste:</strong> Breach charges are limited - use them wisely</li>
+                <li><strong>Check Corners:</strong> Breach charges often spawn in side rooms or corners</li>
+                <li><strong>Listen:</strong> Breach doors make a distinctive sound when you're near them</li>
+                <li><strong>No Combat Use:</strong> Remember - these are ONLY for doors, not for fighting zombies</li>
             </ul>
-        </section>
-        
-        <!-- Defense Placement Guide -->
-        <section class="card">
-            <h2>🛡️ Optimal Breach Charge Placement</h2>
-            <div class="info-box">
-                <h3>Top Defense Locations by Mission Type:</h3>
-                
-                <h4>Pyramid Climb Points:</h4>
-                <ul>
-                    <li>Place directly on wall where pyramid forms</li>
-                    <li>Wait until pyramid is 50-75% formed for maximum kills</li>
-                    <li>One charge can eliminate an entire pyramid</li>
-                </ul>
-                
-                <h4>Tunnel/Corridor Defense:</h4>
-                <ul>
-                    <li>Place at narrowest point of passage</li>
-                    <li>Combine with auto-turret for overlapping coverage</li>
-                    <li>Remote detonate when swarm is bunched up</li>
-                </ul>
-                
-                <h4>Open Area Defense:</h4>
-                <ul>
-                    <li>Place at entry points rather than center</li>
-                    <li>Use to cut off flanking routes</li>
-                    <li>Save one for emergency extraction path</li>
-                </ul>
-                
-                <h4>Escort Missions:</h4>
-                <ul>
-                    <li>Place ahead on the escort path</li>
-                    <li>Clear blocked doorways proactively</li>
-                    <li>Keep one mobile for Bull encounters</li>
-                </ul>
-            </div>
         </section>
         
         <!-- Common Mistakes Section -->
         <section class="card">
-            <h2>❌ Common Breach Charge Mistakes to Avoid</h2>
+            <h2>❌ Common Misconceptions</h2>
             <div style="background: #ffebee; border: 2px solid #f44336; border-radius: 8px; padding: 1rem;">
+                <h3 style="color: #c62828;">Breach Charges are NOT:</h3>
                 <ul>
-                    <li><strong>Wasting on Small Groups:</strong> Don't use on less than 20 zombies</li>
-                    <li><strong>Early Placement:</strong> Don't place all charges at start of defense</li>
-                    <li><strong>Forgetting to Detonate:</strong> Remember to trigger before retreating</li>
-                    <li><strong>Overlapping Charges:</strong> Space them out to cover more area</li>
-                    <li><strong>Hoarding:</strong> Use them! They don't carry over between sections</li>
-                    <li><strong>Friendly Fire:</strong> Watch teammate positions before detonating</li>
-                    <li><strong>Ignoring Audio Cues:</strong> Listen for pyramid formation sounds</li>
+                    <li>❌ Explosive weapons for killing zombies</li>
+                    <li>❌ Usable on regular doors (only special breach doors)</li>
+                    <li>❌ Throwable items</li>
+                    <li>❌ Defense equipment for swarm events</li>
+                    <li>❌ Reusable - they're single-use items</li>
+                    <li>❌ Required for every door - most doors open normally</li>
+                </ul>
+            </div>
+            <div style="background: #e8f5e9; border: 2px solid #4caf50; border-radius: 8px; padding: 1rem; margin-top: 1rem;">
+                <h3 style="color: #2e7d32;">Breach Charges ARE:</h3>
+                <ul>
+                    <li>✅ Special keys for reinforced breach doors only</li>
+                    <li>✅ Single-use door openers</li>
+                    <li>✅ Team resources to be shared and coordinated</li>
+                    <li>✅ Optional in most cases (except story-required doors)</li>
+                    <li>✅ Worth using for valuable loot rooms</li>
                 </ul>
             </div>
         </section>
@@ -871,26 +573,6 @@
                 }
             });
         }
-        
-        // Track completion
-        document.addEventListener('DOMContentLoaded', function() {
-            const checkboxes = document.querySelectorAll('.completion-checkbox');
-            
-            // Load saved progress
-            checkboxes.forEach(checkbox => {
-                const saved = localStorage.getItem(`breach-${checkbox.id}`);
-                if (saved === 'true') {
-                    checkbox.checked = true;
-                }
-            });
-            
-            // Save progress
-            checkboxes.forEach(checkbox => {
-                checkbox.addEventListener('change', function() {
-                    localStorage.setItem(`breach-${this.id}`, this.checked);
-                });
-            });
-        });
     </script>
 </body>
 </html>
